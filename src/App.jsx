@@ -618,35 +618,35 @@ function GlossaryTab(){
 
   return(
     <div>
-      <h3 style={{fontSize:18,fontWeight:700,color:"#f1f5f9",margin:"0 0 12px"}}>用語集 <span style={{fontSize:13,fontWeight:400,color:"#94a3b8"}}>— {terms.length}語収録</span></h3>
+      <h3 style={{fontSize:18,fontWeight:700,color:"#0f172a",margin:"0 0 12px"}}>用語集 <span style={{fontSize:13,fontWeight:400,color:"#64748b"}}>— {terms.length}語収録</span></h3>
       {/* Category filter */}
       <div style={{display:"flex",gap:8,flexWrap:"wrap",marginBottom:12,alignItems:"center"}}>
-        <button onClick={()=>setCatFilter("ALL")} style={{fontSize:11,padding:"4px 12px",borderRadius:999,border:catFilter==="ALL"?"2px solid #7c3aed":"1px solid #334155",background:catFilter==="ALL"?"#1e1b4b":"#0f172a",color:catFilter==="ALL"?"#c4b5fd":"#94a3b8",cursor:"pointer",fontWeight:catFilter==="ALL"?700:400}}>すべて</button>
+        <button onClick={()=>setCatFilter("ALL")} style={{fontSize:11,padding:"4px 12px",borderRadius:999,border:catFilter==="ALL"?"2px solid #7c3aed":"1px solid #e2e8f0",background:catFilter==="ALL"?"#ede9fe":"#fff",color:catFilter==="ALL"?"#7c3aed":"#475569",cursor:"pointer",fontWeight:catFilter==="ALL"?700:400}}>すべて</button>
         {cats.map(c=>(
-          <button key={c.id} onClick={()=>setCatFilter(c.id)} style={{fontSize:11,padding:"4px 12px",borderRadius:999,border:catFilter===c.id?"2px solid #7c3aed":"1px solid #334155",background:catFilter===c.id?"#1e1b4b":"#0f172a",color:catFilter===c.id?"#c4b5fd":"#94a3b8",cursor:"pointer",fontWeight:catFilter===c.id?700:400}}>{c.icon} {c.label}</button>
+          <button key={c.id} onClick={()=>setCatFilter(c.id)} style={{fontSize:11,padding:"4px 12px",borderRadius:999,border:catFilter===c.id?"2px solid #7c3aed":"1px solid #e2e8f0",background:catFilter===c.id?"#ede9fe":"#fff",color:catFilter===c.id?"#7c3aed":"#475569",cursor:"pointer",fontWeight:catFilter===c.id?700:400}}>{c.icon} {c.label}</button>
         ))}
       </div>
       {/* Search */}
-      <input value={search} onChange={e=>setSearch(e.target.value)} placeholder="用語を検索…" style={{width:"100%",maxWidth:400,padding:"8px 12px",borderRadius:8,border:"1px solid #334155",background:"#1e293b",color:"#f1f5f9",fontSize:13,marginBottom:16,outline:"none",boxSizing:"border-box"}}/>
+      <input value={search} onChange={e=>setSearch(e.target.value)} placeholder="用語を検索…" style={{width:"100%",maxWidth:400,padding:"8px 12px",borderRadius:8,border:"1px solid #e2e8f0",background:"#fff",color:"#0f172a",fontSize:13,marginBottom:16,outline:"none",boxSizing:"border-box"}}/>
       {/* Cards grid */}
       <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(340px,1fr))",gap:12}}>
         {filtered.map(t=>{
           const cat=cats.find(c=>c.id===t.category);
           const isHL=highlight===t.id;
           return(
-            <div key={t.id} data-glossary={t.id} style={{background:isHL?"#1e1b4b":"#111827",border:isHL?"2px solid #7c3aed":"1px solid #1e293b",borderRadius:12,padding:16,transition:"border-color 0.5s, background 0.5s"}}>
+            <div key={t.id} data-glossary={t.id} style={{background:isHL?"#ede9fe":"#fff",border:isHL?"2px solid #7c3aed":"1px solid #e2e8f0",borderRadius:12,padding:16,transition:"border-color 0.5s, background 0.5s"}}>
               {/* Category badge */}
-              <div style={{fontSize:10,color:"#94a3b8",marginBottom:6}}>{cat?.icon} {cat?.label}</div>
+              <div style={{fontSize:10,color:"#64748b",marginBottom:6}}>{cat?.icon} {cat?.label}</div>
               {/* Term */}
               <div style={{display:"flex",alignItems:"baseline",gap:8,marginBottom:2}}>
-                <span style={{fontSize:18,fontWeight:700,color:"#f1f5f9"}}>{t.term}</span>
-                {t.termJa&&t.termJa!==t.term&&<span style={{fontSize:13,color:"#cbd5e1"}}>{t.termJa}</span>}
+                <span style={{fontSize:18,fontWeight:700,color:"#0f172a"}}>{t.term}</span>
+                {t.termJa&&t.termJa!==t.term&&<span style={{fontSize:13,color:"#475569"}}>{t.termJa}</span>}
               </div>
-              <div style={{fontSize:11,color:"#64748b",marginBottom:8}}>{t.reading}</div>
+              <div style={{fontSize:11,color:"#94a3b8",marginBottom:8}}>{t.reading}</div>
               {/* Image */}
-              {t.image&&<img src={`/images/glossary/${t.image}`} alt={`${t.term}のイラスト`} onError={e=>{e.target.style.display="none"}} style={{display:"block",maxWidth:300,width:"100%",borderRadius:8,margin:"0 auto 10px",background:"#1e293b"}}/>}
+              {t.image&&<img src={`/images/glossary/${t.image}`} alt={`${t.term}のイラスト`} onError={e=>{e.target.style.display="none"}} style={{display:"block",maxWidth:300,width:"100%",borderRadius:8,margin:"0 auto 10px",background:"#f8fafc"}}/>}
               {/* Definition */}
-              <p style={{fontSize:13,color:"#e2e8f0",lineHeight:1.7,margin:"0 0 10px"}}>{t.definition}</p>
+              <p style={{fontSize:13,color:"#334155",lineHeight:1.7,margin:"0 0 10px"}}>{t.definition}</p>
               {/* Related terms */}
               {t.relatedTerms&&t.relatedTerms.length>0&&(
                 <div style={{display:"flex",gap:6,flexWrap:"wrap",alignItems:"center"}}>
@@ -654,7 +654,7 @@ function GlossaryTab(){
                   {t.relatedTerms.map(rid=>{
                     const rt=terms.find(x=>x.id===rid);
                     return rt?(
-                      <span key={rid} onClick={()=>scrollTo(rid)} style={{fontSize:11,padding:"2px 8px",borderRadius:4,background:"#1e293b",color:"#94a3b8",cursor:"pointer",border:"1px solid #334155"}}>{rt.term}</span>
+                      <span key={rid} onClick={()=>scrollTo(rid)} style={{fontSize:11,padding:"2px 8px",borderRadius:4,background:"#f1f5f9",color:"#475569",cursor:"pointer",border:"1px solid #e2e8f0"}}>{rt.term}</span>
                     ):null;
                   })}
                 </div>
