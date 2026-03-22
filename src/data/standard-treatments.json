@@ -1,0 +1,244 @@
+[
+  {
+    "sub": "HR+/HER2-",
+    "setting": "EBC（術後補助療法）",
+    "lines": [
+      {
+        "line": "術後内分泌療法",
+        "regimens": [
+          "閉経前: TAM ± LHRHa（5-10年）",
+          "閉経前高リスク: AI + LHRHa（5年）",
+          "閉経後: AI（5年）→TAM switch可",
+          "延長療法: AI追加5年を考慮（高リスク）"
+        ],
+        "note": "OncotypeDX等の多遺伝子アッセイで化学療法省略の判断が可能（保険適用）"
+      },
+      {
+        "line": "術後内分泌+CDK4/6i",
+        "regimens": [
+          "abemaciclib 2年 + ET（monarchE準拠、高リスク）"
+        ],
+        "note": "Ki67≥20%またはN≥4個等の再発高リスク。GL2022 CQ6で強く推奨"
+      },
+      {
+        "line": "術後内分泌+S-1",
+        "regimens": [
+          "S-1 1年 + ET（POTENT準拠）"
+        ],
+        "note": "abemaciclibより対象が広い。GL2022 CQ5で強く推奨"
+      },
+      {
+        "line": "術後化学療法",
+        "regimens": [
+          "AC/EC→taxane（dose-dense or q3w）",
+          "TC（アンスラサイクリン回避）"
+        ],
+        "note": "再発リスク・患者背景に応じてレジメン選択"
+      },
+      {
+        "line": "術後 PARP阻害薬",
+        "regimens": [
+          "olaparib 1年（gBRCA変異陽性、HER2-高リスク）"
+        ],
+        "note": "OlympiA試験準拠。BRCAm検査必須"
+      }
+    ]
+  },
+  {
+    "sub": "HR+/HER2-",
+    "setting": "MBC（転移・再発）",
+    "lines": [
+      {
+        "line": "1L 内分泌+CDK4/6i",
+        "regimens": [
+          "palbociclib + AI（またはfulvestrant）",
+          "abemaciclib + AI（またはfulvestrant）"
+        ],
+        "note": "標準1L治療。※ribociclibは日本未承認"
+      },
+      {
+        "line": "2L+ ESR1m陽性",
+        "regimens": [
+          "imlunestrant（イムルリオ）mono（ESR1m）",
+          "fulvestrant + everolimus",
+          "fulvestrant + alpelisib（PIK3CAm）",
+          "fulvestrant + capivasertib（AKT pathway altered）"
+        ],
+        "note": "ESR1m検査（ctDNA）で治療選択。イムルリオは2025/12日本承認。camizestrant, vepdegestrant, giredestrantはFDA申請中→今後選択肢追加"
+      },
+      {
+        "line": "2L+ PIK3CAm陽性",
+        "regimens": [
+          "alpelisib + fulvestrant",
+          "inavolisib + palbociclib + fulvestrant（日本未承認）"
+        ],
+        "note": "PIK3CA変異検査必須。inavolisibは中外製薬が日本開発中"
+      },
+      {
+        "line": "ADC",
+        "regimens": [
+          "T-DXd（エンハーツ）（HER2-low含む）",
+          "Dato-DXd（ダトロウェイ）（化学療法歴あり）",
+          "sacituzumab govitecan（トロデルビ）（日本未承認: HR+適応）"
+        ],
+        "note": "HER2-lowはIHC 1+ or IHC 2+/ISH-。T-DXdが標準。Dato-DXdは日本2024/12世界初承認"
+      },
+      {
+        "line": "化学療法",
+        "regimens": [
+          "eribulin, capecitabine, vinorelbine, GEM等"
+        ],
+        "note": "ADC後のlater lineで使用"
+      }
+    ]
+  },
+  {
+    "sub": "HER2+",
+    "setting": "EBC（術前・術後）",
+    "lines": [
+      {
+        "line": "術前（NAC）",
+        "regimens": [
+          "AC/EC → taxane + HP（トラスツズマブ+ペルツズマブ）",
+          "taxane + HP → AC/EC（逆順も可）"
+        ],
+        "note": "pCR達成が術後治療選択の基準。フェスゴ（皮下注HP）使用可"
+      },
+      {
+        "line": "術後（pCR達成）",
+        "regimens": [
+          "HP 計1年（術前+術後で合計）"
+        ],
+        "note": "pCR達成時はde-escalationの議論あり"
+      },
+      {
+        "line": "術後（non-pCR）",
+        "regimens": [
+          "T-DM1（カドサイラ）14サイクル"
+        ],
+        "note": "KATHERINE試験準拠。T-DXd post-NACはFDA Priority Review中（2026 Q3）→今後変更の可能性"
+      },
+      {
+        "line": "術後PARP阻害薬",
+        "regimens": [
+          "olaparib 1年（gBRCA変異陽性の場合）"
+        ],
+        "note": "OlympiA試験対象に含まれる"
+      }
+    ]
+  },
+  {
+    "sub": "HER2+",
+    "setting": "MBC（転移・再発）",
+    "lines": [
+      {
+        "line": "1L",
+        "regimens": [
+          "taxane + HP（トラスツズマブ+ペルツズマブ）",
+          "T-DXd + pertuzumab（DESTINY-Breast09準拠、日本未承認）"
+        ],
+        "note": "THP標準。DB-09でT-DXd+Pの優越性が示されたが日本未承認"
+      },
+      {
+        "line": "2L",
+        "regimens": [
+          "T-DXd（エンハーツ）",
+          "T-DM1（カドサイラ）"
+        ],
+        "note": "DB-03でT-DXdがT-DM1に対し圧倒的優越性。T-DXdが標準"
+      },
+      {
+        "line": "3L+",
+        "regimens": [
+          "tucatinib + trastuzumab + capecitabine（ツカイザ 2026/2承認）",
+          "T-DM1（2Lで未使用なら）",
+          "lapatinib + capecitabine",
+          "化学療法 + trastuzumab"
+        ],
+        "note": "ツカイザは脳転移に有効（BBB通過）。2026/2/19日本承認"
+      },
+      {
+        "line": "脳転移",
+        "regimens": [
+          "tucatinib + trastuzumab + capecitabine",
+          "T-DXd",
+          "放射線治療（SRS/WBRT）"
+        ],
+        "note": "ツカチニブのBBB通過性が差別化ポイント。DB-12進行中"
+      }
+    ]
+  },
+  {
+    "sub": "TNBC",
+    "setting": "EBC（術前・術後）",
+    "lines": [
+      {
+        "line": "術前（NAC）",
+        "regimens": [
+          "pembrolizumab + 化学療法（AC/EC→PTX+CBDCA+pembro）"
+        ],
+        "note": "KEYNOTE-522準拠。CPS不問。GL2022 CQ16で弱く推奨→現在は標準治療化"
+      },
+      {
+        "line": "術後（pCR達成）",
+        "regimens": [
+          "pembrolizumab（術後9サイクル）"
+        ],
+        "note": "KN-522では術後pembro継続。pCR後のpembro省略はOptimICE-pCR試験で検証中"
+      },
+      {
+        "line": "術後（non-pCR）",
+        "regimens": [
+          "capecitabine 8サイクル（CREATE-X準拠）",
+          "pembrolizumab継続 ± capecitabine"
+        ],
+        "note": "capecitabineは保険適用外。olaparib（gBRCAm）も選択肢"
+      },
+      {
+        "line": "術後 PARP阻害薬",
+        "regimens": [
+          "olaparib 1年（gBRCA変異陽性、non-pCR）"
+        ],
+        "note": "OlympiA試験準拠"
+      }
+    ]
+  },
+  {
+    "sub": "TNBC",
+    "setting": "MBC（転移・再発）",
+    "lines": [
+      {
+        "line": "1L（PD-L1陽性 CPS≥10）",
+        "regimens": [
+          "pembrolizumab + 化学療法（nab-PTX/PTX/GC）"
+        ],
+        "note": "KEYNOTE-355準拠。PD-L1 CPS検査必須"
+      },
+      {
+        "line": "1L（PD-L1陰性/IO不適）",
+        "regimens": [
+          "化学療法（anthracycline, taxane, eribulin等）",
+          "Dato-DXd（日本未承認。FDA Priority Review中）"
+        ],
+        "note": "IO不適のTNBC 1LはアンメットニーズA大。ASCENT-03（SG mono）も今後選択肢に"
+      },
+      {
+        "line": "2L+",
+        "regimens": [
+          "sacituzumab govitecan（トロデルビ）",
+          "T-DXd（エンハーツ）（HER2-low該当時）",
+          "化学療法"
+        ],
+        "note": "トロデルビ2024/3日本承認（TNBC）。HER2-low判定でT-DXd使用可"
+      },
+      {
+        "line": "gBRCA変異陽性",
+        "regimens": [
+          "olaparib（リムパーザ）",
+          "talazoparib（ターゼナ）"
+        ],
+        "note": "BRCA検査必須。化学療法との使い分け"
+      }
+    ]
+  }
+]

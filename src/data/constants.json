@@ -1,0 +1,74 @@
+{
+  "MOA_CAT_LABELS": {
+    "ADC": "ADC（HER2標的 次世代）",
+    "ADC_novel_target": "ADC（新規標的: B7-H4, FRα等）",
+    "bispecific": "二重特異性抗体 / Bispecific ADC",
+    "PROTAC_degrader": "PROTAC / 分子糊（Molecular Glue）",
+    "oral_SERD_next": "次世代経口SERD",
+    "CDK_next": "次世代CDK阻害薬（CDK2, CDK7）",
+    "epigenetic": "エピジェネティクス",
+    "IO_next": "次世代IO（mRNAワクチン, LAG-3等）",
+    "cell_therapy": "細胞治療（CAR-T, TIL）",
+    "RDC": "放射性医薬品（RDC）",
+    "small_mol_other": "その他低分子（SHP2, KRAS等）",
+    "Ab_other": "その他抗体治療",
+    "combination_novel": "新規併用戦略"
+  },
+  "STAGE_STYLE": {
+    "IND": {
+      "c": "#64748b",
+      "b": "#f1f5f9"
+    },
+    "FIH": {
+      "c": "#7c3aed",
+      "b": "#ede9fe"
+    },
+    "PhI": {
+      "c": "#2563eb",
+      "b": "#dbeafe"
+    },
+    "PhIb/II": {
+      "c": "#ea580c",
+      "b": "#fff7ed"
+    },
+    "PhII": {
+      "c": "#c2410c",
+      "b": "#ffedd5"
+    }
+  },
+  "stColors": {
+    "pos": "#16a34a",
+    "neg": "#dc2626",
+    "run": "#2563eb"
+  },
+  "subColors": {
+    "HR+/HER2-": "#7c3aed",
+    "HER2+": "#0369a1",
+    "TNBC": "#dc2626",
+    "HER2-low": "#b45309"
+  },
+  "S": {
+    "ok": "承認済",
+    "rev": "申請中",
+    "p3": "Ph III",
+    "p2": "Ph I-II",
+    "dev": "開発中",
+    "no": "未申請"
+  },
+  "SC": {
+    "ok": "#16a34a",
+    "rev": "#2563eb",
+    "p3": "#7c3aed",
+    "p2": "#ea580c",
+    "dev": "#64748b",
+    "no": "#cbd5e1"
+  },
+  "SB": {
+    "ok": "#dcfce7",
+    "rev": "#dbeafe",
+    "p3": "#ede9fe",
+    "p2": "#fff7ed",
+    "dev": "#f1f5f9",
+    "no": "#f8fafc"
+  }
+}

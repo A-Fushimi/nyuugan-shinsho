@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Tucatinib",
+    "generic": "tucatinib",
+    "sub": "HER2+ MBC 3L+（脳転移）",
+    "status": "✅ 2026/2/19 日本承認済。薬価収載待ち",
+    "color": "#16a34a"
+  },
+  {
+    "name": "Imlunestrant",
+    "generic": "imlunestrant",
+    "sub": "HR+/HER2- ESR1m MBC",
+    "status": "✅ 2025/12/22 日本承認済",
+    "color": "#16a34a"
+  },
+  {
+    "name": "Inavolisib",
+    "generic": "inavolisib",
+    "sub": "HR+/HER2- PIK3CAm 1L",
+    "status": "FDA承認済（2024/10）。中外製薬が日本開発中→2026年以降申請見込み",
+    "color": "#eab308"
+  },
+  {
+    "name": "Elacestrant",
+    "generic": "elacestrant",
+    "sub": "HR+/HER2- ESR1m MBC",
+    "status": "FDA承認済（2023/1）。日本未申請、ドラッグラグ大",
+    "color": "#64748b"
+  },
+  {
+    "name": "Neratinib",
+    "generic": "neratinib",
+    "sub": "HER2+ EBC延長/MBC",
+    "status": "FDA承認済（2017/7）。日本未承認",
+    "color": "#64748b"
+  },
+  {
+    "name": "Margetuximab",
+    "generic": "margetuximab",
+    "sub": "HER2+ MBC 3L+",
+    "status": "FDA承認済（2020/12）。日本未承認、EU申請撤回",
+    "color": "#64748b"
+  }
+]
