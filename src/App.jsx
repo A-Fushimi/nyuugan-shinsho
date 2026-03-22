@@ -569,17 +569,6 @@ function GanttChart({focusTrial,onFocusClear}){
         );
       })}
 
-      {/* Legend */}
-      <div style={{display:"flex",gap:20,marginTop:16,flexWrap:"wrap",fontSize:11,color:"#475569",alignItems:"center",padding:"8px 12px",background:"#f8fafc",borderRadius:8,border:"1px solid #e2e8f0"}}>
-        <span style={{fontWeight:600,color:"#64748b"}}>凡例:</span>
-        <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:24,height:10,border:"1.5px solid #2563eb",borderRadius:2,background:"#dbeafe",display:"inline-block"}}/>⏳ 進行中</span>
-        <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:24,height:10,border:"1.5px solid #16a34a",borderRadius:2,background:"#dcfce7",display:"inline-block"}}/>✓ Positive</span>
-        <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:24,height:10,border:"1.5px solid #dc2626",borderRadius:2,background:"#fee2e2",display:"inline-block"}}/>✗ Negative</span>
-        <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:12,height:10,borderRight:"1px dashed #64748b",display:"inline-block"}}/>登録完了</span>
-        <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{color:"#64748b",fontSize:8}}>▼</span> 結果発表</span>
-        <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{color:"#64748b",fontSize:7}}>◆</span> 結果見込み(PCD)</span>
-        <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:2,height:12,background:"#dc2626",display:"inline-block"}}/>現在</span>
-      </div>
     </div>
   );
 }
