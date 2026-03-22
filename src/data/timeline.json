@@ -18,7 +18,28 @@
     "nct": "NCT04964934",
     "note": "ASCO 2025 LBA。FDA諮問委員会 4/30/2026",
     "resultUrl": "https://www.nejm.org/doi/full/10.1056/NEJMoa2502929",
-    "resultRef": "NEJM 2025"
+    "resultRef": "NEJM 2025",
+    "pcd": "2025-06",
+    "scd": "2027-11",
+    "enrollment": "ACTIVE_NOT_RECRUITING",
+    "enrollmentTarget": 315,
+    "primaryEndpoint": "PFS",
+    "regulatory": {
+      "fda": {
+        "submission": "2025-11",
+        "pdufa": null,
+        "adcom": "2026-04-30",
+        "approval": null
+      },
+      "pmda": {
+        "submission": null,
+        "approval": null
+      },
+      "ema": {
+        "submission": "2025-11",
+        "approval": null
+      }
+    }
   },
   {
     "drug": "camizestrant",
@@ -35,7 +56,13 @@
     "lpi": 2024.35,
     "readout": 2026.8,
     "nct": "NCT04711252",
-    "note": "2026 H2 readout予定"
+    "note": "2026 H2 readout予定",
+    "pcd": "2026-08",
+    "scd": "2029-02",
+    "enrollment": "ACTIVE_NOT_RECRUITING",
+    "enrollmentTarget": 1370,
+    "primaryEndpoint": "PFS",
+    "regulatory": null
   },
   {
     "drug": "giredestrant",
@@ -56,7 +83,28 @@
     "nct": "NCT05306340",
     "note": "ESMO 2025。FDA承認予定 12/18/2026",
     "resultUrl": "https://www.annalsofoncology.org/article/S0923-7534(25)04796-9/fulltext",
-    "resultRef": "Ann Oncol 2025 (ESMO LBA16)"
+    "resultRef": "Ann Oncol 2025 (ESMO LBA16)",
+    "pcd": "2025-07",
+    "scd": "2026-10",
+    "enrollment": "ACTIVE_NOT_RECRUITING",
+    "enrollmentTarget": 373,
+    "primaryEndpoint": "PFS",
+    "regulatory": {
+      "fda": {
+        "submission": "2025-12",
+        "pdufa": "2026-12-18",
+        "adcom": null,
+        "approval": null
+      },
+      "pmda": {
+        "submission": null,
+        "approval": null
+      },
+      "ema": {
+        "submission": null,
+        "approval": null
+      }
+    }
   },
   {
     "drug": "giredestrant",
@@ -77,7 +125,13 @@
     "nct": "NCT04961996",
     "note": "SABCS 2025。iDFS HR 0.70",
     "resultUrl": "https://www.sabcsmeetingnews.org/first-general-session-features-potentially-practice-changing-findings-including-data-from-lidera-and-her2climb-05-trials/",
-    "resultRef": "SABCS 2025 GS1-10"
+    "resultRef": "SABCS 2025 GS1-10",
+    "pcd": "2025-08",
+    "scd": "2035-01",
+    "enrollment": "ACTIVE_NOT_RECRUITING",
+    "enrollmentTarget": 4170,
+    "primaryEndpoint": "iDFS",
+    "regulatory": null
   },
   {
     "drug": "giredestrant",
@@ -98,7 +152,13 @@
     "nct": "NCT04546009",
     "note": "2026/3/9 主要EP未達",
     "resultUrl": "https://www.gene.com/media/press-releases/15106/2026-03-08/genentech-provides-update-on-phase-iii-p",
-    "resultRef": "Genentech 2026/3/8"
+    "resultRef": "Genentech 2026/3/8",
+    "pcd": "2026-01",
+    "scd": "2028-03",
+    "enrollment": "ACTIVE_NOT_RECRUITING",
+    "enrollmentTarget": 992,
+    "primaryEndpoint": "PFS",
+    "regulatory": null
   },
   {
     "drug": "giredestrant",
@@ -115,7 +175,13 @@
     "lpi": 2025.583,
     "readout": 2027.5,
     "nct": "NCT06065748",
-    "note": "2027年 readout予定"
+    "note": "2027年 readout予定",
+    "pcd": "2027-02",
+    "scd": "2029-02",
+    "enrollment": "RECRUITING",
+    "enrollmentTarget": 1050,
+    "primaryEndpoint": "PFS",
+    "regulatory": null
   },
   {
     "drug": "vepdegestrant",
@@ -136,7 +202,28 @@
     "nct": "NCT05654623",
     "note": "ASCO 2025 LBA。FDA承認予定 6/5/2026",
     "resultUrl": "https://www.nejm.org/doi/full/10.1056/NEJMoa2505725",
-    "resultRef": "NEJM 2025"
+    "resultRef": "NEJM 2025",
+    "pcd": "2025-01",
+    "scd": "2028-05",
+    "enrollment": "ACTIVE_NOT_RECRUITING",
+    "enrollmentTarget": 624,
+    "primaryEndpoint": "PFS",
+    "regulatory": {
+      "fda": {
+        "submission": "2025-12",
+        "pdufa": "2026-06-05",
+        "adcom": null,
+        "approval": null
+      },
+      "pmda": {
+        "submission": null,
+        "approval": null
+      },
+      "ema": {
+        "submission": null,
+        "approval": null
+      }
+    }
   },
   {
     "drug": "imlunestrant",
@@ -157,7 +244,28 @@
     "nct": "NCT04975308",
     "note": "NEJM 2025。3極承認済み",
     "resultUrl": "https://www.nejm.org/doi/full/10.1056/NEJMoa2410858",
-    "resultRef": "NEJM 2025"
+    "resultRef": "NEJM 2025",
+    "pcd": "2024-06",
+    "scd": "2027-08",
+    "enrollment": "ACTIVE_NOT_RECRUITING",
+    "enrollmentTarget": 874,
+    "primaryEndpoint": "PFS",
+    "regulatory": {
+      "fda": {
+        "submission": "2025-03",
+        "pdufa": null,
+        "adcom": null,
+        "approval": "2025-09-25"
+      },
+      "pmda": {
+        "submission": "2025-06",
+        "approval": "2025-12-22"
+      },
+      "ema": {
+        "submission": "2025-06",
+        "approval": null
+      }
+    }
   },
   {
     "drug": "imlunestrant",
@@ -174,7 +282,13 @@
     "lpi": 2025.75,
     "readout": 2028,
     "nct": "NCT05514054",
-    "note": "約8000例。2028年頃"
+    "note": "約8000例。2028年頃",
+    "pcd": "2027-10",
+    "scd": "2032-03",
+    "enrollment": "ACTIVE_NOT_RECRUITING",
+    "enrollmentTarget": 8000,
+    "primaryEndpoint": "iDFS",
+    "regulatory": null
   },
   {
     "drug": "atirmociclib",
@@ -195,7 +309,13 @@
     "nct": "NCT06105632",
     "note": "2026/3/17 PFS HR 0.60",
     "resultUrl": "https://www.businesswire.com/news/home/20260316838697/en/",
-    "resultRef": "Pfizer 2026/3/17"
+    "resultRef": "Pfizer 2026/3/17",
+    "pcd": "2026-01",
+    "scd": "2028-01",
+    "enrollment": "ACTIVE_NOT_RECRUITING",
+    "enrollmentTarget": 333,
+    "primaryEndpoint": "PFS",
+    "regulatory": null
   },
   {
     "drug": "atirmociclib",
@@ -212,7 +332,13 @@
     "lpi": 2027.5,
     "readout": 2027.5,
     "nct": "NCT06760637",
-    "note": "1L registrational。2027年"
+    "note": "1L registrational。2027年",
+    "pcd": "2029-01",
+    "scd": "2037-12",
+    "enrollment": "RECRUITING",
+    "enrollmentTarget": 1020,
+    "primaryEndpoint": "PFS",
+    "regulatory": null
   },
   {
     "drug": "prifetrastat",
@@ -229,7 +355,13 @@
     "lpi": 2026.0,
     "readout": 2027.5,
     "nct": "NCT07062965",
-    "note": "KAT6i vs EVE+ET。2027年"
+    "note": "KAT6i vs EVE+ET。2027年",
+    "pcd": "2027-07",
+    "scd": "2030-11",
+    "enrollment": "RECRUITING",
+    "enrollmentTarget": 400,
+    "primaryEndpoint": "PFS",
+    "regulatory": null
   },
   {
     "drug": "inavolisib",
@@ -250,7 +382,28 @@
     "nct": "NCT04191499",
     "note": "NEJM 2024。FDA承認済",
     "resultUrl": "https://www.nejm.org/doi/full/10.1056/NEJMoa2404625",
-    "resultRef": "NEJM 2024"
+    "resultRef": "NEJM 2024",
+    "pcd": "2023-09",
+    "scd": "2027-11",
+    "enrollment": "ACTIVE_NOT_RECRUITING",
+    "enrollmentTarget": 325,
+    "primaryEndpoint": "PFS",
+    "regulatory": {
+      "fda": {
+        "submission": "2024-04",
+        "pdufa": null,
+        "adcom": null,
+        "approval": "2024-10-18"
+      },
+      "pmda": {
+        "submission": null,
+        "approval": null
+      },
+      "ema": {
+        "submission": "2024-06",
+        "approval": null
+      }
+    }
   },
   {
     "drug": "gedatolisib",
@@ -271,7 +424,28 @@
     "nct": "NCT05501886",
     "note": "SABCS 2024。FDA申請済",
     "resultUrl": "https://ascopubs.org/doi/10.1200/JCO-25-02643",
-    "resultRef": "JCO 2026"
+    "resultRef": "JCO 2026",
+    "pcd": "2026-06",
+    "scd": "2026-12",
+    "enrollment": "ACTIVE_NOT_RECRUITING",
+    "enrollmentTarget": 701,
+    "primaryEndpoint": "PFS",
+    "regulatory": {
+      "fda": {
+        "submission": "2025-10",
+        "pdufa": null,
+        "adcom": null,
+        "approval": null
+      },
+      "pmda": {
+        "submission": null,
+        "approval": null
+      },
+      "ema": {
+        "submission": null,
+        "approval": null
+      }
+    }
   },
   {
     "drug": "capivasertib",
@@ -288,7 +462,13 @@
     "lpi": 2026.333,
     "readout": 2027.5,
     "nct": "NCT04862663",
-    "note": "1L AKTi試験。2027年"
+    "note": "1L AKTi試験。2027年",
+    "pcd": "2027-11",
+    "scd": "2029-08",
+    "enrollment": "RECRUITING",
+    "enrollmentTarget": 895,
+    "primaryEndpoint": "Phase Ib: 1. The number of participants ",
+    "regulatory": null
   },
   {
     "drug": "T-DXd",
@@ -309,7 +489,28 @@
     "nct": "NCT04784715",
     "note": "ESMO 2025。FDA承認済12/2025",
     "resultUrl": "https://www.nejm.org/doi/abs/10.1056/NEJMoa2508668",
-    "resultRef": "NEJM 2026"
+    "resultRef": "NEJM 2026",
+    "pcd": "2026-07",
+    "scd": "2029-12",
+    "enrollment": "ACTIVE_NOT_RECRUITING",
+    "enrollmentTarget": 1157,
+    "primaryEndpoint": "PFS",
+    "regulatory": {
+      "fda": {
+        "submission": "2025-06",
+        "pdufa": null,
+        "adcom": null,
+        "approval": "2025-12"
+      },
+      "pmda": {
+        "submission": null,
+        "approval": null
+      },
+      "ema": {
+        "submission": null,
+        "approval": null
+      }
+    }
   },
   {
     "drug": "T-DXd",
@@ -330,7 +531,28 @@
     "nct": "NCT04622319",
     "note": "ESMO 2025。FDA承認予定 2026 Q3",
     "resultUrl": "https://www.nejm.org/doi/full/10.1056/NEJMoa2514661",
-    "resultRef": "NEJM 2026"
+    "resultRef": "NEJM 2026",
+    "pcd": "2025-12",
+    "scd": "2030-12",
+    "enrollment": "ACTIVE_NOT_RECRUITING",
+    "enrollmentTarget": 1600,
+    "primaryEndpoint": "iDFS",
+    "regulatory": {
+      "fda": {
+        "submission": "2026-01",
+        "pdufa": null,
+        "adcom": null,
+        "approval": null
+      },
+      "pmda": {
+        "submission": null,
+        "approval": null
+      },
+      "ema": {
+        "submission": null,
+        "approval": null
+      }
+    }
   },
   {
     "drug": "T-DXd",
@@ -351,7 +573,28 @@
     "nct": "NCT04494425",
     "note": "ASCO 2024。FDA承認",
     "resultUrl": "https://pubmed.ncbi.nlm.nih.gov/39282896/",
-    "resultRef": "NEJM 2024"
+    "resultRef": "NEJM 2024",
+    "pcd": "2024-03",
+    "scd": "2026-06",
+    "enrollment": "ACTIVE_NOT_RECRUITING",
+    "enrollmentTarget": 866,
+    "primaryEndpoint": "PFS",
+    "regulatory": {
+      "fda": {
+        "submission": "2024-06",
+        "pdufa": null,
+        "adcom": null,
+        "approval": "2024-12"
+      },
+      "pmda": {
+        "submission": null,
+        "approval": null
+      },
+      "ema": {
+        "submission": null,
+        "approval": null
+      }
+    }
   },
   {
     "drug": "T-DXd",
@@ -368,7 +611,28 @@
     "lpi": 2024.667,
     "readout": 2027.5,
     "nct": "NCT04975997",
-    "note": "T-DXd 1L HR+/HER2-。重要な適応拡大試験"
+    "note": "T-DXd 1L HR+/HER2-。重要な適応拡大試験",
+    "pcd": "2026-03",
+    "scd": "2032-06",
+    "enrollment": "ACTIVE_NOT_RECRUITING",
+    "enrollmentTarget": 864,
+    "primaryEndpoint": "PFS",
+    "regulatory": {
+      "fda": {
+        "submission": "2026-02",
+        "pdufa": null,
+        "adcom": null,
+        "approval": null
+      },
+      "pmda": {
+        "submission": null,
+        "approval": null
+      },
+      "ema": {
+        "submission": null,
+        "approval": null
+      }
+    }
   },
   {
     "drug": "T-DXd",
@@ -385,7 +649,13 @@
     "lpi": 2023.017,
     "readout": 2027,
     "nct": "NCT04739761",
-    "note": "脳転移特化。2027年"
+    "note": "脳転移特化。2027年",
+    "pcd": "2024-02",
+    "scd": "2026-05",
+    "enrollment": "ACTIVE_NOT_RECRUITING",
+    "enrollmentTarget": 506,
+    "primaryEndpoint": "ORR",
+    "regulatory": null
   },
   {
     "drug": "tucatinib",
@@ -406,7 +676,28 @@
     "nct": "NCT03975647",
     "note": "ASCO 2024。TUC+T-DM1",
     "resultUrl": "https://www.annalsofoncology.org/article/S0923-7534(25)06263-5/fulltext",
-    "resultRef": "Ann Oncol 2026"
+    "resultRef": "Ann Oncol 2026",
+    "pcd": "2023-06",
+    "scd": "2029-03",
+    "enrollment": "ACTIVE_NOT_RECRUITING",
+    "enrollmentTarget": 466,
+    "primaryEndpoint": "PFS",
+    "regulatory": {
+      "fda": {
+        "submission": null,
+        "pdufa": null,
+        "adcom": null,
+        "approval": null
+      },
+      "pmda": {
+        "submission": null,
+        "approval": null
+      },
+      "ema": {
+        "submission": null,
+        "approval": null
+      }
+    }
   },
   {
     "drug": "Dato-DXd",
@@ -427,7 +718,28 @@
     "nct": "NCT05374512",
     "note": "ESMO 2025。FDA承認予定 2026 Q2",
     "resultUrl": "https://www.annalsofoncology.org/article/S0923-7534(25)04801-X/fulltext",
-    "resultRef": "Ann Oncol 2025 (ESMO LBA21)"
+    "resultRef": "Ann Oncol 2025 (ESMO LBA21)",
+    "pcd": "2025-08",
+    "scd": "2028-11",
+    "enrollment": "ACTIVE_NOT_RECRUITING",
+    "enrollmentTarget": 644,
+    "primaryEndpoint": "PFS",
+    "regulatory": {
+      "fda": {
+        "submission": "2025-12",
+        "pdufa": null,
+        "adcom": null,
+        "approval": null
+      },
+      "pmda": {
+        "submission": null,
+        "approval": null
+      },
+      "ema": {
+        "submission": null,
+        "approval": null
+      }
+    }
   },
   {
     "drug": "Dato-DXd",
@@ -444,7 +756,13 @@
     "lpi": 2026.833,
     "readout": 2027.5,
     "nct": "NCT06112379",
-    "note": "Dato+durva vs chemo+pembro"
+    "note": "Dato+durva vs chemo+pembro",
+    "pcd": "2028-11",
+    "scd": "2032-09",
+    "enrollment": "ACTIVE_NOT_RECRUITING",
+    "enrollmentTarget": 1902,
+    "primaryEndpoint": "EFS",
+    "regulatory": null
   },
   {
     "drug": "Sac-Gov",
@@ -465,7 +783,28 @@
     "nct": "NCT05382286",
     "note": "NEJM 2026。SG+pembro",
     "resultUrl": "https://www.nejm.org/doi/full/10.1056/NEJMoa2508959",
-    "resultRef": "NEJM 2026"
+    "resultRef": "NEJM 2026",
+    "pcd": "2027-02",
+    "scd": "2027-02",
+    "enrollment": "ACTIVE_NOT_RECRUITING",
+    "enrollmentTarget": 443,
+    "primaryEndpoint": "PFS",
+    "regulatory": {
+      "fda": {
+        "submission": null,
+        "pdufa": null,
+        "adcom": null,
+        "approval": null
+      },
+      "pmda": {
+        "submission": null,
+        "approval": null
+      },
+      "ema": {
+        "submission": null,
+        "approval": null
+      }
+    }
   },
   {
     "drug": "Sac-Gov",
@@ -486,7 +825,13 @@
     "nct": "NCT05382299",
     "note": "SG mono vs chemo",
     "resultUrl": "https://www.nejm.org/doi/full/10.1056/NEJMoa2511734",
-    "resultRef": "NEJM 2025"
+    "resultRef": "NEJM 2025",
+    "pcd": "2028-07",
+    "scd": "2028-07",
+    "enrollment": "ACTIVE_NOT_RECRUITING",
+    "enrollmentTarget": 623,
+    "primaryEndpoint": "PFS",
+    "regulatory": null
   },
   {
     "drug": "Sac-TMT",
@@ -507,7 +852,28 @@
     "nct": "NCT05347134",
     "note": "Nat Med 2025。HR 0.32",
     "resultUrl": "https://pubmed.ncbi.nlm.nih.gov/40217078/",
-    "resultRef": "Nat Med 2025"
+    "resultRef": "Nat Med 2025",
+    "pcd": "2023-11",
+    "scd": "2027-06",
+    "enrollment": "ACTIVE_NOT_RECRUITING",
+    "enrollmentTarget": 254,
+    "primaryEndpoint": "PFS",
+    "regulatory": {
+      "fda": {
+        "submission": "2025-10",
+        "pdufa": null,
+        "adcom": null,
+        "approval": null
+      },
+      "pmda": {
+        "submission": null,
+        "approval": null
+      },
+      "ema": {
+        "submission": null,
+        "approval": null
+      }
+    }
   },
   {
     "drug": "Sac-TMT",
@@ -528,7 +894,13 @@
     "nct": "NCT06081959",
     "note": "ESMO 2025。HR 0.35",
     "resultUrl": "https://www.annalsofoncology.org/article/S0923-7534(25)04803-3/fulltext",
-    "resultRef": "Ann Oncol 2025 (ESMO LBA23)"
+    "resultRef": "Ann Oncol 2025 (ESMO LBA23)",
+    "pcd": "2026-03",
+    "scd": "2027-12",
+    "enrollment": "RECRUITING",
+    "enrollmentTarget": 376,
+    "primaryEndpoint": "PFS",
+    "regulatory": null
   },
   {
     "drug": "Sac-TMT",
@@ -544,7 +916,13 @@
     "fpi": 2024,
     "lpi": 2026.5,
     "readout": 2027.5,
-    "note": "Sac-TMT+pembro"
+    "note": "Sac-TMT+pembro",
+    "pcd": null,
+    "scd": null,
+    "enrollment": null,
+    "enrollmentTarget": null,
+    "primaryEndpoint": "PFS（IRC）",
+    "regulatory": null
   },
   {
     "drug": "Sac-TMT",
@@ -561,7 +939,13 @@
     "lpi": 2028.833,
     "readout": 2028,
     "nct": "NCT06841354",
-    "note": "sac-TMT±pembro vs chemo"
+    "note": "sac-TMT±pembro vs chemo",
+    "pcd": "2030-05",
+    "scd": "2030-05",
+    "enrollment": "RECRUITING",
+    "enrollmentTarget": 1000,
+    "primaryEndpoint": "PFS",
+    "regulatory": null
   },
   {
     "drug": "Sac-TMT",
@@ -578,7 +962,13 @@
     "lpi": 2031.667,
     "readout": 2029,
     "nct": "NCT06966700",
-    "note": "pembro+sac-TMT neo→adj"
+    "note": "pembro+sac-TMT neo→adj",
+    "pcd": "2033-03",
+    "scd": "2034-12",
+    "enrollment": "RECRUITING",
+    "enrollmentTarget": 2400,
+    "primaryEndpoint": "pCR",
+    "regulatory": null
   },
   {
     "drug": "pumitamig",
@@ -595,7 +985,13 @@
     "lpi": 2028.417,
     "readout": 2028,
     "nct": "NCT07173751",
-    "note": "BNT327+chemo。PD-L1陰性TNBC"
+    "note": "BNT327+chemo。PD-L1陰性TNBC",
+    "pcd": "2029-12",
+    "scd": "2030-09",
+    "enrollment": "RECRUITING",
+    "enrollmentTarget": 558,
+    "primaryEndpoint": "PFS",
+    "regulatory": null
   },
   {
     "drug": "pumitamig",
@@ -611,7 +1007,13 @@
     "fpi": 2025.5,
     "lpi": 2027.5,
     "readout": 2028.5,
-    "note": "BNT327+ET vs ET。登録未開始"
+    "note": "BNT327+ET vs ET。登録未開始",
+    "pcd": null,
+    "scd": null,
+    "enrollment": null,
+    "enrollmentTarget": null,
+    "primaryEndpoint": "PFS（IRC）",
+    "regulatory": null
   },
   {
     "drug": "tucatinib",
@@ -632,7 +1034,28 @@
     "nct": "NCT05132582",
     "note": "SABCS 2025 GS1-01。維持療法",
     "resultUrl": "https://ascopubs.org/doi/10.1200/JCO-25-02600",
-    "resultRef": "JCO 2025"
+    "resultRef": "JCO 2025",
+    "pcd": "2025-09",
+    "scd": "2027-09",
+    "enrollment": "ACTIVE_NOT_RECRUITING",
+    "enrollmentTarget": 654,
+    "primaryEndpoint": "PFS",
+    "regulatory": {
+      "fda": {
+        "submission": null,
+        "pdufa": null,
+        "adcom": null,
+        "approval": null
+      },
+      "pmda": {
+        "submission": null,
+        "approval": null
+      },
+      "ema": {
+        "submission": null,
+        "approval": null
+      }
+    }
   },
   {
     "drug": "Dato-DXd",
@@ -653,7 +1076,28 @@
     "nct": "NCT05104866",
     "note": "PFS positive, OS negative。FDA承認済",
     "resultUrl": "https://ascopubs.org/doi/10.1200/JCO.24.00920",
-    "resultRef": "JCO 2025"
+    "resultRef": "JCO 2025",
+    "pcd": "2024-07",
+    "scd": "2026-07",
+    "enrollment": "ACTIVE_NOT_RECRUITING",
+    "enrollmentTarget": 732,
+    "primaryEndpoint": "PFS",
+    "regulatory": {
+      "fda": {
+        "submission": "2024-08",
+        "pdufa": null,
+        "adcom": null,
+        "approval": "2025-01"
+      },
+      "pmda": {
+        "submission": null,
+        "approval": null
+      },
+      "ema": {
+        "submission": null,
+        "approval": null
+      }
+    }
   },
   {
     "drug": "Sac-Gov",
@@ -672,7 +1116,13 @@
     "lpi": 2026.283,
     "readout": 2025.9,
     "nct": "NCT05840211",
-    "note": "SABCS 2025 GS1-09。Negative"
+    "note": "SABCS 2025 GS1-09。Negative",
+    "pcd": "2028-04",
+    "scd": "2028-04",
+    "enrollment": "ACTIVE_NOT_RECRUITING",
+    "enrollmentTarget": 654,
+    "primaryEndpoint": "PFS",
+    "regulatory": null
   },
   {
     "drug": "abemaciclib",
@@ -693,7 +1143,28 @@
     "nct": "NCT03155997",
     "note": "ESMO 2025 LBA13。初のCDK4/6i EBC OS陽性",
     "resultUrl": "https://www.annalsofoncology.org/article/S0923-7534(25)04948-8/fulltext",
-    "resultRef": "Ann Oncol 2025 (ESMO LBA13)"
+    "resultRef": "Ann Oncol 2025 (ESMO LBA13)",
+    "pcd": "2020-03",
+    "scd": "2029-05",
+    "enrollment": "ACTIVE_NOT_RECRUITING",
+    "enrollmentTarget": 5637,
+    "primaryEndpoint": "iDFS",
+    "regulatory": {
+      "fda": {
+        "submission": null,
+        "pdufa": null,
+        "adcom": null,
+        "approval": "2023-03"
+      },
+      "pmda": {
+        "submission": null,
+        "approval": "2021-09"
+      },
+      "ema": {
+        "submission": null,
+        "approval": "2022-03"
+      }
+    }
   },
   {
     "drug": "palbociclib",
@@ -714,6 +1185,27 @@
     "nct": "NCT02947685",
     "note": "SABCS 2024 GS2-12。NEJM 2026。維持療法",
     "resultUrl": "https://www.nejm.org/doi/full/10.1056/NEJMoa2511218",
-    "resultRef": "NEJM 2026"
+    "resultRef": "NEJM 2026",
+    "pcd": "2024-10",
+    "scd": "2026-07",
+    "enrollment": "ACTIVE_NOT_RECRUITING",
+    "enrollmentTarget": 518,
+    "primaryEndpoint": "PFS",
+    "regulatory": {
+      "fda": {
+        "submission": null,
+        "pdufa": null,
+        "adcom": null,
+        "approval": null
+      },
+      "pmda": {
+        "submission": null,
+        "approval": null
+      },
+      "ema": {
+        "submission": null,
+        "approval": null
+      }
+    }
   }
 ]

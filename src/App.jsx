@@ -433,11 +433,15 @@ function GanttChart({focusTrial,onFocusClear}){
 
       {/* Rows */}
       {filtered.map((t,i)=>{
-        const endPt=t.readout||(t.st==="run"?maxY:t.lpi);
+        // PCD as decimal year for bar rendering
+        const pcdDec=t.pcd?(() => {const p=t.pcd.split("-");return parseInt(p[0])+(parseInt(p[1])-1)/12})():null;
+        const endPt=t.readout||pcdDec||(t.st==="run"?maxY:t.lpi);
         const isSelected=selectedTrial===t.trial;
         const sc=stColors[t.st]||"#64748b";
         const bgMap={pos:"#dcfce7",neg:"#fee2e2",run:"#dbeafe"};
         const barBg=bgMap[t.st]||"#f1f5f9";
+        const enrollLabels={RECRUITING:"登録中",ACTIVE_NOT_RECRUITING:"登録完了",COMPLETED:"完了",NOT_YET_RECRUITING:"開始前"};
+        const fmtYM=d=>{if(!d)return"—";const p=d.split("-");return `${p[0]}年${parseInt(p[1])}月`};
         return(
           <div key={i} data-trial={t.trial}>
           <div style={{display:"flex",alignItems:"center",marginBottom:isSelected?0:2,minHeight:28,cursor:"pointer",background:isSelected?"#eff6ff":"transparent",borderRadius:4}} onClick={()=>setSelectedTrial(isSelected?null:t.trial)}>
@@ -449,40 +453,67 @@ function GanttChart({focusTrial,onFocusClear}){
             </div>
             {/* Gantt bar area */}
             <div style={{flex:1,position:"relative",height:20}}>
-              {/* Single bar: FPI → readout/end */}
+              {/* Single bar: FPI → endPt */}
               <div title={t.note} style={{position:"absolute",left:pct(t.fpi)+"%",width:(pct(endPt)-pct(t.fpi))+"%",height:16,top:2,background:barBg,border:`1.5px solid ${sc}`,borderRadius:3,overflow:"hidden"}}>
-                {/* Enrollment phase fill (FPI → LPI) - slightly darker */}
+                {/* Enrollment phase fill (FPI → LPI) */}
                 <div style={{position:"absolute",left:0,top:0,bottom:0,width:((pct(t.lpi)-pct(t.fpi))/(pct(endPt)-pct(t.fpi))*100)+"%",background:sc+"18"}}/>
-                {/* LPI divider line */}
+                {/* LPI divider */}
                 {t.lpi<endPt&&<div style={{position:"absolute",left:((pct(t.lpi)-pct(t.fpi))/(pct(endPt)-pct(t.fpi))*100)+"%",top:0,bottom:0,width:1,background:sc+"60"}}/>}
                 {/* Status label */}
                 <span style={{position:"relative",zIndex:1,fontSize:9,fontWeight:700,color:sc,paddingLeft:4,lineHeight:"16px",whiteSpace:"nowrap"}}>{t.st==="pos"?"✓ Positive":t.st==="neg"?"✗ Negative":"⏳ 進行中"}</span>
               </div>
-              {/* Readout marker (triangle) */}
+              {/* Readout marker ▼ (results published) */}
               {t.readout&&<div style={{position:"absolute",left:pct(t.readout)+"%",top:-1,fontSize:8,color:sc,transform:"translateX(-50%)",lineHeight:1}}>▼</div>}
+              {/* PCD marker ◆ (expected results, ongoing only) */}
+              {t.st==="run"&&pcdDec&&pcdDec<=maxY&&<div style={{position:"absolute",left:pct(pcdDec)+"%",top:-1,fontSize:7,color:sc+"90",transform:"translateX(-50%)",lineHeight:1}}>◆</div>}
               {/* Now line */}
               <div style={{position:"absolute",left:pct(now)+"%",top:0,bottom:0,width:1.5,background:"#dc262640",zIndex:2}}/>
             </div>
           </div>
           {/* Trial detail panel */}
           {isSelected&&(
-            <div style={{marginLeft:220,marginBottom:8,padding:"8px 14px",background:"#f8fafc",borderRadius:8,border:"1px solid #e2e8f0",fontSize:12}}>
-              <div style={{display:"flex",gap:12,flexWrap:"wrap",alignItems:"baseline",marginBottom:4}}>
+            <div style={{marginLeft:220,marginBottom:8,padding:"10px 14px",background:"#f8fafc",borderRadius:8,border:"1px solid #e2e8f0",fontSize:12}}>
+              <div style={{display:"flex",gap:12,flexWrap:"wrap",alignItems:"baseline",marginBottom:6}}>
                 <span style={{fontWeight:700,fontSize:13,color:"#0f172a"}}>{t.trial}</span>
                 <span style={{fontSize:11,color:"#475569"}}>Phase {t.ph}</span>
                 <SubChip t={t.sub}/>
                 <span style={{color:stColors[t.st],fontWeight:600,fontSize:11}}>{t.st==="pos"?"Positive":t.st==="neg"?"Negative":"進行中"}</span>
+                {t.enrollment&&<span style={{fontSize:10,padding:"1px 6px",borderRadius:4,background:t.enrollment==="RECRUITING"?"#dbeafe":"#f1f5f9",color:t.enrollment==="RECRUITING"?"#2563eb":"#64748b",fontWeight:600}}>{enrollLabels[t.enrollment]||t.enrollment}</span>}
               </div>
-              <div style={{color:"#334155",lineHeight:1.6}}>
+              <div style={{color:"#334155",lineHeight:1.7}}>
                 <div><strong>薬剤:</strong> <DrugLink generic={DRUGS.find(d=>d.generic===t.drug||d.name.includes(t.drug))?.generic||""} label={t.drug}/></div>
                 <div><strong>対象:</strong> {t.pop}</div>
                 {t.arm&&<div><strong>治療群:</strong> {t.arm}</div>}
                 {t.ctrl&&<div><strong>対照群:</strong> {t.ctrl}</div>}
-                {t.ep&&<div><strong>主要評価項目:</strong> {t.ep}{t.res&&<span style={{color:t.st==="pos"?"#059669":t.st==="neg"?"#dc2626":"#2563eb",fontWeight:600,marginLeft:8}}>→ {t.res}</span>}</div>}
+                <div><strong>主要評価項目:</strong> {t.primaryEndpoint||t.ep||"—"}{t.enrollmentTarget&&<span style={{color:"#64748b",marginLeft:8}}>（目標 {t.enrollmentTarget}人）</span>}{t.res&&<span style={{color:t.st==="pos"?"#059669":t.st==="neg"?"#dc2626":"#2563eb",fontWeight:600,marginLeft:8}}>→ {t.res}</span>}</div>
                 {t.ep2&&<div><strong>副次評価項目:</strong> {t.ep2}{t.res2&&<span style={{color:"#475569",marginLeft:8}}>→ {t.res2}</span>}</div>}
-                <div><strong>登録期間:</strong> {Math.floor(t.fpi)}年 → {Math.floor(t.lpi)}年{t.readout&&`　結果発表: ${Math.floor(t.readout)}年`}</div>
-                {t.note&&<div><strong>備考:</strong> {t.note}</div>}
-                <div style={{marginTop:4,display:"flex",gap:12,flexWrap:"wrap"}}>
+
+                {/* Timeline milestones */}
+                <div style={{marginTop:6,padding:"6px 10px",background:"#fff",borderRadius:6,border:"1px solid #e2e8f0"}}>
+                  <div style={{fontSize:11,fontWeight:700,color:"#475569",marginBottom:4}}>📅 試験日程</div>
+                  <div style={{display:"grid",gridTemplateColumns:"auto 1fr",gap:"2px 12px",fontSize:11,color:"#334155"}}>
+                    <span style={{color:"#64748b"}}>試験開始 (FPI):</span><span>{Math.floor(t.fpi)}年{Math.round((t.fpi-Math.floor(t.fpi))*12)+1}月</span>
+                    <span style={{color:"#64748b"}}>登録完了 (LPI):</span><span>{Math.floor(t.lpi)}年{Math.round((t.lpi-Math.floor(t.lpi))*12)+1}月{t.enrollment==="RECRUITING"?" （推定）":""}</span>
+                    {t.pcd&&<><span style={{color:"#64748b"}}>主要評価完了 (PCD):</span><span>{fmtYM(t.pcd)}{t.st==="run"?" （推定）":""}</span></>}
+                    {t.scd&&<><span style={{color:"#64748b"}}>試験完了 (SCD):</span><span>{fmtYM(t.scd)} （推定）</span></>}
+                    {t.readout&&<><span style={{color:"#64748b"}}>結果発表:</span><span style={{fontWeight:600}}>{Math.floor(t.readout)}年</span></>}
+                  </div>
+                </div>
+
+                {/* Regulatory milestones */}
+                {t.regulatory&&(
+                  <div style={{marginTop:4,padding:"6px 10px",background:"#fff",borderRadius:6,border:"1px solid #e2e8f0"}}>
+                    <div style={{fontSize:11,fontWeight:700,color:"#475569",marginBottom:4}}>🏛 規制当局</div>
+                    <div style={{display:"grid",gridTemplateColumns:"auto 1fr",gap:"2px 12px",fontSize:11,color:"#334155"}}>
+                      {t.regulatory.fda&&<><span style={{color:"#64748b"}}>FDA:</span><span>{[t.regulatory.fda.approval&&`承認 ${t.regulatory.fda.approval}`,t.regulatory.fda.pdufa&&`PDUFA ${t.regulatory.fda.pdufa}`,t.regulatory.fda.adcom&&`AdCom ${t.regulatory.fda.adcom}`,t.regulatory.fda.submission&&`申請 ${t.regulatory.fda.submission}`].filter(Boolean).join(" / ")||"—"}</span></>}
+                      {t.regulatory.pmda&&<><span style={{color:"#64748b"}}>PMDA:</span><span>{[t.regulatory.pmda.approval&&`承認 ${t.regulatory.pmda.approval}`,t.regulatory.pmda.submission&&`申請 ${t.regulatory.pmda.submission}`].filter(Boolean).join(" / ")||"—"}</span></>}
+                      {t.regulatory.ema&&<><span style={{color:"#64748b"}}>EMA:</span><span>{[t.regulatory.ema.approval&&`承認 ${t.regulatory.ema.approval}`,t.regulatory.ema.submission&&`申請 ${t.regulatory.ema.submission}`].filter(Boolean).join(" / ")||"—"}</span></>}
+                    </div>
+                  </div>
+                )}
+
+                {t.note&&<div style={{marginTop:4}}><strong>備考:</strong> {t.note}</div>}
+                <div style={{marginTop:6,display:"flex",gap:12,flexWrap:"wrap"}}>
                   <a href={t.nct?`https://clinicaltrials.gov/study/${t.nct}`:`https://clinicaltrials.gov/search?term=${encodeURIComponent(t.trial+" breast cancer")}`} target="_blank" rel="noopener noreferrer" style={{fontSize:11,color:"#2563eb",textDecoration:"underline"}}>{t.nct||"ClinicalTrials.gov で検索"}</a>
                   {t.resultUrl&&<a href={t.resultUrl} target="_blank" rel="noopener noreferrer" style={{fontSize:11,color:"#059669",textDecoration:"underline"}}>📄 {t.resultRef||"結果論文"}</a>}
                 </div>
@@ -501,6 +532,7 @@ function GanttChart({focusTrial,onFocusClear}){
         <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:24,height:10,border:"1.5px solid #dc2626",borderRadius:2,background:"#fee2e2",display:"inline-block"}}/>✗ Negative</span>
         <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:12,height:10,borderRight:"1px dashed #64748b",display:"inline-block"}}/>登録完了</span>
         <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{color:"#64748b",fontSize:8}}>▼</span> 結果発表</span>
+        <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{color:"#64748b",fontSize:7}}>◆</span> 結果見込み(PCD)</span>
         <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:2,height:12,background:"#dc2626",display:"inline-block"}}/>現在</span>
       </div>
     </div>
