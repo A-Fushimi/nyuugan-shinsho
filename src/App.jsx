@@ -866,7 +866,7 @@ export default function Dashboard(){
 
       {/* Tabs */}
       <div style={{display:"flex",gap:0,marginBottom:20}}>
-        {[{k:"drugs",l:["治療開発","パイプライン"]},{k:"gantt",l:["臨床試験","タイムライン"]},{k:"landscape",l:["開発初期","ランドスケープ"]},{k:"soc",l:["乳癌の標準治療","（日本）"]},{k:"changelog",l:["変更履歴",""]},{k:"about",l:["About Us",""]}].map(({k,l})=>(
+        {[{k:"drugs",l:["治療開発","パイプライン"]},{k:"gantt",l:["臨床試験","タイムライン"]},{k:"landscape",l:["開発初期","ランドスケープ"]},{k:"soc",l:["日本の","標準治療"]},{k:"changelog",l:["更新履歴",""]},{k:"about",l:["About Us",""]}].map(({k,l})=>(
           <button key={k} onClick={()=>setTab(k)} style={{fontSize:12,fontWeight:tab===k?700:400,padding:"8px 12px",background:tab===k?"#fff":"#f1f5f9",color:tab===k?"#0f172a":"#64748b",border:tab===k?"1px solid #e2e8f0":"1px solid transparent",borderBottom:tab===k?"1px solid #fff":"1px solid #e2e8f0",borderRadius:"8px 8px 0 0",cursor:"pointer",marginBottom:-1,position:"relative",zIndex:tab===k?2:1,lineHeight:1.3,textAlign:"center",flex:"1 1 0",minWidth:0}}>{l[0]}{l[1]&&<><br/>{l[1]}</>}</button>
         ))}
         <div style={{flex:1,borderBottom:"1px solid #e2e8f0"}}/>
@@ -874,7 +874,7 @@ export default function Dashboard(){
 
       {tab==="soc" && (
         <div style={{background:"#fff",borderRadius:12,padding:"20px 24px",border:"1px solid #e2e8f0"}}>
-          <h2 style={{margin:"0 0 4px",fontSize:16,fontWeight:700,color:"#0f172a"}}>乳癌の標準治療（日本）2026年3月時点</h2>
+          <h2 style={{margin:"0 0 4px",fontSize:16,fontWeight:700,color:"#0f172a"}}>日本の標準治療　2026年3月時点</h2>
           <p style={{margin:"0 0 16px",fontSize:12,color:"#64748b"}}>日本乳癌学会GL 2022 + WEB改訂 + 2024-2026年新薬承認を反映。サブタイプ×EBC/MBC別にレジメンを整理。後発品未発売の薬剤は「治療開発パイプライン」タブに詳細カードあり。</p>
           <StandardOfCare/>
         </div>
@@ -937,7 +937,7 @@ export default function Dashboard(){
           <div style={{background:"#fff",borderRadius:12,padding:"16px 20px",border:"1px solid #e2e8f0",marginTop:20}}>
             <h2 style={{margin:"0 0 8px",fontSize:15,fontWeight:700,color:"#0f172a"}}>収録基準</h2>
             <div style={{fontSize:12,color:"#334155",lineHeight:1.8}}>
-              <div style={{display:"flex",gap:8,marginBottom:4,alignItems:"baseline"}}><span style={{fontWeight:700,color:"#16a34a",minWidth:20}}>A.</span><span><strong>標準治療に使用される先発品（後発品未発売）</strong> — 「乳癌の標準治療（日本）」タブに掲載のレジメンで使用される薬剤のうち、後発品・バイオシミラーが上市されていないもの。特許/独占権情報とライフサイクルを掲載。</span></div>
+              <div style={{display:"flex",gap:8,marginBottom:4,alignItems:"baseline"}}><span style={{fontWeight:700,color:"#16a34a",minWidth:20}}>A.</span><span><strong>標準治療に使用される先発品（後発品未発売）</strong> — 「日本の標準治療」タブに掲載のレジメンで使用される薬剤のうち、後発品・バイオシミラーが上市されていないもの。特許/独占権情報とライフサイクルを掲載。</span></div>
               <div style={{display:"flex",gap:8,marginBottom:4,alignItems:"baseline"}}><span style={{fontWeight:700,color:"#2563eb",minWidth:20}}>B.</span><span><strong>承認申請中の薬剤</strong> — 3極（FDA/EMA/PMDA）のいずれかで承認申請中。FDA承認判断予定日等を記載。</span></div>
               <div style={{display:"flex",gap:8,marginBottom:4,alignItems:"baseline"}}><span style={{fontWeight:700,color:"#7c3aed",minWidth:20}}>C.</span><span><strong>Phase III以降の新薬・適応拡大</strong> — Phase III結果発表済み or 進行中の薬剤。既承認薬の新適応・新剤型を含む。</span></div>
               <div style={{display:"flex",gap:8,marginBottom:4,alignItems:"baseline"}}><span style={{fontWeight:700,color:"#ea580c",minWidth:20}}>D.</span><span><strong>Phase IIで以下の客観的条件を1つ以上満たす薬剤</strong> — ① Phase III試験がClinicalTrials.govに登録済み ② 企業がPhase III開始を公式に発表 ③ FDA BTD（Breakthrough Therapy Designation）を取得 ④ 規制当局へのPre-NDA相談/科学的助言が公表済み</span></div>
@@ -959,14 +959,14 @@ export default function Dashboard(){
 
       {tab==="changelog" && (
         <div style={{background:"#fff",borderRadius:12,padding:"20px 24px",border:"1px solid #e2e8f0"}}>
-          <h2 style={{margin:"0 0 16px",fontSize:16,fontWeight:700,color:"#0f172a"}}>変更履歴</h2>
+          <h2 style={{margin:"0 0 16px",fontSize:16,fontWeight:700,color:"#0f172a"}}>更新履歴</h2>
           {[
             {ver:"1.0",date:"2026-03-22",type:"major",items:[
               "初版公開",
               "治療開発パイプライン: 32薬剤（HR+/HER2- 15, HER2+ 8, TNBC 5, 新規開発品 4）",
               "臨床試験タイムライン: 33試験（ガントチャート+試験詳細パネル+NCT番号リンク）",
               "開発初期ランドスケープ: 25薬剤（9カテゴリ: ADC, bispecific, PROTAC, CDK2/7, IO, RDC等）",
-              "乳癌の標準治療（日本）: JBCS GL 2022 + WEB改訂 + 2024-2026新薬承認反映",
+              "日本の標準治療: JBCS GL 2022 + WEB改訂 + 2024-2026新薬承認反映",
               "ページ内リンク: 薬剤名→カード展開、試験名→タイムライン遷移",
             ]},
           ].map((log,i)=>(
