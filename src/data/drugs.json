@@ -2537,5 +2537,62 @@
       }
     ],
     "next": "2026年に複数の併用試験データ更新予定。BioNTech 7 late-stage readouts"
+  },
+  {
+    "id": 33,
+    "name": "アテゾリズマブ（テセントリク）",
+    "generic": "atezolizumab",
+    "co": "Roche/中外製薬",
+    "cls": "抗PD-L1抗体",
+    "tgt": "PD-L1",
+    "sub": [
+      "TNBC"
+    ],
+    "moa": "PD-L1に結合しT細胞の抗腫瘍免疫を活性化",
+    "pat": null,
+    "ae": {
+      "freq": "疲労(21%), 悪心(17%), 下痢(13%), 食欲減退(12%)",
+      "severe": "免疫関連副作用: 甲状腺機能障害(6%), 肝炎(2%), 肺臓炎(1.5%), 大腸炎(1%)",
+      "note": "irAE管理が重要。ペムブロリズマブと同様のモニタリング体制が必要"
+    },
+    "us": {
+      "s": "no",
+      "t": "適応取消し 2024",
+      "url": "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-oncology-update-atezolizumab"
+    },
+    "eu": {
+      "s": "ok",
+      "t": "承認済 2020/3"
+    },
+    "jp": {
+      "s": "ok",
+      "t": "承認済 2019/9 テセントリク",
+      "url": "https://www.kegg.jp/medicus-bin/japic_med?japic_code=00068280"
+    },
+    "studies": [
+      {
+        "n": "IMpassion130",
+        "ph": "III",
+        "pop": "PD-L1+ TNBC 1L MBC",
+        "arm": "atezolizumab + nab-paclitaxel",
+        "ctrl": "placebo + nab-paclitaxel",
+        "res": "ITT PFS HR 0.80。PD-L1 IC+ mPFS 7.5 vs 5.0m (HR 0.62)",
+        "st": "pos",
+        "pr": "NEJM 2018",
+        "url": "https://www.nejm.org/doi/full/10.1056/NEJMoa1809171"
+      },
+      {
+        "n": "IMpassion131",
+        "ph": "III",
+        "pop": "PD-L1+ TNBC 1L MBC",
+        "arm": "atezolizumab + paclitaxel",
+        "ctrl": "placebo + paclitaxel",
+        "res": "PFS/OS有意差なし。パクリタキセルとの併用は無効",
+        "st": "neg",
+        "pr": "Ann Oncol 2021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33485996/"
+      }
+    ],
+    "next": "FDAは2024年にTNBC適応取消し（OS未達のため）。日本では承認維持中。ペムブロリズマブ（KEYNOTE-355）が標準的IO選択肢に"
   }
 ]
