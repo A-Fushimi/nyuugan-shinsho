@@ -285,29 +285,33 @@ function GanttChart({focusTrial,onFocusClear}){
 
       {/* Rows */}
       {filtered.map((t,i)=>{
-        const barLeft=pct(t.fpi);
-        const barRight=pct(t.readout||(t.st==="run"?maxY:t.lpi));
-        const barWidth=barRight-barLeft;
+        const endPt=t.readout||(t.st==="run"?maxY:t.lpi);
         const isSelected=selectedTrial===t.trial;
+        const sc=stColors[t.st]||"#64748b";
+        const bgMap={pos:"#dcfce7",neg:"#fee2e2",run:"#dbeafe"};
+        const barBg=bgMap[t.st]||"#f1f5f9";
         return(
           <div key={i} data-trial={t.trial}>
           <div style={{display:"flex",alignItems:"center",marginBottom:isSelected?0:2,minHeight:28,cursor:"pointer",background:isSelected?"#eff6ff":"transparent",borderRadius:4}} onClick={()=>setSelectedTrial(isSelected?null:t.trial)}>
-            {/* Label: trial name main, drug name small */}
+            {/* Label */}
             <div style={{width:220,flexShrink:0,display:"flex",alignItems:"center",gap:6,paddingRight:8}}>
               <span style={{width:6,height:6,borderRadius:3,background:subColors[t.sub]||"#64748b",flexShrink:0}}/>
               <span style={{fontSize:11,fontWeight:600,color:"#0f172a",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap",maxWidth:120}}>{t.trial}</span>
               <span style={{fontSize:9,color:"#94a3b8",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{t.drug}</span>
             </div>
             {/* Gantt bar area */}
-            <div style={{flex:1,position:"relative",height:22}}>
-              {/* Enrollment bar (FPI → LPI) */}
-              <div style={{position:"absolute",left:pct(t.fpi)+"%",width:(pct(t.lpi)-pct(t.fpi))+"%",height:10,top:6,background:"#e2e8f0",borderRadius:3}}/>
-              {/* Active bar (FPI → readout) */}
-              <div title={t.note} style={{position:"absolute",left:pct(t.fpi)+"%",width:(pct(t.readout||2028)-pct(t.fpi))+"%",height:18,top:2,background:stColors[t.st]+"22",border:`1.5px solid ${stColors[t.st]}`,borderRadius:4,display:"flex",alignItems:"center",paddingLeft:4,overflow:"hidden"}}>
-                <span style={{fontSize:9,fontWeight:600,color:stColors[t.st],whiteSpace:"nowrap"}}>{t.ph} {t.st==="pos"?"✓":t.st==="neg"?"✗":"⏳"}</span>
+            <div style={{flex:1,position:"relative",height:20}}>
+              {/* Single bar: FPI → readout/end */}
+              <div title={t.note} style={{position:"absolute",left:pct(t.fpi)+"%",width:(pct(endPt)-pct(t.fpi))+"%",height:16,top:2,background:barBg,border:`1.5px solid ${sc}`,borderRadius:3,overflow:"hidden"}}>
+                {/* Enrollment phase fill (FPI → LPI) - slightly darker */}
+                <div style={{position:"absolute",left:0,top:0,bottom:0,width:((pct(t.lpi)-pct(t.fpi))/(pct(endPt)-pct(t.fpi))*100)+"%",background:sc+"18"}}/>
+                {/* LPI divider line */}
+                {t.lpi<endPt&&<div style={{position:"absolute",left:((pct(t.lpi)-pct(t.fpi))/(pct(endPt)-pct(t.fpi))*100)+"%",top:0,bottom:0,width:1,background:sc+"60"}}/>}
+                {/* Status label */}
+                <span style={{position:"relative",zIndex:1,fontSize:9,fontWeight:700,color:sc,paddingLeft:4,lineHeight:"16px",whiteSpace:"nowrap"}}>{t.st==="pos"?"✓ Positive":t.st==="neg"?"✗ Negative":"⏳ 進行中"}</span>
               </div>
-              {/* Readout marker */}
-              {t.readout&&<div style={{position:"absolute",left:pct(t.readout)+"%",top:0,width:2,height:22,background:stColors[t.st],borderRadius:1}}/>}
+              {/* Readout marker (triangle) */}
+              {t.readout&&<div style={{position:"absolute",left:pct(t.readout)+"%",top:-1,fontSize:8,color:sc,transform:"translateX(-50%)",lineHeight:1}}>▼</div>}
               {/* Now line */}
               <div style={{position:"absolute",left:pct(now)+"%",top:0,bottom:0,width:1.5,background:"#dc262640",zIndex:2}}/>
             </div>
@@ -342,16 +346,14 @@ function GanttChart({focusTrial,onFocusClear}){
       })}
 
       {/* Legend */}
-      <div style={{display:"flex",gap:16,marginTop:16,flexWrap:"wrap",fontSize:11,color:"#64748b"}}>
-        <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:16,height:8,background:"#e2e8f0",borderRadius:2,display:"inline-block"}}/>登録期間（FPI→LPI）</span>
-        <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:16,height:8,border:"1.5px solid #2563eb",borderRadius:2,background:"#2563eb22",display:"inline-block"}}/>進行中</span>
-        <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:16,height:8,border:"1.5px solid #16a34a",borderRadius:2,background:"#16a34a22",display:"inline-block"}}/>Positive</span>
-        <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:16,height:8,border:"1.5px solid #dc2626",borderRadius:2,background:"#dc262622",display:"inline-block"}}/>Negative</span>
+      <div style={{display:"flex",gap:20,marginTop:16,flexWrap:"wrap",fontSize:11,color:"#475569",alignItems:"center",padding:"8px 12px",background:"#f8fafc",borderRadius:8,border:"1px solid #e2e8f0"}}>
+        <span style={{fontWeight:600,color:"#64748b"}}>凡例:</span>
+        <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:24,height:10,border:"1.5px solid #2563eb",borderRadius:2,background:"#dbeafe",display:"inline-block"}}/>⏳ 進行中</span>
+        <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:24,height:10,border:"1.5px solid #16a34a",borderRadius:2,background:"#dcfce7",display:"inline-block"}}/>✓ Positive</span>
+        <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:24,height:10,border:"1.5px solid #dc2626",borderRadius:2,background:"#fee2e2",display:"inline-block"}}/>✗ Negative</span>
+        <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:12,height:10,borderRight:"1px dashed #64748b",display:"inline-block"}}/>登録完了</span>
+        <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{color:"#64748b",fontSize:8}}>▼</span> 結果発表</span>
         <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:2,height:12,background:"#dc2626",display:"inline-block"}}/>現在</span>
-      </div>
-
-      <div style={{marginTop:12,fontSize:11,color:"#94a3b8"}}>
-        バーにカーソルを合わせると詳細。赤線は現在（2026年3月）。灰色部分は登録期間、色付き部分は試験全体期間。右端の縦線はデータ公表時点。
       </div>
     </div>
   );
