@@ -452,8 +452,7 @@ function GanttChart({focusTrial,onFocusClear}){
 
       {/* Year axis */}
       <div style={{position:"relative",marginLeft:220,height:24,borderBottom:"1px solid #e2e8f0",marginBottom:4}}>
-        {/* Future area background */}
-        <div style={{position:"absolute",left:pct(now)+"%",top:-200,bottom:-2000,right:0,background:"#f8fafc",zIndex:0}}/>
+        {/* Future area indicator - subtle top border only */}
         {Array.from({length:maxY-minY+1},(_,i)=>minY+i).map(y=>(
           <span key={y} style={{position:"absolute",left:pct(y)+"%",transform:"translateX(-50%)",fontSize:10,color:"#94a3b8",top:4,zIndex:1}}>{y}</span>
         ))}
