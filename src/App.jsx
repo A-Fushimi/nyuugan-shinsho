@@ -967,7 +967,6 @@ export default function Dashboard(){
               "開発初期ランドスケープ: 25薬剤（9カテゴリ: ADC, bispecific, PROTAC, CDK2/7, IO, RDC等）",
               "乳癌の標準治療（日本）: JBCS GL 2022 + WEB改訂 + 2024-2026新薬承認反映",
               "ページ内リンク: 薬剤名→カード展開、試験名→タイムライン遷移",
-              "GitHub Pages + カスタムドメイン shinsho.bctube.org で公開",
             ]},
           ].map((log,i)=>(
             <div key={i} style={{marginBottom:20,paddingBottom:16,borderBottom:i<0?"":"1px solid #f1f5f9"}}>
