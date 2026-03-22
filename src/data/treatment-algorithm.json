@@ -120,16 +120,6 @@
         ],
         "pipeline": [
           {
-            "drug": "イナボリシブ",
-            "trial": "INAVO120",
-            "note": "PIK3CA変異＋NAC後non-pCR→術後治療への適応拡大検討中",
-            "phase": "Ph III ✓",
-            "color": "green",
-            "trialUrl": "https://clinicaltrials.gov/study/NCT04191499",
-            "resultUrl": "https://www.nejm.org/doi/full/10.1056/NEJMoa2404625",
-            "resultRef": "NEJM 2024"
-          },
-          {
             "drug": "カミゼストラント",
             "trial": "SERENA-6",
             "note": "CDK4/6i後の内分泌療法スイッチ（術後設定への展開可能性）",
