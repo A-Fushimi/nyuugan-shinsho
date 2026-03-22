@@ -12,9 +12,7 @@
       "アテゾリズマブ追加: TNBC転移・再発1次治療のアルゴリズム＋薬剤カード（計33薬剤）",
       "出典URL全面修正: PubMed ID 41件、ランドスケープURL 12件、PMDA URL 12件を正しい値に修正",
       "ガントチャート日付精度: 月単位精度に修正（ClinicalTrials.gov APIから正確な日付取得）",
-      "パイプラインセクションURL: 治療アルゴリズムの開発中薬剤に試験URL・結果論文リンクを追加（22件）",
-      "SEO改善: データJSON分離、metaタグ/OGP追加、Netlify移行、sitemap.xml/robots.txt追加",
-      "Netlify移行: GitHub Pages → Netlify。カスタムドメイン shinsho.bctube.org 設定"
+      "パイプラインセクションURL: 治療アルゴリズムの開発中薬剤に試験URL・結果論文リンクを追加（22件）"
     ]
   },
   {
