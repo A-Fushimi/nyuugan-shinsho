@@ -912,7 +912,7 @@ export default function Dashboard(){
           </div>
 
           <div style={{fontSize:12,color:"#64748b",marginBottom:8}}>{filtered.length} 件表示中</div>
-          {filtered.map(d=><DrugCard key={d.id+"-"+filter+"-"+clsFilter} d={d} focusDrug={focusDrug} onFocusClear={()=>setFocusDrug(null)}/>)}
+          {filtered.map(d=><DrugCard key={d.generic} d={d} focusDrug={focusDrug} onFocusClear={()=>setFocusDrug(null)}/>)}
 
           {/* 収録基準（タブ下部） */}
           <div style={{background:"#fff",borderRadius:12,padding:"16px 20px",border:"1px solid #e2e8f0",marginTop:20}}>

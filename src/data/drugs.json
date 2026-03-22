@@ -1184,7 +1184,7 @@
     "next": "KATSIS-1 readout 2027"
   },
   {
-    "id": 20,
+    "id": 16,
     "name": "T-DXd エンハーツ",
     "generic": "trastuzumab deruxtecan",
     "co": "Daiichi Sankyo/AZ",
@@ -1396,7 +1396,7 @@
     "next": "post-NAC FDA FDA承認予定 2026 Q3。DB-12脳転移試験進行中"
   },
   {
-    "id": 21,
+    "id": 17,
     "name": "T-DM1 カドサイラ",
     "generic": "trastuzumab emtansine",
     "co": "Roche",
@@ -1488,7 +1488,7 @@
     "next": "T-DXdに置換される可能性"
   },
   {
-    "id": 22,
+    "id": 18,
     "name": "ツカチニブ（ツカイザ）",
     "generic": "tucatinib",
     "co": "Seagen/Pfizer",
@@ -1556,7 +1556,7 @@
     "next": "日本薬価収載待ち。HER2CLIMB-02で2L使用も"
   },
   {
-    "id": 23,
+    "id": 19,
     "name": "フェスゴ（HP皮下注）",
     "generic": "pertuzumab+trastuzumab SC",
     "co": "Roche",
@@ -1603,7 +1603,7 @@
     "next": "利便性向上"
   },
   {
-    "id": 24,
+    "id": 20,
     "name": "マージェツキシマブ（マージェンザ）",
     "generic": "margetuximab",
     "co": "MacroGenics",
@@ -1648,7 +1648,7 @@
     "next": "CD16A FF遺伝子型での効果検証。日本開発未定"
   },
   {
-    "id": 25,
+    "id": 21,
     "name": "ネラチニブ（ナーリンクス）",
     "generic": "neratinib",
     "co": "Puma Biotechnology",
@@ -1704,7 +1704,7 @@
     "next": "日本開発未定。ツカチニブ承認でポジション限定的"
   },
   {
-    "id": 26,
+    "id": 22,
     "name": "ラパチニブ（タイケルブ）",
     "generic": "lapatinib",
     "co": "Novartis(GSK)",
@@ -1749,7 +1749,7 @@
     "next": "後発品参入済み。ツカチニブに置換されつつあるが安価なオプション"
   },
   {
-    "id": 27,
+    "id": 23,
     "name": "DB-1303",
     "generic": "BNT323/DB-1303",
     "co": "BioNTech/Daiichi Sankyo",
@@ -1794,7 +1794,7 @@
     "next": "Phase III設計検討中。BioNTech 2026年複数readout予定"
   },
   {
-    "id": 30,
+    "id": 24,
     "name": "ペムブロリズマブ（キイトルーダ）",
     "generic": "pembrolizumab",
     "co": "Merck/MSD",
@@ -1898,7 +1898,7 @@
     "next": "皮下注Qlex承認済→切替"
   },
   {
-    "id": 35,
+    "id": 25,
     "name": "キイトルーダ Qlex（皮下注）",
     "generic": "pembrolizumab+berahyaluronidase",
     "co": "Merck/MSD",
@@ -1942,7 +1942,7 @@
     "next": "EU承認判断。日本申請時期未定"
   },
   {
-    "id": 31,
+    "id": 26,
     "name": "トロデルビ（Sac-Gov）",
     "generic": "sacituzumab govitecan",
     "co": "Gilead",
@@ -2051,7 +2051,7 @@
     "next": "ASCENT-04→FDA申請見込み。1L TNBC新SoC候補"
   },
   {
-    "id": 32,
+    "id": 27,
     "name": "Dato-DXd ダトロウェイ",
     "generic": "datopotamab deruxtecan",
     "co": "Daiichi Sankyo/AZ",
@@ -2170,7 +2170,7 @@
     "next": "TNBC FDA FDA承認予定 2026 Q2。TB-04（ADC+IO）進行中"
   },
   {
-    "id": 33,
+    "id": 28,
     "name": "オラパリブ（リムパーザ）",
     "generic": "olaparib",
     "co": "AstraZeneca",
@@ -2266,7 +2266,7 @@
     "next": "2027年パテントクリフ。長期OS追跡中"
   },
   {
-    "id": 34,
+    "id": 29,
     "name": "タラゾパリブ（ターゼナ）",
     "generic": "talazoparib",
     "co": "Pfizer",
@@ -2325,7 +2325,7 @@
     "next": "エンザルタミド併用データ"
   },
   {
-    "id": 40,
+    "id": 30,
     "name": "HER3-DXd",
     "generic": "patritumab deruxtecan",
     "co": "Daiichi Sankyo/Merck",
@@ -2374,7 +2374,7 @@
     "next": "Phase III移行検討中（NSCLC先行）"
   },
   {
-    "id": 41,
+    "id": 31,
     "name": "Sac-TMT（サシツズマブ チルモテカン）",
     "generic": "sacituzumab tirumotecan",
     "co": "Merck(Kelun-Biotech)/科倫博泰",
@@ -2480,7 +2480,7 @@
     "next": "FDA承認判断（TNBC 2L+）。1L・EBC試験が多数進行中"
   },
   {
-    "id": 42,
+    "id": 32,
     "name": "BNT327/pumitamig",
     "generic": "pumitamig",
     "co": "BioNTech/BMS",
