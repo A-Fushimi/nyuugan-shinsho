@@ -6,6 +6,7 @@ import JP_OUTLOOK from "./data/jp-outlook.json";
 import LANDSCAPE from "./data/landscape.json";
 import TIMELINE from "./data/timeline.json";
 import CHANGELOG from "./data/changelog.json";
+import ALGO from "./data/treatment-algorithm.json";
 import _constants from "./data/constants.json";
 
 const { S, SC, SB, MOA_CAT_LABELS, STAGE_STYLE, stColors, subColors } = _constants;
@@ -165,6 +166,153 @@ function DrugCard({d,focusDrug,onFocusClear}){
           </div>
         </div>
       )}
+    </div>
+  );
+}
+
+// ===== 標準治療タブ全体 =====
+function SocTabContent(){
+  const [socView,setSocView]=useState("algo");
+  return(
+    <div style={{background:"#fff",borderRadius:12,padding:"20px 24px",border:"1px solid #e2e8f0"}}>
+      <h2 style={{margin:"0 0 4px",fontSize:16,fontWeight:700,color:"#0f172a"}}>日本の標準治療　2026年3月時点</h2>
+      <p style={{margin:"0 0 12px",fontSize:12,color:"#64748b"}}>日本乳癌学会GL 2022 + WEB改訂 + 2024-2026年新薬承認を反映</p>
+      <div style={{display:"flex",gap:4,background:"#f1f5f9",borderRadius:8,padding:3,width:"fit-content",marginBottom:20}}>
+        <button onClick={()=>setSocView("algo")} style={{padding:"6px 16px",borderRadius:6,border:"none",background:socView==="algo"?"#fff":"transparent",color:socView==="algo"?"#0f172a":"#64748b",cursor:"pointer",fontSize:12,fontWeight:socView==="algo"?700:400,boxShadow:socView==="algo"?"0 1px 3px rgba(0,0,0,0.1)":"none"}}>治療アルゴリズム</button>
+        <button onClick={()=>setSocView("list")} style={{padding:"6px 16px",borderRadius:6,border:"none",background:socView==="list"?"#fff":"transparent",color:socView==="list"?"#0f172a":"#64748b",cursor:"pointer",fontSize:12,fontWeight:socView==="list"?700:400,boxShadow:socView==="list"?"0 1px 3px rgba(0,0,0,0.1)":"none"}}>レジメン一覧</button>
+      </div>
+      {socView==="algo"?<TreatmentAlgorithm/>:<StandardOfCare/>}
+    </div>
+  );
+}
+
+// ===== 治療アルゴリズム =====
+const ALGO_COLORS={green:"#22c55e",amber:"#f59e0b",pink:"#ec4899",purple:"#a78bfa",cyan:"#06b6d4"};
+const ALGO_SUB_STYLE={
+  hr_her2neg:{color:ALGO_COLORS.green,bg:"rgba(34,197,94,0.1)",border:"rgba(34,197,94,0.3)"},
+  her2pos:{color:ALGO_COLORS.amber,bg:"rgba(245,158,11,0.1)",border:"rgba(245,158,11,0.3)"},
+  tnbc:{color:ALGO_COLORS.pink,bg:"rgba(236,72,153,0.1)",border:"rgba(236,72,153,0.3)"},
+  her2low:{color:ALGO_COLORS.purple,bg:"rgba(167,139,250,0.1)",border:"rgba(167,139,250,0.3)"}
+};
+const PHASE_COLOR_MAP={green:ALGO_COLORS.green,amber:ALGO_COLORS.amber,cyan:ALGO_COLORS.cyan};
+
+function AlgoStepCard({step,sc}){
+  const [open,setOpen]=useState(false);
+  const bl=step.highlight?sc:step.standard?"#cbd5e1":"#06b6d4";
+  const bg=step.highlight?`${sc}08`:"transparent";
+  return(
+    <div onClick={()=>setOpen(!open)} style={{padding:"10px 14px",borderLeft:`3px solid ${bl}`,background:bg,borderRadius:"0 6px 6px 0",cursor:"pointer",marginBottom:6}} onMouseEnter={e=>{e.currentTarget.style.background=`${sc}0a`}} onMouseLeave={e=>{e.currentTarget.style.background=bg}}>
+      <div style={{display:"flex",alignItems:"center",gap:8,flexWrap:"wrap"}}>
+        {step.standard?<span style={{color:ALGO_COLORS.green,fontSize:11,fontWeight:700}}>標準</span>:<span style={{color:ALGO_COLORS.cyan,fontSize:11,fontWeight:700}}>開発中</span>}
+        {step.optional&&<span style={{color:"#94a3b8",fontSize:10}}>（選択的）</span>}
+        {step.highlight&&<span style={{fontSize:10,color:sc}}>★</span>}
+        <span style={{fontSize:13,fontWeight:600,color:"#0f172a",lineHeight:1.4}}>{step.name}</span>
+        <span style={{color:"#94a3b8",fontSize:11,marginLeft:"auto",flexShrink:0}}>{open?"▲":"▼"}</span>
+      </div>
+      {open&&<div style={{marginTop:8,padding:"8px 10px",background:"#f1f5f9",borderRadius:4,color:"#475569",fontSize:12,lineHeight:1.6}}>{step.detail}</div>}
+    </div>
+  );
+}
+
+function TreatmentAlgorithm(){
+  const [activeSubtype,setActiveSubtype]=useState("hr_her2neg");
+  const [activeSetting,setActiveSetting]=useState("periop");
+  const st=ALGO_SUB_STYLE[activeSubtype];
+  const stInfo=ALGO.subtypes.find(s=>s.id===activeSubtype);
+  const data=ALGO.treatments[activeSubtype]?.[activeSetting];
+
+  return(
+    <div>
+      {/* Subtype selector */}
+      <div style={{marginBottom:12}}>
+        <div style={{fontSize:11,color:"#64748b",marginBottom:8,fontWeight:600}}>サブタイプ選択</div>
+        <div style={{display:"flex",gap:6,flexWrap:"wrap"}}>
+          {ALGO.subtypes.map(s=>{
+            const ss=ALGO_SUB_STYLE[s.id];
+            const active=activeSubtype===s.id;
+            return(<button key={s.id} onClick={()=>setActiveSubtype(s.id)} style={{padding:"8px 14px",borderRadius:8,border:`1.5px solid ${active?ss.color:"#e2e8f0"}`,background:active?ss.bg:"#fff",color:active?ss.color:"#64748b",cursor:"pointer",fontSize:13,fontWeight:active?700:500,display:"flex",flexDirection:"column",alignItems:"flex-start",gap:2}}>
+              <span>{s.label}</span><span style={{fontSize:10,opacity:0.7}}>{s.pct}</span>
+            </button>);
+          })}
+        </div>
+      </div>
+
+      {/* Setting selector */}
+      <div style={{marginBottom:20}}>
+        <div style={{display:"flex",gap:4,background:"#f1f5f9",borderRadius:8,padding:3,width:"fit-content"}}>
+          {ALGO.settings.map(s=>(
+            <button key={s.id} onClick={()=>setActiveSetting(s.id)} style={{padding:"7px 16px",borderRadius:6,border:"none",background:activeSetting===s.id?st.bg:"transparent",color:activeSetting===s.id?st.color:"#64748b",cursor:"pointer",fontSize:12,fontWeight:activeSetting===s.id?700:500}}>{s.label}</button>
+          ))}
+        </div>
+      </div>
+
+      {/* HER2-low note */}
+      {activeSubtype==="her2low"&&(
+        <div style={{padding:"12px 16px",background:ALGO_SUB_STYLE.her2low.bg,border:`1px solid ${ALGO_SUB_STYLE.her2low.border}`,borderRadius:8,marginBottom:16,fontSize:12,color:ALGO_COLORS.purple,lineHeight:1.6}}>
+          <strong>※ HER2低発現（HER2-low）</strong>はHR+/HER2−やTNBCに横断的に存在するカテゴリーです（全乳癌の約50-60%）。IHC 1+ または IHC 2+/ISH− で定義されます。T-DXdの有効性が示されたことで治療選択に重要な意味を持つようになりました。
+        </div>
+      )}
+
+      {data&&(
+        <div>
+          {/* Title card */}
+          <div style={{padding:16,background:st.bg,border:`1px solid ${st.border}`,borderRadius:8,marginBottom:20}}>
+            <h3 style={{fontSize:16,fontWeight:800,color:st.color,margin:"0 0 6px"}}>{data.title}</h3>
+            <p style={{fontSize:12,color:"#64748b",margin:0,lineHeight:1.6}}>{data.desc}</p>
+          </div>
+
+          {/* Flow */}
+          {data.flow.map((block,i)=>(
+            <div key={i} style={{marginBottom:20}}>
+              <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:10}}>
+                <div style={{width:28,height:28,borderRadius:"50%",background:`${st.color}20`,border:`2px solid ${st.color}60`,display:"flex",alignItems:"center",justifyContent:"center",fontSize:12,fontWeight:700,color:st.color,flexShrink:0}}>{i+1}</div>
+                <span style={{fontSize:14,fontWeight:700,color:"#0f172a"}}>{block.phase}</span>
+              </div>
+              <div style={{marginLeft:14,borderLeft:`1px dashed #e2e8f0`,paddingLeft:20}}>
+                {block.steps.map((s,j)=><AlgoStepCard key={j} step={s} sc={st.color}/>)}
+              </div>
+            </div>
+          ))}
+
+          {/* Pipeline */}
+          {data.pipeline&&data.pipeline.length>0&&(
+            <div style={{marginTop:24,padding:16,background:"rgba(6,182,212,0.06)",border:"1px solid rgba(6,182,212,0.2)",borderRadius:8}}>
+              <div style={{fontSize:13,fontWeight:700,color:ALGO_COLORS.cyan,marginBottom:12,display:"flex",alignItems:"center",gap:6}}>
+                <span style={{fontSize:14}}>🔬</span>ここに新薬が入る可能性（開発中パイプライン）
+              </div>
+              <div style={{display:"flex",flexDirection:"column",gap:8}}>
+                {data.pipeline.map((d,i)=>{
+                  const pc=PHASE_COLOR_MAP[d.color]||"#94a3b8";
+                  return(
+                    <div key={i} style={{display:"flex",alignItems:"flex-start",gap:10,padding:"8px 10px",background:"#f8fafc",borderRadius:6,flexWrap:"wrap"}}>
+                      <div style={{display:"flex",alignItems:"center",gap:6,flexShrink:0}}>
+                        <span style={{display:"inline-block",padding:"2px 8px",borderRadius:4,fontSize:11,fontWeight:600,color:pc,background:`${pc}18`,border:`1px solid ${pc}40`}}>{d.phase}</span>
+                        <span style={{fontSize:13,fontWeight:700,color:"#0f172a"}}>{d.drug}</span>
+                      </div>
+                      <span style={{fontSize:11,color:"#94a3b8",fontFamily:"monospace"}}>{d.trial}</span>
+                      <span style={{fontSize:11,color:"#64748b",lineHeight:1.5}}>{d.note}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {/* Legend */}
+          <div style={{marginTop:20,padding:"10px 16px",background:"#f8fafc",borderRadius:8,border:"1px solid #e2e8f0",display:"flex",flexWrap:"wrap",gap:16,fontSize:11,color:"#64748b"}}>
+            <span><span style={{color:ALGO_COLORS.green}}>■ 標準</span> = GL推奨</span>
+            <span><span style={{color:ALGO_COLORS.cyan}}>■ 開発中</span> = 未承認（日本）</span>
+            <span><span style={{color:st.color}}>★</span> = 近年の重要な変化</span>
+            <span>▼ クリックで詳細</span>
+          </div>
+        </div>
+      )}
+
+      {/* Footer */}
+      <div style={{marginTop:24,paddingTop:12,borderTop:"1px solid #e2e8f0",fontSize:10,color:"#94a3b8",lineHeight:1.7}}>
+        <p style={{margin:"0 0 4px"}}>出典: 乳癌診療ガイドライン2022年版（2024年3月Web改訂）、NCCN Guidelines Breast Cancer v1.2026、各薬剤添付文書、ASCO/ESMO/SABCS 2025-2026</p>
+        <p style={{margin:0}}>本アルゴリズムは教育・情報提供目的です。治療方針決定には必ず担当医にご相談ください。</p>
+      </div>
     </div>
   );
 }
@@ -513,11 +661,7 @@ export default function Dashboard(){
       </div>
 
       {tab==="soc" && (
-        <div style={{background:"#fff",borderRadius:12,padding:"20px 24px",border:"1px solid #e2e8f0"}}>
-          <h2 style={{margin:"0 0 4px",fontSize:16,fontWeight:700,color:"#0f172a"}}>日本の標準治療　2026年3月時点</h2>
-          <p style={{margin:"0 0 16px",fontSize:12,color:"#64748b"}}>日本乳癌学会GL 2022 + WEB改訂 + 2024-2026年新薬承認を反映。サブタイプ×EBC/MBC別にレジメンを整理。後発品未発売の薬剤は「治療開発パイプライン」タブに詳細カードあり。</p>
-          <StandardOfCare/>
-        </div>
+        <SocTabContent/>
       )}
 
       {tab==="drugs" && (
