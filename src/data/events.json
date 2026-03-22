@@ -1,0 +1,73 @@
+[
+  {
+    "q": "2026 Q1",
+    "done": true,
+    "items": [
+      {
+        "text": "Giredestrant persevERA結果発表（3/9）",
+        "generic": "giredestrant",
+        "result": "主要EP未達（1L MBC PFS有意差なし）。evERA/lidERAの適応で申請継続"
+      },
+      {
+        "text": "Atirmociclib FOURLIGHT-1結果発表（3/17）",
+        "generic": "atirmociclib",
+        "result": "PFS HR 0.60 (p=0.0007)。CDK4/6i後2LでPFS有意改善。Phase III FOURLIGHT-3へ"
+      }
+    ]
+  },
+  {
+    "q": "2026 Q2",
+    "done": false,
+    "items": [
+      {
+        "text": "Camizestrant FDA諮問委員会（4/30）",
+        "generic": "camizestrant"
+      },
+      {
+        "text": "Vepdegestrant FDA承認判断（6/5）",
+        "generic": "vepdegestrant"
+      },
+      {
+        "text": "Dato-DXd TNBC FDA承認判断（Q2）",
+        "generic": "datopotamab deruxtecan"
+      },
+      {
+        "text": "ASCO 2026（5/29-6/2）"
+      }
+    ]
+  },
+  {
+    "q": "2026 Q3",
+    "done": false,
+    "items": [
+      {
+        "text": "T-DXd post-NAC FDA承認判断（Q3）",
+        "generic": "trastuzumab deruxtecan"
+      },
+      {
+        "text": "Camizestrant SERENA-4 結果発表（H2）",
+        "generic": "camizestrant"
+      }
+    ]
+  },
+  {
+    "q": "2026 Q4",
+    "done": false,
+    "items": [
+      {
+        "text": "ESMO 2026（10/23-27）"
+      },
+      {
+        "text": "Giredestrant evERA FDA承認判断（12/18）",
+        "generic": "giredestrant"
+      },
+      {
+        "text": "SABCS 2026（12/8-12）"
+      },
+      {
+        "text": "イナボリシブ日本申請見込み",
+        "generic": "inavolisib"
+      }
+    ]
+  }
+]
