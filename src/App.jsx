@@ -12,7 +12,7 @@ import GLOSSARY from "./data/glossary.json";
 
 const { S, SC, SB, MOA_CAT_LABELS, STAGE_STYLE, stColors, subColors } = _constants;
 const NavContext = createContext(null);
-const UPDATED = "2026年3月22日";
+const UPDATED = "2026年3月23日";
 
 function Chip({text,color,bg}){return <span style={{fontSize:11,fontWeight:600,color,background:bg,padding:"2px 8px",borderRadius:999,whiteSpace:"nowrap",display:"inline-block"}}>{text}</span>}
 function StatusChip({s}){return <Chip text={S[s]||s} color={s==="ok"?"#15803d":s==="rev"?"#1d4ed8":s==="no"?"#94a3b8":"#374151"} bg={SB[s]||"#f1f5f9"}/>}
