@@ -781,13 +781,39 @@ function LandscapeTab(){
 export default function Dashboard(){
   const [tab,setTab]=useState("drugs");
   const [filter,setFilter]=useState("ALL");
+  const [clsFilter,setClsFilter]=useState("ALL");
   const [search,setSearch]=useState("");
   const [focusDrug,setFocusDrug]=useState(null);
   const [focusTrial,setFocusTrial]=useState(null);
   const subs=["ALL","HR+/HER2-","HER2+","TNBC","HER2-low"];
+  const CLS_GROUPS={
+    "ALL":"すべて",
+    "CDK":"CDK阻害薬",
+    "SERD":"SERD/PROTAC",
+    "ADC":"ADC",
+    "PI3K":"PI3K/AKT/mTOR",
+    "TKI":"TKI",
+    "IO":"免疫CPI",
+    "PARP":"PARP阻害薬",
+    "Ab":"抗体",
+    "Other":"その他"
+  };
+  const clsMatch=(cls,g)=>{
+    if(g==="ALL")return true;
+    if(g==="CDK")return /CDK/.test(cls);
+    if(g==="SERD")return /SERD|PROTAC/.test(cls);
+    if(g==="ADC")return /ADC/.test(cls);
+    if(g==="PI3K")return /PI3K|AKT|mTOR/.test(cls);
+    if(g==="TKI")return /TKI|pan-HER/.test(cls);
+    if(g==="IO")return /CPI|PD-1|PD-L1/.test(cls);
+    if(g==="PARP")return /PARP/.test(cls);
+    if(g==="Ab")return /抗体|Bispecific/.test(cls)&&!/ADC/.test(cls);
+    return !(/CDK|SERD|PROTAC|ADC|PI3K|AKT|mTOR|TKI|pan-HER|CPI|PD-1|PD-L1|PARP|抗体|Bispecific/.test(cls));
+  };
   const filtered=useMemo(()=>{
     let list=DRUGS;
     if(filter!=="ALL")list=list.filter(d=>d.sub.includes(filter));
+    if(clsFilter!=="ALL")list=list.filter(d=>clsMatch(d.cls,clsFilter));
     if(search.trim())list=list.filter(d=>(d.name+d.generic+d.co+d.cls).toLowerCase().includes(search.toLowerCase()));
     return list;
   },[filter,search]);
@@ -871,11 +897,18 @@ export default function Dashboard(){
               ))}
             </div>
             <div style={{marginLeft:"auto",display:"flex",gap:6,flexWrap:"wrap",alignItems:"center"}}>
+              <span style={{fontSize:10,color:"#64748b",fontWeight:600}}>サブタイプ:</span>
               {subs.map(s=>(
                 <button key={s} onClick={()=>setFilter(s)} style={{fontSize:11,fontWeight:filter===s?700:400,padding:"4px 12px",borderRadius:999,border:filter===s?"2px solid #7c3aed":"1px solid #e2e8f0",background:filter===s?"#ede9fe":"#fff",color:filter===s?"#7c3aed":"#475569",cursor:"pointer"}}>{s}</button>
               ))}
-              <input placeholder="検索..." value={search} onChange={e=>setSearch(e.target.value)} style={{fontSize:12,padding:"5px 12px",borderRadius:8,border:"1px solid #e2e8f0",outline:"none",width:140}}/>
             </div>
+          </div>
+          <div style={{background:"#fff",borderRadius:12,padding:"8px 20px",border:"1px solid #e2e8f0",marginBottom:16,display:"flex",gap:6,alignItems:"center",flexWrap:"wrap"}}>
+            <span style={{fontSize:10,color:"#64748b",fontWeight:600}}>薬剤クラス:</span>
+            {Object.entries(CLS_GROUPS).map(([k,v])=>(
+              <button key={k} onClick={()=>setClsFilter(k)} style={{fontSize:11,fontWeight:clsFilter===k?700:400,padding:"4px 10px",borderRadius:999,border:clsFilter===k?"2px solid #0369a1":"1px solid #e2e8f0",background:clsFilter===k?"#e0f2fe":"#fff",color:clsFilter===k?"#0369a1":"#475569",cursor:"pointer"}}>{v}</button>
+            ))}
+            <input placeholder="検索..." value={search} onChange={e=>setSearch(e.target.value)} style={{fontSize:12,padding:"5px 12px",borderRadius:8,border:"1px solid #e2e8f0",outline:"none",width:140,marginLeft:"auto"}}/>
           </div>
 
           <div style={{fontSize:12,color:"#64748b",marginBottom:8}}>{filtered.length} 件表示中</div>
