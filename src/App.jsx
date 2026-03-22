@@ -103,7 +103,7 @@ const DRUGS = [
   {id:9,name:"アルペリシブ（ピキレイ）",generic:"alpelisib",co:"Novartis",cls:"PI3Kα阻害薬",tgt:"PI3Kα",sub:["HR+/HER2-"],
    moa:"PIK3CA変異腫瘍のPI3Kαを選択的に阻害",pat:"🇺🇸 2030年頃",
    ae:{freq:"高血糖(65%), 下痢(58%), 悪心(45%), 発疹(36%)",severe:"G3/4高血糖(37%), G3発疹(10%)",note:"高血糖管理が最大の課題→HbA1c・FBS定期モニタリング必須。DM既往は要注意"},
-   us:{s:"ok",t:"承認済 2019/5 Piqray",url:"https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=212526"},eu:{s:"ok",t:"承認済 2020/7",url:"https://www.ema.europa.eu/en/medicines/human/EPAR/piqray"},jp:{s:"ok",t:"承認済 2022/3 ピキレイ"},
+   us:{s:"ok",t:"承認済 2019/5 Piqray",url:"https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=212526"},eu:{s:"ok",t:"承認済 2020/7",url:"https://www.ema.europa.eu/en/medicines/human/EPAR/piqray"},jp:{s:"no",t:"日本未承認"},
    studies:[{n:"BYL719前臨床",ph:"Pre",pop:"PIK3CA変異乳がんモデル",arm:"BYL719",ctrl:"非変異モデル",res:"PIK3CA変異選択的活性。ET併用で相乗効果",st:"pos",pr:"Mol Cancer Ther 2014",url:"https://pubmed.ncbi.nlm.nih.gov/24634412/"},{n:"SOLAR-1",ph:"III",pop:"HR+/HER2- PIK3CAm MBC",arm:"alpelisib + fulvestrant",ctrl:"placebo + fulvestrant",res:"mPFS 11.0 vs 5.7m (HR 0.65)",st:"pos",pr:"NEJM 2019",url:"https://www.nejm.org/doi/full/10.1056/NEJMoa1813904"}],next:"inavolisibとの棲み分け"},
   {id:10,name:"イナボリシブ（イトベビ）",generic:"inavolisib",co:"Roche",cls:"PI3Kα阻害薬",tgt:"PI3Kα",sub:["HR+/HER2-"],
    moa:"PIK3CA変異選択的PI3Kα阻害（変異選択性高くalpelisibより高血糖軽減）",pat:"🇺🇸 2035年頃（新薬）",
