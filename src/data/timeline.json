@@ -17,8 +17,8 @@
     "readout": 2025.5,
     "nct": "NCT04964934",
     "note": "ASCO 2025 LBA。FDA諮問委員会 4/30/2026",
-    "resultUrl": "https://pubmed.ncbi.nlm.nih.gov/40372883/",
-    "resultRef": "ASCO 2025 LBA"
+    "resultUrl": "https://www.nejm.org/doi/full/10.1056/NEJMoa2502929",
+    "resultRef": "NEJM 2025"
   },
   {
     "drug": "camizestrant",
@@ -55,8 +55,8 @@
     "readout": 2025.8,
     "nct": "NCT05306340",
     "note": "ESMO 2025。FDA承認予定 12/18/2026",
-    "resultUrl": "https://pubmed.ncbi.nlm.nih.gov/40354418/",
-    "resultRef": "ESMO Breast 2025"
+    "resultUrl": "https://www.annalsofoncology.org/article/S0923-7534(25)04796-9/fulltext",
+    "resultRef": "Ann Oncol 2025 (ESMO LBA16)"
   },
   {
     "drug": "giredestrant",
@@ -76,8 +76,8 @@
     "readout": 2025.9,
     "nct": "NCT04961996",
     "note": "SABCS 2025。iDFS HR 0.70",
-    "resultUrl": "https://pubmed.ncbi.nlm.nih.gov/39660523/",
-    "resultRef": "SABCS 2025"
+    "resultUrl": "https://www.sabcsmeetingnews.org/first-general-session-features-potentially-practice-changing-findings-including-data-from-lidera-and-her2climb-05-trials/",
+    "resultRef": "SABCS 2025 GS1-10"
   },
   {
     "drug": "giredestrant",
@@ -97,8 +97,8 @@
     "readout": 2026.2,
     "nct": "NCT04546009",
     "note": "2026/3/9 主要EP未達",
-    "resultUrl": "https://www.roche.com/media/releases/med-cor-2026-03-09",
-    "resultRef": "Roche 2026/3/9"
+    "resultUrl": "https://www.gene.com/media/press-releases/15106/2026-03-08/genentech-provides-update-on-phase-iii-p",
+    "resultRef": "Genentech 2026/3/8"
   },
   {
     "drug": "giredestrant",
@@ -135,8 +135,8 @@
     "readout": 2025.5,
     "nct": "NCT05654623",
     "note": "ASCO 2025 LBA。FDA承認予定 6/5/2026",
-    "resultUrl": "https://pubmed.ncbi.nlm.nih.gov/40372884/",
-    "resultRef": "ASCO 2025 LBA"
+    "resultUrl": "https://www.nejm.org/doi/full/10.1056/NEJMoa2505725",
+    "resultRef": "NEJM 2025"
   },
   {
     "drug": "imlunestrant",
@@ -270,8 +270,8 @@
     "readout": 2024.9,
     "nct": "NCT05501886",
     "note": "SABCS 2024。FDA申請済",
-    "resultUrl": "https://pubmed.ncbi.nlm.nih.gov/39793671/",
-    "resultRef": "SABCS 2024"
+    "resultUrl": "https://ascopubs.org/doi/10.1200/JCO-25-02643",
+    "resultRef": "JCO 2026"
   },
   {
     "drug": "capivasertib",
@@ -308,8 +308,8 @@
     "readout": 2025.8,
     "nct": "NCT04784715",
     "note": "ESMO 2025。FDA承認済12/2025",
-    "resultUrl": "https://pubmed.ncbi.nlm.nih.gov/40354417/",
-    "resultRef": "ESMO Breast 2025"
+    "resultUrl": "https://www.nejm.org/doi/abs/10.1056/NEJMoa2508668",
+    "resultRef": "NEJM 2026"
   },
   {
     "drug": "T-DXd",
@@ -329,8 +329,8 @@
     "readout": 2025.8,
     "nct": "NCT04622319",
     "note": "ESMO 2025。FDA承認予定 2026 Q3",
-    "resultUrl": "https://pubmed.ncbi.nlm.nih.gov/40354416/",
-    "resultRef": "ESMO 2025"
+    "resultUrl": "https://www.nejm.org/doi/full/10.1056/NEJMoa2514661",
+    "resultRef": "NEJM 2026"
   },
   {
     "drug": "T-DXd",
@@ -405,8 +405,8 @@
     "readout": 2024.5,
     "nct": "NCT03975647",
     "note": "ASCO 2024。TUC+T-DM1",
-    "resultUrl": "https://pubmed.ncbi.nlm.nih.gov/38815052/",
-    "resultRef": "ASCO 2024"
+    "resultUrl": "https://www.annalsofoncology.org/article/S0923-7534(25)06263-5/fulltext",
+    "resultRef": "Ann Oncol 2026"
   },
   {
     "drug": "Dato-DXd",
@@ -426,8 +426,8 @@
     "readout": 2025.8,
     "nct": "NCT05374512",
     "note": "ESMO 2025。FDA承認予定 2026 Q2",
-    "resultUrl": "https://pubmed.ncbi.nlm.nih.gov/40354419/",
-    "resultRef": "ESMO 2025"
+    "resultUrl": "https://www.annalsofoncology.org/article/S0923-7534(25)04801-X/fulltext",
+    "resultRef": "Ann Oncol 2025 (ESMO LBA21)"
   },
   {
     "drug": "Dato-DXd",
@@ -464,7 +464,7 @@
     "readout": 2025.5,
     "nct": "NCT05382286",
     "note": "NEJM 2026。SG+pembro",
-    "resultUrl": "https://pubmed.ncbi.nlm.nih.gov/40257710/",
+    "resultUrl": "https://www.nejm.org/doi/full/10.1056/NEJMoa2508959",
     "resultRef": "NEJM 2026"
   },
   {
@@ -485,8 +485,8 @@
     "readout": 2025.5,
     "nct": "NCT05382299",
     "note": "SG mono vs chemo",
-    "resultUrl": "https://pubmed.ncbi.nlm.nih.gov/40257711/",
-    "resultRef": "SABCS 2025"
+    "resultUrl": "https://www.nejm.org/doi/full/10.1056/NEJMoa2511734",
+    "resultRef": "NEJM 2025"
   },
   {
     "drug": "Sac-TMT",
@@ -527,8 +527,8 @@
     "readout": 2025.8,
     "nct": "NCT06081959",
     "note": "ESMO 2025。HR 0.35",
-    "resultUrl": "https://pubmed.ncbi.nlm.nih.gov/40354420/",
-    "resultRef": "ESMO 2025"
+    "resultUrl": "https://www.annalsofoncology.org/article/S0923-7534(25)04803-3/fulltext",
+    "resultRef": "Ann Oncol 2025 (ESMO LBA23)"
   },
   {
     "drug": "Sac-TMT",
