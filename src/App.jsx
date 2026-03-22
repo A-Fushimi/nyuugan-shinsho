@@ -313,7 +313,10 @@ function GanttChart({focusTrial,onFocusClear}){
                 {t.ep2&&<div><strong>副次評価項目:</strong> {t.ep2}{t.res2&&<span style={{color:"#475569",marginLeft:8}}>→ {t.res2}</span>}</div>}
                 <div><strong>登録期間:</strong> {Math.floor(t.fpi)}年 → {Math.floor(t.lpi)}年{t.readout&&`　結果発表: ${Math.floor(t.readout)}年`}</div>
                 {t.note&&<div><strong>備考:</strong> {t.note}</div>}
-                <div style={{marginTop:4}}><a href={t.nct?`https://clinicaltrials.gov/study/${t.nct}`:`https://clinicaltrials.gov/search?term=${encodeURIComponent(t.trial+" breast cancer")}`} target="_blank" rel="noopener noreferrer" style={{fontSize:11,color:"#2563eb",textDecoration:"underline"}}>{t.nct||"ClinicalTrials.gov で検索"}</a></div>
+                <div style={{marginTop:4,display:"flex",gap:12,flexWrap:"wrap"}}>
+                  <a href={t.nct?`https://clinicaltrials.gov/study/${t.nct}`:`https://clinicaltrials.gov/search?term=${encodeURIComponent(t.trial+" breast cancer")}`} target="_blank" rel="noopener noreferrer" style={{fontSize:11,color:"#2563eb",textDecoration:"underline"}}>{t.nct||"ClinicalTrials.gov で検索"}</a>
+                  {t.resultUrl&&<a href={t.resultUrl} target="_blank" rel="noopener noreferrer" style={{fontSize:11,color:"#059669",textDecoration:"underline"}}>📄 {t.resultRef||"結果論文"}</a>}
+                </div>
               </div>
             </div>
           )}
