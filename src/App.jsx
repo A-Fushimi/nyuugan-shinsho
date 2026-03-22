@@ -425,14 +425,29 @@ function GanttChart({focusTrial,onFocusClear}){
       </div>
 
       {/* Legend */}
-      <div style={{display:"flex",gap:16,flexWrap:"wrap",marginBottom:12,fontSize:10,color:"#64748b",alignItems:"center"}}>
-        <span>■ <span style={{color:"#16a34a"}}>Positive</span></span>
-        <span>■ <span style={{color:"#2563eb"}}>進行中</span></span>
-        <span>■ <span style={{color:"#dc2626"}}>Negative</span></span>
-        <span style={{borderLeft:"1px solid #cbd5e1",paddingLeft:12}}>濃色=Active　薄色=Follow-up</span>
-        <span>▼ 結果発表</span>
-        <span>◆ 結果見込み(PCD)</span>
-        <span style={{color:"#9ca3af"}}>━ 登録期間</span>
+      <div style={{padding:"8px 12px",background:"#f8fafc",borderRadius:8,border:"1px solid #e2e8f0",marginBottom:14}}>
+        <div style={{display:"flex",gap:20,flexWrap:"wrap",fontSize:11,color:"#475569",alignItems:"center"}}>
+          <span style={{fontWeight:600,color:"#334155",fontSize:11}}>ステータス:</span>
+          <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{display:"inline-block",width:8,height:8,borderRadius:4,background:"#16a34a"}}/>Positive</span>
+          <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{display:"inline-block",width:8,height:8,borderRadius:4,background:"#2563eb"}}/>進行中</span>
+          <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{display:"inline-block",width:8,height:8,borderRadius:4,background:"#dc2626"}}/>Negative</span>
+          <span style={{borderLeft:"1px solid #cbd5e1",paddingLeft:16,fontWeight:600,color:"#334155"}}>バー:</span>
+          <span style={{display:"flex",alignItems:"center",gap:4}}>
+            <span style={{display:"inline-block",width:24,height:10,borderRadius:2,background:"linear-gradient(to right, #2563eb30 0%, #2563eb30 60%, #dbeafe 60%, #dbeafe 100%)",border:"1px solid #2563eb40"}}/>
+            <span>濃色=Active / 薄色=Follow-up</span>
+          </span>
+          <span style={{display:"flex",alignItems:"center",gap:4}}>
+            <span style={{display:"inline-block",width:16,height:3,borderRadius:1,background:"#9ca3af",opacity:0.6}}/>
+            登録期間
+          </span>
+        </div>
+        <div style={{display:"flex",gap:20,flexWrap:"wrap",fontSize:11,color:"#475569",alignItems:"center",marginTop:4}}>
+          <span style={{fontWeight:600,color:"#334155"}}>マーカー:</span>
+          <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{color:"#16a34a",fontWeight:700,fontSize:11}}>▼</span> 結果発表</span>
+          <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{color:"#2563eb",fontWeight:700,fontSize:10}}>◆</span> 結果見込み（PCD: 主要評価項目完了予定日）</span>
+          <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{display:"inline-block",width:2,height:10,background:"#dc2626"}}/>現在</span>
+          <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{display:"inline-block",width:16,height:10,borderRadius:2,background:"#f8fafc",border:"1px solid #e2e8f0"}}/>未来（推定）</span>
+        </div>
       </div>
 
       {/* Year axis */}
