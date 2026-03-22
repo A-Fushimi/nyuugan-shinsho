@@ -993,7 +993,8 @@ export default function Dashboard(){
             <p style={{margin:"0 0 12px"}}>このサイトは、<strong>一般社団法人BC TUBE</strong>が運営しています。</p>
             <p style={{margin:"0 0 12px"}}>BC TUBEは、乳がんに関する正確でわかりやすい情報を、より多くの方に届けることを目的に活動している非営利団体です。</p>
             <p style={{margin:"0 0 12px"}}>本サイトの内容は、複数の乳腺科医が制作・監修し、科学的根拠に基づいた情報発信を行っています。</p>
-            <p style={{margin:"0 0 20px",fontSize:12,color:"#64748b"}}>※本サイトの一部コンテンツはAIを活用して作成されていますが、医療的内容については複数の医療従事者が確認し、正確性の担保に努めています。</p>
+            <p style={{margin:"0 0 12px",fontSize:12,color:"#64748b"}}>※本サイトの一部コンテンツはAIを活用して作成されていますが、医療的内容については複数の医療従事者が確認し、正確性の担保に努めています。</p>
+            <p style={{margin:"0 0 20px",fontSize:13}}>内容に誤りを見つけた場合は、<a href="https://forms.gle/PLACEHOLDER" target="_blank" rel="noopener noreferrer" style={{color:"#2563eb",textDecoration:"underline",fontWeight:600}}>こちらのフォーム</a>からご連絡ください。</p>
             <div style={{display:"flex",gap:16,flexWrap:"wrap"}}>
               <div style={{flex:"1 1 300px",background:"#f8fafc",borderRadius:10,padding:"16px 20px",border:"1px solid #e2e8f0"}}>
                 <div style={{fontSize:12,fontWeight:700,color:"#64748b",marginBottom:6}}>運営団体</div>
