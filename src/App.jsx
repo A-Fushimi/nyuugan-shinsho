@@ -212,20 +212,31 @@ function StandardOfCare(){
 // ClinicalTrials.gov API + 学会発表 + 企業パイプラインから収集
 // scripts/landscape_collector.py で自動更新可能
 
+// MOA category mapping for timeline filter
+const DRUG_MOA={
+  camizestrant:"SERD",giredestrant:"SERD",imlunestrant:"SERD",vepdegestrant:"SERD",
+  atirmociclib:"CDK4/6i",prifetrastat:"KAT6i",
+  inavolisib:"PI3K/AKT",gedatolisib:"PI3K/AKT",capivasertib:"PI3K/AKT",
+  "T-DXd":"ADC","Dato-DXd":"ADC","Sac-Gov":"ADC","Sac-TMT":"ADC",
+  tucatinib:"TKI",pumitamig:"BsAb/IO"
+};
 function GanttChart({focusTrial,onFocusClear}){
   const [subFilter,setSubFilter]=useState("ALL");
   const [statusFilter,setStatusFilter]=useState("ALL");
+  const [moaFilter,setMoaFilter]=useState("ALL");
   const [selectedTrial,setSelectedTrial]=useState(null);
   const subs=["ALL","HR+/HER2-","HER2+","TNBC","HER2-low"];
   const sts=["ALL","run","pos","neg"];
   const stLabels={ALL:"すべて",run:"進行中",pos:"Positive",neg:"Negative"};
+  const moas=["ALL","SERD","CDK4/6i","ADC","PI3K/AKT","TKI","KAT6i","BsAb/IO"];
 
   const filtered=useMemo(()=>{
     let list=TIMELINE;
     if(subFilter!=="ALL")list=list.filter(t=>t.sub===subFilter);
     if(statusFilter!=="ALL")list=list.filter(t=>t.st===statusFilter);
+    if(moaFilter!=="ALL")list=list.filter(t=>(DRUG_MOA[t.drug]||"")=== moaFilter);
     return list.sort((a,b)=>a.readout-b.readout);
-  },[subFilter,statusFilter]);
+  },[subFilter,statusFilter,moaFilter]);
 
   // focusTrial from external navigation
   useEffect(()=>{
@@ -255,6 +266,12 @@ function GanttChart({focusTrial,onFocusClear}){
         <span style={{fontSize:12,color:"#64748b",fontWeight:600,marginLeft:16}}>ステータス:</span>
         {sts.map(s=>(
           <button key={s} onClick={()=>setStatusFilter(s)} style={{fontSize:11,padding:"3px 10px",borderRadius:999,border:statusFilter===s?"2px solid #334155":"1px solid #e2e8f0",background:statusFilter===s?"#f1f5f9":"#fff",color:statusFilter===s?"#0f172a":"#475569",cursor:"pointer",fontWeight:statusFilter===s?700:400}}>{stLabels[s]}</button>
+        ))}
+      </div>
+      <div style={{display:"flex",gap:8,flexWrap:"wrap",marginBottom:16,alignItems:"center"}}>
+        <span style={{fontSize:12,color:"#64748b",fontWeight:600}}>MOA:</span>
+        {moas.map(m=>(
+          <button key={m} onClick={()=>setMoaFilter(m)} style={{fontSize:11,padding:"3px 10px",borderRadius:999,border:moaFilter===m?"2px solid #0369a1":"1px solid #e2e8f0",background:moaFilter===m?"#e0f2fe":"#fff",color:moaFilter===m?"#0369a1":"#475569",cursor:"pointer",fontWeight:moaFilter===m?700:400}}>{m==="ALL"?"すべて":m}</button>
         ))}
       </div>
 
