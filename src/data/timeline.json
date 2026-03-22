@@ -467,7 +467,7 @@
     "scd": "2029-08",
     "enrollment": "RECRUITING",
     "enrollmentTarget": 895,
-    "primaryEndpoint": "Phase Ib: 1. The number of participants ",
+    "primaryEndpoint": "PFS",
     "regulatory": null
   },
   {
@@ -616,7 +616,7 @@
     "scd": "2032-06",
     "enrollment": "ACTIVE_NOT_RECRUITING",
     "enrollmentTarget": 864,
-    "primaryEndpoint": "PFS",
+    "primaryEndpoint": "pCR",
     "regulatory": {
       "fda": {
         "submission": "2026-02",
@@ -654,7 +654,7 @@
     "scd": "2026-05",
     "enrollment": "ACTIVE_NOT_RECRUITING",
     "enrollmentTarget": 506,
-    "primaryEndpoint": "ORR",
+    "primaryEndpoint": "CNS-ORR",
     "regulatory": null
   },
   {
@@ -1148,7 +1148,7 @@
     "scd": "2029-05",
     "enrollment": "ACTIVE_NOT_RECRUITING",
     "enrollmentTarget": 5637,
-    "primaryEndpoint": "iDFS",
+    "primaryEndpoint": "OS",
     "regulatory": {
       "fda": {
         "submission": null,

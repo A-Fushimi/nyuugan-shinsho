@@ -424,12 +424,26 @@ function GanttChart({focusTrial,onFocusClear}){
         ))}
       </div>
 
+      {/* Legend */}
+      <div style={{display:"flex",gap:16,flexWrap:"wrap",marginBottom:12,fontSize:10,color:"#64748b",alignItems:"center"}}>
+        <span>■ <span style={{color:"#16a34a"}}>Positive</span></span>
+        <span>■ <span style={{color:"#2563eb"}}>進行中</span></span>
+        <span>■ <span style={{color:"#dc2626"}}>Negative</span></span>
+        <span style={{borderLeft:"1px solid #cbd5e1",paddingLeft:12}}>濃色=Active　薄色=Follow-up</span>
+        <span>▼ 結果発表</span>
+        <span>◆ 結果見込み(PCD)</span>
+        <span style={{color:"#9ca3af"}}>━ 登録期間</span>
+      </div>
+
       {/* Year axis */}
       <div style={{position:"relative",marginLeft:220,height:24,borderBottom:"1px solid #e2e8f0",marginBottom:4}}>
+        {/* Future area background */}
+        <div style={{position:"absolute",left:pct(now)+"%",top:-200,bottom:-2000,right:0,background:"#f8fafc",zIndex:0}}/>
         {Array.from({length:maxY-minY+1},(_,i)=>minY+i).map(y=>(
-          <span key={y} style={{position:"absolute",left:pct(y)+"%",transform:"translateX(-50%)",fontSize:10,color:"#94a3b8",top:4}}>{y}</span>
+          <span key={y} style={{position:"absolute",left:pct(y)+"%",transform:"translateX(-50%)",fontSize:10,color:"#94a3b8",top:4,zIndex:1}}>{y}</span>
         ))}
         <div style={{position:"absolute",left:pct(now)+"%",top:0,bottom:-4,width:2,background:"#dc2626",zIndex:5}}/>
+        <span style={{position:"absolute",left:pct(now)+"%",top:-10,transform:"translateX(-50%)",fontSize:8,color:"#dc2626",fontWeight:700,zIndex:6}}>現在</span>
       </div>
 
       {/* Rows */}
@@ -453,20 +467,34 @@ function GanttChart({focusTrial,onFocusClear}){
               <span style={{fontSize:9,color:"#94a3b8",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{t.drug}</span>
             </div>
             {/* Gantt bar area */}
-            <div style={{flex:1,position:"relative",height:20}}>
-              {/* Single bar: FPI → endPt */}
-              <div title={t.note} style={{position:"absolute",left:pct(t.fpi)+"%",width:(pct(endPt)-pct(t.fpi))+"%",height:16,top:2,background:barBg,border:`1.5px solid ${sc}`,borderRadius:3,overflow:"hidden"}}>
-                {/* Enrollment phase fill (FPI → LPI) */}
-                <div style={{position:"absolute",left:0,top:0,bottom:0,width:((pct(t.lpi)-pct(t.fpi))/(pct(endPt)-pct(t.fpi))*100)+"%",background:sc+"18"}}/>
-                {/* LPI divider */}
-                {t.lpi<endPt&&<div style={{position:"absolute",left:((pct(t.lpi)-pct(t.fpi))/(pct(endPt)-pct(t.fpi))*100)+"%",top:0,bottom:0,width:1,background:sc+"60"}}/>}
-                {/* Status label */}
-                <span style={{position:"relative",zIndex:1,fontSize:9,fontWeight:700,color:sc,paddingLeft:4,lineHeight:"16px",whiteSpace:"nowrap"}}>{t.st==="pos"?"✓ Positive":t.st==="neg"?"✗ Negative":"⏳ 進行中"}</span>
-              </div>
-              {/* Readout marker ▼ (results published) */}
-              {t.readout&&<div style={{position:"absolute",left:pct(t.readout)+"%",top:-1,fontSize:8,color:sc,transform:"translateX(-50%)",lineHeight:1}}>▼</div>}
-              {/* PCD marker ◆ (expected results, ongoing only) */}
-              {t.st==="run"&&pcdDec&&pcdDec<=maxY&&<div style={{position:"absolute",left:pct(pcdDec)+"%",top:-1,fontSize:7,color:sc+"90",transform:"translateX(-50%)",lineHeight:1}}>◆</div>}
+            <div style={{flex:1,position:"relative",height:28}}>
+              {/* SCD bar (full trial duration, light color = follow-up) */}
+              {(()=>{const scdDec=t.scd?(()=>{const p=t.scd.split("-");return parseInt(p[0])+(parseInt(p[1]||1)-1)/12})():null;
+                const barEnd=scdDec||endPt;
+                const barW=pct(barEnd)-pct(t.fpi);
+                const activeW=pcdDec?(pct(pcdDec)-pct(t.fpi)):barW;
+                const activeRatio=barW>0?Math.min(activeW/barW*100,100):100;
+                // Bar text
+                const barText=t.st==="pos"?`✓ ${t.res||"Positive"}`:t.st==="neg"?`✗ ${t.res||"Negative"}`:"進行中";
+                return barW>0?(
+                  <div style={{position:"absolute",left:pct(t.fpi)+"%",width:barW+"%",height:20,top:2,borderRadius:4,overflow:"visible",cursor:"pointer"}}>
+                    {/* Follow-up portion (full bar, light) */}
+                    <div style={{position:"absolute",left:0,top:0,right:0,bottom:0,background:barBg,borderRadius:4,border:`1px solid ${sc}40`}}/>
+                    {/* Active portion (FPI → PCD, solid) */}
+                    <div style={{position:"absolute",left:0,top:0,bottom:0,width:activeRatio+"%",background:sc+"20",borderRadius:"4px 0 0 4px"}}/>
+                    {/* PCD divider line */}
+                    {pcdDec&&activeRatio<100&&<div style={{position:"absolute",left:activeRatio+"%",top:0,bottom:0,width:1.5,background:sc+"50"}}/>}
+                    {/* Bar text (result or status) */}
+                    <span style={{position:"absolute",left:4,top:0,fontSize:9,fontWeight:600,color:sc,lineHeight:"20px",whiteSpace:"nowrap",zIndex:1,overflow:"visible"}}>{barText.length>60?barText.slice(0,57)+"…":barText}</span>
+                  </div>
+                ):null;
+              })()}
+              {/* Enrollment bar (thin gray at bottom) */}
+              <div style={{position:"absolute",left:pct(t.fpi)+"%",width:(pct(t.lpi)-pct(t.fpi))+"%",height:3,top:23,background:"#9ca3af",opacity:0.5,borderRadius:2}}/>
+              {/* Readout marker ▼ */}
+              {t.readout&&<div style={{position:"absolute",left:pct(t.readout)+"%",top:-2,fontSize:9,color:sc,transform:"translateX(-50%)",lineHeight:1,fontWeight:700}}>▼</div>}
+              {/* PCD marker ◆ (ongoing only) */}
+              {t.st==="run"&&pcdDec&&pcdDec<=maxY&&<div style={{position:"absolute",left:pct(pcdDec)+"%",top:-2,fontSize:8,color:sc+"90",transform:"translateX(-50%)",lineHeight:1}}>◆</div>}
               {/* Now line */}
               <div style={{position:"absolute",left:pct(now)+"%",top:0,bottom:0,width:1.5,background:"#dc262640",zIndex:2}}/>
             </div>
