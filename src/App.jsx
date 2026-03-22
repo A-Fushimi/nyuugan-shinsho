@@ -1,4 +1,6 @@
-import { useState, useMemo, useRef, useEffect } from "react";
+import { useState, useMemo, useRef, useEffect, createContext, useContext, useCallback } from "react";
+
+const NavContext = createContext(null);
 
 const UPDATED = "2026年3月22日";
 
@@ -288,6 +290,22 @@ function SubChip({t}){
   return <Chip text={t} color={x.c} bg={x.b}/>
 }
 
+function DrugLink({generic,label}){
+  const nav=useContext(NavContext);
+  if(!nav)return <span>{label||generic}</span>;
+  const drug=DRUGS.find(d=>d.generic===generic);
+  const display=label||(drug?drug.name:generic);
+  return <span onClick={(e)=>{e.stopPropagation();nav.goToDrug(generic);}} style={{color:"#2563eb",cursor:"pointer",borderBottom:"1px dashed #93c5fd",fontWeight:500}} title={drug?`${drug.name} (${drug.generic})`:""}>{display}</span>;
+}
+
+function TrialLink({trial,label}){
+  const nav=useContext(NavContext);
+  if(!nav)return <span>{label||trial}</span>;
+  const t=TIMELINE.find(t=>t.trial===trial);
+  const display=label||trial;
+  return <span onClick={(e)=>{e.stopPropagation();nav.goToTrial(trial);}} style={{color:"#7c3aed",cursor:"pointer",borderBottom:"1px dashed #c4b5fd",fontWeight:500}} title={t?`${t.trial}: ${t.pop}`:""}>{display}</span>;
+}
+
 function LifecycleBar({lc}){
   if(!lc||!lc.length)return null;
   const mn=Math.min(...lc.map(p=>p.s));
@@ -317,10 +335,19 @@ function LifecycleBar({lc}){
   );
 }
 
-function DrugCard({d}){
+function DrugCard({d,focusDrug,onFocusClear}){
   const [open,setOpen]=useState(false);
+  const cardRef=useRef(null);
+  const isFocused=focusDrug&&d.generic===focusDrug;
+  useEffect(()=>{
+    if(isFocused){
+      setOpen(true);
+      setTimeout(()=>cardRef.current?.scrollIntoView({behavior:"smooth",block:"start"}),100);
+      if(onFocusClear)setTimeout(()=>onFocusClear(),1500);
+    }
+  },[isFocused]);
   return (
-    <div style={{background:"#fff",borderRadius:12,border:"1px solid #e2e8f0",marginBottom:10,overflow:"hidden",boxShadow:open?"0 4px 12px rgba(0,0,0,0.08)":"0 1px 3px rgba(0,0,0,0.04)",transition:"box-shadow .2s"}}>
+    <div ref={cardRef} data-drug={d.generic} style={{background:"#fff",borderRadius:12,border:isFocused?"2px solid #2563eb":"1px solid #e2e8f0",marginBottom:10,overflow:"hidden",boxShadow:open?"0 4px 12px rgba(0,0,0,0.08)":"0 1px 3px rgba(0,0,0,0.04)",transition:"box-shadow .2s, border .3s"}}>
       <div onClick={()=>setOpen(!open)} style={{padding:"14px 18px",cursor:"pointer"}}>
         <div style={{display:"flex",alignItems:"center",gap:10,flexWrap:"wrap"}}>
           <span><span style={{fontSize:15,fontWeight:700,color:"#0f172a"}}>{d.name}</span>{d.generic&&<span style={{fontSize:11,color:"#94a3b8",marginLeft:6}}>({d.generic})</span>}</span>
@@ -389,7 +416,7 @@ function DrugCard({d}){
                 <thead><tr style={{background:"#f8fafc"}}>{["研究名","相","対象","試験治療","対照","結果","状態","出典"].map((h,i)=><th key={i} style={{textAlign:"left",padding:"3px 6px",color:"#64748b"}}>{h}</th>)}</tr></thead>
                 <tbody>{d.studies.map((t,i)=>(
                   <tr key={i} style={{borderTop:"1px solid #f1f5f9"}}>
-                    <td style={{padding:"3px 6px",fontWeight:600}}>{t.n}</td>
+                    <td style={{padding:"3px 6px",fontWeight:600}}>{TIMELINE.some(tl=>tl.trial===t.n)?<TrialLink trial={t.n}/>:t.n}</td>
                     <td style={{padding:"3px 6px"}}>{t.ph}</td>
                     <td style={{padding:"3px 6px"}}>{t.pop}</td>
                     <td style={{padding:"3px 6px",color:"#1d4ed8"}}>{t.arm||"-"}</td>
@@ -525,49 +552,51 @@ const STAGE_STYLE = {
 // 薬剤ごとに主要Phase II-III試験を網羅。薬剤カードのstudiesと照合し漏れがないことを確認済み
 const TIMELINE = [
   // === HR+/HER2- : SERD ===
-  {drug:"camizestrant",trial:"SERENA-6",ph:"III",sub:"HR+/HER2-",pop:"ESR1m出現時 1L switch",st:"pos",fpi:2021.5,lpi:2023.5,readout:2025.5,note:"ASCO 2025 LBA。FDA諮問委員会 4/30/2026"},
-  {drug:"camizestrant",trial:"SERENA-4",ph:"III",sub:"HR+/HER2-",pop:"1L MBC + CDK4/6i",st:"run",fpi:2021.0,lpi:2024.0,readout:2026.8,note:"2026 H2 readout予定"},
-  {drug:"giredestrant",trial:"evERA",ph:"III",sub:"HR+/HER2-",pop:"post-CDK4/6i + EVE",st:"pos",fpi:2022.5,lpi:2024.0,readout:2025.8,note:"ESMO 2025。FDA承認予定 12/18/2026"},
-  {drug:"giredestrant",trial:"lidERA",ph:"III",sub:"HR+/HER2-",pop:"EBC 術後 adj",st:"pos",fpi:2021.5,lpi:2023.5,readout:2025.9,note:"SABCS 2025。iDFS HR 0.70"},
-  {drug:"giredestrant",trial:"persevERA",ph:"III",sub:"HR+/HER2-",pop:"1L MBC + PAL",st:"neg",fpi:2020.5,lpi:2023.0,readout:2026.2,note:"2026/3/9 主要EP未達"},
-  {drug:"giredestrant",trial:"pionERA",ph:"III",sub:"HR+/HER2-",pop:"ET耐性 + CDK4/6i",st:"run",fpi:2023.5,lpi:2025.5,readout:2027.5,note:"2027年 readout予定"},
-  {drug:"vepdegestrant",trial:"VERITAC-2",ph:"III",sub:"HR+/HER2-",pop:"ESR1m MBC 2L+",st:"pos",fpi:2023.5,lpi:2024.5,readout:2025.5,note:"ASCO 2025 LBA。FDA承認予定 6/5/2026"},
-  {drug:"imlunestrant",trial:"EMBER-3",ph:"III",sub:"HR+/HER2-",pop:"ESR1m MBC 2L+",st:"pos",fpi:2021.5,lpi:2023.0,readout:2024.5,note:"NEJM 2025。3極承認済み"},
-  {drug:"imlunestrant",trial:"EMBER-4",ph:"III",sub:"HR+/HER2-",pop:"EBC 術後 adj",st:"run",fpi:2022.5,lpi:2026.0,readout:2028.0,note:"約8000例。2028年頃"},
+  {drug:"camizestrant",trial:"SERENA-6",ph:"III",sub:"HR+/HER2-",pop:"ESR1m出現時 1L MBC",arm:"camizestrant + CDK4/6i（AI→switch）",ctrl:"AI + CDK4/6i 継続",ep:"PFS（IRC）",ep2:"OS, ORR, CBR",res:"mPFS 16.0 vs 9.2m (HR 0.44)",res2:"OS immature",st:"pos",fpi:2021.5,lpi:2023.5,readout:2025.5,nct:"NCT04964934",note:"ASCO 2025 LBA。FDA諮問委員会 4/30/2026"},
+  {drug:"camizestrant",trial:"SERENA-4",ph:"III",sub:"HR+/HER2-",pop:"1L MBC",arm:"camizestrant + palbociclib",ctrl:"AI + palbociclib",ep:"PFS（IRC）",ep2:"OS, ORR",st:"run",fpi:2021.0,lpi:2024.0,readout:2026.8,nct:"NCT04711252",note:"2026 H2 readout予定"},
+  {drug:"giredestrant",trial:"evERA",ph:"III",sub:"HR+/HER2-",pop:"post-CDK4/6i MBC",arm:"giredestrant + everolimus",ctrl:"SoC ET + everolimus",ep:"PFS（IRC）",ep2:"OS, ORR, CBR",res:"ESR1m群 mPFS 9.99 vs 5.45m (HR 0.38)。ITT HR 0.56",res2:"ORR改善傾向",st:"pos",fpi:2022.5,lpi:2024.0,readout:2025.8,nct:"NCT05306340",note:"ESMO 2025。FDA承認予定 12/18/2026"},
+  {drug:"giredestrant",trial:"lidERA",ph:"III",sub:"HR+/HER2-",pop:"EBC 術後",arm:"giredestrant",ctrl:"SoC ET（AI or tamoxifen）",ep:"iDFS",ep2:"OS, DRFI",res:"3y iDFS 92.4% vs 89.6% (HR 0.70)",res2:"OS immature",st:"pos",fpi:2021.5,lpi:2023.5,readout:2025.9,nct:"NCT04961996",note:"SABCS 2025。iDFS HR 0.70"},
+  {drug:"giredestrant",trial:"persevERA",ph:"III",sub:"HR+/HER2-",pop:"1L MBC",arm:"giredestrant + palbociclib",ctrl:"letrozole + palbociclib",ep:"PFS（IRC）",ep2:"OS, ORR",res:"主要EP未達（PFS有意差なし）",res2:"OS, ORR未報告",st:"neg",fpi:2020.5,lpi:2023.0,readout:2026.2,nct:"NCT04546009",note:"2026/3/9 主要EP未達"},
+  {drug:"giredestrant",trial:"pionERA",ph:"III",sub:"HR+/HER2-",pop:"ET耐性 MBC",arm:"giredestrant + CDK4/6i（医師選択）",ctrl:"fulvestrant + CDK4/6i",ep:"PFS（IRC）",ep2:"OS, ORR",st:"run",fpi:2023.5,lpi:2025.5,readout:2027.5,nct:"NCT06065748",note:"2027年 readout予定"},
+  {drug:"vepdegestrant",trial:"VERITAC-2",ph:"III",sub:"HR+/HER2-",pop:"ESR1m MBC 2L+",arm:"vepdegestrant 200mg mono",ctrl:"fulvestrant 500mg IM",ep:"PFS（IRC）",ep2:"OS, ORR, CBR, DoR",res:"ESR1m群 mPFS 5.0 vs 2.1m (HR 0.57)",res2:"ORR 11.5% vs 5.0%",st:"pos",fpi:2023.5,lpi:2024.5,readout:2025.5,nct:"NCT05654623",note:"ASCO 2025 LBA。FDA承認予定 6/5/2026"},
+  {drug:"imlunestrant",trial:"EMBER-3",ph:"III",sub:"HR+/HER2-",pop:"ESR1m MBC 2L+",arm:"imlunestrant mono / imlunestrant + abemaciclib",ctrl:"fulvestrant or exemestane（医師選択）",ep:"PFS（ESR1m群）",ep2:"OS, ORR, PFS（ITT）",res:"ESR1m群 mPFS 5.5 vs 3.8m (HR 0.62)",res2:"ITT PFS HR 0.87 (有意差なし)",st:"pos",fpi:2021.5,lpi:2023.0,readout:2024.5,nct:"NCT04975308",note:"NEJM 2025。3極承認済み"},
+  {drug:"imlunestrant",trial:"EMBER-4",ph:"III",sub:"HR+/HER2-",pop:"EBC 術後",arm:"imlunestrant",ctrl:"standard ET",ep:"iDFS",ep2:"OS, DRFI",st:"run",fpi:2022.5,lpi:2026.0,readout:2028.0,nct:"NCT05514054",note:"約8000例。2028年頃"},
   // === HR+/HER2- : CDK / KAT6 ===
-  {drug:"atirmociclib",trial:"FOURLIGHT-1",ph:"II",sub:"HR+/HER2-",pop:"MBC 2L post-CDK4/6i",st:"pos",fpi:2024.0,lpi:2025.0,readout:2026.2,note:"2026/3/17 PFS HR 0.60"},
-  {drug:"atirmociclib",trial:"FOURLIGHT-3",ph:"III",sub:"HR+/HER2-",pop:"1L MBC",st:"run",fpi:2024.5,lpi:2026.5,readout:2027.5,note:"1L registrational。2027年"},
-  {drug:"prifetrastat",trial:"KATSIS-1",ph:"III",sub:"HR+/HER2-",pop:"post-CDK4/6i",st:"run",fpi:2024.0,lpi:2026.5,readout:2027.5,note:"KAT6i vs EVE+ET。2027年"},
+  {drug:"atirmociclib",trial:"FOURLIGHT-1",ph:"II",sub:"HR+/HER2-",pop:"MBC 2L post-CDK4/6i",arm:"atirmociclib + fulvestrant",ctrl:"fulvestrant alone / everolimus + exemestane",ep:"PFS（IRC）",ep2:"OS, ORR, CBR",res:"PFS HR 0.60 (p=0.0007)",res2:"ORR/CBR改善傾向",st:"pos",fpi:2024.0,lpi:2025.0,readout:2026.2,nct:"NCT06105632",note:"2026/3/17 PFS HR 0.60"},
+  {drug:"atirmociclib",trial:"FOURLIGHT-3",ph:"III",sub:"HR+/HER2-",pop:"1L MBC",arm:"atirmociclib + AI",ctrl:"CDK4/6i（医師選択）+ AI",ep:"PFS（IRC）",ep2:"OS",st:"run",fpi:2024.5,lpi:2026.5,readout:2027.5,nct:"NCT06760637",note:"1L registrational。2027年"},
+  {drug:"prifetrastat",trial:"KATSIS-1",ph:"III",sub:"HR+/HER2-",pop:"post-CDK4/6i MBC",arm:"prifetrastat + fulvestrant",ctrl:"everolimus + ET（医師選択）",ep:"PFS（IRC）",ep2:"OS, ORR",st:"run",fpi:2024.0,lpi:2026.5,readout:2027.5,nct:"NCT07062965",note:"KAT6i vs EVE+ET。2027年"},
   // === HR+/HER2- : PI3K/AKT ===
-  {drug:"inavolisib",trial:"INAVO120",ph:"III",sub:"HR+/HER2-",pop:"PIK3CAm 1L MBC",st:"pos",fpi:2020.5,lpi:2022.5,readout:2024.0,note:"NEJM 2024。FDA承認済"},
-  {drug:"gedatolisib",trial:"VIKTORIA-1",ph:"III",sub:"HR+/HER2-",pop:"MBC + PAL + FUL",st:"pos",fpi:2022.0,lpi:2024.5,readout:2024.9,note:"SABCS 2024。FDA申請済"},
-  {drug:"capivasertib",trial:"CAPItello-292",ph:"III",sub:"HR+/HER2-",pop:"1L MBC + CDK4/6i",st:"run",fpi:2023.0,lpi:2026.0,readout:2027.5,note:"1L AKTi試験。2027年"},
+  {drug:"inavolisib",trial:"INAVO120",ph:"III",sub:"HR+/HER2-",pop:"PIK3CAm 1L MBC",arm:"inavolisib + palbociclib + fulvestrant",ctrl:"placebo + palbociclib + fulvestrant",ep:"PFS（IRC）",ep2:"OS, ORR, CBR",res:"mPFS 15.0 vs 7.3m (HR 0.43)",res2:"ORR 58% vs 25%",st:"pos",fpi:2020.5,lpi:2022.5,readout:2024.0,nct:"NCT04191499",note:"NEJM 2024。FDA承認済"},
+  {drug:"gedatolisib",trial:"VIKTORIA-1",ph:"III",sub:"HR+/HER2-",pop:"1L MBC",arm:"gedatolisib + palbociclib + fulvestrant",ctrl:"placebo + palbociclib + fulvestrant",ep:"PFS（IRC）",ep2:"OS, ORR",res:"PFS有意改善",res2:"ORR改善",st:"pos",fpi:2022.0,lpi:2024.5,readout:2024.9,nct:"NCT05501886",note:"SABCS 2024。FDA申請済"},
+  {drug:"capivasertib",trial:"CAPItello-292",ph:"III",sub:"HR+/HER2-",pop:"1L MBC",arm:"capivasertib + CDK4/6i + fulvestrant",ctrl:"placebo + CDK4/6i + fulvestrant",ep:"PFS（IRC）",ep2:"OS, ORR",st:"run",fpi:2023.0,lpi:2026.0,readout:2027.5,nct:"NCT04862663",note:"1L AKTi試験。2027年"},
   // === HER2+ ===
-  {drug:"T-DXd",trial:"DB-09",ph:"III",sub:"HER2+",pop:"1L MBC + P",st:"pos",fpi:2022.0,lpi:2024.0,readout:2025.8,note:"ESMO 2025。FDA承認済12/2025"},
-  {drug:"T-DXd",trial:"DB-05",ph:"III",sub:"HER2+",pop:"EBC post-NAC",st:"pos",fpi:2021.0,lpi:2023.5,readout:2025.8,note:"ESMO 2025。FDA承認予定 2026 Q3"},
-  {drug:"T-DXd",trial:"DB-06",ph:"III",sub:"HER2-low",pop:"HER2-low 1L MBC",st:"pos",fpi:2021.5,lpi:2023.5,readout:2024.5,note:"ASCO 2024。FDA承認"},
-  {drug:"T-DXd",trial:"DB-12",ph:"III",sub:"HER2+",pop:"脳転移 MBC",st:"run",fpi:2022.5,lpi:2025.5,readout:2027.0,note:"脳転移特化。2027年"},
-  {drug:"tucatinib",trial:"HER2CLIMB-02",ph:"III",sub:"HER2+",pop:"2L + T-DM1",st:"pos",fpi:2020.5,lpi:2023.0,readout:2024.5,note:"ASCO 2024。TUC+T-DM1"},
-  // === TNBC ===
-  {drug:"Dato-DXd",trial:"TB-02",ph:"III",sub:"TNBC",pop:"1L MBC IO不適",st:"pos",fpi:2022.5,lpi:2024.5,readout:2025.8,note:"ESMO 2025。FDA承認予定 2026 Q2"},
-  {drug:"Dato-DXd",trial:"TB-04",ph:"III",sub:"TNBC",pop:"1L IO適格 +durva",st:"run",fpi:2023.5,lpi:2026.5,readout:2027.5,note:"Dato+durva vs chemo+pembro"},
-  {drug:"Sac-Gov",trial:"ASCENT-04/KN-D19",ph:"III",sub:"TNBC",pop:"1L PD-L1+",st:"pos",fpi:2022.5,lpi:2024.5,readout:2025.5,note:"NEJM 2026。SG+pembro"},
-  {drug:"Sac-Gov",trial:"ASCENT-03",ph:"III",sub:"TNBC",pop:"1L IO不適",st:"pos",fpi:2022.0,lpi:2024.5,readout:2025.5,note:"SG mono vs chemo"},
-  {drug:"Sac-TMT",trial:"OptiTROP-Breast01",ph:"III",sub:"TNBC",pop:"MBC 2L+",st:"pos",fpi:2022.5,lpi:2024.0,readout:2025.0,note:"Nat Med 2025。HR 0.32"},
-  {drug:"Sac-TMT",trial:"OptiTROP-Breast02",ph:"III",sub:"HR+/HER2-",pop:"MBC 2L+",st:"pos",fpi:2023.0,lpi:2025.0,readout:2025.8,note:"ESMO 2025。HR 0.35"},
-  {drug:"Sac-TMT",trial:"OptiTROP-Breast03/TroFuse",ph:"III",sub:"TNBC",pop:"1L PD-L1+",st:"run",fpi:2024.0,lpi:2026.5,readout:2027.5,note:"Sac-TMT+pembro"},
-  {drug:"Sac-TMT",trial:"TroFuse-011",ph:"III",sub:"TNBC",pop:"1L CPS<10",st:"run",fpi:2025.0,lpi:2027.5,readout:2028.0,note:"sac-TMT±pembro vs chemo"},
-  {drug:"Sac-TMT",trial:"TroFuse-032",ph:"III",sub:"TNBC",pop:"EBC 周術期",st:"run",fpi:2026.0,lpi:2028.5,readout:2029.0,note:"pembro+sac-TMT neo→adj"},
-  {drug:"pumitamig",trial:"Phase III（TNBC 1L）",ph:"III",sub:"TNBC",pop:"1L MBC",st:"run",fpi:2025.0,lpi:2027.0,readout:2028.0,note:"BNT327+chemo vs pembro+chemo"},
-  {drug:"pumitamig",trial:"Phase III（HR+/HER2-）",ph:"III",sub:"HR+/HER2-",pop:"MBC",st:"run",fpi:2025.5,lpi:2027.5,readout:2028.5,note:"BNT327+ET vs ET"},
+  {drug:"T-DXd",trial:"DB-09",ph:"III",sub:"HER2+",pop:"1L MBC",arm:"T-DXd + pertuzumab",ctrl:"taxane + trastuzumab + pertuzumab（THP）",ep:"PFS（IRC）",ep2:"OS, ORR, DoR",res:"mPFS 40.7 vs 26.9m (HR 0.63)",res2:"ORR 82% vs 75%",st:"pos",fpi:2022.0,lpi:2024.0,readout:2025.8,nct:"NCT04784715",note:"ESMO 2025。FDA承認済12/2025"},
+  {drug:"T-DXd",trial:"DB-05",ph:"III",sub:"HER2+",pop:"EBC post-NAC non-pCR",arm:"T-DXd 5.4mg/kg",ctrl:"T-DM1",ep:"iDFS",ep2:"OS, DRFI",res:"iDFS有意改善",res2:"OS immature",st:"pos",fpi:2021.0,lpi:2023.5,readout:2025.8,nct:"NCT04622319",note:"ESMO 2025。FDA承認予定 2026 Q3"},
+  {drug:"T-DXd",trial:"DB-06",ph:"III",sub:"HER2-low",pop:"HER2-low 1L MBC",arm:"T-DXd 5.4mg/kg",ctrl:"医師選択化学療法",ep:"PFS（IRC）",ep2:"OS, ORR",res:"mPFS 13.2 vs 8.1m (HR 0.62)",res2:"OS HR 0.83 (immature)",st:"pos",fpi:2021.5,lpi:2023.5,readout:2024.5,nct:"NCT04494425",note:"ASCO 2024。FDA承認"},
+  {drug:"T-DXd",trial:"DB-11",ph:"III",sub:"HR+/HER2-",pop:"1L HR+/HER2- MBC",arm:"T-DXd + AI ± palbociclib",ctrl:"CDK4/6i + ET",ep:"PFS（IRC）",ep2:"OS, ORR",st:"run",fpi:2023.0,lpi:2026.5,readout:2027.5,nct:"NCT04975997",note:"T-DXd 1L HR+/HER2-。重要な適応拡大試験"},
+  {drug:"T-DXd",trial:"DB-12",ph:"III",sub:"HER2+",pop:"脳転移 MBC",arm:"T-DXd 5.4mg/kg",ctrl:"医師選択治療",ep:"ORR（脳転移）",ep2:"PFS, OS, CNS-PFS",st:"run",fpi:2022.5,lpi:2025.5,readout:2027.0,nct:"NCT04739761",note:"脳転移特化。2027年"},
+  {drug:"tucatinib",trial:"HER2CLIMB-02",ph:"III",sub:"HER2+",pop:"2L MBC",arm:"tucatinib + T-DM1",ctrl:"placebo + T-DM1",ep:"PFS（IRC）",ep2:"OS, ORR, CNS-ORR",res:"mPFS 9.5 vs 7.4m (HR 0.76)",res2:"CNS-ORR改善",st:"pos",fpi:2020.5,lpi:2023.0,readout:2024.5,nct:"NCT03975647",note:"ASCO 2024。TUC+T-DM1"},
+  // === TNBC / ADC ===
+  {drug:"Dato-DXd",trial:"TB-02",ph:"III",sub:"TNBC",pop:"1L MBC IO不適",arm:"Dato-DXd",ctrl:"医師選択化学療法",ep:"PFS（IRC）, OS",ep2:"ORR, DoR",res:"mOS HR 0.79, mPFS HR 0.57",res2:"ORR 37% vs 23%",st:"pos",fpi:2022.5,lpi:2024.5,readout:2025.8,nct:"NCT05374512",note:"ESMO 2025。FDA承認予定 2026 Q2"},
+  {drug:"Dato-DXd",trial:"TB-04",ph:"III",sub:"TNBC",pop:"1L MBC IO適格",arm:"Dato-DXd + durvalumab",ctrl:"化学療法 + pembrolizumab",ep:"PFS（IRC）",ep2:"OS, ORR",st:"run",fpi:2023.5,lpi:2026.5,readout:2027.5,nct:"NCT06112379",note:"Dato+durva vs chemo+pembro"},
+  {drug:"Sac-Gov",trial:"ASCENT-04/KN-D19",ph:"III",sub:"TNBC",pop:"1L MBC PD-L1+",arm:"sacituzumab govitecan + pembrolizumab",ctrl:"化学療法 + pembrolizumab",ep:"PFS（IRC）",ep2:"OS, ORR",res:"PFS有意改善",res2:"ORR改善",st:"pos",fpi:2022.5,lpi:2024.5,readout:2025.5,nct:"NCT05382286",note:"NEJM 2026。SG+pembro"},
+  {drug:"Sac-Gov",trial:"ASCENT-03",ph:"III",sub:"TNBC",pop:"1L MBC IO不適",arm:"sacituzumab govitecan mono",ctrl:"医師選択化学療法",ep:"PFS（IRC）, OS",ep2:"ORR, DoR",res:"PFS/OS有意改善",res2:"",st:"pos",fpi:2022.0,lpi:2024.5,readout:2025.5,nct:"NCT05382299",note:"SG mono vs chemo"},
+  {drug:"Sac-TMT",trial:"OptiTROP-Breast01",ph:"III",sub:"TNBC",pop:"MBC 2L+",arm:"sac-TMT 5mg/kg Q2W",ctrl:"医師選択化学療法",ep:"PFS（IRC）, OS",ep2:"ORR, DoR",res:"mPFS 6.7 vs 2.5m (HR 0.32), mOS NR vs 9.4m (HR 0.53)",res2:"ORR 44% vs 5%",st:"pos",fpi:2022.5,lpi:2024.0,readout:2025.0,nct:"NCT05347134",note:"Nat Med 2025。HR 0.32"},
+  {drug:"Sac-TMT",trial:"OptiTROP-Breast02",ph:"III",sub:"HR+/HER2-",pop:"MBC 2L+",arm:"sac-TMT 5mg/kg Q2W",ctrl:"医師選択化学療法",ep:"PFS（IRC）",ep2:"OS, ORR",res:"mPFS 8.3 vs 4.1m (HR 0.35)",res2:"ORR改善",st:"pos",fpi:2023.0,lpi:2025.0,readout:2025.8,nct:"NCT06081959",note:"ESMO 2025。HR 0.35"},
+  {drug:"Sac-TMT",trial:"OptiTROP-Breast03/TroFuse",ph:"III",sub:"TNBC",pop:"1L MBC PD-L1+",arm:"sac-TMT + pembrolizumab",ctrl:"化学療法 + pembrolizumab",ep:"PFS（IRC）",ep2:"OS, ORR",st:"run",fpi:2024.0,lpi:2026.5,readout:2027.5,note:"Sac-TMT+pembro"},
+  {drug:"Sac-TMT",trial:"TroFuse-011",ph:"III",sub:"TNBC",pop:"1L MBC CPS<10",arm:"sac-TMT mono / sac-TMT + pembro",ctrl:"医師選択化学療法",ep:"PFS（IRC）, OS",ep2:"ORR",st:"run",fpi:2025.0,lpi:2027.5,readout:2028.0,nct:"NCT06841354",note:"sac-TMT±pembro vs chemo"},
+  {drug:"Sac-TMT",trial:"TroFuse-032",ph:"III",sub:"TNBC",pop:"EBC 周術期",arm:"pembro + sac-TMT → pembro + chemo",ctrl:"pembro + chemo → pembro + AC/EC",ep:"pCR, EFS",ep2:"OS, iDFS",st:"run",fpi:2026.0,lpi:2028.5,readout:2029.0,nct:"NCT06966700",note:"pembro+sac-TMT neo→adj"},
+  {drug:"pumitamig",trial:"ROSETTA-BREAST-01",ph:"III",sub:"TNBC",pop:"1L MBC PD-L1陰性",arm:"pumitamig + chemo",ctrl:"placebo + chemo",ep:"PFS（IRC）",ep2:"OS, ORR",st:"run",fpi:2025.0,lpi:2027.0,readout:2028.0,nct:"NCT07173751",note:"BNT327+chemo。PD-L1陰性TNBC"},
+  {drug:"pumitamig",trial:"Phase III（HR+/HER2-）",ph:"III",sub:"HR+/HER2-",pop:"MBC",arm:"pumitamig + ET",ctrl:"ET",ep:"PFS（IRC）",ep2:"OS, ORR",st:"run",fpi:2025.5,lpi:2027.5,readout:2028.5,note:"BNT327+ET vs ET。登録未開始"},
 ];
 
 const stColors = {pos:"#16a34a",neg:"#dc2626",run:"#2563eb"};
 const subColors = {"HR+/HER2-":"#7c3aed","HER2+":"#0369a1","TNBC":"#dc2626","HER2-low":"#b45309"};
 
-function GanttChart(){
+function GanttChart({focusTrial,onFocusClear}){
   const [subFilter,setSubFilter]=useState("ALL");
   const [statusFilter,setStatusFilter]=useState("ALL");
+  const [selectedTrial,setSelectedTrial]=useState(null);
   const subs=["ALL","HR+/HER2-","HER2+","TNBC","HER2-low"];
   const sts=["ALL","run","pos","neg"];
   const stLabels={ALL:"すべて",run:"進行中",pos:"Positive",neg:"Negative"};
@@ -578,6 +607,18 @@ function GanttChart(){
     if(statusFilter!=="ALL")list=list.filter(t=>t.st===statusFilter);
     return list.sort((a,b)=>a.readout-b.readout);
   },[subFilter,statusFilter]);
+
+  // focusTrial from external navigation
+  useEffect(()=>{
+    if(focusTrial){
+      setSelectedTrial(focusTrial);
+      setTimeout(()=>{
+        const el=document.querySelector(`[data-trial="${focusTrial}"]`);
+        if(el)el.scrollIntoView({behavior:"smooth",block:"center"});
+      },100);
+      if(onFocusClear)setTimeout(()=>onFocusClear(),2000);
+    }
+  },[focusTrial]);
 
   const minY=2017;
   const maxY=2029;
@@ -611,20 +652,22 @@ function GanttChart(){
         const barLeft=pct(t.fpi);
         const barRight=pct(t.readout||(t.st==="run"?maxY:t.lpi));
         const barWidth=barRight-barLeft;
+        const isSelected=selectedTrial===t.trial;
         return(
-          <div key={i} style={{display:"flex",alignItems:"center",marginBottom:2,minHeight:28}}>
-            {/* Label */}
+          <div key={i} data-trial={t.trial}>
+          <div style={{display:"flex",alignItems:"center",marginBottom:isSelected?0:2,minHeight:28,cursor:"pointer",background:isSelected?"#eff6ff":"transparent",borderRadius:4}} onClick={()=>setSelectedTrial(isSelected?null:t.trial)}>
+            {/* Label: trial name main, drug name small */}
             <div style={{width:220,flexShrink:0,display:"flex",alignItems:"center",gap:6,paddingRight:8}}>
               <span style={{width:6,height:6,borderRadius:3,background:subColors[t.sub]||"#64748b",flexShrink:0}}/>
-              <span style={{fontSize:11,fontWeight:600,color:"#0f172a",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap",maxWidth:100}}>{t.drug}</span>
-              <span style={{fontSize:10,color:"#64748b",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{t.trial}</span>
+              <span style={{fontSize:11,fontWeight:600,color:"#0f172a",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap",maxWidth:120}}>{t.trial}</span>
+              <span style={{fontSize:9,color:"#94a3b8",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{t.drug}</span>
             </div>
             {/* Gantt bar area */}
             <div style={{flex:1,position:"relative",height:22}}>
               {/* Enrollment bar (FPI → LPI) */}
               <div style={{position:"absolute",left:pct(t.fpi)+"%",width:(pct(t.lpi)-pct(t.fpi))+"%",height:10,top:6,background:"#e2e8f0",borderRadius:3}}/>
               {/* Active bar (FPI → readout) */}
-              <div title={`${t.trial}: ${t.note}`} style={{position:"absolute",left:pct(t.fpi)+"%",width:(pct(t.readout||2028)-pct(t.fpi))+"%",height:18,top:2,background:stColors[t.st]+"22",border:`1.5px solid ${stColors[t.st]}`,borderRadius:4,display:"flex",alignItems:"center",paddingLeft:4,overflow:"hidden"}}>
+              <div title={t.note} style={{position:"absolute",left:pct(t.fpi)+"%",width:(pct(t.readout||2028)-pct(t.fpi))+"%",height:18,top:2,background:stColors[t.st]+"22",border:`1.5px solid ${stColors[t.st]}`,borderRadius:4,display:"flex",alignItems:"center",paddingLeft:4,overflow:"hidden"}}>
                 <span style={{fontSize:9,fontWeight:600,color:stColors[t.st],whiteSpace:"nowrap"}}>{t.ph} {t.st==="pos"?"✓":t.st==="neg"?"✗":"⏳"}</span>
               </div>
               {/* Readout marker */}
@@ -632,6 +675,29 @@ function GanttChart(){
               {/* Now line */}
               <div style={{position:"absolute",left:pct(now)+"%",top:0,bottom:0,width:1.5,background:"#dc262640",zIndex:2}}/>
             </div>
+          </div>
+          {/* Trial detail panel */}
+          {isSelected&&(
+            <div style={{marginLeft:220,marginBottom:8,padding:"8px 14px",background:"#f8fafc",borderRadius:8,border:"1px solid #e2e8f0",fontSize:12}}>
+              <div style={{display:"flex",gap:12,flexWrap:"wrap",alignItems:"baseline",marginBottom:4}}>
+                <span style={{fontWeight:700,fontSize:13,color:"#0f172a"}}>{t.trial}</span>
+                <span style={{fontSize:11,color:"#475569"}}>Phase {t.ph}</span>
+                <SubChip t={t.sub}/>
+                <span style={{color:stColors[t.st],fontWeight:600,fontSize:11}}>{t.st==="pos"?"Positive":t.st==="neg"?"Negative":"進行中"}</span>
+              </div>
+              <div style={{color:"#334155",lineHeight:1.6}}>
+                <div><strong>薬剤:</strong> <DrugLink generic={DRUGS.find(d=>d.generic===t.drug||d.name.includes(t.drug))?.generic||""} label={t.drug}/></div>
+                <div><strong>対象:</strong> {t.pop}</div>
+                {t.arm&&<div><strong>治療群:</strong> {t.arm}</div>}
+                {t.ctrl&&<div><strong>対照群:</strong> {t.ctrl}</div>}
+                {t.ep&&<div><strong>主要評価項目:</strong> {t.ep}{t.res&&<span style={{color:t.st==="pos"?"#059669":t.st==="neg"?"#dc2626":"#2563eb",fontWeight:600,marginLeft:8}}>→ {t.res}</span>}</div>}
+                {t.ep2&&<div><strong>副次評価項目:</strong> {t.ep2}{t.res2&&<span style={{color:"#475569",marginLeft:8}}>→ {t.res2}</span>}</div>}
+                <div><strong>登録期間:</strong> {Math.floor(t.fpi)}年 → {Math.floor(t.lpi)}年{t.readout&&`　結果発表: ${Math.floor(t.readout)}年`}</div>
+                {t.note&&<div><strong>備考:</strong> {t.note}</div>}
+                <div style={{marginTop:4}}><a href={t.nct?`https://clinicaltrials.gov/study/${t.nct}`:`https://clinicaltrials.gov/search?term=${encodeURIComponent(t.trial+" breast cancer")}`} target="_blank" rel="noopener noreferrer" style={{fontSize:11,color:"#2563eb",textDecoration:"underline"}}>{t.nct||"ClinicalTrials.gov で検索"}</a></div>
+              </div>
+            </div>
+          )}
           </div>
         );
       })}
@@ -737,7 +803,7 @@ function LandscapeTab(){
                   <tbody>{drugs.map((d,i)=>(
                     <tr key={d.id} style={{borderTop:i?"1px solid #f1f5f9":"none"}}>
                       <td style={{padding:"6px 8px",fontWeight:700,color:"#0f172a"}}>
-                        {d.nct_url?<a href={d.nct_url} target="_blank" rel="noopener noreferrer" style={{color:"#0f172a",textDecoration:"none",borderBottom:"1px dashed #94a3b8"}}>{d.name}</a>:d.name}
+                        {d.name}
                         {d.note&&<div style={{fontSize:10,color:"#94a3b8",fontWeight:400,marginTop:1}}>{d.note}</div>}
                       </td>
                       <td style={{padding:"6px 8px",color:"#475569"}}>{d.co}</td>
@@ -746,7 +812,7 @@ function LandscapeTab(){
                       <td style={{padding:"6px 8px"}}><span style={{display:"flex",gap:3,flexWrap:"wrap"}}>{d.sub.map((s,j)=><SubChip key={j} t={s}/>)}</span></td>
                       <td style={{padding:"6px 8px",color:"#475569",textAlign:"center"}}>{d.n_enrolled||"—"}</td>
                       <td style={{padding:"6px 8px",color:"#334155",maxWidth:200}}>{d.early_result||"—"}</td>
-                      <td style={{padding:"6px 8px"}}>{d.source_url?<a href={d.source_url} target="_blank" rel="noopener noreferrer" style={{color:"#2563eb",textDecoration:"underline",fontSize:10}}>{d.source_label||"Link"}</a>:"—"}</td>
+                      <td style={{padding:"6px 8px"}}><div style={{display:"flex",flexDirection:"column",gap:2}}>{d.source_url&&<a href={d.source_url} target="_blank" rel="noopener noreferrer" style={{color:"#2563eb",textDecoration:"underline",fontSize:10}}>{d.source_label||"Link"}</a>}{d.nct&&<a href={`https://clinicaltrials.gov/study/${d.nct}`} target="_blank" rel="noopener noreferrer" style={{color:"#64748b",textDecoration:"underline",fontSize:9}}>{d.nct}</a>}{!d.source_url&&!d.nct&&"—"}</div></td>
                     </tr>
                   ))}</tbody>
                 </table>
@@ -767,6 +833,8 @@ export default function Dashboard(){
   const [tab,setTab]=useState("drugs");
   const [filter,setFilter]=useState("ALL");
   const [search,setSearch]=useState("");
+  const [focusDrug,setFocusDrug]=useState(null);
+  const [focusTrial,setFocusTrial]=useState(null);
   const subs=["ALL","HR+/HER2-","HER2+","TNBC","HER2-low"];
   const filtered=useMemo(()=>{
     let list=DRUGS;
@@ -775,7 +843,16 @@ export default function Dashboard(){
     return list;
   },[filter,search]);
 
+  const goToDrug=useCallback((generic)=>{
+    setFilter("ALL");setSearch("");setFocusDrug(generic);setTab("drugs");
+  },[]);
+  const goToTrial=useCallback((trial)=>{
+    setFocusTrial(trial);setTab("gantt");
+  },[]);
+  const navValue=useMemo(()=>({goToDrug,goToTrial}),[goToDrug,goToTrial]);
+
   return(
+    <NavContext.Provider value={navValue}>
     <div style={{fontFamily:'"Noto Sans JP","Helvetica Neue",Arial,sans-serif',maxWidth:960,margin:"0 auto",padding:"24px 16px",background:"#f8fafc",minHeight:"100vh"}}>
       <div style={{background:"linear-gradient(135deg,#1e293b 0%,#334155 100%)",borderRadius:16,padding:"20px 28px",marginBottom:20,color:"#fff"}}>
         <div style={{display:"flex",alignItems:"baseline",gap:10,flexWrap:"wrap"}}>
@@ -853,7 +930,7 @@ export default function Dashboard(){
           </div>
 
           <div style={{fontSize:12,color:"#64748b",marginBottom:8}}>{filtered.length} 件表示中</div>
-          {filtered.map(d=><DrugCard key={d.id} d={d}/>)}
+          {filtered.map(d=><DrugCard key={d.id} d={d} focusDrug={focusDrug} onFocusClear={()=>setFocusDrug(null)}/>)}
 
           {/* 収録基準（タブ下部） */}
           <div style={{background:"#fff",borderRadius:12,padding:"16px 20px",border:"1px solid #e2e8f0",marginTop:20}}>
@@ -873,7 +950,7 @@ export default function Dashboard(){
         <div style={{background:"#fff",borderRadius:12,padding:"20px 24px",border:"1px solid #e2e8f0"}}>
           <h2 style={{margin:"0 0 4px",fontSize:16,fontWeight:700,color:"#0f172a"}}>臨床試験タイムライン</h2>
           <p style={{margin:"0 0 16px",fontSize:12,color:"#64748b"}}>{TIMELINE.length} 試験を収録（進行中＋2024年以降に結果発表の試験）。readoutが2024年より前の完了済み試験は省略。</p>
-          <GanttChart/>
+          <GanttChart focusTrial={focusTrial} onFocusClear={()=>setFocusTrial(null)}/>
         </div>
       )}
 
@@ -884,5 +961,6 @@ export default function Dashboard(){
         <p style={{margin:"4px 0 0"}}>本ダッシュボードは教育・情報提供目的です。治療方針決定には必ず担当医にご相談ください。{UPDATED}時点の公開情報に基づきます。特許情報は概算であり訴訟等により変動する可能性があります。臨床試験タイムラインのFPI/LPI/readout時期は概算です。</p>
       </div>
     </div>
+    </NavContext.Provider>
   );
 }
