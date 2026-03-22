@@ -1,5 +1,23 @@
 [
   {
+    "ver": "1.1",
+    "date": "2026-03-22",
+    "type": "minor",
+    "items": [
+      "治療アルゴリズム: サブタイプ別×周術期/転移・再発のインタラクティブ治療フローチャートを追加（8パターン）",
+      "臨床試験追加: HER2CLIMB-05, TB-01, ASCENT-07, monarchE OS, PATINAの5試験を追加（計37試験）",
+      "タイムライン拡充: ClinicalTrials.gov APIから全試験のPCD/SCD/登録状況/目標登録数を取得。規制当局日程（FDA PDUFA/AdCom, PMDA承認）を追加",
+      "ガントチャート改善: ◆マーカー（結果見込み）、📅試験日程パネル、🏛規制当局パネル、登録状況バッジを追加",
+      "MOA別フィルター: 臨床試験タイムラインにSERD/CDK4-6i/ADC/PI3K-AKT/TKI/KAT6i/BsAb-IOフィルターを追加",
+      "アテゾリズマブ追加: TNBC転移・再発1次治療のアルゴリズム＋薬剤カード（計33薬剤）",
+      "出典URL全面修正: PubMed ID 41件、ランドスケープURL 12件、PMDA URL 12件を正しい値に修正",
+      "ガントチャート日付精度: 月単位精度に修正（ClinicalTrials.gov APIから正確な日付取得）",
+      "パイプラインセクションURL: 治療アルゴリズムの開発中薬剤に試験URL・結果論文リンクを追加（22件）",
+      "SEO改善: データJSON分離、metaタグ/OGP追加、Netlify移行、sitemap.xml/robots.txt追加",
+      "Netlify移行: GitHub Pages → Netlify。カスタムドメイン shinsho.bctube.org 設定"
+    ]
+  },
+  {
     "ver": "1.0",
     "date": "2026-03-22",
     "type": "major",
