@@ -289,7 +289,8 @@ function TreatmentAlgorithm(){
                         <span style={{display:"inline-block",padding:"2px 8px",borderRadius:4,fontSize:11,fontWeight:600,color:pc,background:`${pc}18`,border:`1px solid ${pc}40`}}>{d.phase}</span>
                         <span style={{fontSize:13,fontWeight:700,color:"#0f172a"}}>{d.drug}</span>
                       </div>
-                      <span style={{fontSize:11,color:"#94a3b8",fontFamily:"monospace"}}>{d.trial}</span>
+                      {d.trialUrl?<a href={d.trialUrl} target="_blank" rel="noopener noreferrer" style={{fontSize:11,color:"#2563eb",fontFamily:"monospace",textDecoration:"none"}}>{d.trial}</a>:<span style={{fontSize:11,color:"#94a3b8",fontFamily:"monospace"}}>{d.trial}</span>}
+                      {d.resultUrl&&<a href={d.resultUrl} target="_blank" rel="noopener noreferrer" style={{fontSize:10,color:"#059669",textDecoration:"none"}}>📄{d.resultRef||"結果"}</a>}
                       <span style={{fontSize:11,color:"#64748b",lineHeight:1.5}}>{d.note}</span>
                     </div>
                   );
