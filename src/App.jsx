@@ -287,9 +287,9 @@ function TreatmentAlgorithm(){
                     <div key={i} style={{display:"flex",alignItems:"flex-start",gap:10,padding:"8px 10px",background:"#f8fafc",borderRadius:6,flexWrap:"wrap"}}>
                       <div style={{display:"flex",alignItems:"center",gap:6,flexShrink:0}}>
                         <span style={{display:"inline-block",padding:"2px 8px",borderRadius:4,fontSize:11,fontWeight:600,color:pc,background:`${pc}18`,border:`1px solid ${pc}40`}}>{d.phase}</span>
-                        <DrugLink generic={DRUGS.find(dr=>dr.name.includes(d.drug)||dr.generic===d.drug)?.generic||""} label={d.drug}/>
+                        {(()=>{const dr=DRUGS.find(x=>x.name.includes(d.drug)||x.generic===d.drug);return dr?<span onClick={e=>{e.stopPropagation();nav.goToDrug(dr.generic)}} style={{fontSize:13,fontWeight:700,color:"#0f172a",cursor:"pointer"}}>{d.drug}</span>:<span style={{fontSize:13,fontWeight:700,color:"#0f172a"}}>{d.drug}</span>})()}
                       </div>
-                      <TrialLink trial={d.trial.split("/")[0]} label={d.trial}/>
+                      {(()=>{const tl=TIMELINE.find(x=>x.trial===d.trial.split("/")[0]);return tl?<span onClick={e=>{e.stopPropagation();nav.goToTrial(tl.trial)}} style={{fontSize:11,color:"#94a3b8",fontFamily:"monospace",cursor:"pointer"}}>{d.trial}</span>:<span style={{fontSize:11,color:"#94a3b8",fontFamily:"monospace"}}>{d.trial}</span>})()}
                       {d.resultUrl&&<a href={d.resultUrl} target="_blank" rel="noopener noreferrer" style={{fontSize:10,color:"#059669",textDecoration:"none"}}>📄{d.resultRef||"結果"}</a>}
                       <span style={{fontSize:11,color:"#64748b",lineHeight:1.5}}>{d.note}</span>
                     </div>
