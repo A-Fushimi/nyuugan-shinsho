@@ -865,7 +865,7 @@ export default function Dashboard(){
 
       {/* Tabs */}
       <div style={{display:"flex",gap:0,marginBottom:20}}>
-        {[{k:"drugs",l:["治療開発","パイプライン"]},{k:"gantt",l:["臨床試験","タイムライン"]},{k:"landscape",l:["開発初期","ランドスケープ"]},{k:"soc",l:["乳癌の標準治療","（日本）"]},{k:"changelog",l:["変更履歴",""]}].map(({k,l})=>(
+        {[{k:"drugs",l:["治療開発","パイプライン"]},{k:"gantt",l:["臨床試験","タイムライン"]},{k:"landscape",l:["開発初期","ランドスケープ"]},{k:"soc",l:["乳癌の標準治療","（日本）"]},{k:"changelog",l:["変更履歴",""]},{k:"about",l:["このサイト","について"]}].map(({k,l})=>(
           <button key={k} onClick={()=>setTab(k)} style={{fontSize:13,fontWeight:tab===k?700:400,padding:"10px 20px",background:tab===k?"#fff":"#f1f5f9",color:tab===k?"#0f172a":"#64748b",border:tab===k?"1px solid #e2e8f0":"1px solid transparent",borderBottom:tab===k?"1px solid #fff":"1px solid #e2e8f0",borderRadius:"8px 8px 0 0",cursor:"pointer",marginBottom:-1,position:"relative",zIndex:tab===k?2:1,lineHeight:1.3,textAlign:"center"}}>{l[0]}<br/>{l[1]}</button>
         ))}
         <div style={{flex:1,borderBottom:"1px solid #e2e8f0"}}/>
@@ -982,6 +982,30 @@ export default function Dashboard(){
           ))}
           <div style={{fontSize:11,color:"#94a3b8",marginTop:8}}>
             バージョン規則: メジャー（X.0）= 大幅な構成変更・薬剤追加、マイナー（X.Y）= データ更新・UI改善・バグ修正
+          </div>
+        </div>
+      )}
+
+      {tab==="about" && (
+        <div style={{background:"#fff",borderRadius:12,padding:"24px 28px",border:"1px solid #e2e8f0"}}>
+          <h2 style={{margin:"0 0 16px",fontSize:18,fontWeight:700,color:"#0f172a"}}>このサイトについて</h2>
+          <div style={{fontSize:13,color:"#334155",lineHeight:2.0}}>
+            <p style={{margin:"0 0 12px"}}>このサイトは、<strong>一般社団法人BC TUBE</strong>が運営しています。</p>
+            <p style={{margin:"0 0 12px"}}>BC TUBEは、乳がんに関する正確でわかりやすい情報を、より多くの方に届けることを目的に活動している非営利団体です。</p>
+            <p style={{margin:"0 0 12px"}}>本サイトの内容は、複数の乳腺科医が制作・監修し、科学的根拠に基づいた情報発信を行っています。</p>
+            <p style={{margin:"0 0 20px"}}>乳がんについて不安を感じている方や、知りたいと思っている方に、少しでも安心していただける情報を届けられればと考えています。</p>
+            <div style={{display:"flex",gap:16,flexWrap:"wrap"}}>
+              <div style={{flex:"1 1 300px",background:"#f8fafc",borderRadius:10,padding:"16px 20px",border:"1px solid #e2e8f0"}}>
+                <div style={{fontSize:12,fontWeight:700,color:"#64748b",marginBottom:6}}>運営団体</div>
+                <div style={{fontSize:14,fontWeight:700,color:"#0f172a",marginBottom:4}}>一般社団法人BC TUBE</div>
+                <a href="https://bctube.org/" target="_blank" rel="noopener noreferrer" style={{fontSize:13,color:"#2563eb",textDecoration:"underline"}}>https://bctube.org/</a>
+              </div>
+              <div style={{flex:"1 1 300px",background:"#f8fafc",borderRadius:10,padding:"16px 20px",border:"1px solid #e2e8f0"}}>
+                <div style={{fontSize:12,fontWeight:700,color:"#64748b",marginBottom:6}}>YouTubeチャンネル</div>
+                <div style={{fontSize:14,fontWeight:700,color:"#0f172a",marginBottom:4}}>乳がん大事典【BC Tube編集部】</div>
+                <a href="https://www.youtube.com/@-BCTube" target="_blank" rel="noopener noreferrer" style={{fontSize:13,color:"#2563eb",textDecoration:"underline"}}>https://www.youtube.com/@-BCTube</a>
+              </div>
+            </div>
           </div>
         </div>
       )}
