@@ -251,35 +251,35 @@ const DRUGS = [
 
 const EVENTS = [
   {q:"2026 Q1",done:true,items:[
-    {text:"Giredestrant persevERA結果発表（3/9）",result:"主要EP未達（1L MBC PFS有意差なし）。evERA/lidERAの適応で申請継続"},
-    {text:"Atirmociclib FOURLIGHT-1結果発表（3/17）",result:"PFS HR 0.60 (p=0.0007)。CDK4/6i後2LでPFS有意改善。Phase III FOURLIGHT-3へ"},
+    {text:"Giredestrant persevERA結果発表（3/9）",generic:"giredestrant",result:"主要EP未達（1L MBC PFS有意差なし）。evERA/lidERAの適応で申請継続"},
+    {text:"Atirmociclib FOURLIGHT-1結果発表（3/17）",generic:"atirmociclib",result:"PFS HR 0.60 (p=0.0007)。CDK4/6i後2LでPFS有意改善。Phase III FOURLIGHT-3へ"},
   ]},
   {q:"2026 Q2",done:false,items:[
-    {text:"Camizestrant FDA諮問委員会（4/30）"},
-    {text:"Vepdegestrant FDA承認判断（6/5）"},
-    {text:"Dato-DXd TNBC FDA承認判断（Q2）"},
+    {text:"Camizestrant FDA諮問委員会（4/30）",generic:"camizestrant"},
+    {text:"Vepdegestrant FDA承認判断（6/5）",generic:"vepdegestrant"},
+    {text:"Dato-DXd TNBC FDA承認判断（Q2）",generic:"datopotamab deruxtecan"},
     {text:"ASCO 2026（6月）"},
   ]},
   {q:"2026 Q3",done:false,items:[
-    {text:"T-DXd post-NAC FDA承認判断（Q3）"},
-    {text:"Camizestrant SERENA-4 結果発表（H2）"},
+    {text:"T-DXd post-NAC FDA承認判断（Q3）",generic:"trastuzumab deruxtecan"},
+    {text:"Camizestrant SERENA-4 結果発表（H2）",generic:"camizestrant"},
   ]},
   {q:"2026 Q4",done:false,items:[
     {text:"ESMO 2026（10月）"},
-    {text:"Giredestrant evERA FDA承認判断（12/18）"},
+    {text:"Giredestrant evERA FDA承認判断（12/18）",generic:"giredestrant"},
     {text:"SABCS 2026（12月）"},
-    {text:"イナボリシブ日本申請見込み"},
+    {text:"イナボリシブ日本申請見込み",generic:"inavolisib"},
   ]},
 ];
 
 const JP_OUTLOOK = [
   // FDA承認済み → 日本での見通し
-  {name:"ツカチニブ",sub:"HER2+ MBC 3L+（脳転移）",status:"✅ 2026/2/19 日本承認済。薬価収載待ち",color:"#16a34a"},
-  {name:"イムルネストラント",sub:"HR+/HER2- ESR1m MBC",status:"✅ 2025/12/22 日本承認済",color:"#16a34a"},
-  {name:"イナボリシブ",sub:"HR+/HER2- PIK3CAm 1L",status:"FDA承認済（2024/10）。中外製薬が日本開発中→2026年以降申請見込み",color:"#eab308"},
-  {name:"エラセストラント",sub:"HR+/HER2- ESR1m MBC",status:"FDA承認済（2023/1）。日本未申請、ドラッグラグ大",color:"#64748b"},
-  {name:"ネラチニブ",sub:"HER2+ EBC延長/MBC",status:"FDA承認済（2017/7）。日本未承認",color:"#64748b"},
-  {name:"マージェツキシマブ",sub:"HER2+ MBC 3L+",status:"FDA承認済（2020/12）。日本未承認、EU申請撤回",color:"#64748b"},
+  {name:"ツカチニブ",generic:"tucatinib",sub:"HER2+ MBC 3L+（脳転移）",status:"✅ 2026/2/19 日本承認済。薬価収載待ち",color:"#16a34a"},
+  {name:"イムルネストラント",generic:"imlunestrant",sub:"HR+/HER2- ESR1m MBC",status:"✅ 2025/12/22 日本承認済",color:"#16a34a"},
+  {name:"イナボリシブ",generic:"inavolisib",sub:"HR+/HER2- PIK3CAm 1L",status:"FDA承認済（2024/10）。中外製薬が日本開発中→2026年以降申請見込み",color:"#eab308"},
+  {name:"エラセストラント",generic:"elacestrant",sub:"HR+/HER2- ESR1m MBC",status:"FDA承認済（2023/1）。日本未申請、ドラッグラグ大",color:"#64748b"},
+  {name:"ネラチニブ",generic:"neratinib",sub:"HER2+ EBC延長/MBC",status:"FDA承認済（2017/7）。日本未承認",color:"#64748b"},
+  {name:"マージェツキシマブ",generic:"margetuximab",sub:"HER2+ MBC 3L+",status:"FDA承認済（2020/12）。日本未承認、EU申請撤回",color:"#64748b"},
 ];
 
 function Chip({text,color,bg}){return <span style={{fontSize:11,fontWeight:600,color,background:bg,padding:"2px 8px",borderRadius:999,whiteSpace:"nowrap",display:"inline-block"}}>{text}</span>}
@@ -891,7 +891,7 @@ export default function Dashboard(){
                   </div>
                   {e.items.map((item,j)=>(
                     <div key={j} style={{fontSize:12,paddingLeft:12,lineHeight:1.5,marginBottom:item.result?4:0}}>
-                      <div style={{color:e.done?"#64748b":"#334155"}}>{e.done?"✓":"•"} {item.text}</div>
+                      <div style={{color:e.done?"#64748b":"#334155"}}>{e.done?"✓":"•"} {item.generic?<DrugLink generic={item.generic} label={item.text}/>:item.text}</div>
                       {item.result&&<div style={{fontSize:11,color:"#059669",paddingLeft:14,fontWeight:500}}>→ {item.result}</div>}
                     </div>
                   ))}
@@ -903,7 +903,7 @@ export default function Dashboard(){
               {JP_OUTLOOK.map((j,i)=>(
                 <div key={i} style={{display:"flex",alignItems:"center",gap:8,marginBottom:8,fontSize:12}}>
                   <span style={{width:8,height:8,borderRadius:4,background:j.color,flexShrink:0}}/>
-                  <span style={{fontWeight:700,minWidth:130}}>{j.name}</span>
+                  <span style={{fontWeight:700,minWidth:130}}>{j.generic?<DrugLink generic={j.generic} label={j.name}/>:j.name}</span>
                   <span style={{color:"#64748b",fontSize:11,flex:"1 1 160px"}}>{j.sub}</span>
                   <span style={{fontSize:11,color:"#334155",textAlign:"right"}}>{j.status}</span>
                 </div>
