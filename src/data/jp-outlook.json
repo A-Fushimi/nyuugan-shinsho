@@ -1,44 +1,66 @@
 [
   {
+    "cat": "new",
     "name": "Tucatinib",
     "generic": "tucatinib",
     "sub": "HER2+ MBC 3L+（脳転移）",
-    "status": "✅ 2026/2/19 日本承認済。薬価収載待ち",
+    "status": "2026/2/19 承認済。薬価収載待ち",
     "color": "#16a34a"
   },
   {
+    "cat": "new",
     "name": "Imlunestrant",
     "generic": "imlunestrant",
     "sub": "HR+/HER2- ESR1m MBC",
-    "status": "✅ 2025/12/22 日本承認済",
+    "status": "2025/12/22 承認済",
     "color": "#16a34a"
   },
   {
+    "cat": "expansion",
+    "name": "T-DXd（エンハーツ）",
+    "generic": "trastuzumab deruxtecan",
+    "sub": "HR+/HER2低発現 MBC（chemo未治療）",
+    "status": "2025/8/25 承認済（DB-06）",
+    "color": "#2563eb"
+  },
+  {
+    "cat": "expansion",
+    "name": "T-DXd（エンハーツ）",
+    "generic": "trastuzumab deruxtecan",
+    "sub": "HER2+ 固形がん（がん種横断）",
+    "status": "2025/4/24 申請→2026/3/2 部会通過。承認間近",
+    "color": "#2563eb"
+  },
+  {
+    "cat": "expansion",
+    "name": "T-DXd（エンハーツ）",
+    "generic": "trastuzumab deruxtecan",
+    "sub": "HER2+ EBC 術後補助療法",
+    "status": "2026/2/27 日本申請中（DB-05、iDFS HR 0.47）",
+    "color": "#2563eb"
+  },
+  {
+    "cat": "expansion",
+    "name": "Dato-DXd（ダトロウェイ）",
+    "generic": "datopotamab deruxtecan",
+    "sub": "TNBC 1L",
+    "status": "2026/2/12 日本申請中（TB-02、OS有意延長）※HR+/HER2-は2024/12/27承認済",
+    "color": "#2563eb"
+  },
+  {
+    "cat": "expansion",
+    "name": "ペムブロリズマブ皮下注",
+    "generic": "pembrolizumab",
+    "sub": "TNBC含む全固形がん（Qlex）",
+    "status": "2025/9/19 FDA承認済。日本未申請→MSD開発見込み（2027年前後か）",
+    "color": "#2563eb"
+  },
+  {
+    "cat": "development",
     "name": "Inavolisib",
     "generic": "inavolisib",
-    "sub": "HR+/HER2- PIK3CAm 1L",
-    "status": "FDA承認済（2024/10）。中外製薬が日本開発中→2026年以降申請見込み",
+    "sub": "HR+/HER2- PIK3CAm MBC 1L",
+    "status": "FDA 2024/10承認済。中外製薬が国内開発中→2026年以降申請見込み",
     "color": "#eab308"
-  },
-  {
-    "name": "Elacestrant",
-    "generic": "elacestrant",
-    "sub": "HR+/HER2- ESR1m MBC",
-    "status": "FDA承認済（2023/1）。日本未申請、ドラッグラグ大",
-    "color": "#64748b"
-  },
-  {
-    "name": "Neratinib",
-    "generic": "neratinib",
-    "sub": "HER2+ EBC延長/MBC",
-    "status": "FDA承認済（2017/7）。日本未承認",
-    "color": "#64748b"
-  },
-  {
-    "name": "Margetuximab",
-    "generic": "margetuximab",
-    "sub": "HER2+ MBC 3L+",
-    "status": "FDA承認済（2020/12）。日本未承認、EU申請撤回",
-    "color": "#64748b"
   }
 ]

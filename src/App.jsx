@@ -809,7 +809,7 @@ export default function Dashboard(){
           <span style={{fontSize:11,color:"#94a3b8",fontWeight:500}}>Breast Cancer Drug Pipeline & Treatment Atlas</span>
         </div>
         <p style={{margin:"4px 0 0",fontSize:11,color:"#94a3b8"}}>治療開発パイプライン ・ 臨床試験タイムライン ・ 開発初期ランドスケープ ・ 日本の標準治療</p>
-        <p style={{margin:"3px 0 0",fontSize:10,color:"#64748b"}}>2026年1.2版　｜　最終更新: {UPDATED}　｜　収録薬剤: {DRUGS.length}　｜　収録試験: {TIMELINE.length}　｜　収録用語: {GLOSSARY.terms.length}</p>
+        <p style={{margin:"3px 0 0",fontSize:10,color:"#64748b"}}>2026年1.3版　｜　最終更新: {UPDATED}　｜　収録薬剤: {DRUGS.length}　｜　収録試験: {TIMELINE.length}　｜　収録用語: {GLOSSARY.terms.length}</p>
       </div>
 
       {/* Tabs */}
@@ -853,7 +853,11 @@ export default function Dashboard(){
                   <span style={{fontSize:11,color:"#334155",textAlign:"right"}}>{j.status}</span>
                 </div>
               ))}
-              <div style={{fontSize:10,color:"#94a3b8",marginTop:8}}>🟢 国内承認済　🟡 海外承認済・国内開発中　⚫ 海外承認済・国内未導入</div>
+              <div style={{fontSize:10,color:"#94a3b8",marginTop:8,display:"flex",gap:12,flexWrap:"wrap"}}>
+                <span style={{display:"flex",alignItems:"center",gap:3}}><span style={{width:8,height:8,borderRadius:4,background:"#16a34a"}}/>新規承認</span>
+                <span style={{display:"flex",alignItems:"center",gap:3}}><span style={{width:8,height:8,borderRadius:4,background:"#2563eb"}}/>適応拡大・新剤形</span>
+                <span style={{display:"flex",alignItems:"center",gap:3}}><span style={{width:8,height:8,borderRadius:4,background:"#eab308"}}/>海外承認済・国内開発中</span>
+              </div>
             </div>
           </div>
 
