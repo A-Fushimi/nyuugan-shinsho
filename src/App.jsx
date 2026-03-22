@@ -215,7 +215,7 @@ function StandardOfCare(){
 // MOA category mapping for timeline filter
 const DRUG_MOA={
   camizestrant:"SERD",giredestrant:"SERD",imlunestrant:"SERD",vepdegestrant:"SERD",
-  atirmociclib:"CDK4/6i",prifetrastat:"KAT6i",
+  atirmociclib:"CDK4/6i",palbociclib:"CDK4/6i",abemaciclib:"CDK4/6i",prifetrastat:"KAT6i",
   inavolisib:"PI3K/AKT",gedatolisib:"PI3K/AKT",capivasertib:"PI3K/AKT",
   "T-DXd":"ADC","Dato-DXd":"ADC","Sac-Gov":"ADC","Sac-TMT":"ADC",
   tucatinib:"TKI",pumitamig:"BsAb/IO"
