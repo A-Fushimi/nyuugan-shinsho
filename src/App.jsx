@@ -860,12 +860,12 @@ export default function Dashboard(){
           <span style={{fontSize:11,color:"#94a3b8",fontWeight:500}}>Breast Cancer Drug Pipeline & Treatment Atlas</span>
         </div>
         <p style={{margin:"4px 0 0",fontSize:11,color:"#94a3b8"}}>治療開発パイプライン ・ 臨床試験タイムライン ・ 開発初期ランドスケープ ・ 日本の標準治療</p>
-        <p style={{margin:"3px 0 0",fontSize:10,color:"#64748b"}}>2026年3.1版　｜　最終更新: {UPDATED}　｜　収録薬剤: {DRUGS.length}　｜　収録試験: {TIMELINE.length}</p>
+        <p style={{margin:"3px 0 0",fontSize:10,color:"#64748b"}}>2026年1.0版　｜　最終更新: {UPDATED}　｜　収録薬剤: {DRUGS.length}　｜　収録試験: {TIMELINE.length}</p>
       </div>
 
       {/* Tabs */}
       <div style={{display:"flex",gap:0,marginBottom:20}}>
-        {[{k:"drugs",l:["治療開発","パイプライン"]},{k:"gantt",l:["臨床試験","タイムライン"]},{k:"landscape",l:["開発初期","ランドスケープ"]},{k:"soc",l:["乳癌の標準治療","（日本）"]}].map(({k,l})=>(
+        {[{k:"drugs",l:["治療開発","パイプライン"]},{k:"gantt",l:["臨床試験","タイムライン"]},{k:"landscape",l:["開発初期","ランドスケープ"]},{k:"soc",l:["乳癌の標準治療","（日本）"]},{k:"changelog",l:["変更履歴",""]}].map(({k,l})=>(
           <button key={k} onClick={()=>setTab(k)} style={{fontSize:13,fontWeight:tab===k?700:400,padding:"10px 20px",background:tab===k?"#fff":"#f1f5f9",color:tab===k?"#0f172a":"#64748b",border:tab===k?"1px solid #e2e8f0":"1px solid transparent",borderBottom:tab===k?"1px solid #fff":"1px solid #e2e8f0",borderRadius:"8px 8px 0 0",cursor:"pointer",marginBottom:-1,position:"relative",zIndex:tab===k?2:1,lineHeight:1.3,textAlign:"center"}}>{l[0]}<br/>{l[1]}</button>
         ))}
         <div style={{flex:1,borderBottom:"1px solid #e2e8f0"}}/>
@@ -955,6 +955,37 @@ export default function Dashboard(){
       )}
 
       {tab==="landscape" && <LandscapeTab/>}
+
+      {tab==="changelog" && (
+        <div style={{background:"#fff",borderRadius:12,padding:"20px 24px",border:"1px solid #e2e8f0"}}>
+          <h2 style={{margin:"0 0 16px",fontSize:16,fontWeight:700,color:"#0f172a"}}>変更履歴</h2>
+          {[
+            {ver:"1.0",date:"2026-03-22",type:"major",items:[
+              "初版公開",
+              "治療開発パイプライン: 32薬剤（HR+/HER2- 15, HER2+ 8, TNBC 5, 新規開発品 4）",
+              "臨床試験タイムライン: 33試験（ガントチャート+試験詳細パネル+NCT番号リンク）",
+              "開発初期ランドスケープ: 25薬剤（9カテゴリ: ADC, bispecific, PROTAC, CDK2/7, IO, RDC等）",
+              "乳癌の標準治療（日本）: JBCS GL 2022 + WEB改訂 + 2024-2026新薬承認反映",
+              "ページ内リンク: 薬剤名→カード展開、試験名→タイムライン遷移",
+              "GitHub Pages + カスタムドメイン shinsho.bctube.org で公開",
+            ]},
+          ].map((log,i)=>(
+            <div key={i} style={{marginBottom:20,paddingBottom:16,borderBottom:i<0?"":"1px solid #f1f5f9"}}>
+              <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:8}}>
+                <span style={{fontSize:14,fontWeight:800,color:log.type==="major"?"#7c3aed":"#2563eb"}}>{log.ver}</span>
+                <span style={{fontSize:11,color:"#64748b"}}>{log.date}</span>
+                <span style={{fontSize:10,fontWeight:600,color:"#fff",background:log.type==="major"?"#7c3aed":"#2563eb",padding:"1px 8px",borderRadius:999}}>{log.type==="major"?"メジャー":"マイナー"}</span>
+              </div>
+              <ul style={{margin:0,paddingLeft:20,fontSize:12,color:"#334155",lineHeight:1.8}}>
+                {log.items.map((item,j)=><li key={j}>{item}</li>)}
+              </ul>
+            </div>
+          ))}
+          <div style={{fontSize:11,color:"#94a3b8",marginTop:8}}>
+            バージョン規則: メジャー（X.0）= 大幅な構成変更・薬剤追加、マイナー（X.Y）= データ更新・UI改善・バグ修正
+          </div>
+        </div>
+      )}
 
       <div style={{marginTop:24,padding:"16px 20px",background:"#f1f5f9",borderRadius:12,fontSize:11,color:"#64748b"}}>
         <p style={{margin:0}}><strong>出典:</strong> FDA/EMA/PMDA公式、各製薬企業プレスリリース、ClinicalTrials.gov、oncolo.jp、passmed.co.jp、ASCO/ESMO/SABCS 2025-2026、各薬剤添付文書</p>
