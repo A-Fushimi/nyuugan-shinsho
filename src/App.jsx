@@ -816,7 +816,7 @@ export default function Dashboard(){
     if(clsFilter!=="ALL")list=list.filter(d=>clsMatch(d.cls,clsFilter));
     if(search.trim())list=list.filter(d=>(d.name+d.generic+d.co+d.cls).toLowerCase().includes(search.toLowerCase()));
     return list;
-  },[filter,search]);
+  },[filter,clsFilter,search]);
 
   const goToDrug=useCallback((generic)=>{
     setFilter("ALL");setSearch("");setFocusDrug(generic);setTab("drugs");
