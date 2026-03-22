@@ -274,12 +274,12 @@ const EVENTS = [
 
 const JP_OUTLOOK = [
   // FDA承認済み → 日本での見通し
-  {name:"ツカチニブ",generic:"tucatinib",sub:"HER2+ MBC 3L+（脳転移）",status:"✅ 2026/2/19 日本承認済。薬価収載待ち",color:"#16a34a"},
-  {name:"イムルネストラント",generic:"imlunestrant",sub:"HR+/HER2- ESR1m MBC",status:"✅ 2025/12/22 日本承認済",color:"#16a34a"},
-  {name:"イナボリシブ",generic:"inavolisib",sub:"HR+/HER2- PIK3CAm 1L",status:"FDA承認済（2024/10）。中外製薬が日本開発中→2026年以降申請見込み",color:"#eab308"},
-  {name:"エラセストラント",generic:"elacestrant",sub:"HR+/HER2- ESR1m MBC",status:"FDA承認済（2023/1）。日本未申請、ドラッグラグ大",color:"#64748b"},
-  {name:"ネラチニブ",generic:"neratinib",sub:"HER2+ EBC延長/MBC",status:"FDA承認済（2017/7）。日本未承認",color:"#64748b"},
-  {name:"マージェツキシマブ",generic:"margetuximab",sub:"HER2+ MBC 3L+",status:"FDA承認済（2020/12）。日本未承認、EU申請撤回",color:"#64748b"},
+  {name:"tucatinib",generic:"tucatinib",sub:"HER2+ MBC 3L+（脳転移）",status:"✅ 2026/2/19 日本承認済。薬価収載待ち",color:"#16a34a"},
+  {name:"imlunestrant",generic:"imlunestrant",sub:"HR+/HER2- ESR1m MBC",status:"✅ 2025/12/22 日本承認済",color:"#16a34a"},
+  {name:"inavolisib",generic:"inavolisib",sub:"HR+/HER2- PIK3CAm 1L",status:"FDA承認済（2024/10）。中外製薬が日本開発中→2026年以降申請見込み",color:"#eab308"},
+  {name:"elacestrant",generic:"elacestrant",sub:"HR+/HER2- ESR1m MBC",status:"FDA承認済（2023/1）。日本未申請、ドラッグラグ大",color:"#64748b"},
+  {name:"neratinib",generic:"neratinib",sub:"HER2+ EBC延長/MBC",status:"FDA承認済（2017/7）。日本未承認",color:"#64748b"},
+  {name:"margetuximab",generic:"margetuximab",sub:"HER2+ MBC 3L+",status:"FDA承認済（2020/12）。日本未承認、EU申請撤回",color:"#64748b"},
 ];
 
 function Chip({text,color,bg}){return <span style={{fontSize:11,fontWeight:600,color,background:bg,padding:"2px 8px",borderRadius:999,whiteSpace:"nowrap",display:"inline-block"}}>{text}</span>}
