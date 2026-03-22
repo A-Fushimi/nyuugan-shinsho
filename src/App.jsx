@@ -258,16 +258,16 @@ const EVENTS = [
     {text:"Camizestrant FDA諮問委員会（4/30）",generic:"camizestrant"},
     {text:"Vepdegestrant FDA承認判断（6/5）",generic:"vepdegestrant"},
     {text:"Dato-DXd TNBC FDA承認判断（Q2）",generic:"datopotamab deruxtecan"},
-    {text:"ASCO 2026（6月）"},
+    {text:"ASCO 2026（5/29-6/2）"},
   ]},
   {q:"2026 Q3",done:false,items:[
     {text:"T-DXd post-NAC FDA承認判断（Q3）",generic:"trastuzumab deruxtecan"},
     {text:"Camizestrant SERENA-4 結果発表（H2）",generic:"camizestrant"},
   ]},
   {q:"2026 Q4",done:false,items:[
-    {text:"ESMO 2026（10月）"},
+    {text:"ESMO 2026（10/23-27）"},
     {text:"Giredestrant evERA FDA承認判断（12/18）",generic:"giredestrant"},
-    {text:"SABCS 2026（12月）"},
+    {text:"SABCS 2026（12/8-12）"},
     {text:"イナボリシブ日本申請見込み",generic:"inavolisib"},
   ]},
 ];
@@ -290,12 +290,13 @@ function SubChip({t}){
   return <Chip text={t} color={x.c} bg={x.b}/>
 }
 
-function DrugLink({generic,label}){
+function DrugLink({generic,label,subtle}){
   const nav=useContext(NavContext);
   if(!nav)return <span>{label||generic}</span>;
   const drug=DRUGS.find(d=>d.generic===generic);
   const display=label||(drug?drug.name:generic);
-  return <span onClick={(e)=>{e.stopPropagation();nav.goToDrug(generic);}} style={{color:"#2563eb",cursor:"pointer",borderBottom:"1px dashed #93c5fd",fontWeight:500}} title={drug?`${drug.name} (${drug.generic})`:""}>{display}</span>;
+  const st=subtle?{cursor:"pointer"}:{color:"#2563eb",cursor:"pointer",borderBottom:"1px dashed #93c5fd",fontWeight:500};
+  return <span onClick={(e)=>{e.stopPropagation();nav.goToDrug(generic);}} style={st} title={drug?`${drug.name} (${drug.generic}) — クリックで詳細`:""}>{display}</span>;
 }
 
 function TrialLink({trial,label}){
@@ -891,7 +892,7 @@ export default function Dashboard(){
                   </div>
                   {e.items.map((item,j)=>(
                     <div key={j} style={{fontSize:12,paddingLeft:12,lineHeight:1.5,marginBottom:item.result?4:0}}>
-                      <div style={{color:e.done?"#64748b":"#334155"}}>{e.done?"✓":"•"} {item.generic?<DrugLink generic={item.generic} label={item.text}/>:item.text}</div>
+                      <div style={{color:e.done?"#64748b":"#334155"}}>{e.done?"✓":"•"} {item.generic?<DrugLink generic={item.generic} label={item.text} subtle/>:item.text}</div>
                       {item.result&&<div style={{fontSize:11,color:"#059669",paddingLeft:14,fontWeight:500}}>→ {item.result}</div>}
                     </div>
                   ))}
