@@ -8,6 +8,7 @@ import TIMELINE from "./data/timeline.json";
 import CHANGELOG from "./data/changelog.json";
 import ALGO from "./data/treatment-algorithm.json";
 import _constants from "./data/constants.json";
+import GLOSSARY from "./data/glossary.json";
 
 const { S, SC, SB, MOA_CAT_LABELS, STAGE_STYLE, stColors, subColors } = _constants;
 const NavContext = createContext(null);
@@ -582,6 +583,92 @@ function GanttChart({focusTrial,onFocusClear}){
   );
 }
 
+// ===== 用語集タブ =====
+function GlossaryTab(){
+  const [catFilter,setCatFilter]=useState("ALL");
+  const [search,setSearch]=useState("");
+  const [highlight,setHighlight]=useState(null);
+  const cats=GLOSSARY.categories;
+  const terms=GLOSSARY.terms;
+
+  const filtered=useMemo(()=>{
+    let list=terms;
+    if(catFilter!=="ALL")list=list.filter(t=>t.category===catFilter);
+    if(search){
+      const q=search.toLowerCase();
+      list=list.filter(t=>
+        t.term.toLowerCase().includes(q)||
+        (t.termJa&&t.termJa.toLowerCase().includes(q))||
+        t.reading.toLowerCase().includes(q)||
+        t.definition.toLowerCase().includes(q)
+      );
+    }
+    return list.sort((a,b)=>a.reading.localeCompare(b.reading,"ja"));
+  },[catFilter,search]);
+
+  const scrollTo=(id)=>{
+    setCatFilter("ALL");setSearch("");
+    setHighlight(id);
+    setTimeout(()=>{
+      const el=document.querySelector(`[data-glossary="${id}"]`);
+      if(el)el.scrollIntoView({behavior:"smooth",block:"center"});
+    },100);
+    setTimeout(()=>setHighlight(null),3000);
+  };
+
+  return(
+    <div>
+      <h3 style={{fontSize:18,fontWeight:700,color:"#f1f5f9",margin:"0 0 12px"}}>用語集 <span style={{fontSize:13,fontWeight:400,color:"#94a3b8"}}>— {terms.length}語収録</span></h3>
+      {/* Category filter */}
+      <div style={{display:"flex",gap:8,flexWrap:"wrap",marginBottom:12,alignItems:"center"}}>
+        <button onClick={()=>setCatFilter("ALL")} style={{fontSize:11,padding:"4px 12px",borderRadius:999,border:catFilter==="ALL"?"2px solid #7c3aed":"1px solid #334155",background:catFilter==="ALL"?"#1e1b4b":"#0f172a",color:catFilter==="ALL"?"#c4b5fd":"#94a3b8",cursor:"pointer",fontWeight:catFilter==="ALL"?700:400}}>すべて</button>
+        {cats.map(c=>(
+          <button key={c.id} onClick={()=>setCatFilter(c.id)} style={{fontSize:11,padding:"4px 12px",borderRadius:999,border:catFilter===c.id?"2px solid #7c3aed":"1px solid #334155",background:catFilter===c.id?"#1e1b4b":"#0f172a",color:catFilter===c.id?"#c4b5fd":"#94a3b8",cursor:"pointer",fontWeight:catFilter===c.id?700:400}}>{c.icon} {c.label}</button>
+        ))}
+      </div>
+      {/* Search */}
+      <input value={search} onChange={e=>setSearch(e.target.value)} placeholder="用語を検索…" style={{width:"100%",maxWidth:400,padding:"8px 12px",borderRadius:8,border:"1px solid #334155",background:"#1e293b",color:"#f1f5f9",fontSize:13,marginBottom:16,outline:"none",boxSizing:"border-box"}}/>
+      {/* Cards grid */}
+      <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(340px,1fr))",gap:12}}>
+        {filtered.map(t=>{
+          const cat=cats.find(c=>c.id===t.category);
+          const isHL=highlight===t.id;
+          return(
+            <div key={t.id} data-glossary={t.id} style={{background:isHL?"#1e1b4b":"#111827",border:isHL?"2px solid #7c3aed":"1px solid #1e293b",borderRadius:12,padding:16,transition:"border-color 0.5s, background 0.5s"}}>
+              {/* Category badge */}
+              <div style={{fontSize:10,color:"#94a3b8",marginBottom:6}}>{cat?.icon} {cat?.label}</div>
+              {/* Term */}
+              <div style={{display:"flex",alignItems:"baseline",gap:8,marginBottom:2}}>
+                <span style={{fontSize:18,fontWeight:700,color:"#f1f5f9"}}>{t.term}</span>
+                {t.termJa&&t.termJa!==t.term&&<span style={{fontSize:13,color:"#cbd5e1"}}>{t.termJa}</span>}
+              </div>
+              <div style={{fontSize:11,color:"#64748b",marginBottom:8}}>{t.reading}</div>
+              {/* Image */}
+              {t.image&&<img src={`/images/glossary/${t.image}`} alt={`${t.term}のイラスト`} onError={e=>{e.target.style.display="none"}} style={{display:"block",maxWidth:300,width:"100%",borderRadius:8,margin:"0 auto 10px",background:"#1e293b"}}/>}
+              {/* Definition */}
+              <p style={{fontSize:13,color:"#e2e8f0",lineHeight:1.7,margin:"0 0 10px"}}>{t.definition}</p>
+              {/* Related terms */}
+              {t.relatedTerms&&t.relatedTerms.length>0&&(
+                <div style={{display:"flex",gap:6,flexWrap:"wrap",alignItems:"center"}}>
+                  <span style={{fontSize:10,color:"#64748b"}}>関連:</span>
+                  {t.relatedTerms.map(rid=>{
+                    const rt=terms.find(x=>x.id===rid);
+                    return rt?(
+                      <span key={rid} onClick={()=>scrollTo(rid)} style={{fontSize:11,padding:"2px 8px",borderRadius:4,background:"#1e293b",color:"#94a3b8",cursor:"pointer",border:"1px solid #334155"}}>{rt.term}</span>
+                    ):null;
+                  })}
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+      {filtered.length===0&&<p style={{color:"#64748b",textAlign:"center",padding:40}}>該当する用語がありません</p>}
+      <p style={{fontSize:10,color:"#475569",marginTop:16,textAlign:"center"}}>用語の説明は一般向けに簡略化しています。正確な定義は乳癌診療ガイドライン等をご参照ください。</p>
+    </div>
+  );
+}
+
 function LandscapeTab(){
   const [subFilter,setSubFilter]=useState("ALL");
   const [stageFilter,setStageFilter]=useState("ALL");
@@ -724,12 +811,12 @@ export default function Dashboard(){
           <span style={{fontSize:11,color:"#94a3b8",fontWeight:500}}>Breast Cancer Drug Pipeline & Treatment Atlas</span>
         </div>
         <p style={{margin:"4px 0 0",fontSize:11,color:"#94a3b8"}}>治療開発パイプライン ・ 臨床試験タイムライン ・ 開発初期ランドスケープ ・ 日本の標準治療</p>
-        <p style={{margin:"3px 0 0",fontSize:10,color:"#64748b"}}>2026年1.1版　｜　最終更新: {UPDATED}　｜　収録薬剤: {DRUGS.length}　｜　収録試験: {TIMELINE.length}</p>
+        <p style={{margin:"3px 0 0",fontSize:10,color:"#64748b"}}>2026年1.1版　｜　最終更新: {UPDATED}　｜　収録薬剤: {DRUGS.length}　｜　収録試験: {TIMELINE.length}　｜　収録用語: {GLOSSARY.terms.length}</p>
       </div>
 
       {/* Tabs */}
       <div style={{display:"flex",gap:0,marginBottom:20}}>
-        {[{k:"drugs",l:["治療開発","パイプライン"]},{k:"gantt",l:["臨床試験","タイムライン"]},{k:"landscape",l:["開発初期","ランドスケープ"]},{k:"soc",l:["日本の","標準治療"]},{k:"changelog",l:["更新履歴",""]},{k:"about",l:["About Us",""]}].map(({k,l})=>(
+        {[{k:"drugs",l:["治療開発","パイプライン"]},{k:"gantt",l:["臨床試験","タイムライン"]},{k:"landscape",l:["開発初期","ランドスケープ"]},{k:"soc",l:["日本の","標準治療"]},{k:"glossary",l:["用語集",""]},{k:"changelog",l:["更新履歴",""]},{k:"about",l:["About Us",""]}].map(({k,l})=>(
           <button key={k} onClick={()=>setTab(k)} style={{fontSize:12,fontWeight:tab===k?700:400,padding:"8px 12px",background:tab===k?"#fff":"#f1f5f9",color:tab===k?"#0f172a":"#64748b",border:tab===k?"1px solid #e2e8f0":"1px solid transparent",borderBottom:tab===k?"1px solid #fff":"1px solid #e2e8f0",borderRadius:"8px 8px 0 0",cursor:"pointer",marginBottom:-1,position:"relative",zIndex:tab===k?2:1,lineHeight:1.3,textAlign:"center",flex:"1 1 0",minWidth:0}}>{l[0]}{l[1]&&<><br/>{l[1]}</>}</button>
         ))}
         <div style={{flex:1,borderBottom:"1px solid #e2e8f0"}}/>
@@ -815,6 +902,7 @@ export default function Dashboard(){
       )}
 
       {tab==="landscape" && <LandscapeTab/>}
+      {tab==="glossary" && <GlossaryTab/>}
 
       {tab==="changelog" && (
         <div style={{background:"#fff",borderRadius:12,padding:"20px 24px",border:"1px solid #e2e8f0"}}>
