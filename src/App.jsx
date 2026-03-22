@@ -880,7 +880,7 @@ export default function Dashboard(){
                 </div>
               ))}
               <div style={{fontSize:10,color:"#94a3b8",marginTop:8,display:"flex",gap:12,flexWrap:"wrap"}}>
-                <span style={{display:"flex",alignItems:"center",gap:3}}><span style={{width:8,height:8,borderRadius:4,background:"#16a34a"}}/>新規承認</span>
+                <span style={{display:"flex",alignItems:"center",gap:3}}><span style={{width:8,height:8,borderRadius:4,background:"#16a34a"}}/>新規承認済</span>
                 <span style={{display:"flex",alignItems:"center",gap:3}}><span style={{width:8,height:8,borderRadius:4,background:"#2563eb"}}/>適応拡大・新剤形</span>
                 <span style={{display:"flex",alignItems:"center",gap:3}}><span style={{width:8,height:8,borderRadius:4,background:"#eab308"}}/>海外承認済・国内開発中</span>
               </div>
