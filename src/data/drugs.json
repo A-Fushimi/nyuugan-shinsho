@@ -200,8 +200,8 @@
         "ctrl": "未治療",
         "res": "単剤で腫瘍増殖抑制、ET併用で持続的腫瘍退縮",
         "st": "pos",
-        "pr": "Mol Cancer Ther 2016",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/27196776/"
+        "pr": "Oncotarget 2018",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30443290/"
       },
       {
         "n": "MONALEESA-2",
@@ -233,8 +233,8 @@
         "ctrl": "ET alone",
         "res": "3y iDFS 90.4% vs 87.1% (HR 0.75)",
         "st": "pos",
-        "pr": "SABCS 2023",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/38081202/"
+        "pr": "NEJM 2024",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39442617/"
       }
     ],
     "next": "日本未承認（ドラッグロス）。EBC術後データ成熟中"
@@ -322,7 +322,7 @@
         "res": "ORR 19.7%, CBR 42.4%, mPFS 6.0m",
         "st": "pos",
         "pr": "Clin Cancer Res 2017",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/28874378/"
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28533223/"
       },
       {
         "n": "monarchE",
@@ -332,8 +332,8 @@
         "ctrl": "ET alone",
         "res": "4y iDFS HR 0.664, 5y OS HR 0.903",
         "st": "pos",
-        "pr": "ASCO 2023 / Lancet 2024",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/37279509/"
+        "pr": "JCO 2024",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/38194616/"
       },
       {
         "n": "MONARCH-2",
@@ -343,8 +343,8 @@
         "ctrl": "placebo + fulvestrant",
         "res": "mPFS 16.4 vs 9.3m (HR 0.55)",
         "st": "pos",
-        "pr": "JCO 2020",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/31461380/"
+        "pr": "JAMA Oncol 2020",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31563959/"
       }
     ],
     "next": "monarchE長期OS追跡"
@@ -413,8 +413,8 @@
         "ctrl": "fulvestrant",
         "res": "ESR1 Y537S/D538G変異モデルでER完全分解。fulvestrant超える腫瘍退縮",
         "st": "pos",
-        "pr": "Cancer Res 2021",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/34162665/"
+        "pr": "AACR 2021",
+        "url": "https://doi.org/10.1158/1538-7445.AM2021-1236"
       },
       {
         "n": "EMBER Phase I",
@@ -424,8 +424,8 @@
         "ctrl": "なし",
         "res": "CBR 40%、ESR1m群CBR 51%",
         "st": "pos",
-        "pr": "JCO 2023",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/36917510/"
+        "pr": "JCO 2024",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39241211/"
       },
       {
         "n": "EMBER-3",
@@ -436,7 +436,7 @@
         "res": "ESR1m群 mPFS 5.5 vs 3.8m (HR 0.62)",
         "st": "pos",
         "pr": "NEJM 2025",
-        "url": "https://www.nejm.org/doi/full/10.1056/NEJMoa2412763"
+        "url": "https://www.nejm.org/doi/full/10.1056/NEJMoa2410858"
       },
       {
         "n": "EMBER-4",
@@ -492,7 +492,7 @@
         "res": "ESR1変異モデルでfulvestrantと同等以上の活性。経口BA良好",
         "st": "pos",
         "pr": "Clin Cancer Res 2017",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/28468947/"
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28473534/"
       },
       {
         "n": "EMERALD",
@@ -503,7 +503,7 @@
         "res": "ESR1m群 mPFS 3.8 vs 1.9m (HR 0.55)",
         "st": "pos",
         "pr": "JCO 2022",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/35944924/"
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35584336/"
       }
     ],
     "next": "日本開発未定"
@@ -556,7 +556,7 @@
         "ctrl": "なし（用量漸増+拡大）",
         "res": "ORR 7.8%, CBR 34.3%。75mg以上で有効。光視症32%（G1主体）",
         "st": "pos",
-        "pr": "Lancet Oncol 2024",
+        "pr": "Ann Oncol 2024",
         "url": "https://pubmed.ncbi.nlm.nih.gov/38729567/"
       },
       {
@@ -619,8 +619,8 @@
         "ctrl": "fulvestrant",
         "res": "PROTAC技術で>90% ER分解。CDK4/6i耐性モデルでも有効。初のPROTAC臨床候補",
         "st": "pos",
-        "pr": "Cancer Discov 2022",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/35045997/"
+        "pr": "Clin Cancer Res 2024",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/38819400/"
       },
       {
         "n": "Phase I/Ib",
@@ -630,8 +630,8 @@
         "ctrl": "なし",
         "res": "ER分解62-89%。mono ORR 7%, CBR 39%",
         "st": "pos",
-        "pr": "Nature 2023",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/37821702/"
+        "pr": "SABCS 2021",
+        "url": "https://doi.org/10.1158/1538-7445.SABCS21-PD13-08"
       },
       {
         "n": "VERITAC-2",
@@ -683,8 +683,8 @@
         "ctrl": "fulvestrant",
         "res": "完全ERアンタゴニスト。ESR1 Y537S/D538G変異モデルで活性維持",
         "st": "pos",
-        "pr": "Cancer Res 2021",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/33903116/"
+        "pr": "J Med Chem 2021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34251202/"
       },
       {
         "n": "acelERA Phase I/II",
@@ -694,8 +694,8 @@
         "ctrl": "なし（用量漸増+拡大）",
         "res": "推奨用量30mg。ORR 12%, CBR 44%",
         "st": "pos",
-        "pr": "JCO 2022",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/35925770/"
+        "pr": "JCO 2024",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/38537155/"
       },
       {
         "n": "evERA",
@@ -781,7 +781,7 @@
         "res": "PIK3CA変異選択的活性。ET併用で相乗効果",
         "st": "pos",
         "pr": "Mol Cancer Ther 2014",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/24634412/"
+        "url": "https://pubmed.ncbi.nlm.nih.gov/24608574/"
       },
       {
         "n": "SOLAR-1",
@@ -837,8 +837,8 @@
         "ctrl": "alpelisib",
         "res": "変異選択性30倍。変異PI3Kα分解誘導→高血糖軽減",
         "st": "pos",
-        "pr": "Cancer Cell 2021",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/33689693/"
+        "pr": "Cancer Discov 2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34544753/"
       },
       {
         "n": "INAVO120",
@@ -896,7 +896,7 @@
         "res": "AKT1/2/3阻害。PIK3CA/PTEN変異モデルに選択的",
         "st": "pos",
         "pr": "Mol Cancer Ther 2012",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/22246438/"
+        "url": "https://pubmed.ncbi.nlm.nih.gov/22294718/"
       },
       {
         "n": "FAKTION",
@@ -907,7 +907,7 @@
         "res": "mPFS 10.3 vs 4.8m (HR 0.58)",
         "st": "pos",
         "pr": "Lancet Oncol 2020",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/31806539/"
+        "url": "https://pubmed.ncbi.nlm.nih.gov/32035020/"
       },
       {
         "n": "CAPItello-291",
@@ -974,8 +974,8 @@
         "ctrl": "letrozole",
         "res": "mTOR阻害によりET耐性克服。AI併用で腫瘍退縮",
         "st": "pos",
-        "pr": "Clin Cancer Res 2008",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/18519768/"
+        "pr": "Eur J Cancer 2008",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/18039566/"
       },
       {
         "n": "BOLERO-2",
@@ -1028,8 +1028,8 @@
         "ctrl": "palbociclib",
         "res": "CDK4選択的（CDK6 IC50>100倍差）。好中球減少理論的に軽減。palbo耐性モデルでも有効",
         "st": "pos",
-        "pr": "Cancer Res 2023",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/36649094/"
+        "pr": "Cancer Cell 2025",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40068598/"
       },
       {
         "n": "Phase I",
@@ -1039,8 +1039,8 @@
         "ctrl": "なし",
         "res": "G3/4好中球減少率が既存CDK4/6iより著明に低い",
         "st": "pos",
-        "pr": "SABCS 2023",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/37979755/"
+        "pr": "Cancer Cell 2025",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40068598/"
       },
       {
         "n": "FOURLIGHT-1",
@@ -1097,8 +1097,8 @@
         "ctrl": "CDK4/6i",
         "res": "PI3K/mTOR同時阻害でCDK4/6i耐性克服。バイオマーカー非依存",
         "st": "pos",
-        "pr": "Mol Cancer Ther 2016",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/27196767/"
+        "pr": "Clin Cancer Res 2011",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/21325073/"
       },
       {
         "n": "Phase I",
@@ -1108,8 +1108,8 @@
         "ctrl": "なし",
         "res": "乳がんORR 33%。DLTは口内炎・高血糖",
         "st": "pos",
-        "pr": "Clin Cancer Res 2020",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/32238405/"
+        "pr": "Clin Cancer Res 2015",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/25652454/"
       },
       {
         "n": "VIKTORIA-1",
@@ -1167,8 +1167,8 @@
         "ctrl": "なし",
         "res": "予備的有効性確認。推奨Ph3用量決定",
         "st": "pos",
-        "pr": "SABCS 2023",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/38179693/"
+        "pr": "Nat Med 2024",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/38824244/"
       },
       {
         "n": "KATSIS-1",
@@ -1338,7 +1338,7 @@
         "res": "mPFS 28.8 vs 6.8m (HR 0.33)",
         "st": "pos",
         "pr": "Lancet 2023",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/36828498/"
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36495879/"
       },
       {
         "n": "DB-09",
@@ -1379,8 +1379,8 @@
         "ctrl": "医師選択化学療法",
         "res": "mPFS 13.2 vs 8.1m (HR 0.62)",
         "st": "pos",
-        "pr": "ASCO 2024",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/38815179/"
+        "pr": "NEJM 2024",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39282896/"
       },
       {
         "n": "DB-12",
@@ -1459,8 +1459,8 @@
         "ctrl": "trastuzumab/DM1単独",
         "res": "ADCがHER2+腫瘍に選択的に集積。トラスツズマブ単独を超える腫瘍退縮",
         "st": "pos",
-        "pr": "Mol Cancer Ther 2008",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/18566225/"
+        "pr": "Cancer Res 2008",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/19010901/"
       },
       {
         "n": "EMILIA",
@@ -1528,8 +1528,8 @@
         "ctrl": "lapatinib",
         "res": "HER2選択的TKI（EGFR活性低い→皮膚毒性軽減）。BBB通過性良好。脳転移モデルで有効",
         "st": "pos",
-        "pr": "Mol Cancer Ther 2018",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/29891489/"
+        "pr": "Mol Cancer Ther 2020",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/32241871/"
       },
       {
         "n": "HER2CLIMB",
@@ -1597,7 +1597,7 @@
         "res": "PK非劣性確認",
         "st": "pos",
         "pr": "Lancet Oncol 2021",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/33453765/"
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33357420/"
       }
     ],
     "next": "利便性向上"
@@ -1642,7 +1642,7 @@
         "res": "mPFS 5.8 vs 4.9m (HR 0.76), OS有意差なし",
         "st": "pos",
         "pr": "JAMA Oncol 2021",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/33480403/"
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33480963/"
       }
     ],
     "next": "CD16A FF遺伝子型での効果検証。日本開発未定"
@@ -1687,7 +1687,7 @@
         "res": "5y iDFS 90.2% vs 87.7% (HR 0.73)",
         "st": "pos",
         "pr": "Lancet Oncol 2017",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/28690010/"
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29146401/"
       },
       {
         "n": "NALA",
@@ -1698,7 +1698,7 @@
         "res": "mPFS 8.8 vs 6.6m (HR 0.76)",
         "st": "pos",
         "pr": "JCO 2020",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/32568634/"
+        "url": "https://pubmed.ncbi.nlm.nih.gov/32678716/"
       }
     ],
     "next": "日本開発未定。ツカチニブ承認でポジション限定的"
@@ -2121,8 +2121,8 @@
         "ctrl": "sacituzumab govitecan",
         "res": "TROP2標的DXdペイロードADC。バイスタンダー効果確認。SN-38系より口内炎型AEプロファイル",
         "st": "pos",
-        "pr": "Clin Cancer Res 2021",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/33504554/"
+        "pr": "Mol Cancer Ther 2021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34413126/"
       },
       {
         "n": "TROPION-PanTumor01",
@@ -2133,7 +2133,7 @@
         "res": "HR+ BC ORR 27%, TNBC ORR 34%。推奨用量6mg/kg",
         "st": "pos",
         "pr": "JCO 2024",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/38113430/"
+        "url": "https://pubmed.ncbi.nlm.nih.gov/38652877/"
       },
       {
         "n": "TB-01",
@@ -2308,7 +2308,7 @@
         "res": "PARP trapping活性がolaparibの約100倍。低用量で抗腫瘍効果。BRCA変異細胞に高感受性",
         "st": "pos",
         "pr": "Mol Cancer Ther 2014",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/24435445/"
+        "url": "https://pubmed.ncbi.nlm.nih.gov/24356813/"
       },
       {
         "n": "EMBRACA",
@@ -2357,8 +2357,8 @@
         "ctrl": "抗HER3抗体単独",
         "res": "HER3標的DXd ADC。HER3発現腫瘍でバイスタンダー効果。HER2非依存の新標的",
         "st": "pos",
-        "pr": "Mol Cancer Ther 2020",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/32111697/"
+        "pr": "Mol Cancer Ther 2019",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31395690/"
       },
       {
         "n": "Phase I/II",
@@ -2411,8 +2411,8 @@
         "ctrl": "sacituzumab govitecan",
         "res": "新規belotecanペイロード+cleavableリンカー。DAR 7.4。SN-38系ADCより下痢軽度。骨髄抑制が主毒性",
         "st": "pos",
-        "pr": "Cancer Res 2023",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/36862487/"
+        "pr": "Front Oncol 2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36620535/"
       },
       {
         "n": "Phase I/II",
@@ -2422,8 +2422,8 @@
         "ctrl": "なし",
         "res": "TNBC ORR 55.6%, HR+ ORR 30.3%",
         "st": "pos",
-        "pr": "ESMO 2024",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/38944606/"
+        "pr": "J Hematol Oncol 2025",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40481574/"
       },
       {
         "n": "OptiTROP-Breast01",
@@ -2434,7 +2434,7 @@
         "res": "mPFS 6.7 vs 2.5m (HR 0.32), mOS NR vs 9.4m (HR 0.53)",
         "st": "pos",
         "pr": "Nat Med 2025",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/39394505/"
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40217078/"
       },
       {
         "n": "OptiTROP-Breast02",
@@ -2512,8 +2512,8 @@
         "ctrl": "単一標的抗体",
         "res": "PD-L1+VEGF-A二重標的。免疫活性化+血管正常化の同時達成。Phase Ib/II TNBC ORR 54%",
         "st": "pos",
-        "pr": "Nat Med 2024",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/38769150/"
+        "pr": "Front Immunol 2021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34925354/"
       },
       {
         "n": "Phase III（TNBC 1L）",
