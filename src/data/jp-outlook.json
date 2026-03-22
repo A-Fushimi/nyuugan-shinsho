@@ -19,14 +19,6 @@
     "cat": "expansion",
     "name": "T-DXd（エンハーツ）",
     "generic": "trastuzumab deruxtecan",
-    "sub": "HR+/HER2低発現 MBC（chemo未治療）",
-    "status": "2025/8/25 承認済（DB-06）",
-    "color": "#2563eb"
-  },
-  {
-    "cat": "expansion",
-    "name": "T-DXd（エンハーツ）",
-    "generic": "trastuzumab deruxtecan",
     "sub": "HER2+ EBC 術後補助療法",
     "status": "2026/2/27 日本申請中（DB-05、iDFS HR 0.47）",
     "color": "#2563eb"
