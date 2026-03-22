@@ -904,7 +904,7 @@ export default function Dashboard(){
               {JP_OUTLOOK.map((j,i)=>(
                 <div key={i} style={{display:"flex",alignItems:"center",gap:8,marginBottom:8,fontSize:12}}>
                   <span style={{width:8,height:8,borderRadius:4,background:j.color,flexShrink:0}}/>
-                  <span style={{fontWeight:700,minWidth:130}}>{j.generic?<DrugLink generic={j.generic} label={j.name}/>:j.name}</span>
+                  <span style={{fontWeight:700,minWidth:130}}>{j.generic?<DrugLink generic={j.generic} label={j.name} subtle/>:j.name}</span>
                   <span style={{color:"#64748b",fontSize:11,flex:"1 1 160px"}}>{j.sub}</span>
                   <span style={{fontSize:11,color:"#334155",textAlign:"right"}}>{j.status}</span>
                 </div>
