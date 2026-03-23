@@ -183,9 +183,9 @@ export default function CostSimulator(){
       </div>
 
       {/* ── テーブル ── */}
-      <div style={{overflowX:"auto"}}>
+      <div style={{overflowX:"auto",overflowY:"auto",maxHeight:"60vh",border:"1px solid #e2e8f0",borderRadius:8}}>
         <table style={{width:"100%",borderCollapse:"collapse",fontSize:12}}>
-          <thead>
+          <thead style={{position:"sticky",top:0,zIndex:5}}>
             <tr style={{background:"#f8fafc",borderBottom:"2px solid #e2e8f0"}}>
               <th onClick={()=>doSort("name")} style={{textAlign:"left",padding:"6px 8px",color:"#64748b",cursor:"pointer",fontSize:11,fontWeight:600,minWidth:180}}>レジメン{sortKey==="name"?(sortDir>0?" ▲":" ▼"):""}</th>
               <th style={{textAlign:"left",padding:"6px 8px",color:"#64748b",fontSize:11,fontWeight:600}}>周期</th>
