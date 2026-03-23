@@ -137,7 +137,7 @@ export default function CostSimulator(){
 
   return(
     <div style={{background:"#fff",borderRadius:12,padding:"20px 24px",border:"1px solid #e2e8f0"}}>
-      <h2 style={{fontSize:18,fontWeight:800,color:"#0f172a",margin:"0 0 4px"}}>💊 治療費シミュレーター</h2>
+      <h2 style={{fontSize:18,fontWeight:800,color:"#0f172a",margin:"0 0 4px"}}>💊 治療費概算</h2>
       <p style={{fontSize:12,color:"#64748b",margin:"0 0 16px"}}>高額療養費制度を適用した自己負担額の概算を一覧表示します</p>
 
       {/* ── フィルタ（非固定） ── */}
@@ -264,7 +264,7 @@ export default function CostSimulator(){
         <div style={{marginTop:12,padding:"10px",background:"#fef2f2",borderRadius:6,border:"1px solid #fecaca"}}>
           <p style={{fontSize:10,color:"#991b1b",margin:0,lineHeight:1.6}}>
             <strong>⚠ 注意事項</strong><br/>
-            ・本シミュレーターは概算です。実際の医療費は体重・体表面積・投与量調整・併用薬等により変動します。<br/>
+            ・本ツールは概算です。実際の医療費は体重・体表面積・投与量調整・併用薬等により変動します。<br/>
             ・薬価は{KOUGAKU.lastChecked}時点の情報に基づいています。薬価改定（年1〜2回）により変更される場合があります。<br/>
             ・入院費・検査費・手術費は含まれていません。外来での薬剤費のみの概算です。<br/>
             ・<strong>支持療法について:</strong> 化学療法では制吐薬・G-CSF・ステロイド等の支持療法が併用されます。これらは本表に別レジメンとして掲載していますが、実際にはメインの治療に上乗せされる費用です。<br/>

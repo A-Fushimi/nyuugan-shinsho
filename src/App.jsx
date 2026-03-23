@@ -842,7 +842,7 @@ export default function Dashboard(){
 
       {/* Tabs */}
       <div style={{display:"flex",gap:0,marginBottom:20}}>
-        {[{k:"drugs",l:["治療開発","パイプライン"]},{k:"gantt",l:["臨床試験","タイムライン"]},{k:"landscape",l:["開発初期","ランドスケープ"]},{k:"soc",l:["日本の","標準治療"]},{k:"cost",l:["治療費","シミュレーター"]},{k:"glossary",l:["用語集",""]},{k:"changelog",l:["更新履歴",""]},{k:"about",l:["About Us",""]}].map(({k,l})=>(
+        {[{k:"drugs",l:["治療開発","パイプライン"]},{k:"gantt",l:["臨床試験","タイムライン"]},{k:"landscape",l:["開発初期","ランドスケープ"]},{k:"soc",l:["日本の","標準治療"]},{k:"cost",l:["治療費","概算"]},{k:"glossary",l:["用語集",""]},{k:"changelog",l:["更新履歴",""]},{k:"about",l:["About Us",""]}].map(({k,l})=>(
           <button key={k} onClick={()=>setTab(k)} style={{fontSize:12,fontWeight:tab===k?700:400,padding:"8px 12px",background:tab===k?"#fff":"#f1f5f9",color:tab===k?"#0f172a":"#64748b",border:tab===k?"1px solid #e2e8f0":"1px solid transparent",borderBottom:tab===k?"1px solid #fff":"1px solid #e2e8f0",borderRadius:"8px 8px 0 0",cursor:"pointer",marginBottom:-1,position:"relative",zIndex:tab===k?2:1,lineHeight:1.3,textAlign:"center",flex:"1 1 0",minWidth:0}}>{l[0]}{l[1]&&<><br/>{l[1]}</>}</button>
         ))}
         <div style={{flex:1,borderBottom:"1px solid #e2e8f0"}}/>
