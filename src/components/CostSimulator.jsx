@@ -11,18 +11,19 @@ function calcLimit(totalMedical,cat,isMulti){
   return r.base+Math.max(totalMedical-r.threshold,0)*r.rate;
 }
 function simulate(monthlyMedical,cat,copayRate,months){
-  let multiCount=0,total=0,first=0,multi=0;
+  let multiCount=0,total=0,first=0,multi=0,applied=false;
   for(let m=1;m<=months;m++){
     const raw=monthlyMedical*copayRate;
     const isM=multiCount>=3;
     const limit=calcLimit(monthlyMedical,cat,isM);
     const actual=Math.min(raw,limit);
+    if(raw>limit)applied=true;
     total+=actual;
     if(m===1)first=actual;
     if(isM&&multi===0)multi=actual;
     if(raw>=limit)multiCount++;
   }
-  return{total:Math.round(total),first:Math.round(first),multi:Math.round(multi)};
+  return{total:Math.round(total),first:Math.round(first),multi:Math.round(multi),applied};
 }
 
 const fmt=n=>n==null?"—":"¥"+n.toLocaleString();
@@ -150,13 +151,13 @@ export default function CostSimulator(){
                   </td>
                   <td style={{padding:"6px 8px",color:"#64748b",fontSize:11}}>{r.cycle}</td>
                   <td style={{padding:"6px 8px",textAlign:"right",fontVariantNumeric:"tabular-nums",color:"#64748b"}}>{fmt(r.monthlyBrand)}</td>
-                  <td style={{padding:"6px 8px",textAlign:"right",fontVariantNumeric:"tabular-nums"}}>
-                    <div style={{fontWeight:700,color:"#0f172a"}}>{fmt(r.brand.total)}</div>
+                  <td style={{padding:"6px 8px",textAlign:"right",fontVariantNumeric:"tabular-nums",background:r.brand.applied?"#eff6ff":"transparent"}}>
+                    <div style={{fontWeight:700,color:"#0f172a"}}>{fmt(r.brand.total)}{r.brand.applied&&<span style={{marginLeft:4,fontSize:9,padding:"1px 4px",borderRadius:3,background:"#dbeafe",color:"#1d4ed8",fontWeight:600}}>制度適用</span>}</div>
                     <div style={{fontSize:10,color:"#94a3b8"}}>初月{fmt(r.brand.first)}{r.brand.multi>0&&` → 多数回${fmt(r.brand.multi)}/月`}</div>
                   </td>
-                  {showGE&&<td style={{padding:"6px 8px",textAlign:"right",fontVariantNumeric:"tabular-nums"}}>
+                  {showGE&&<td style={{padding:"6px 8px",textAlign:"right",fontVariantNumeric:"tabular-nums",background:r.ge?.applied?"#f0fdf4":"transparent"}}>
                     {r.ge?<>
-                      <div style={{fontWeight:700,color:"#16a34a"}}>{fmt(r.ge.total)}</div>
+                      <div style={{fontWeight:700,color:"#16a34a"}}>{fmt(r.ge.total)}{r.ge.applied&&<span style={{marginLeft:4,fontSize:9,padding:"1px 4px",borderRadius:3,background:"#dcfce7",color:"#16a34a",fontWeight:600}}>制度適用</span>}</div>
                       <div style={{fontSize:10,color:"#94a3b8"}}>{r.genericNote}</div>
                     </>:<span style={{color:"#d1d5db"}}>—</span>}
                   </td>}
