@@ -192,7 +192,7 @@ export default function CostSimulator(){
               <SortH k="monthly">月額医療費(10割)</SortH>
               <SortH k="brand"><span style={{display:"block",fontSize:9,color:"#64748b",background:"#eff6ff",borderRadius:3,padding:"1px 4px",marginBottom:2,fontWeight:400}}>青背景は高額療養費適用</span>先発品 自己負担{months}ヶ月</SortH>
               {showGE&&<SortH k="ge">後発品/BS{months}ヶ月</SortH>}
-              {showGE&&<SortH k="saving">差額</SortH>}
+
               <th style={{padding:"6px 8px",color:"#64748b",fontSize:11,fontWeight:600,width:160}}>医療費と負担</th>
             </tr>
           </thead>
@@ -218,7 +218,6 @@ export default function CostSimulator(){
                       <div style={{fontSize:10,color:"#94a3b8"}}>{r.genericNote}</div>
                     </>:<span style={{color:"#d1d5db"}}>—</span>}
                   </td>}
-                  {showGE&&<td style={{padding:"6px 8px",textAlign:"right",fontVariantNumeric:"tabular-nums",fontWeight:600,color:r.saving>0?"#dc2626":"#94a3b8"}}>{r.saving!=null&&r.saving>0?`−${fmt(r.saving).slice(1)}`:"—"}</td>}
                   <td style={{padding:"6px 8px"}}>
                     {(()=>{
                       const tenB=r.monthlyBrand*months;
