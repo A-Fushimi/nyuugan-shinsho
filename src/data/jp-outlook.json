@@ -46,5 +46,23 @@
     "sub": "HR+/HER2- PIK3CAm MBC 1L",
     "status": "FDA 2024/10承認済。中外製薬が国内開発中→2026年以降申請見込み",
     "color": "#eab308"
+  },
+  {
+    "drug": "トロデルビ（Sac-Gov）",
+    "generic": "sacituzumab govitecan",
+    "indication": "HR+/HER2- MBC（化学療法歴あり）",
+    "category": "expansion",
+    "status": "✅ 2026/3/23 承認済",
+    "detail": "TROPiCS-02試験に基づく適応拡大。TNBC承認（2024/9）に続く2つ目の適応。",
+    "isNew": true
+  },
+  {
+    "cat": "適応拡大",
+    "name": "トロデルビ（Sac-Gov）",
+    "generic": "sacituzumab govitecan",
+    "sub": "HR+/HER2- MBC（化学療法歴あり）",
+    "status": "✅ 2026/3/23 承認済",
+    "color": "#2563eb",
+    "isNew": true
   }
 ]

@@ -2001,7 +2001,7 @@
     },
     "jp": {
       "s": "ok",
-      "t": "承認済 2024/3 トロデルビ（TNBC）",
+      "t": "承認済 2024/9 TNBC + 2026/3/23 HR+/HER2-",
       "url": "https://www.kegg.jp/medicus-bin/japic_med?japic_code=00071544"
     },
     "studies": [
@@ -2048,7 +2048,9 @@
         "pr": "2025"
       }
     ],
-    "next": "ASCENT-04→FDA申請見込み。1L TNBC新SoC候補"
+    "next": "ASCENT-04→FDA申請見込み。1L TNBC新SoC候補",
+    "isNew": true,
+    "newLabel": "3/23 HR+適応拡大承認"
   },
   {
     "id": 27,

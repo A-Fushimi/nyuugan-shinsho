@@ -85,7 +85,7 @@ function DrugCard({d,focusDrug,onFocusClear}){
     <div ref={cardRef} data-drug={d.generic} style={{background:"#fff",borderRadius:12,border:isFocused?"2px solid #2563eb":"1px solid #e2e8f0",marginBottom:10,overflow:"hidden",boxShadow:open?"0 4px 12px rgba(0,0,0,0.08)":"0 1px 3px rgba(0,0,0,0.04)",transition:"box-shadow .2s, border .3s"}}>
       <div onClick={()=>setOpen(!open)} style={{padding:"14px 18px",cursor:"pointer"}}>
         <div style={{display:"flex",alignItems:"center",gap:10,flexWrap:"wrap"}}>
-          <span><span style={{fontSize:15,fontWeight:700,color:"#0f172a"}}>{d.name}</span>{d.generic&&<span style={{fontSize:11,color:"#94a3b8",marginLeft:6}}>({d.generic})</span>}</span>
+          <span><span style={{fontSize:15,fontWeight:700,color:"#0f172a"}}>{d.name}</span>{d.generic&&<span style={{fontSize:11,color:"#94a3b8",marginLeft:6}}>({d.generic})</span>}{d.isNew&&<span style={{fontSize:10,fontWeight:700,color:"#fff",background:"#ef4444",borderRadius:4,padding:"1px 5px",marginLeft:6,animation:"pulse 2s infinite"}}>NEW</span>}</span>
           <span style={{fontSize:12,color:"#64748b"}}>{d.co}</span>
           <span style={{fontSize:11,color:"#94a3b8",fontStyle:"italic"}}>{d.cls}</span>
           <span style={{display:"flex",gap:4,marginLeft:"auto",alignItems:"center",flexWrap:"wrap"}}>
@@ -864,7 +864,7 @@ export default function Dashboard(){
                   </div>
                   {e.items.map((item,j)=>(
                     <div key={j} style={{fontSize:12,paddingLeft:12,lineHeight:1.5,marginBottom:item.result?4:0}}>
-                      <div style={{color:e.done?"#64748b":"#334155"}}>{e.done?"✓":"•"} {item.generic?<DrugLink generic={item.generic} label={item.text} subtle/>:item.text}</div>
+                      <div style={{color:e.done?"#64748b":"#334155"}}>{e.done?"✓":"•"} {item.generic?<DrugLink generic={item.generic} label={item.text} subtle/>:item.text}{item.isNew&&<span style={{fontSize:9,fontWeight:700,color:"#fff",background:"#ef4444",borderRadius:3,padding:"1px 4px",marginLeft:4}}>NEW</span>}</div>
                       {item.result&&<div style={{fontSize:11,color:"#059669",paddingLeft:14,fontWeight:500}}>→ {item.result}</div>}
                     </div>
                   ))}
@@ -878,7 +878,7 @@ export default function Dashboard(){
                   <span style={{width:8,height:8,borderRadius:4,background:j.color,flexShrink:0}}/>
                   <span style={{fontWeight:700,minWidth:130}}>{j.generic?<DrugLink generic={j.generic} label={j.name} subtle/>:j.name}</span>
                   <span style={{color:"#64748b",fontSize:11,flex:"1 1 160px"}}>{j.sub}</span>
-                  <span style={{fontSize:11,color:"#334155",textAlign:"right"}}>{j.status}</span>
+                  <span style={{fontSize:11,color:"#334155",textAlign:"right"}}>{j.status}{j.isNew&&<span style={{fontSize:9,fontWeight:700,color:"#fff",background:"#ef4444",borderRadius:3,padding:"1px 4px",marginLeft:4}}>NEW</span>}</span>
                 </div>
               ))}
               <div style={{fontSize:10,color:"#94a3b8",marginTop:8,display:"flex",gap:12,flexWrap:"wrap"}}>
