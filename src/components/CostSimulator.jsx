@@ -123,7 +123,7 @@ export default function CostSimulator(){
     });
   },[ageIdx,incId,months,group,sortKey,sortDir]);
 
-  const maxBrand=Math.max(...data.map(d=>d.brand.total),1);
+  const maxMedical=Math.max(...data.map(d=>d.monthlyBrand),1)*months;
 
   const doSort=key=>{
     if(sortKey===key)setSortDir(d=>-d);
@@ -192,7 +192,7 @@ export default function CostSimulator(){
               <SortH k="brand">先発品 自己負担{months}ヶ月</SortH>
               {showGE&&<SortH k="ge">後発品/BS{months}ヶ月</SortH>}
               {showGE&&<SortH k="saving">差額</SortH>}
-              <th style={{padding:"6px 8px",color:"#64748b",fontSize:11,fontWeight:600,width:140}}>負担率</th>
+              <th style={{padding:"6px 8px",color:"#64748b",fontSize:11,fontWeight:600,width:160}}>医療費と負担</th>
             </tr>
           </thead>
           <tbody>
@@ -222,26 +222,28 @@ export default function CostSimulator(){
                   {showGE&&<td style={{padding:"6px 8px",textAlign:"right",fontVariantNumeric:"tabular-nums",fontWeight:600,color:r.saving>0?"#dc2626":"#94a3b8"}}>{r.saving!=null&&r.saving>0?`−${fmt(r.saving).slice(1)}`:"—"}</td>}
                   <td style={{padding:"6px 8px"}}>
                     {(()=>{
-                      const rawB=r.brand.rawTotal;
+                      const tenB=r.monthlyBrand*months;
+                      const barW=maxMedical>0?tenB/maxMedical*100:0;
                       const actB=r.brand.total;
-                      const pctB=rawB>0?Math.round(actB/rawB*100):100;
-                      const saved=rawB-actB;
-                      const tipB=`${Math.round(rule.copay*10)}割負担 ${fmt(rawB)} → 制度適用後 ${fmt(actB)}（${fmt(saved)} 軽減）`;
-                      const rawG=r.ge?.rawTotal;
-                      const actG=r.ge?.total;
-                      const pctG=rawG>0?Math.round(actG/rawG*100):100;
-                      const savedG=rawG?rawG-actG:0;
-                      const tipG=r.ge?`${Math.round(rule.copay*10)}割負担 ${fmt(rawG)} → 制度適用後 ${fmt(actG)}（${fmt(savedG)} 軽減）`:"";
+                      const payPct=tenB>0?actB/tenB*100:100;
+                      const saved=r.brand.rawTotal-actB;
+                      const tipB=`10割 ${fmt(tenB)} → ${Math.round(rule.copay*10)}割 ${fmt(r.brand.rawTotal)} → 制度適用後 ${fmt(actB)}（${fmt(saved)} 軽減）`;
+                      const tenG=r.monthlyGeneric!=null?r.monthlyGeneric*months:0;
+                      const barWG=maxMedical>0?tenG/maxMedical*100:0;
+                      const actG=r.ge?.total||0;
+                      const payPctG=tenG>0?actG/tenG*100:100;
+                      const savedG=r.ge?r.ge.rawTotal-actG:0;
+                      const tipG=r.ge?`10割 ${fmt(tenG)} → ${Math.round(rule.copay*10)}割 ${fmt(r.ge.rawTotal)} → 制度適用後 ${fmt(actG)}（${fmt(savedG)} 軽減）`:"";
                       return(
                         <div style={{display:"flex",flexDirection:"column",gap:3}}>
-                          <div title={tipB} style={{display:"flex",height:14,borderRadius:4,overflow:"hidden",background:"#e2e8f0",cursor:"default",position:"relative"}}>
-                            <div style={{width:`${pctB}%`,background:"#3b82f6",minWidth:2,display:"flex",alignItems:"center",justifyContent:"flex-end",paddingRight:3}}>
-                              {r.brand.applied&&<span style={{fontSize:8,color:"#fff",fontWeight:700}}>{pctB}%</span>}
+                          <div title={tipB} style={{width:`${barW}%`,minWidth:4,height:14,borderRadius:4,background:"#bfdbfe",cursor:"default",position:"relative",overflow:"hidden"}}>
+                            <div style={{width:`${payPct}%`,height:"100%",background:"#3b82f6",borderRadius:"4px 0 0 4px",display:"flex",alignItems:"center",justifyContent:"flex-end",paddingRight:2}}>
+                              {r.brand.applied&&payPct<95&&<span style={{fontSize:7,color:"#fff",fontWeight:700}}>{fmt(actB)}</span>}
                             </div>
                           </div>
-                          {showGE&&r.ge&&<div title={tipG} style={{display:"flex",height:14,borderRadius:4,overflow:"hidden",background:"#e2e8f0",cursor:"default",position:"relative"}}>
-                            <div style={{width:`${pctG}%`,background:"#22c55e",minWidth:2,display:"flex",alignItems:"center",justifyContent:"flex-end",paddingRight:3}}>
-                              {r.ge.applied&&<span style={{fontSize:8,color:"#fff",fontWeight:700}}>{pctG}%</span>}
+                          {showGE&&r.ge&&<div title={tipG} style={{width:`${barWG}%`,minWidth:4,height:14,borderRadius:4,background:"#bbf7d0",cursor:"default",position:"relative",overflow:"hidden"}}>
+                            <div style={{width:`${payPctG}%`,height:"100%",background:"#22c55e",borderRadius:"4px 0 0 4px",display:"flex",alignItems:"center",justifyContent:"flex-end",paddingRight:2}}>
+                              {r.ge?.applied&&payPctG<95&&<span style={{fontSize:7,color:"#fff",fontWeight:700}}>{fmt(actG)}</span>}
                             </div>
                           </div>}
                         </div>
@@ -258,10 +260,11 @@ export default function CostSimulator(){
       {/* ── フッター ── */}
       <div style={{marginTop:20,padding:"16px",background:"#f8fafc",borderRadius:8,border:"1px solid #e2e8f0"}}>
         <div style={{display:"flex",gap:16,flexWrap:"wrap",marginBottom:12,fontSize:11,color:"#64748b"}}>
-          <span>■ 負担率バーの見方:</span>
-          <span style={{display:"inline-flex",alignItems:"center",gap:4}}><span style={{display:"inline-block",width:12,height:12,borderRadius:2,background:"#3b82f6"}}/> 実質負担額</span>
-          <span style={{display:"inline-flex",alignItems:"center",gap:4}}><span style={{display:"inline-block",width:12,height:12,borderRadius:2,background:"#e2e8f0"}}/> 高額療養費で軽減された部分</span>
-          <span style={{display:"inline-flex",alignItems:"center",gap:4}}><span style={{display:"inline-block",width:12,height:12,borderRadius:2,background:"#eff6ff",border:"1px solid #bfdbfe"}}/> 金額欄の青背景 = 高額療養費制度が適用</span>
+          <span>■ バーの見方:</span>
+          <span style={{display:"inline-flex",alignItems:"center",gap:4}}>バーの長さ = 10割の医療費（高いほど長い）</span>
+          <span style={{display:"inline-flex",alignItems:"center",gap:4}}><span style={{display:"inline-block",width:12,height:12,borderRadius:2,background:"#3b82f6"}}/> 濃い部分 = 実質負担額</span>
+          <span style={{display:"inline-flex",alignItems:"center",gap:4}}><span style={{display:"inline-block",width:12,height:12,borderRadius:2,background:"#bfdbfe"}}/> 薄い部分 = 高額療養費で軽減</span>
+          <span style={{display:"inline-flex",alignItems:"center",gap:4}}><span style={{display:"inline-block",width:12,height:12,borderRadius:2,background:"#eff6ff",border:"1px solid #bfdbfe"}}/> 金額欄の青背景 = 高額療養費が適用</span>
         </div>
         <FormulaTable ageId={ageId} incId={incId}/>
 
