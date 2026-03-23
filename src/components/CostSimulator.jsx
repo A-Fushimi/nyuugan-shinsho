@@ -42,7 +42,7 @@ const Badge=({type})=>{
 };
 
 export default function CostSimulator(){
-  const[age,setAge]=useState(1);
+  const[age,setAge]=useState(0);
   const[inc,setInc]=useState("ウ");
   const[months,setMonths]=useState(6);
   const[group,setGroup]=useState("すべて");
@@ -94,7 +94,7 @@ export default function CostSimulator(){
         <div style={{marginBottom:8}}>
           <span style={{fontSize:11,color:"#64748b",marginRight:8,fontWeight:600}}>年齢</span>
           <div style={{display:"inline-flex",gap:2,background:"#f1f5f9",borderRadius:8,padding:2}}>
-            {AGE_OPTS.map((a,i)=><Btn key={i} active={age===i} onClick={()=>setAge(i)}>{a.label}（{Math.round(a.rate*100)}割）</Btn>)}
+            {AGE_OPTS.map((a,i)=><Btn key={i} active={age===i} onClick={()=>setAge(i)}>{a.label}（{Math.round(a.rate*10)}割）</Btn>)}
           </div>
         </div>
         {/* 年収区分 */}

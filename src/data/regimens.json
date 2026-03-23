@@ -1,49 +1,819 @@
 [
-  {"id":"ec","name":"EC療法","sub":"エピルビシン＋シクロホスファミド","group":"化学療法","cycle":"3週毎×4","drugIds":["epirubicin","cyclophosphamide"],"monthlyBrand":80000,"monthlyGeneric":45000,"genericType":"GE","genericNote":"エピルビシンGE＋エンドキサンGE","approved":true,"lastChecked":"2025-04-01","source":"厚労省薬価基準R7.4","sourceUrl":["https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html","https://www.ganchiryohi.com/cost/28"]},
-  {"id":"ac","name":"AC療法","sub":"ドキソルビシン＋シクロホスファミド","group":"化学療法","cycle":"3週毎×4","drugIds":["doxorubicin","cyclophosphamide"],"monthlyBrand":70000,"monthlyGeneric":40000,"genericType":"GE","genericNote":"ドキソルビシンGE＋エンドキサンGE","approved":true,"lastChecked":"2025-04-01","source":"厚労省薬価基準R7.4","sourceUrl":["https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html","https://www.ganchiryohi.com/cost/28"]},
-  {"id":"fec","name":"FEC療法","sub":"5-FU＋エピルビシン＋シクロホスファミド","group":"化学療法","cycle":"3週毎×6","drugIds":["fluorouracil","epirubicin","cyclophosphamide"],"monthlyBrand":90000,"monthlyGeneric":50000,"genericType":"GE","genericNote":"全成分GEあり","approved":true,"lastChecked":"2025-04-01","source":"厚労省薬価基準R7.4","sourceUrl":["https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"]},
-  {"id":"tc","name":"TC療法","sub":"ドセタキセル＋シクロホスファミド","group":"化学療法","cycle":"3週毎×4","drugIds":["docetaxel","cyclophosphamide"],"monthlyBrand":180000,"monthlyGeneric":100000,"genericType":"GE","genericNote":"ドセタキセルGE（EE/NK/サワイ等）","approved":true,"lastChecked":"2025-04-01","source":"厚労省薬価基準R7.4","sourceUrl":["https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html","https://www.kegg.jp/medicus-bin/similar_product?kegg_drug=DG01763"]},
-  {"id":"ptx-weekly","name":"パクリタキセル毎週","sub":"パクリタキセル 80mg/m²","group":"化学療法","cycle":"毎週×12","drugIds":["paclitaxel"],"monthlyBrand":120000,"monthlyGeneric":55000,"genericType":"GE","genericNote":"パクリタキセル注（NK/サワイ等）","approved":true,"lastChecked":"2025-04-01","source":"厚労省薬価基準R7.4 / KEGG","sourceUrl":["https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html","https://www.kegg.jp/medicus-bin/similar_product?kegg_drug=DG01430"]},
-  {"id":"docetaxel","name":"ドセタキセル","sub":"ドセタキセル 75mg/m²","group":"化学療法","cycle":"3週毎×4","drugIds":["docetaxel"],"monthlyBrand":150000,"monthlyGeneric":75000,"genericType":"GE","genericNote":"ドセタキセル注（EE/NK/サワイ等）","approved":true,"lastChecked":"2025-04-01","source":"厚労省薬価基準R7.4 / KEGG","sourceUrl":["https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html","https://www.kegg.jp/medicus-bin/similar_product?kegg_drug=DG01763"]},
-  {"id":"capecitabine","name":"カペシタビン（ゼローダ）","sub":"経口フッ化ピリミジン","group":"化学療法","cycle":"3週サイクル","drugIds":["capecitabine"],"monthlyBrand":100000,"monthlyGeneric":45000,"genericType":"GE","genericNote":"カペシタビン錠（サワイ/NK等）","approved":true,"lastChecked":"2025-04-01","source":"厚労省薬価基準R7.4","sourceUrl":["https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"]},
-  {"id":"eribulin","name":"エリブリン（ハラヴェン）","sub":"微小管阻害薬","group":"化学療法","cycle":"3週毎","drugIds":["eribulin"],"monthlyBrand":250000,"monthlyGeneric":null,"genericType":null,"genericNote":null,"approved":true,"lastChecked":"2025-04-01","source":"厚労省薬価基準R7.4","sourceUrl":["https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"]},
-  {"id":"gemcitabine","name":"ゲムシタビン","sub":"代謝拮抗薬","group":"化学療法","cycle":"3〜4週毎","drugIds":["gemcitabine"],"monthlyBrand":130000,"monthlyGeneric":50000,"genericType":"GE","genericNote":"ゲムシタビン注（NK/サワイ/ヤクルト等）","approved":true,"lastChecked":"2025-04-01","source":"厚労省薬価基準R7.4","sourceUrl":["https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"]},
-  {"id":"vinorelbine","name":"ビノレルビン（ナベルビン）","sub":"ビンカアルカロイド系","group":"化学療法","cycle":"毎週","drugIds":["vinorelbine"],"monthlyBrand":110000,"monthlyGeneric":55000,"genericType":"GE","genericNote":"ビノレルビン注（サワイ等）","approved":true,"lastChecked":"2025-04-01","source":"厚労省薬価基準R7.4","sourceUrl":["https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"]},
-  {"id":"nab-paclitaxel","name":"nab-パクリタキセル（アブラキサン）","sub":"アルブミン懸濁型","group":"化学療法","cycle":"3週毎","drugIds":["nab-paclitaxel"],"monthlyBrand":350000,"monthlyGeneric":null,"genericType":null,"genericNote":null,"approved":true,"lastChecked":"2025-04-01","source":"厚労省薬価基準R7.4","sourceUrl":["https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"]},
-  {"id":"s-1","name":"S-1（ティーエスワン）","sub":"経口フッ化ピリミジン配合剤","group":"化学療法","cycle":"4週投薬2週休薬","drugIds":["s-1"],"monthlyBrand":60000,"monthlyGeneric":25000,"genericType":"GE","genericNote":"テガフール・ギメラシル・オテラシルGE","approved":true,"lastChecked":"2025-04-01","source":"厚労省薬価基準R7.4","sourceUrl":["https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"]},
-
-  {"id":"trastuzumab","name":"トラスツズマブ（ハーセプチン）","sub":"HER2陽性 分子標的薬 点滴","group":"HER2標的","cycle":"3週毎","drugIds":["trastuzumab"],"monthlyBrand":250000,"monthlyGeneric":175000,"genericType":"BS","genericNote":"トラスツズマブBS（NK/CTH/第一三共/ファイザー）","approved":true,"lastChecked":"2025-04-01","source":"バイオシミラー協議会 / KEGG","sourceUrl":["https://www.biosimilar.jp/pdf/biosimilar_list.pdf","https://www.kegg.jp/medicus-bin/similar_product?kegg_drug=DG02060"]},
-  {"id":"phesgo","name":"フェスゴ配合皮下注","sub":"ペルツズマブ＋トラスツズマブ＋VHA 皮下注","group":"HER2標的","cycle":"3週毎","drugIds":["pertuzumab","trastuzumab"],"monthlyBrand":520000,"monthlyGeneric":null,"genericType":null,"genericNote":null,"approved":true,"lastChecked":"2025-04-01","source":"中外製薬プレスリリース / KEGG","sourceUrl":["https://www.chugai-pharm.co.jp/news/detail/20231122113000_1346.html","https://www.kegg.jp/medicus-bin/japic_med?japic_code=00071051"]},
-  {"id":"hp-iv","name":"HP療法（パージェタ＋ハーセプチン点滴）","sub":"HER2陽性 二重阻害 点滴版","group":"HER2標的","cycle":"3週毎","drugIds":["pertuzumab","trastuzumab"],"monthlyBrand":550000,"monthlyGeneric":475000,"genericType":"BS","genericNote":"トラスツズマブ部分のみBS化可","approved":true,"lastChecked":"2025-04-01","source":"厚労省薬価基準 / BS協議会","sourceUrl":["https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html","https://www.biosimilar.jp/pdf/biosimilar_list.pdf"]},
-  {"id":"trastuzumab-emtansine","name":"T-DM1（カドサイラ）","sub":"抗体薬物複合体 ADC","group":"HER2標的","cycle":"3週毎","drugIds":["trastuzumab-emtansine"],"monthlyBrand":650000,"monthlyGeneric":null,"genericType":null,"genericNote":null,"approved":true,"lastChecked":"2025-04-01","source":"厚労省薬価基準R7.4","sourceUrl":["https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"]},
-  {"id":"trastuzumab-deruxtecan","name":"T-DXd（エンハーツ）","sub":"HER2陽性/低発現 ADC","group":"HER2標的","cycle":"3週毎","drugIds":["trastuzumab-deruxtecan"],"monthlyBrand":700000,"monthlyGeneric":null,"genericType":null,"genericNote":null,"approved":true,"lastChecked":"2025-04-01","source":"厚労省薬価基準R7.4","sourceUrl":["https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"]},
-  {"id":"tucatinib","name":"ツカチニブ（ツカイザ）","sub":"HER2-TKI 経口","group":"HER2標的","cycle":"連日内服","drugIds":["tucatinib"],"monthlyBrand":580000,"monthlyGeneric":null,"genericType":null,"genericNote":null,"approved":true,"lastChecked":"2025-04-01","source":"厚労省薬価基準R7.4","sourceUrl":["https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"]},
-  {"id":"lapatinib","name":"ラパチニブ（タイケルブ）","sub":"HER1/HER2 TKI 経口","group":"HER2標的","cycle":"連日内服","drugIds":["lapatinib"],"monthlyBrand":280000,"monthlyGeneric":null,"genericType":null,"genericNote":null,"approved":true,"lastChecked":"2025-04-01","source":"厚労省薬価基準R7.4","sourceUrl":["https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"]},
-  {"id":"neratinib","name":"ネラチニブ（ナーリンクス）","sub":"pan-HER TKI 経口 術後延長","group":"HER2標的","cycle":"連日内服×1年","drugIds":["neratinib"],"monthlyBrand":450000,"monthlyGeneric":null,"genericType":null,"genericNote":null,"approved":true,"lastChecked":"2025-04-01","source":"厚労省薬価基準R7.4","sourceUrl":["https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"]},
-
-  {"id":"abemaciclib","name":"アベマシクリブ（ベージニオ）","sub":"CDK4/6阻害薬","group":"CDK4/6","cycle":"連日内服","drugIds":["abemaciclib"],"monthlyBrand":420000,"monthlyGeneric":null,"genericType":null,"genericNote":null,"approved":true,"lastChecked":"2025-04-01","source":"厚労省薬価基準R7.4","sourceUrl":["https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"]},
-  {"id":"palbociclib","name":"パルボシクリブ（イブランス）","sub":"CDK4/6阻害薬","group":"CDK4/6","cycle":"3週+1週休","drugIds":["palbociclib"],"monthlyBrand":480000,"monthlyGeneric":null,"genericType":null,"genericNote":null,"approved":true,"lastChecked":"2025-04-01","source":"厚労省薬価基準R7.4","sourceUrl":["https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"]},
-  {"id":"ribociclib","name":"リボシクリブ（キスカリ）","sub":"CDK4/6阻害薬","group":"CDK4/6","cycle":"3週+1週休","drugIds":["ribociclib"],"monthlyBrand":450000,"monthlyGeneric":null,"genericType":null,"genericNote":null,"approved":true,"lastChecked":"2025-04-01","source":"厚労省薬価基準R7.4","sourceUrl":["https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"]},
-
-  {"id":"letrozole","name":"レトロゾール（フェマーラ）","sub":"AI アロマターゼ阻害薬 閉経後","group":"ホルモン","cycle":"連日内服","drugIds":["letrozole"],"monthlyBrand":15000,"monthlyGeneric":5000,"genericType":"GE","genericNote":"レトロゾール錠（サワイ/NK等）","approved":true,"lastChecked":"2025-04-01","source":"厚労省薬価基準R7.4","sourceUrl":["https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"]},
-  {"id":"anastrozole","name":"アナストロゾール（アリミデックス）","sub":"AI アロマターゼ阻害薬 閉経後","group":"ホルモン","cycle":"連日内服","drugIds":["anastrozole"],"monthlyBrand":12000,"monthlyGeneric":4000,"genericType":"GE","genericNote":"アナストロゾール錠（サワイ/NK等）","approved":true,"lastChecked":"2025-04-01","source":"厚労省薬価基準R7.4","sourceUrl":["https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"]},
-  {"id":"exemestane","name":"エキセメスタン（アロマシン）","sub":"AI アロマターゼ阻害薬 閉経後","group":"ホルモン","cycle":"連日内服","drugIds":["exemestane"],"monthlyBrand":18000,"monthlyGeneric":7000,"genericType":"GE","genericNote":"エキセメスタン錠（NK等）","approved":true,"lastChecked":"2025-04-01","source":"厚労省薬価基準R7.4","sourceUrl":["https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"]},
-  {"id":"tamoxifen","name":"タモキシフェン（ノルバデックス）","sub":"SERM 抗エストロゲン","group":"ホルモン","cycle":"連日5-10年","drugIds":["tamoxifen"],"monthlyBrand":5000,"monthlyGeneric":2000,"genericType":"GE","genericNote":"タモキシフェン錠（サワイ等）多数あり","approved":true,"lastChecked":"2025-04-01","source":"厚労省薬価基準R7.4","sourceUrl":["https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"]},
-  {"id":"toremifene","name":"トレミフェン（フェアストン）","sub":"SERM 抗エストロゲン 閉経後","group":"ホルモン","cycle":"連日内服","drugIds":["toremifene"],"monthlyBrand":8000,"monthlyGeneric":3500,"genericType":"GE","genericNote":"トレミフェン錠GE","approved":true,"lastChecked":"2025-04-01","source":"厚労省薬価基準R7.4","sourceUrl":["https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"]},
-  {"id":"fulvestrant","name":"フルベストラント（フェソロデックス）","sub":"SERD 筋注","group":"ホルモン","cycle":"4週毎","drugIds":["fulvestrant"],"monthlyBrand":120000,"monthlyGeneric":null,"genericType":null,"genericNote":null,"approved":true,"lastChecked":"2025-04-01","source":"厚労省薬価基準R7.4","sourceUrl":["https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"]},
-  {"id":"goserelin","name":"ゴセレリン（ゾラデックス）","sub":"LH-RH アゴニスト 閉経前","group":"ホルモン","cycle":"4週毎 皮下注","drugIds":["goserelin"],"monthlyBrand":35000,"monthlyGeneric":null,"genericType":null,"genericNote":null,"approved":true,"lastChecked":"2025-04-01","source":"厚労省薬価基準R7.4","sourceUrl":["https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"]},
-  {"id":"leuprorelin","name":"リュープロレリン（リュープリン）","sub":"LH-RH アゴニスト 閉経前","group":"ホルモン","cycle":"4週/12週/24週毎","drugIds":["leuprorelin"],"monthlyBrand":30000,"monthlyGeneric":20000,"genericType":"GE","genericNote":"リュープロレリン注GE","approved":true,"lastChecked":"2025-04-01","source":"厚労省薬価基準R7.4","sourceUrl":["https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"]},
-  {"id":"medroxyprogesterone","name":"MPA（ヒスロン）","sub":"プロゲステロン製剤","group":"ホルモン","cycle":"連日内服","drugIds":["medroxyprogesterone"],"monthlyBrand":6000,"monthlyGeneric":3000,"genericType":"GE","genericNote":"メドロキシプロゲステロンGE","approved":true,"lastChecked":"2025-04-01","source":"厚労省薬価基準R7.4","sourceUrl":["https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"]},
-
-  {"id":"pembrolizumab","name":"ペムブロリズマブ（キイトルーダ）","sub":"免疫CP阻害薬 TNBC","group":"免疫/他","cycle":"3週毎","drugIds":["pembrolizumab"],"monthlyBrand":550000,"monthlyGeneric":null,"genericType":null,"genericNote":null,"approved":true,"lastChecked":"2025-04-01","source":"厚労省薬価基準R7.4","sourceUrl":["https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"]},
-  {"id":"atezolizumab","name":"アテゾリズマブ（テセントリク）","sub":"免疫CP阻害薬 PD-L1+TNBC","group":"免疫/他","cycle":"2-3週毎","drugIds":["atezolizumab"],"monthlyBrand":500000,"monthlyGeneric":null,"genericType":null,"genericNote":null,"approved":true,"lastChecked":"2025-04-01","source":"厚労省薬価基準R7.4","sourceUrl":["https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"]},
-  {"id":"olaparib","name":"オラパリブ（リムパーザ）","sub":"PARP阻害薬 BRCA変異陽性","group":"免疫/他","cycle":"連日内服","drugIds":["olaparib"],"monthlyBrand":600000,"monthlyGeneric":null,"genericType":null,"genericNote":null,"approved":true,"lastChecked":"2025-04-01","source":"厚労省薬価基準R7.4","sourceUrl":["https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"]},
-  {"id":"talazoparib","name":"タラゾパリブ（ターゼナ）","sub":"PARP阻害薬 BRCA変異陽性","group":"免疫/他","cycle":"連日内服","drugIds":["talazoparib"],"monthlyBrand":550000,"monthlyGeneric":null,"genericType":null,"genericNote":null,"approved":true,"lastChecked":"2025-04-01","source":"厚労省薬価基準R7.4","sourceUrl":["https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"]},
-  {"id":"everolimus","name":"エベロリムス（アフィニトール）","sub":"mTOR阻害薬 AI耐性HR+","group":"免疫/他","cycle":"連日内服","drugIds":["everolimus"],"monthlyBrand":350000,"monthlyGeneric":180000,"genericType":"GE","genericNote":"エベロリムス錠（サワイ等）","approved":true,"lastChecked":"2025-04-01","source":"厚労省薬価基準R7.4","sourceUrl":["https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"]},
-  {"id":"sacituzumab-govitecan","name":"サシツズマブ ゴビテカン（トロデルヴィ）","sub":"Trop-2 ADC","group":"免疫/他","cycle":"3週毎","drugIds":["sacituzumab-govitecan"],"monthlyBrand":800000,"monthlyGeneric":null,"genericType":null,"genericNote":null,"approved":true,"lastChecked":"2025-04-01","source":"厚労省薬価基準R7.4","sourceUrl":["https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"]},
-  {"id":"bev-ptx","name":"ベバシズマブ＋パクリタキセル","sub":"VEGF阻害＋タキサン","group":"免疫/他","cycle":"4週毎","drugIds":["bevacizumab","paclitaxel"],"monthlyBrand":400000,"monthlyGeneric":250000,"genericType":"BS+GE","genericNote":"ベバシズマブBS＋パクリタキセルGE","approved":true,"lastChecked":"2025-04-01","source":"バイオシミラー協議会 / 厚労省薬価基準","sourceUrl":["https://www.biosimilar.jp/pdf/biosimilar_list.pdf","https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"]},
-
-  {"id":"denosumab","name":"デノスマブ（ランマーク）","sub":"骨転移 抗RANKL抗体","group":"支持療法","cycle":"4週毎 皮下注","drugIds":["denosumab"],"monthlyBrand":120000,"monthlyGeneric":null,"genericType":null,"genericNote":null,"approved":true,"lastChecked":"2025-04-01","source":"厚労省薬価基準R7.4","sourceUrl":["https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"]},
-  {"id":"zoledronic-acid","name":"ゾレドロン酸（ゾメタ）","sub":"骨転移 ビスホスホネート","group":"支持療法","cycle":"3-4週毎 点滴","drugIds":["zoledronic-acid"],"monthlyBrand":45000,"monthlyGeneric":20000,"genericType":"GE","genericNote":"ゾレドロン酸注GE","approved":true,"lastChecked":"2025-04-01","source":"厚労省薬価基準R7.4","sourceUrl":["https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"]},
-  {"id":"pegfilgrastim","name":"ペグフィルグラスチム（ジーラスタ）","sub":"G-CSF 好中球減少予防","group":"支持療法","cycle":"化学療法毎","drugIds":["pegfilgrastim"],"monthlyBrand":108000,"monthlyGeneric":75000,"genericType":"BS","genericNote":"ペグフィルグラスチムBS","approved":true,"lastChecked":"2025-04-01","source":"バイオシミラー協議会","sourceUrl":["https://www.biosimilar.jp/pdf/biosimilar_list.pdf"]}
+  {
+    "id": "ec",
+    "name": "EC療法",
+    "sub": "エピルビシン＋シクロホスファミド",
+    "group": "化学療法",
+    "cycle": "3週毎×4",
+    "drugIds": [
+      "epirubicin",
+      "cyclophosphamide"
+    ],
+    "monthlyBrand": 80000,
+    "monthlyGeneric": 45000,
+    "genericType": "GE",
+    "genericNote": "エピルビシンGE＋エンドキサンGE",
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準R7.4",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html",
+      "https://www.ganchiryohi.com/cost/28"
+    ]
+  },
+  {
+    "id": "ac",
+    "name": "AC療法",
+    "sub": "ドキソルビシン＋シクロホスファミド",
+    "group": "化学療法",
+    "cycle": "3週毎×4",
+    "drugIds": [
+      "doxorubicin",
+      "cyclophosphamide"
+    ],
+    "monthlyBrand": 70000,
+    "monthlyGeneric": 40000,
+    "genericType": "GE",
+    "genericNote": "ドキソルビシンGE＋エンドキサンGE",
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準R7.4",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html",
+      "https://www.ganchiryohi.com/cost/28"
+    ]
+  },
+  {
+    "id": "fec",
+    "name": "FEC療法",
+    "sub": "5-FU＋エピルビシン＋シクロホスファミド",
+    "group": "化学療法",
+    "cycle": "3週毎×6",
+    "drugIds": [
+      "fluorouracil",
+      "epirubicin",
+      "cyclophosphamide"
+    ],
+    "monthlyBrand": 90000,
+    "monthlyGeneric": 50000,
+    "genericType": "GE",
+    "genericNote": "全成分GEあり",
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準R7.4",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"
+    ]
+  },
+  {
+    "id": "tc",
+    "name": "TC療法",
+    "sub": "ドセタキセル＋シクロホスファミド",
+    "group": "化学療法",
+    "cycle": "3週毎×4",
+    "drugIds": [
+      "docetaxel",
+      "cyclophosphamide"
+    ],
+    "monthlyBrand": 180000,
+    "monthlyGeneric": 100000,
+    "genericType": "GE",
+    "genericNote": "ドセタキセルGE（EE/NK/サワイ等）",
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準R7.4",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html",
+      "https://www.kegg.jp/medicus-bin/similar_product?kegg_drug=DG01763"
+    ]
+  },
+  {
+    "id": "ptx-weekly",
+    "name": "パクリタキセル毎週",
+    "sub": "パクリタキセル 80mg/m²",
+    "group": "化学療法",
+    "cycle": "毎週×12",
+    "drugIds": [
+      "paclitaxel"
+    ],
+    "monthlyBrand": 120000,
+    "monthlyGeneric": 55000,
+    "genericType": "GE",
+    "genericNote": "パクリタキセル注（NK/サワイ等）",
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準R7.4 / KEGG",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html",
+      "https://www.kegg.jp/medicus-bin/similar_product?kegg_drug=DG01430"
+    ]
+  },
+  {
+    "id": "docetaxel",
+    "name": "ドセタキセル",
+    "sub": "ドセタキセル 75mg/m²",
+    "group": "化学療法",
+    "cycle": "3週毎×4",
+    "drugIds": [
+      "docetaxel"
+    ],
+    "monthlyBrand": 150000,
+    "monthlyGeneric": 75000,
+    "genericType": "GE",
+    "genericNote": "ドセタキセル注（EE/NK/サワイ等）",
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準R7.4 / KEGG",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html",
+      "https://www.kegg.jp/medicus-bin/similar_product?kegg_drug=DG01763"
+    ]
+  },
+  {
+    "id": "capecitabine",
+    "name": "カペシタビン（ゼローダ）",
+    "sub": "経口フッ化ピリミジン",
+    "group": "化学療法",
+    "cycle": "3週サイクル",
+    "drugIds": [
+      "capecitabine"
+    ],
+    "monthlyBrand": 100000,
+    "monthlyGeneric": 45000,
+    "genericType": "GE",
+    "genericNote": "カペシタビン錠（サワイ/NK等）",
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準R7.4",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"
+    ]
+  },
+  {
+    "id": "eribulin",
+    "name": "エリブリン（ハラヴェン）",
+    "sub": "微小管阻害薬",
+    "group": "化学療法",
+    "cycle": "3週毎",
+    "drugIds": [
+      "eribulin"
+    ],
+    "monthlyBrand": 250000,
+    "monthlyGeneric": null,
+    "genericType": null,
+    "genericNote": null,
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準R7.4",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"
+    ]
+  },
+  {
+    "id": "gemcitabine",
+    "name": "ゲムシタビン",
+    "sub": "代謝拮抗薬",
+    "group": "化学療法",
+    "cycle": "3〜4週毎",
+    "drugIds": [
+      "gemcitabine"
+    ],
+    "monthlyBrand": 130000,
+    "monthlyGeneric": 50000,
+    "genericType": "GE",
+    "genericNote": "ゲムシタビン注（NK/サワイ/ヤクルト等）",
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準R7.4",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"
+    ]
+  },
+  {
+    "id": "vinorelbine",
+    "name": "ビノレルビン（ナベルビン）",
+    "sub": "ビンカアルカロイド系",
+    "group": "化学療法",
+    "cycle": "毎週",
+    "drugIds": [
+      "vinorelbine"
+    ],
+    "monthlyBrand": 110000,
+    "monthlyGeneric": 55000,
+    "genericType": "GE",
+    "genericNote": "ビノレルビン注（サワイ等）",
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準R7.4",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"
+    ]
+  },
+  {
+    "id": "nab-paclitaxel",
+    "name": "nab-パクリタキセル（アブラキサン）",
+    "sub": "アルブミン懸濁型",
+    "group": "化学療法",
+    "cycle": "3週毎",
+    "drugIds": [
+      "nab-paclitaxel"
+    ],
+    "monthlyBrand": 350000,
+    "monthlyGeneric": null,
+    "genericType": null,
+    "genericNote": null,
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準R7.4",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"
+    ]
+  },
+  {
+    "id": "s-1",
+    "name": "S-1（ティーエスワン）",
+    "sub": "経口フッ化ピリミジン配合剤",
+    "group": "化学療法",
+    "cycle": "4週投薬2週休薬",
+    "drugIds": [
+      "s-1"
+    ],
+    "monthlyBrand": 60000,
+    "monthlyGeneric": 25000,
+    "genericType": "GE",
+    "genericNote": "テガフール・ギメラシル・オテラシルGE",
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準R7.4",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"
+    ]
+  },
+  {
+    "id": "trastuzumab",
+    "name": "トラスツズマブ（ハーセプチン）",
+    "sub": "HER2陽性 分子標的薬 点滴",
+    "group": "HER2標的",
+    "cycle": "3週毎",
+    "drugIds": [
+      "trastuzumab"
+    ],
+    "monthlyBrand": 250000,
+    "monthlyGeneric": 175000,
+    "genericType": "BS",
+    "genericNote": "トラスツズマブBS（NK/CTH/第一三共/ファイザー）",
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "バイオシミラー協議会 / KEGG",
+    "sourceUrl": [
+      "https://www.biosimilar.jp/pdf/biosimilar_list.pdf",
+      "https://www.kegg.jp/medicus-bin/similar_product?kegg_drug=DG02060"
+    ]
+  },
+  {
+    "id": "phesgo",
+    "name": "フェスゴ配合皮下注",
+    "sub": "ペルツズマブ＋トラスツズマブ＋VHA 皮下注",
+    "group": "HER2標的",
+    "cycle": "3週毎",
+    "drugIds": [
+      "pertuzumab",
+      "trastuzumab"
+    ],
+    "monthlyBrand": 520000,
+    "monthlyGeneric": null,
+    "genericType": null,
+    "genericNote": null,
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "中外製薬プレスリリース / KEGG",
+    "sourceUrl": [
+      "https://www.chugai-pharm.co.jp/news/detail/20231122113000_1346.html",
+      "https://www.kegg.jp/medicus-bin/japic_med?japic_code=00071051"
+    ]
+  },
+  {
+    "id": "hp-iv",
+    "name": "HP療法（パージェタ＋ハーセプチン点滴）",
+    "sub": "HER2陽性 二重阻害 点滴版",
+    "group": "HER2標的",
+    "cycle": "3週毎",
+    "drugIds": [
+      "pertuzumab",
+      "trastuzumab"
+    ],
+    "monthlyBrand": 550000,
+    "monthlyGeneric": 475000,
+    "genericType": "BS",
+    "genericNote": "トラスツズマブ部分のみBS化可",
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準 / BS協議会",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html",
+      "https://www.biosimilar.jp/pdf/biosimilar_list.pdf"
+    ]
+  },
+  {
+    "id": "trastuzumab-emtansine",
+    "name": "T-DM1（カドサイラ）",
+    "sub": "抗体薬物複合体 ADC",
+    "group": "HER2標的",
+    "cycle": "3週毎",
+    "drugIds": [
+      "trastuzumab-emtansine"
+    ],
+    "monthlyBrand": 650000,
+    "monthlyGeneric": null,
+    "genericType": null,
+    "genericNote": null,
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準R7.4",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"
+    ]
+  },
+  {
+    "id": "trastuzumab-deruxtecan",
+    "name": "T-DXd（エンハーツ）",
+    "sub": "HER2陽性/低発現 ADC",
+    "group": "HER2標的",
+    "cycle": "3週毎",
+    "drugIds": [
+      "trastuzumab-deruxtecan"
+    ],
+    "monthlyBrand": 700000,
+    "monthlyGeneric": null,
+    "genericType": null,
+    "genericNote": null,
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準R7.4",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"
+    ]
+  },
+  {
+    "id": "tucatinib",
+    "name": "ツカチニブ（ツカイザ）",
+    "sub": "HER2-TKI 経口",
+    "group": "HER2標的",
+    "cycle": "連日内服",
+    "drugIds": [
+      "tucatinib"
+    ],
+    "monthlyBrand": 580000,
+    "monthlyGeneric": null,
+    "genericType": null,
+    "genericNote": null,
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準R7.4",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"
+    ]
+  },
+  {
+    "id": "lapatinib",
+    "name": "ラパチニブ（タイケルブ）",
+    "sub": "HER1/HER2 TKI 経口",
+    "group": "HER2標的",
+    "cycle": "連日内服",
+    "drugIds": [
+      "lapatinib"
+    ],
+    "monthlyBrand": 280000,
+    "monthlyGeneric": null,
+    "genericType": null,
+    "genericNote": null,
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準R7.4",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"
+    ]
+  },
+  {
+    "id": "abemaciclib",
+    "name": "アベマシクリブ（ベージニオ）",
+    "sub": "CDK4/6阻害薬",
+    "group": "CDK4/6",
+    "cycle": "連日内服",
+    "drugIds": [
+      "abemaciclib"
+    ],
+    "monthlyBrand": 420000,
+    "monthlyGeneric": null,
+    "genericType": null,
+    "genericNote": null,
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準R7.4",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"
+    ]
+  },
+  {
+    "id": "palbociclib",
+    "name": "パルボシクリブ（イブランス）",
+    "sub": "CDK4/6阻害薬",
+    "group": "CDK4/6",
+    "cycle": "3週+1週休",
+    "drugIds": [
+      "palbociclib"
+    ],
+    "monthlyBrand": 480000,
+    "monthlyGeneric": null,
+    "genericType": null,
+    "genericNote": null,
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準R7.4",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"
+    ]
+  },
+  {
+    "id": "letrozole",
+    "name": "レトロゾール（フェマーラ）",
+    "sub": "AI アロマターゼ阻害薬 閉経後",
+    "group": "ホルモン",
+    "cycle": "連日内服",
+    "drugIds": [
+      "letrozole"
+    ],
+    "monthlyBrand": 15000,
+    "monthlyGeneric": 5000,
+    "genericType": "GE",
+    "genericNote": "レトロゾール錠（サワイ/NK等）",
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準R7.4",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"
+    ]
+  },
+  {
+    "id": "anastrozole",
+    "name": "アナストロゾール（アリミデックス）",
+    "sub": "AI アロマターゼ阻害薬 閉経後",
+    "group": "ホルモン",
+    "cycle": "連日内服",
+    "drugIds": [
+      "anastrozole"
+    ],
+    "monthlyBrand": 12000,
+    "monthlyGeneric": 4000,
+    "genericType": "GE",
+    "genericNote": "アナストロゾール錠（サワイ/NK等）",
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準R7.4",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"
+    ]
+  },
+  {
+    "id": "exemestane",
+    "name": "エキセメスタン（アロマシン）",
+    "sub": "AI アロマターゼ阻害薬 閉経後",
+    "group": "ホルモン",
+    "cycle": "連日内服",
+    "drugIds": [
+      "exemestane"
+    ],
+    "monthlyBrand": 18000,
+    "monthlyGeneric": 7000,
+    "genericType": "GE",
+    "genericNote": "エキセメスタン錠（NK等）",
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準R7.4",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"
+    ]
+  },
+  {
+    "id": "tamoxifen",
+    "name": "タモキシフェン（ノルバデックス）",
+    "sub": "SERM 抗エストロゲン",
+    "group": "ホルモン",
+    "cycle": "連日5-10年",
+    "drugIds": [
+      "tamoxifen"
+    ],
+    "monthlyBrand": 5000,
+    "monthlyGeneric": 2000,
+    "genericType": "GE",
+    "genericNote": "タモキシフェン錠（サワイ等）多数あり",
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準R7.4",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"
+    ]
+  },
+  {
+    "id": "toremifene",
+    "name": "トレミフェン（フェアストン）",
+    "sub": "SERM 抗エストロゲン 閉経後",
+    "group": "ホルモン",
+    "cycle": "連日内服",
+    "drugIds": [
+      "toremifene"
+    ],
+    "monthlyBrand": 8000,
+    "monthlyGeneric": 3500,
+    "genericType": "GE",
+    "genericNote": "トレミフェン錠GE",
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準R7.4",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"
+    ]
+  },
+  {
+    "id": "fulvestrant",
+    "name": "フルベストラント（フェソロデックス）",
+    "sub": "SERD 筋注",
+    "group": "ホルモン",
+    "cycle": "4週毎",
+    "drugIds": [
+      "fulvestrant"
+    ],
+    "monthlyBrand": 120000,
+    "monthlyGeneric": null,
+    "genericType": null,
+    "genericNote": null,
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準R7.4",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"
+    ]
+  },
+  {
+    "id": "goserelin",
+    "name": "ゴセレリン（ゾラデックス）",
+    "sub": "LH-RH アゴニスト 閉経前",
+    "group": "ホルモン",
+    "cycle": "4週毎 皮下注",
+    "drugIds": [
+      "goserelin"
+    ],
+    "monthlyBrand": 35000,
+    "monthlyGeneric": null,
+    "genericType": null,
+    "genericNote": null,
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準R7.4",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"
+    ]
+  },
+  {
+    "id": "leuprorelin",
+    "name": "リュープロレリン（リュープリン）",
+    "sub": "LH-RH アゴニスト 閉経前",
+    "group": "ホルモン",
+    "cycle": "4週/12週/24週毎",
+    "drugIds": [
+      "leuprorelin"
+    ],
+    "monthlyBrand": 30000,
+    "monthlyGeneric": 20000,
+    "genericType": "GE",
+    "genericNote": "リュープロレリン注GE",
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準R7.4",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"
+    ]
+  },
+  {
+    "id": "medroxyprogesterone",
+    "name": "MPA（ヒスロン）",
+    "sub": "プロゲステロン製剤",
+    "group": "ホルモン",
+    "cycle": "連日内服",
+    "drugIds": [
+      "medroxyprogesterone"
+    ],
+    "monthlyBrand": 6000,
+    "monthlyGeneric": 3000,
+    "genericType": "GE",
+    "genericNote": "メドロキシプロゲステロンGE",
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準R7.4",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"
+    ]
+  },
+  {
+    "id": "pembrolizumab",
+    "name": "ペムブロリズマブ（キイトルーダ）",
+    "sub": "免疫CP阻害薬 TNBC",
+    "group": "免疫/他",
+    "cycle": "3週毎",
+    "drugIds": [
+      "pembrolizumab"
+    ],
+    "monthlyBrand": 550000,
+    "monthlyGeneric": null,
+    "genericType": null,
+    "genericNote": null,
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準R7.4",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"
+    ]
+  },
+  {
+    "id": "atezolizumab",
+    "name": "アテゾリズマブ（テセントリク）",
+    "sub": "免疫CP阻害薬 PD-L1+TNBC",
+    "group": "免疫/他",
+    "cycle": "2-3週毎",
+    "drugIds": [
+      "atezolizumab"
+    ],
+    "monthlyBrand": 500000,
+    "monthlyGeneric": null,
+    "genericType": null,
+    "genericNote": null,
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準R7.4",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"
+    ]
+  },
+  {
+    "id": "olaparib",
+    "name": "オラパリブ（リムパーザ）",
+    "sub": "PARP阻害薬 BRCA変異陽性",
+    "group": "免疫/他",
+    "cycle": "連日内服",
+    "drugIds": [
+      "olaparib"
+    ],
+    "monthlyBrand": 600000,
+    "monthlyGeneric": null,
+    "genericType": null,
+    "genericNote": null,
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準R7.4",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"
+    ]
+  },
+  {
+    "id": "talazoparib",
+    "name": "タラゾパリブ（ターゼナ）",
+    "sub": "PARP阻害薬 BRCA変異陽性",
+    "group": "免疫/他",
+    "cycle": "連日内服",
+    "drugIds": [
+      "talazoparib"
+    ],
+    "monthlyBrand": 550000,
+    "monthlyGeneric": null,
+    "genericType": null,
+    "genericNote": null,
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準R7.4",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"
+    ]
+  },
+  {
+    "id": "everolimus",
+    "name": "エベロリムス（アフィニトール）",
+    "sub": "mTOR阻害薬 AI耐性HR+",
+    "group": "免疫/他",
+    "cycle": "連日内服",
+    "drugIds": [
+      "everolimus"
+    ],
+    "monthlyBrand": 350000,
+    "monthlyGeneric": 180000,
+    "genericType": "GE",
+    "genericNote": "エベロリムス錠（サワイ等）",
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準R7.4",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"
+    ]
+  },
+  {
+    "id": "sacituzumab-govitecan",
+    "name": "サシツズマブ ゴビテカン（トロデルヴィ）",
+    "sub": "Trop-2 ADC",
+    "group": "免疫/他",
+    "cycle": "3週毎",
+    "drugIds": [
+      "sacituzumab-govitecan"
+    ],
+    "monthlyBrand": 800000,
+    "monthlyGeneric": null,
+    "genericType": null,
+    "genericNote": null,
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準R7.4",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"
+    ]
+  },
+  {
+    "id": "bev-ptx",
+    "name": "ベバシズマブ＋パクリタキセル",
+    "sub": "VEGF阻害＋タキサン",
+    "group": "免疫/他",
+    "cycle": "4週毎",
+    "drugIds": [
+      "bevacizumab",
+      "paclitaxel"
+    ],
+    "monthlyBrand": 400000,
+    "monthlyGeneric": 250000,
+    "genericType": "BS+GE",
+    "genericNote": "ベバシズマブBS＋パクリタキセルGE",
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "バイオシミラー協議会 / 厚労省薬価基準",
+    "sourceUrl": [
+      "https://www.biosimilar.jp/pdf/biosimilar_list.pdf",
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"
+    ]
+  },
+  {
+    "id": "denosumab",
+    "name": "デノスマブ（ランマーク）",
+    "sub": "骨転移 抗RANKL抗体",
+    "group": "支持療法",
+    "cycle": "4週毎 皮下注",
+    "drugIds": [
+      "denosumab"
+    ],
+    "monthlyBrand": 120000,
+    "monthlyGeneric": null,
+    "genericType": null,
+    "genericNote": null,
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準R7.4",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"
+    ]
+  },
+  {
+    "id": "zoledronic-acid",
+    "name": "ゾレドロン酸（ゾメタ）",
+    "sub": "骨転移 ビスホスホネート",
+    "group": "支持療法",
+    "cycle": "3-4週毎 点滴",
+    "drugIds": [
+      "zoledronic-acid"
+    ],
+    "monthlyBrand": 45000,
+    "monthlyGeneric": 20000,
+    "genericType": "GE",
+    "genericNote": "ゾレドロン酸注GE",
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準R7.4",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"
+    ]
+  },
+  {
+    "id": "pegfilgrastim",
+    "name": "ペグフィルグラスチム（ジーラスタ）",
+    "sub": "G-CSF 好中球減少予防",
+    "group": "支持療法",
+    "cycle": "化学療法毎",
+    "drugIds": [
+      "pegfilgrastim"
+    ],
+    "monthlyBrand": 108000,
+    "monthlyGeneric": 75000,
+    "genericType": "BS",
+    "genericNote": "ペグフィルグラスチムBS",
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "バイオシミラー協議会",
+    "sourceUrl": [
+      "https://www.biosimilar.jp/pdf/biosimilar_list.pdf"
+    ]
+  }
 ]

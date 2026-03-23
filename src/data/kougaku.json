@@ -16,8 +16,7 @@
     {"id": "オ", "label": "住民税非課税",           "base": 35400,  "threshold": 0,      "rate": 0,    "multi": 24600,  "fixed": true}
   ],
   "copayRates": [
-    {"ageGroup": "〜6歳",     "rate": 0.2},
-    {"ageGroup": "6〜69歳",   "rate": 0.3},
+    {"ageGroup": "〜69歳",    "rate": 0.3},
     {"ageGroup": "70〜74歳",  "rate": 0.2},
     {"ageGroup": "75歳〜",    "rate": 0.1}
   ]
