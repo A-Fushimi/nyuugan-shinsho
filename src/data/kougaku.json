@@ -1,0 +1,24 @@
+{
+  "systemName": "高額療養費制度",
+  "effectiveDate": "2018-08-01",
+  "note": "2025年8月以降の改正は2025年3月に見送り決定",
+  "sourceUrls": [
+    {"label": "厚労省 高額療養費制度パンフレット（H30.8〜）", "url": "https://www.mhlw.go.jp/content/000333280.pdf"},
+    {"label": "厚労省 高額療養費制度の見直し（R7.12.25）", "url": "https://www.mhlw.go.jp/content/12401000/001621844.pdf"},
+    {"label": "協会けんぽ 高額療養費", "url": "https://www.kyoukaikenpo.or.jp/g3/cat320/sb3170/sbb31709/1945-268/"}
+  ],
+  "lastChecked": "2025-04-01",
+  "categories69under": [
+    {"id": "ア", "label": "年収約1,160万円〜",     "base": 252600, "threshold": 842000, "rate": 0.01, "multi": 140100, "fixed": false},
+    {"id": "イ", "label": "年収約770〜1,160万円",  "base": 167400, "threshold": 558000, "rate": 0.01, "multi": 93000,  "fixed": false},
+    {"id": "ウ", "label": "年収約370〜770万円",    "base": 80100,  "threshold": 267000, "rate": 0.01, "multi": 44400,  "fixed": false},
+    {"id": "エ", "label": "〜年収約370万円",       "base": 57600,  "threshold": 0,      "rate": 0,    "multi": 44400,  "fixed": true},
+    {"id": "オ", "label": "住民税非課税",           "base": 35400,  "threshold": 0,      "rate": 0,    "multi": 24600,  "fixed": true}
+  ],
+  "copayRates": [
+    {"ageGroup": "〜6歳",     "rate": 0.2},
+    {"ageGroup": "6〜69歳",   "rate": 0.3},
+    {"ageGroup": "70〜74歳",  "rate": 0.2},
+    {"ageGroup": "75歳〜",    "rate": 0.1}
+  ]
+}
