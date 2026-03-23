@@ -189,7 +189,7 @@ export default function CostSimulator(){
               <th onClick={()=>doSort("name")} style={{textAlign:"left",padding:"6px 8px",color:"#64748b",cursor:"pointer",fontSize:11,fontWeight:600,minWidth:180}}>レジメン{sortKey==="name"?(sortDir>0?" ▲":" ▼"):""}</th>
               <th style={{textAlign:"left",padding:"6px 8px",color:"#64748b",fontSize:11,fontWeight:600}}>周期</th>
               <SortH k="monthly">月額医療費(10割)</SortH>
-              <SortH k="brand"><span style={{display:"block",fontSize:9,color:"#3b82f6",background:"#eff6ff",borderRadius:3,padding:"1px 4px",marginBottom:2,fontWeight:600}}>高額療養費適用</span>先発品 自己負担{months}ヶ月</SortH>
+              <SortH k="brand"><span style={{display:"block",fontSize:9,color:"#64748b",background:"#eff6ff",borderRadius:3,padding:"1px 4px",marginBottom:2,fontWeight:400}}>青背景は高額療養費適用</span>先発品 自己負担{months}ヶ月</SortH>
               {showGE&&<SortH k="ge">後発品/BS{months}ヶ月</SortH>}
               {showGE&&<SortH k="saving">差額</SortH>}
               <th style={{padding:"6px 8px",color:"#64748b",fontSize:11,fontWeight:600,width:160}}>医療費と負担</th>
