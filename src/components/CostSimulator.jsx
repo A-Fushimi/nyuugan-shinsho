@@ -253,13 +253,6 @@ export default function CostSimulator(){
 
       {/* ── フッター ── */}
       <div style={{marginTop:20,padding:"16px",background:"#f8fafc",borderRadius:8,border:"1px solid #e2e8f0"}}>
-        <div style={{display:"flex",gap:16,flexWrap:"wrap",marginBottom:12,fontSize:11,color:"#64748b"}}>
-          <span>■ バーの見方:</span>
-          <span style={{display:"inline-flex",alignItems:"center",gap:4}}>バーの長さ = 10割の医療費（高いほど長い）</span>
-          <span style={{display:"inline-flex",alignItems:"center",gap:4}}><span style={{display:"inline-block",width:12,height:12,borderRadius:2,background:"#3b82f6"}}/> 濃い部分 = 実質負担額</span>
-          <span style={{display:"inline-flex",alignItems:"center",gap:4}}><span style={{display:"inline-block",width:12,height:12,borderRadius:2,background:"#bfdbfe"}}/> 薄い部分 = 高額療養費で軽減</span>
-          <span style={{display:"inline-flex",alignItems:"center",gap:4}}><span style={{display:"inline-block",width:12,height:12,borderRadius:2,background:"#eff6ff",border:"1px solid #bfdbfe"}}/> 金額欄の青背景 = 高額療養費が適用</span>
-        </div>
         <FormulaTable ageId={ageId} incId={incId}/>
 
         <h3 style={{fontSize:13,fontWeight:700,color:"#0f172a",margin:"12px 0 8px"}}>📎 主要参考URL</h3>
