@@ -197,8 +197,6 @@ export default function CostSimulator(){
           </thead>
           <tbody>
             {data.map(r=>{
-              const pct=r.brand.total/maxBrand*100;
-              const pctGE=r.ge?r.ge.total/maxBrand*100:0;
               return(
                 <tr key={r.id} style={{borderBottom:"1px solid #f1f5f9"}}>
                   <td style={{padding:"6px 8px"}}>
