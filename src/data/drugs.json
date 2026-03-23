@@ -2046,6 +2046,42 @@
         "res": "PFS/OS有意改善",
         "st": "pos",
         "pr": "2025"
+      },
+      {
+        "n": "ASCENT-05",
+        "ph": "III",
+        "pop": "TNBC EBC adjuvant（残存病変）",
+        "arm": "sacituzumab govitecan + pembrolizumab",
+        "ctrl": "pembrolizumab (±capecitabine)",
+        "ep": "iDFS",
+        "res": "進行中",
+        "st": "run",
+        "pr": "",
+        "url": "https://clinicaltrials.gov/study/NCT05633654"
+      },
+      {
+        "n": "ASCENT-07",
+        "ph": "III",
+        "pop": "HR+/HER2- MBC 1L chemo",
+        "arm": "sacituzumab govitecan",
+        "ctrl": "ICC (capecitabine/paclitaxel/nab-paclitaxel)",
+        "ep": "PFS (BICR)",
+        "res": "mPFS 8.3 vs 8.3m (HR 0.85, p=0.130)。主要EP未達",
+        "st": "neg",
+        "pr": "SABCS 2025 GS1-09",
+        "url": "https://www.aacr.org/about-the-aacr/newsroom/news-releases/sacituzumab-govitecan-hziy-led-to-similar-progression-free-survival-as-standard-of-care-for-certain-endocrine-therapy-refractory-advanced-breast-cancers/"
+      },
+      {
+        "n": "ASCENT-J02",
+        "ph": "I/II",
+        "pop": "日本人 mTNBC + HR+/HER2- MBC",
+        "arm": "sacituzumab govitecan 10mg/kg",
+        "ctrl": "なし（単群）",
+        "ep": "安全性・ORR",
+        "res": "RP2D=10mg/kg。mTNBC ORR 25%。日本承認の根拠試験",
+        "st": "pos",
+        "pr": "Int J Clin Oncol 2024",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39302614/"
       }
     ],
     "next": "ASCENT-04→FDA申請見込み。1L TNBC新SoC候補",
