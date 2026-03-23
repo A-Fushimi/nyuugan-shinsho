@@ -138,7 +138,7 @@ export default function CostSimulator(){
   return(
     <div style={{background:"#fff",borderRadius:12,padding:"20px 24px",border:"1px solid #e2e8f0"}}>
       <h2 style={{fontSize:18,fontWeight:800,color:"#0f172a",margin:"0 0 4px"}}>💊 治療費シミュレーター</h2>
-      <p style={{fontSize:12,color:"#64748b",margin:"0 0 16px"}}>高額療養費制度を適用した自己負担額の概算を一覧表示します。<span style={{background:"#eff6ff",padding:"1px 6px",borderRadius:3,marginLeft:4}}>青背景</span>の金額は高額療養費が適用されています。</p>
+      <p style={{fontSize:12,color:"#64748b",margin:"0 0 16px"}}>高額療養費制度を適用した自己負担額の概算を一覧表示します</p>
 
       {/* ── フィルタ ── */}
       <div style={{position:"sticky",top:0,zIndex:10,background:"#fff",paddingBottom:12,borderBottom:"1px solid #e2e8f0",marginBottom:12}}>
@@ -189,7 +189,7 @@ export default function CostSimulator(){
               <th onClick={()=>doSort("name")} style={{textAlign:"left",padding:"6px 8px",color:"#64748b",cursor:"pointer",fontSize:11,fontWeight:600,minWidth:180}}>レジメン{sortKey==="name"?(sortDir>0?" ▲":" ▼"):""}</th>
               <th style={{textAlign:"left",padding:"6px 8px",color:"#64748b",fontSize:11,fontWeight:600}}>周期</th>
               <SortH k="monthly">月額医療費(10割)</SortH>
-              <SortH k="brand">先発品 自己負担{months}ヶ月</SortH>
+              <SortH k="brand"><span style={{display:"block",fontSize:9,color:"#3b82f6",background:"#eff6ff",borderRadius:3,padding:"1px 4px",marginBottom:2,fontWeight:600}}>高額療養費適用</span>先発品 自己負担{months}ヶ月</SortH>
               {showGE&&<SortH k="ge">後発品/BS{months}ヶ月</SortH>}
               {showGE&&<SortH k="saving">差額</SortH>}
               <th style={{padding:"6px 8px",color:"#64748b",fontSize:11,fontWeight:600,width:160}}>医療費と負担</th>
