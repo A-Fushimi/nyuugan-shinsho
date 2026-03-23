@@ -355,26 +355,6 @@
     ]
   },
   {
-    "id": "tucatinib",
-    "name": "ツカチニブ（ツカイザ）",
-    "sub": "HER2-TKI 経口",
-    "group": "HER2標的",
-    "cycle": "連日内服",
-    "drugIds": [
-      "tucatinib"
-    ],
-    "monthlyBrand": 580000,
-    "monthlyGeneric": null,
-    "genericType": null,
-    "genericNote": null,
-    "approved": true,
-    "lastChecked": "2026-03-23",
-    "source": "薬価未収載（2026/2/19承認済、薬価収載待ち）。金額は海外薬価からの推定値",
-    "sourceUrl": [
-      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"
-    ]
-  },
-  {
     "id": "lapatinib",
     "name": "ラパチニブ（タイケルブ）",
     "sub": "HER1/HER2 TKI 経口",
