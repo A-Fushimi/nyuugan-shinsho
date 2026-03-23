@@ -368,8 +368,8 @@
     "genericType": null,
     "genericNote": null,
     "approved": true,
-    "lastChecked": "2025-04-01",
-    "source": "厚労省薬価基準R7.4",
+    "lastChecked": "2026-03-23",
+    "source": "薬価未収載（2026/2/19承認済、薬価収載待ち）。金額は海外薬価からの推定値",
     "sourceUrl": [
       "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"
     ]
