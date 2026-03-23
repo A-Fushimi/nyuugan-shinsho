@@ -183,7 +183,7 @@ export default function CostSimulator(){
       </div>
 
       {/* ── テーブル ── */}
-      <div style={{overflowX:"auto",overflowY:"auto",maxHeight:"60vh",border:"1px solid #e2e8f0",borderRadius:8}}>
+      <div style={{overflowX:"auto",overflowY:"auto",maxHeight:"80vh",border:"1px solid #e2e8f0",borderRadius:8}}>
         <table style={{width:"100%",borderCollapse:"collapse",fontSize:12}}>
           <thead style={{position:"sticky",top:0,zIndex:5}}>
             <tr style={{background:"#f8fafc",borderBottom:"2px solid #e2e8f0"}}>
