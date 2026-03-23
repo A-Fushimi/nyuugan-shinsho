@@ -234,15 +234,11 @@ export default function CostSimulator(){
                       const tipG=r.ge?`10割 ${fmt(tenG)} → ${Math.round(rule.copay*10)}割 ${fmt(r.ge.rawTotal)} → 制度適用後 ${fmt(actG)}（${fmt(savedG)} 軽減）`:"";
                       return(
                         <div style={{display:"flex",flexDirection:"column",gap:3}}>
-                          <div title={tipB} style={{width:`${barW}%`,minWidth:4,height:14,borderRadius:4,background:"#bfdbfe",cursor:"default",position:"relative",overflow:"hidden"}}>
-                            <div style={{width:`${payPct}%`,height:"100%",background:"#3b82f6",borderRadius:"4px 0 0 4px",display:"flex",alignItems:"center",justifyContent:"flex-end",paddingRight:2}}>
-                              {r.brand.applied&&payPct<95&&<span style={{fontSize:7,color:"#fff",fontWeight:700}}>{fmt(actB)}</span>}
-                            </div>
+                          <div title={tipB} style={{width:`${barW}%`,minWidth:4,height:14,borderRadius:4,background:"#bfdbfe",cursor:"default",overflow:"hidden"}}>
+                            <div style={{width:`${payPct}%`,height:"100%",background:"#3b82f6",borderRadius:"4px 0 0 4px"}}/>
                           </div>
-                          {showGE&&r.ge&&<div title={tipG} style={{width:`${barWG}%`,minWidth:4,height:14,borderRadius:4,background:"#bbf7d0",cursor:"default",position:"relative",overflow:"hidden"}}>
-                            <div style={{width:`${payPctG}%`,height:"100%",background:"#22c55e",borderRadius:"4px 0 0 4px",display:"flex",alignItems:"center",justifyContent:"flex-end",paddingRight:2}}>
-                              {r.ge?.applied&&payPctG<95&&<span style={{fontSize:7,color:"#fff",fontWeight:700}}>{fmt(actG)}</span>}
-                            </div>
+                          {showGE&&r.ge&&<div title={tipG} style={{width:`${barWG}%`,minWidth:4,height:14,borderRadius:4,background:"#bbf7d0",cursor:"default",overflow:"hidden"}}>
+                            <div style={{width:`${payPctG}%`,height:"100%",background:"#22c55e",borderRadius:"4px 0 0 4px"}}/>
                           </div>}
                         </div>
                       );
