@@ -138,7 +138,7 @@ export default function CostSimulator(){
   return(
     <div style={{background:"#fff",borderRadius:12,padding:"20px 24px",border:"1px solid #e2e8f0"}}>
       <h2 style={{fontSize:18,fontWeight:800,color:"#0f172a",margin:"0 0 4px"}}>💊 治療費シミュレーター</h2>
-      <p style={{fontSize:12,color:"#64748b",margin:"0 0 16px"}}>高額療養費制度を適用した自己負担額の概算を一覧表示します</p>
+      <p style={{fontSize:12,color:"#64748b",margin:"0 0 16px"}}>高額療養費制度を適用した自己負担額の概算を一覧表示します。<span style={{background:"#eff6ff",padding:"1px 6px",borderRadius:3,marginLeft:4}}>青背景</span>の金額は高額療養費が適用されています。</p>
 
       {/* ── フィルタ ── */}
       <div style={{position:"sticky",top:0,zIndex:10,background:"#fff",paddingBottom:12,borderBottom:"1px solid #e2e8f0",marginBottom:12}}>
