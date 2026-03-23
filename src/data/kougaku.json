@@ -8,16 +8,50 @@
     {"label": "協会けんぽ 高額療養費", "url": "https://www.kyoukaikenpo.or.jp/g3/cat320/sb3170/sbb31709/1945-268/"}
   ],
   "lastChecked": "2025-04-01",
-  "categories69under": [
-    {"id": "ア", "label": "年収約1,160万円〜",     "base": 252600, "threshold": 842000, "rate": 0.01, "multi": 140100, "fixed": false},
-    {"id": "イ", "label": "年収約770〜1,160万円",  "base": 167400, "threshold": 558000, "rate": 0.01, "multi": 93000,  "fixed": false},
-    {"id": "ウ", "label": "年収約370〜770万円",    "base": 80100,  "threshold": 267000, "rate": 0.01, "multi": 44400,  "fixed": false},
-    {"id": "エ", "label": "〜年収約370万円",       "base": 57600,  "threshold": 0,      "rate": 0,    "multi": 44400,  "fixed": true},
-    {"id": "オ", "label": "住民税非課税",           "base": 35400,  "threshold": 0,      "rate": 0,    "multi": 24600,  "fixed": true}
+
+  "ageGroups": [
+    {"id": "under70",  "label": "〜69歳",   "defaultCopay": 0.3},
+    {"id": "70to74",   "label": "70〜74歳", "defaultCopay": 0.2},
+    {"id": "over75",   "label": "75歳〜",   "defaultCopay": 0.1}
   ],
-  "copayRates": [
-    {"ageGroup": "〜69歳",    "rate": 0.3},
-    {"ageGroup": "70〜74歳",  "rate": 0.2},
-    {"ageGroup": "75歳〜",    "rate": 0.1}
-  ]
+
+  "incomeCategories": [
+    {"id": "I1", "label": "年収約1,160万円〜"},
+    {"id": "I2", "label": "年収約770〜1,160万円"},
+    {"id": "I3", "label": "年収約370〜770万円"},
+    {"id": "I4", "label": "年収約200〜370万円"},
+    {"id": "I5", "label": "年収約156〜200万円"},
+    {"id": "I6", "label": "住民税非課税"},
+    {"id": "I7", "label": "住民税非課税（所得0円）"}
+  ],
+
+  "rules": {
+    "under70": {
+      "I1": {"copay": 0.3, "base": 252600, "threshold": 842000, "rate": 0.01, "multi": 140100, "fixed": false, "outpatientLimit": null, "label": "区分ア"},
+      "I2": {"copay": 0.3, "base": 167400, "threshold": 558000, "rate": 0.01, "multi": 93000,  "fixed": false, "outpatientLimit": null, "label": "区分イ"},
+      "I3": {"copay": 0.3, "base": 80100,  "threshold": 267000, "rate": 0.01, "multi": 44400,  "fixed": false, "outpatientLimit": null, "label": "区分ウ"},
+      "I4": {"copay": 0.3, "base": 57600,  "threshold": 0,      "rate": 0,    "multi": 44400,  "fixed": true,  "outpatientLimit": null, "label": "区分エ"},
+      "I5": {"copay": 0.3, "base": 57600,  "threshold": 0,      "rate": 0,    "multi": 44400,  "fixed": true,  "outpatientLimit": null, "label": "区分エ"},
+      "I6": {"copay": 0.3, "base": 35400,  "threshold": 0,      "rate": 0,    "multi": 24600,  "fixed": true,  "outpatientLimit": null, "label": "区分オ"},
+      "I7": {"copay": 0.3, "base": 35400,  "threshold": 0,      "rate": 0,    "multi": 24600,  "fixed": true,  "outpatientLimit": null, "label": "区分オ"}
+    },
+    "70to74": {
+      "I1": {"copay": 0.3, "base": 252600, "threshold": 842000, "rate": 0.01, "multi": 140100, "fixed": false, "outpatientLimit": null,  "label": "現役並みⅢ"},
+      "I2": {"copay": 0.3, "base": 167400, "threshold": 558000, "rate": 0.01, "multi": 93000,  "fixed": false, "outpatientLimit": null,  "label": "現役並みⅡ"},
+      "I3": {"copay": 0.3, "base": 80100,  "threshold": 267000, "rate": 0.01, "multi": 44400,  "fixed": false, "outpatientLimit": null,  "label": "現役並みⅠ"},
+      "I4": {"copay": 0.2, "base": 57600,  "threshold": 0,      "rate": 0,    "multi": 44400,  "fixed": true,  "outpatientLimit": 18000, "label": "一般"},
+      "I5": {"copay": 0.2, "base": 57600,  "threshold": 0,      "rate": 0,    "multi": 44400,  "fixed": true,  "outpatientLimit": 18000, "label": "一般"},
+      "I6": {"copay": 0.2, "base": 24600,  "threshold": 0,      "rate": 0,    "multi": null,   "fixed": true,  "outpatientLimit": 8000,  "label": "住民税非課税Ⅱ"},
+      "I7": {"copay": 0.2, "base": 15000,  "threshold": 0,      "rate": 0,    "multi": null,   "fixed": true,  "outpatientLimit": 8000,  "label": "住民税非課税Ⅰ"}
+    },
+    "over75": {
+      "I1": {"copay": 0.3, "base": 252600, "threshold": 842000, "rate": 0.01, "multi": 140100, "fixed": false, "outpatientLimit": null,  "label": "現役並みⅢ"},
+      "I2": {"copay": 0.3, "base": 167400, "threshold": 558000, "rate": 0.01, "multi": 93000,  "fixed": false, "outpatientLimit": null,  "label": "現役並みⅡ"},
+      "I3": {"copay": 0.3, "base": 80100,  "threshold": 267000, "rate": 0.01, "multi": 44400,  "fixed": false, "outpatientLimit": null,  "label": "現役並みⅠ"},
+      "I4": {"copay": 0.2, "base": 57600,  "threshold": 0,      "rate": 0,    "multi": 44400,  "fixed": true,  "outpatientLimit": 18000, "label": "2割（一定以上所得）"},
+      "I5": {"copay": 0.1, "base": 57600,  "threshold": 0,      "rate": 0,    "multi": 44400,  "fixed": true,  "outpatientLimit": 18000, "label": "一般"},
+      "I6": {"copay": 0.1, "base": 24600,  "threshold": 0,      "rate": 0,    "multi": null,   "fixed": true,  "outpatientLimit": 8000,  "label": "住民税非課税Ⅱ"},
+      "I7": {"copay": 0.1, "base": 15000,  "threshold": 0,      "rate": 0,    "multi": null,   "fixed": true,  "outpatientLimit": 8000,  "label": "住民税非課税Ⅰ"}
+    }
+  }
 }

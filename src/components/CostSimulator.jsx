@@ -2,20 +2,25 @@ import React,{useState,useMemo} from "react";
 import REGIMENS from "../data/regimens.json";
 import KOUGAKU from "../data/kougaku.json";
 
-/* ── 高額療養費 計算ロジック ── */
-function calcLimit(totalMedical,cat,isMulti){
-  const r=KOUGAKU.categories69under.find(c=>c.id===cat);
-  if(!r)return totalMedical;
-  if(isMulti)return r.multi;
-  if(r.fixed)return r.base;
-  return r.base+Math.max(totalMedical-r.threshold,0)*r.rate;
+/* ── ルールルックアップ ── */
+function getRule(ageId,incId){
+  return KOUGAKU.rules[ageId]?.[incId]||KOUGAKU.rules.under70.I3;
 }
-function simulate(monthlyMedical,cat,copayRate,months){
+
+/* ── 高額療養費 計算ロジック ── */
+function calcLimit(totalMedical,rule,isMulti){
+  if(isMulti&&rule.multi!==null)return rule.multi;
+  if(rule.fixed)return rule.base;
+  return rule.base+Math.max(totalMedical-rule.threshold,0)*rule.rate;
+}
+function simulate(monthlyMedical,rule,months){
+  const copayRate=rule.copay;
   let multiCount=0,total=0,first=0,multi=0,applied=false;
   for(let m=1;m<=months;m++){
     const raw=monthlyMedical*copayRate;
     const isM=multiCount>=3;
-    const limit=calcLimit(monthlyMedical,cat,isM);
+    let limit=calcLimit(monthlyMedical,rule,isM);
+    if(rule.outpatientLimit!==null)limit=Math.min(limit,rule.outpatientLimit);
     const actual=Math.min(raw,limit);
     if(raw>limit)applied=true;
     total+=actual;
@@ -28,8 +33,8 @@ function simulate(monthlyMedical,cat,copayRate,months){
 
 const fmt=n=>n==null?"—":"¥"+n.toLocaleString();
 const GROUPS=["すべて","化学療法","HER2標的","CDK4/6","ホルモン","免疫/他","支持療法"];
-const AGE_OPTS=KOUGAKU.copayRates.map(c=>({label:c.ageGroup,rate:c.rate}));
-const INC_OPTS=KOUGAKU.categories69under.map(c=>({id:c.id,label:c.label}));
+const AGE_OPTS=KOUGAKU.ageGroups;
+const INC_OPTS=KOUGAKU.incomeCategories;
 const MONTH_OPTS=[1,3,6,12,24];
 
 const Btn=({active,onClick,children})=>(
@@ -42,23 +47,68 @@ const Badge=({type})=>{
   return <span style={{fontSize:10,padding:"1px 5px",borderRadius:4,background:c.bg,color:c.color,border:`1px solid ${c.border}`,marginLeft:4,fontWeight:600}}>{type}</span>;
 };
 
+/* ── 計算式テーブル（年齢別） ── */
+function FormulaTable({ageId,incId}){
+  const rules=KOUGAKU.rules[ageId];
+  if(!rules)return null;
+  const is70plus=ageId!=="under70";
+  const title=ageId==="under70"?"69歳以下":ageId==="70to74"?"70〜74歳":"75歳以上";
+  // Deduplicate rules by label
+  const seen=new Set();
+  const rows=[];
+  for(const[iid,r] of Object.entries(rules)){
+    if(seen.has(r.label))continue;
+    seen.add(r.label);
+    rows.push({iid,r});
+  }
+  return(
+    <>
+      <h3 style={{fontSize:13,fontWeight:700,color:"#0f172a",margin:"0 0 8px"}}>📐 高額療養費の計算式（{title}）</h3>
+      <table style={{fontSize:11,borderCollapse:"collapse",width:"100%",marginBottom:12}}>
+        <thead><tr style={{borderBottom:"1px solid #e2e8f0"}}>
+          <th style={{textAlign:"left",padding:"3px 6px",color:"#64748b"}}>区分</th>
+          {is70plus&&<th style={{textAlign:"right",padding:"3px 6px",color:"#64748b"}}>外来(個人)</th>}
+          <th style={{textAlign:"left",padding:"3px 6px",color:"#64748b"}}>{is70plus?"外来+入院(世帯)":"自己負担限度額（月額）"}</th>
+          <th style={{textAlign:"right",padding:"3px 6px",color:"#64748b"}}>多数回該当</th>
+        </tr></thead>
+        <tbody>
+          {rows.map(({iid,r})=>{
+            const active=getRule(ageId,incId).label===r.label;
+            return(
+              <tr key={r.label} style={{borderBottom:"1px solid #f1f5f9",background:active?"#eff6ff":"transparent"}}>
+                <td style={{padding:"3px 6px",fontWeight:active?700:400}}>{r.label}（{Math.round(r.copay*10)}割）</td>
+                {is70plus&&<td style={{padding:"3px 6px",textAlign:"right"}}>{r.outpatientLimit!=null?fmt(r.outpatientLimit):"—"}</td>}
+                <td style={{padding:"3px 6px"}}>{r.fixed?`${fmt(r.base)}（固定）`:`${fmt(r.base)} ＋（医療費 − ${fmt(r.threshold)}）× 1%`}</td>
+                <td style={{padding:"3px 6px",textAlign:"right"}}>{r.multi!=null?fmt(r.multi):"—"}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+      <p style={{fontSize:10,color:"#64748b",margin:"0 0 4px"}}>※ 多数回該当: 直近12ヶ月で高額療養費の対象が3回以上ある場合、4回目以降はさらに低い限度額が適用されます。</p>
+      {is70plus&&<p style={{fontSize:10,color:"#64748b",margin:"0 0 4px"}}>※ 本ツールは外来化学療法を想定し、外来上限のある区分には外来上限を適用しています。年間上限144,000円。</p>}
+    </>
+  );
+}
+
 export default function CostSimulator(){
-  const[age,setAge]=useState(0);
-  const[inc,setInc]=useState("ウ");
+  const[ageIdx,setAgeIdx]=useState(0);
+  const[incId,setIncId]=useState("I3");
   const[months,setMonths]=useState(6);
   const[group,setGroup]=useState("すべて");
   const[showGE,setShowGE]=useState(true);
   const[sortKey,setSortKey]=useState("brand");
   const[sortDir,setSortDir]=useState(1);
 
-  const copayRate=AGE_OPTS[age].rate;
+  const ageId=AGE_OPTS[ageIdx].id;
+  const rule=getRule(ageId,incId);
 
   const data=useMemo(()=>{
     let list=REGIMENS;
     if(group!=="すべて")list=list.filter(r=>r.group===group);
     return list.map(r=>{
-      const brand=simulate(r.monthlyBrand,inc,copayRate,months);
-      const ge=r.monthlyGeneric!=null?simulate(r.monthlyGeneric,inc,copayRate,months):null;
+      const brand=simulate(r.monthlyBrand,rule,months);
+      const ge=r.monthlyGeneric!=null?simulate(r.monthlyGeneric,rule,months):null;
       return{...r,brand,ge,saving:ge?brand.total-ge.total:null};
     }).sort((a,b)=>{
       let va,vb;
@@ -70,7 +120,7 @@ export default function CostSimulator(){
       else{va=0;vb=0}
       return sortDir*(vb-va);
     });
-  },[age,inc,months,group,sortKey,sortDir]);
+  },[ageIdx,incId,months,group,sortKey,sortDir]);
 
   const maxBrand=Math.max(...data.map(d=>d.brand.total),1);
 
@@ -95,14 +145,14 @@ export default function CostSimulator(){
         <div style={{marginBottom:8}}>
           <span style={{fontSize:11,color:"#64748b",marginRight:8,fontWeight:600}}>年齢</span>
           <div style={{display:"inline-flex",gap:2,background:"#f1f5f9",borderRadius:8,padding:2}}>
-            {AGE_OPTS.map((a,i)=><Btn key={i} active={age===i} onClick={()=>setAge(i)}>{a.label}（{Math.round(a.rate*10)}割）</Btn>)}
+            {AGE_OPTS.map((a,i)=><Btn key={a.id} active={ageIdx===i} onClick={()=>setAgeIdx(i)}>{a.label}</Btn>)}
           </div>
         </div>
         {/* 年収区分 */}
         <div style={{marginBottom:8}}>
           <span style={{fontSize:11,color:"#64748b",marginRight:8,fontWeight:600}}>年収区分</span>
           <div style={{display:"inline-flex",gap:2,background:"#f1f5f9",borderRadius:8,padding:2,flexWrap:"wrap"}}>
-            {INC_OPTS.map(c=><Btn key={c.id} active={inc===c.id} onClick={()=>setInc(c.id)}>区分{c.id} {c.label}</Btn>)}
+            {INC_OPTS.map(c=><Btn key={c.id} active={incId===c.id} onClick={()=>setIncId(c.id)}>{c.label}</Btn>)}
           </div>
         </div>
         {/* 治療期間 */}
@@ -112,9 +162,16 @@ export default function CostSimulator(){
             {MONTH_OPTS.map(m=><Btn key={m} active={months===m} onClick={()=>setMonths(m)}>{m}ヶ月</Btn>)}
           </div>
         </div>
+        {/* ステータスバッジ */}
+        <div style={{display:"flex",gap:6,flexWrap:"wrap",marginBottom:8}}>
+          <span style={{fontSize:10,padding:"2px 8px",borderRadius:10,background:"#dbeafe",color:"#1d4ed8",fontWeight:600}}>🔵 {AGE_OPTS[ageIdx].label}（{Math.round(rule.copay*10)}割負担）</span>
+          <span style={{fontSize:10,padding:"2px 8px",borderRadius:10,background:"#f3e8ff",color:"#7c3aed",fontWeight:600}}>🟣 {rule.label}</span>
+          <span style={{fontSize:10,padding:"2px 8px",borderRadius:10,background:"#dcfce7",color:"#16a34a",fontWeight:600}}>🟢 {months}ヶ月</span>
+          {rule.outpatientLimit!=null&&<span style={{fontSize:10,padding:"2px 8px",borderRadius:10,background:"#fef9c3",color:"#a16207",fontWeight:600}}>🟡 外来上限 {fmt(rule.outpatientLimit)}/月</span>}
+        </div>
         {/* グループ + 後発品 */}
         <div style={{display:"flex",alignItems:"center",gap:12,flexWrap:"wrap"}}>
-          <div style={{display:"flex",gap:2,background:"#f1f5f9",borderRadius:8,padding:2}}>
+          <div style={{display:"flex",gap:2,background:"#f1f5f9",borderRadius:8,padding:2,flexWrap:"wrap"}}>
             {GROUPS.map(g=><Btn key={g} active={group===g} onClick={()=>setGroup(g)}>{g}</Btn>)}
           </div>
           <label style={{fontSize:12,color:"#64748b",cursor:"pointer",display:"flex",alignItems:"center",gap:4}}>
@@ -152,12 +209,12 @@ export default function CostSimulator(){
                   <td style={{padding:"6px 8px",color:"#64748b",fontSize:11}}>{r.cycle}</td>
                   <td style={{padding:"6px 8px",textAlign:"right",fontVariantNumeric:"tabular-nums",color:"#64748b"}}>{fmt(r.monthlyBrand)}</td>
                   <td style={{padding:"6px 8px",textAlign:"right",fontVariantNumeric:"tabular-nums",background:r.brand.applied?"#eff6ff":"transparent"}}>
-                    <div style={{fontWeight:700,color:"#0f172a"}}>{fmt(r.brand.total)}{r.brand.applied&&<span style={{marginLeft:4,fontSize:9,padding:"1px 4px",borderRadius:3,background:"#dbeafe",color:"#1d4ed8",fontWeight:600}}>制度適用</span>}</div>
+                    <div style={{fontWeight:700,color:"#0f172a"}}>{fmt(r.brand.total)}{r.brand.applied&&<span style={{marginLeft:4,fontSize:9,padding:"1px 4px",borderRadius:3,background:"#dbeafe",color:"#1d4ed8",fontWeight:600}}>高額療養費</span>}</div>
                     <div style={{fontSize:10,color:"#94a3b8"}}>初月{fmt(r.brand.first)}{r.brand.multi>0&&` → 多数回${fmt(r.brand.multi)}/月`}</div>
                   </td>
                   {showGE&&<td style={{padding:"6px 8px",textAlign:"right",fontVariantNumeric:"tabular-nums",background:r.ge?.applied?"#f0fdf4":"transparent"}}>
                     {r.ge?<>
-                      <div style={{fontWeight:700,color:"#16a34a"}}>{fmt(r.ge.total)}{r.ge.applied&&<span style={{marginLeft:4,fontSize:9,padding:"1px 4px",borderRadius:3,background:"#dcfce7",color:"#16a34a",fontWeight:600}}>制度適用</span>}</div>
+                      <div style={{fontWeight:700,color:"#16a34a"}}>{fmt(r.ge.total)}{r.ge.applied&&<span style={{marginLeft:4,fontSize:9,padding:"1px 4px",borderRadius:3,background:"#dcfce7",color:"#16a34a",fontWeight:600}}>高額療養費</span>}</div>
                       <div style={{fontSize:10,color:"#94a3b8"}}>{r.genericNote}</div>
                     </>:<span style={{color:"#d1d5db"}}>—</span>}
                   </td>}
@@ -177,20 +234,7 @@ export default function CostSimulator(){
 
       {/* ── フッター ── */}
       <div style={{marginTop:20,padding:"16px",background:"#f8fafc",borderRadius:8,border:"1px solid #e2e8f0"}}>
-        <h3 style={{fontSize:13,fontWeight:700,color:"#0f172a",margin:"0 0 8px"}}>📐 高額療養費の計算式（69歳以下）</h3>
-        <table style={{fontSize:11,borderCollapse:"collapse",width:"100%",marginBottom:12}}>
-          <thead><tr style={{borderBottom:"1px solid #e2e8f0"}}><th style={{textAlign:"left",padding:"3px 6px",color:"#64748b"}}>区分</th><th style={{textAlign:"left",padding:"3px 6px",color:"#64748b"}}>自己負担限度額（月額）</th><th style={{textAlign:"right",padding:"3px 6px",color:"#64748b"}}>多数回該当</th></tr></thead>
-          <tbody>
-            {KOUGAKU.categories69under.map(c=>(
-              <tr key={c.id} style={{borderBottom:"1px solid #f1f5f9",background:inc===c.id?"#eff6ff":"transparent"}}>
-                <td style={{padding:"3px 6px",fontWeight:inc===c.id?700:400}}>区分{c.id} {c.label}</td>
-                <td style={{padding:"3px 6px"}}>{c.fixed?`${fmt(c.base)}（固定）`:`${fmt(c.base)} ＋（医療費 − ${fmt(c.threshold)}）× 1%`}</td>
-                <td style={{padding:"3px 6px",textAlign:"right"}}>{fmt(c.multi)}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        <p style={{fontSize:10,color:"#64748b",margin:"0 0 4px"}}>※ 多数回該当: 直近12ヶ月で高額療養費の対象が3回以上ある場合、4回目以降はさらに低い限度額が適用されます。</p>
+        <FormulaTable ageId={ageId} incId={incId}/>
 
         <h3 style={{fontSize:13,fontWeight:700,color:"#0f172a",margin:"12px 0 8px"}}>📎 主要参考URL</h3>
         <ul style={{fontSize:11,color:"#64748b",margin:0,paddingLeft:16}}>
@@ -205,6 +249,9 @@ export default function CostSimulator(){
             ・薬価は{KOUGAKU.lastChecked}時点の情報に基づいています。薬価改定により変更される場合があります。<br/>
             ・入院費・検査費・手術費は含まれていません。外来化学療法の薬剤費のみの概算です。<br/>
             ・<strong>支持療法費用について:</strong> 化学療法レジメンでは、制吐薬（アプレピタント等）・G-CSF（ジーラスタ等）・ステロイド等の支持療法が併用されるため、実際の総医療費は上記より＋1〜2万円/回程度高くなる場合があります。<br/>
+            ・70歳以上の「一般」「住民税非課税」区分は外来のみの上限額を適用しています。入院がある場合は世帯ごとの上限額が適用されます。<br/>
+            ・70歳以上の現役並み所得者は年齢に関わらず3割負担です。<br/>
+            ・75歳以上の「一定以上所得」区分は2割負担です。<br/>
             ・限度額適用認定証の事前取得を推奨します。詳細は加入の健康保険にご確認ください。
           </p>
         </div>
