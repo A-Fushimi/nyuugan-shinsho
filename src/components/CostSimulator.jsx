@@ -140,8 +140,8 @@ export default function CostSimulator(){
       <h2 style={{fontSize:18,fontWeight:800,color:"#0f172a",margin:"0 0 4px"}}>💊 治療費シミュレーター</h2>
       <p style={{fontSize:12,color:"#64748b",margin:"0 0 16px"}}>高額療養費制度を適用した自己負担額の概算を一覧表示します</p>
 
-      {/* ── フィルタ ── */}
-      <div style={{position:"sticky",top:0,zIndex:10,background:"#fff",paddingBottom:12,borderBottom:"1px solid #e2e8f0",marginBottom:12}}>
+      {/* ── フィルタ（非固定） ── */}
+      <div style={{marginBottom:8}}>
         {/* 年齢 */}
         <div style={{marginBottom:8}}>
           <span style={{fontSize:11,color:"#64748b",marginRight:8,fontWeight:600}}>年齢</span>
@@ -163,14 +163,15 @@ export default function CostSimulator(){
             {MONTH_OPTS.map(m=><Btn key={m} active={months===m} onClick={()=>setMonths(m)}>{m}ヶ月</Btn>)}
           </div>
         </div>
-        {/* ステータスバッジ */}
+      </div>
+      {/* ── ステータスバッジ＋グループ（sticky） ── */}
+      <div style={{position:"sticky",top:0,zIndex:10,background:"#fff",paddingTop:4,paddingBottom:10,borderBottom:"1px solid #e2e8f0",marginBottom:12}}>
         <div style={{display:"flex",gap:6,flexWrap:"wrap",marginBottom:8}}>
           <span style={{fontSize:10,padding:"2px 8px",borderRadius:10,background:"#dbeafe",color:"#1d4ed8",fontWeight:600}}>🔵 {AGE_OPTS[ageIdx].label}（{Math.round(rule.copay*10)}割負担）</span>
           <span style={{fontSize:10,padding:"2px 8px",borderRadius:10,background:"#f3e8ff",color:"#7c3aed",fontWeight:600}}>🟣 {rule.label}</span>
           <span style={{fontSize:10,padding:"2px 8px",borderRadius:10,background:"#dcfce7",color:"#16a34a",fontWeight:600}}>🟢 {months}ヶ月</span>
           {rule.outpatientLimit!=null&&<span style={{fontSize:10,padding:"2px 8px",borderRadius:10,background:"#fef9c3",color:"#a16207",fontWeight:600}}>🟡 外来上限 {fmt(rule.outpatientLimit)}/月</span>}
         </div>
-        {/* グループ + 後発品 */}
         <div style={{display:"flex",alignItems:"center",gap:12,flexWrap:"wrap"}}>
           <div style={{display:"flex",gap:2,background:"#f1f5f9",borderRadius:8,padding:2,flexWrap:"wrap"}}>
             {GROUPS.map(g=><Btn key={g} active={group===g} onClick={()=>setGroup(g)}>{g}</Btn>)}
@@ -182,9 +183,9 @@ export default function CostSimulator(){
       </div>
 
       {/* ── テーブル ── */}
-      <div style={{overflowX:"auto",overflowY:"auto",maxHeight:"70vh"}}>
+      <div style={{overflowX:"auto"}}>
         <table style={{width:"100%",borderCollapse:"collapse",fontSize:12}}>
-          <thead style={{position:"sticky",top:0,zIndex:5}}>
+          <thead style={{position:"sticky",top:65,zIndex:5}}>
             <tr style={{background:"#f8fafc",borderBottom:"2px solid #e2e8f0"}}>
               <th onClick={()=>doSort("name")} style={{textAlign:"left",padding:"6px 8px",color:"#64748b",cursor:"pointer",fontSize:11,fontWeight:600,minWidth:180}}>レジメン{sortKey==="name"?(sortDir>0?" ▲":" ▼"):""}</th>
               <th style={{textAlign:"left",padding:"6px 8px",color:"#64748b",fontSize:11,fontWeight:600}}>周期</th>
