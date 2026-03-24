@@ -95,8 +95,10 @@ function FormulaTable({ageId,incId}){
 export default function CostSimulator(){
   const[ageIdx,setAgeIdx]=useState(0);
   const[incId,setIncId]=useState("I3");
-  const[months,setMonths]=useState(6);
-  const[group,setGroup]=useState("すべて");
+  const[months,setMonths]=useState(1);
+  const[group,setGroupRaw]=useState("すべて");
+  const setGroup=g=>{setGroupRaw(g);if(g==="検査")setMonths(1);};
+  const isTest=group==="検査";
   const[showGE,setShowGE]=useState(true);
   const[sortKey,setSortKey]=useState("brand");
   const[sortDir,setSortDir]=useState(1);
@@ -156,11 +158,11 @@ export default function CostSimulator(){
             {INC_OPTS.map(c=><Btn key={c.id} active={incId===c.id} onClick={()=>setIncId(c.id)}>{c.label}</Btn>)}
           </div>
         </div>
-        {/* 治療期間 */}
-        <div style={{marginBottom:8}}>
-          <span style={{fontSize:11,color:"#64748b",marginRight:8,fontWeight:600}}>治療期間</span>
+        {/* 治療期間（検査グループ時は無効化） */}
+        <div style={{marginBottom:8,opacity:isTest?0.4:1}}>
+          <span style={{fontSize:11,color:"#64748b",marginRight:8,fontWeight:600}}>治療期間{isTest?" （検査は1回分で表示）":""}</span>
           <div style={{display:"inline-flex",gap:2,background:"#f1f5f9",borderRadius:8,padding:2}}>
-            {MONTH_OPTS.map(m=><Btn key={m} active={months===m} onClick={()=>setMonths(m)}>{m}ヶ月</Btn>)}
+            {MONTH_OPTS.map(m=><Btn key={m} active={months===m} onClick={()=>{if(!isTest)setMonths(m)}}>{m}ヶ月</Btn>)}
           </div>
         </div>
       </div>
