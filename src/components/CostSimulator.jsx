@@ -191,11 +191,11 @@ export default function CostSimulator(){
             <tr style={{background:"#f8fafc",borderBottom:"2px solid #e2e8f0"}}>
               <th onClick={()=>doSort("name")} style={{textAlign:"left",padding:"6px 8px",color:"#64748b",cursor:"pointer",fontSize:11,fontWeight:600,minWidth:180}}>レジメン{sortKey==="name"?(sortDir>0?" ▲":" ▼"):""}</th>
               <th style={{textAlign:"left",padding:"6px 8px",color:"#64748b",fontSize:11,fontWeight:600}}>周期</th>
-              <SortH k="monthly">月額医療費(10割)</SortH>
-              <SortH k="brand"><span style={{display:"block",fontSize:9,color:"#64748b",background:"#eff6ff",borderRadius:3,padding:"1px 4px",marginBottom:2,fontWeight:400}}>青背景は高額療養費適用</span>先発品 自己負担{months}ヶ月</SortH>
-              {showGE&&<SortH k="ge">後発品/BS{months}ヶ月</SortH>}
-
-              <th style={{padding:"6px 8px",color:"#64748b",fontSize:11,fontWeight:600,width:160}}>医療費と負担</th>
+              <SortH k="monthly">{isTest?"費用(10割)":"月額医療費(10割)"}</SortH>
+              {!isTest&&<SortH k="brand"><span style={{display:"block",fontSize:9,color:"#64748b",background:"#eff6ff",borderRadius:3,padding:"1px 4px",marginBottom:2,fontWeight:400}}>青背景は高額療養費適用</span>先発品 自己負担{months}ヶ月</SortH>}
+              {!isTest&&showGE&&<SortH k="ge">後発品/BS{months}ヶ月</SortH>}
+              {isTest&&<SortH k="brand">{Math.round(rule.copay*10)}割負担</SortH>}
+              {!isTest&&<th style={{padding:"6px 8px",color:"#64748b",fontSize:11,fontWeight:600,width:160}}>医療費と負担</th>}
             </tr>
           </thead>
           <tbody>
@@ -210,17 +210,23 @@ export default function CostSimulator(){
                   </td>
                   <td style={{padding:"6px 8px",color:"#64748b",fontSize:11}}>{r.cycle}</td>
                   <td style={{padding:"6px 8px",textAlign:"right",fontVariantNumeric:"tabular-nums",color:"#64748b"}}>{fmt(r.monthlyBrand)}</td>
-                  <td style={{padding:"6px 8px",textAlign:"right",fontVariantNumeric:"tabular-nums",background:r.brand.applied?"#eff6ff":"transparent"}}>
-                    <div style={{fontWeight:700,color:"#0f172a"}}>{fmt(r.brand.total)}</div>
-                    <div style={{fontSize:10,color:"#94a3b8"}}>初月{fmt(r.brand.first)}{r.brand.multi>0&&` → 多数回${fmt(r.brand.multi)}/月`}</div>
-                  </td>
-                  {showGE&&<td style={{padding:"6px 8px",textAlign:"right",fontVariantNumeric:"tabular-nums",background:r.ge?.applied?"#f0fdf4":"transparent"}}>
-                    {r.ge?<>
-                      <div style={{fontWeight:700,color:"#16a34a"}}>{fmt(r.ge.total)}</div>
-                      <div style={{fontSize:10,color:"#94a3b8"}}>{r.genericNote}</div>
-                    </>:<span style={{color:"#d1d5db"}}>—</span>}
-                  </td>}
-                  <td style={{padding:"6px 8px"}}>
+                  {isTest?(
+                    <td style={{padding:"6px 8px",textAlign:"right",fontVariantNumeric:"tabular-nums"}}>
+                      <div style={{fontWeight:700,color:"#0f172a"}}>{fmt(Math.round(r.monthlyBrand*rule.copay))}</div>
+                    </td>
+                  ):<>
+                    <td style={{padding:"6px 8px",textAlign:"right",fontVariantNumeric:"tabular-nums",background:r.brand.applied?"#eff6ff":"transparent"}}>
+                      <div style={{fontWeight:700,color:"#0f172a"}}>{fmt(r.brand.total)}</div>
+                      <div style={{fontSize:10,color:"#94a3b8"}}>初月{fmt(r.brand.first)}{r.brand.multi>0&&` → 多数回${fmt(r.brand.multi)}/月`}</div>
+                    </td>
+                    {showGE&&<td style={{padding:"6px 8px",textAlign:"right",fontVariantNumeric:"tabular-nums",background:r.ge?.applied?"#f0fdf4":"transparent"}}>
+                      {r.ge?<>
+                        <div style={{fontWeight:700,color:"#16a34a"}}>{fmt(r.ge.total)}</div>
+                        <div style={{fontSize:10,color:"#94a3b8"}}>{r.genericNote}</div>
+                      </>:<span style={{color:"#d1d5db"}}>—</span>}
+                    </td>}
+                  </>}
+                  {!isTest&&<td style={{padding:"6px 8px"}}>
                     {(()=>{
                       const tenB=r.monthlyBrand*months;
                       const barW=maxMedical>0?tenB/maxMedical*100:0;
@@ -245,7 +251,7 @@ export default function CostSimulator(){
                         </div>
                       );
                     })()}
-                  </td>
+                  </td>}
                 </tr>
               );
             })}
