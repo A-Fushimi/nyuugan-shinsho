@@ -356,17 +356,18 @@
   },
   {
     "id": "lapatinib",
-    "name": "ラパチニブ（タイケルブ）",
-    "sub": "HER1/HER2 TKI 経口",
+    "name": "ラパチニブ＋カペシタビン",
+    "sub": "タイケルブ＋ゼローダ",
     "group": "HER2標的",
-    "cycle": "連日内服",
+    "cycle": "3週毎（内服）",
     "drugIds": [
-      "lapatinib"
+      "lapatinib",
+      "capecitabine"
     ],
-    "monthlyBrand": 280000,
-    "monthlyGeneric": null,
-    "genericType": null,
-    "genericNote": null,
+    "monthlyBrand": 380000,
+    "monthlyGeneric": 220000,
+    "genericType": "GE",
+    "genericNote": "カペシタビンGE使用",
     "approved": true,
     "lastChecked": "2025-04-01",
     "source": "厚労省薬価基準R7.4",
@@ -616,14 +617,15 @@
   },
   {
     "id": "atezolizumab",
-    "name": "アテゾリズマブ（テセントリク）",
-    "sub": "免疫CP阻害薬 PD-L1+TNBC",
+    "name": "アテゾリズマブ＋ナブ-パクリタキセル",
+    "sub": "テセントリク＋アブラキサン PD-L1+TNBC",
     "group": "免疫/他",
-    "cycle": "2-3週毎",
+    "cycle": "4週毎（atezo 2週毎, nab-PTX d1,8,15）",
     "drugIds": [
-      "atezolizumab"
+      "atezolizumab",
+      "nab-paclitaxel"
     ],
-    "monthlyBrand": 500000,
+    "monthlyBrand": 720000,
     "monthlyGeneric": null,
     "genericType": null,
     "genericNote": null,
@@ -794,6 +796,196 @@
     "source": "バイオシミラー協議会",
     "sourceUrl": [
       "https://www.biosimilar.jp/pdf/biosimilar_list.pdf"
+    ]
+  },
+  {
+    "id": "tmabBS_per_doc",
+    "name": "トラスツズマブBS＋パージェタ＋ドセタキセル",
+    "sub": "HER2+ 1L（静注版）",
+    "group": "HER2標的",
+    "cycle": "3週毎",
+    "drugIds": [
+      "trastuzumab_bs",
+      "pertuzumab",
+      "docetaxel"
+    ],
+    "monthlyBrand": 520000,
+    "monthlyGeneric": 364000,
+    "genericType": "BS+GE",
+    "genericNote": "トラスツズマブBS＋ドセタキセルGE（パージェタは先発のみ）",
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準R7.4",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"
+    ]
+  },
+  {
+    "id": "phesgo_doc",
+    "name": "フェスゴ＋ドセタキセル",
+    "sub": "HER2+ 1L（皮下注版）",
+    "group": "HER2標的",
+    "cycle": "3週毎",
+    "drugIds": [
+      "phesgo",
+      "docetaxel"
+    ],
+    "monthlyBrand": 406000,
+    "monthlyGeneric": 391000,
+    "genericType": "GE",
+    "genericNote": "ドセタキセルGE使用（フェスゴはBS/GEなし）",
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準R7.4",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html",
+      "https://www.kegg.jp/medicus-bin/japic_med?japic_code=00071051"
+    ]
+  },
+  {
+    "id": "alokalys",
+    "name": "アロカリス",
+    "sub": "制吐薬（NK1拮抗・配合剤）",
+    "group": "支持療法",
+    "cycle": "各化学療法サイクルd1",
+    "drugIds": [
+      "fosnetupitant"
+    ],
+    "monthlyBrand": 16000,
+    "monthlyGeneric": null,
+    "genericType": null,
+    "genericNote": null,
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準R7.4",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"
+    ]
+  },
+  {
+    "id": "emend",
+    "name": "イメンド",
+    "sub": "制吐薬（NK1拮抗・経口）",
+    "group": "支持療法",
+    "cycle": "各化学療法サイクルd1-3",
+    "drugIds": [
+      "aprepitant"
+    ],
+    "monthlyBrand": 8500,
+    "monthlyGeneric": 3600,
+    "genericType": "GE",
+    "genericNote": "アプレピタントGE（サワイ等）",
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準R7.4",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"
+    ]
+  },
+  {
+    "id": "aloxi",
+    "name": "アロキシ",
+    "sub": "制吐薬（5-HT3拮抗・静注）",
+    "group": "支持療法",
+    "cycle": "各化学療法サイクルd1",
+    "drugIds": [
+      "palonosetron"
+    ],
+    "monthlyBrand": 11900,
+    "monthlyGeneric": 6200,
+    "genericType": "AG",
+    "genericNote": "パロノセトロン静注AG（タイホウ）",
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準R7.4",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"
+    ]
+  },
+  {
+    "id": "kytril",
+    "name": "カイトリル",
+    "sub": "制吐薬（5-HT3拮抗・静注）",
+    "group": "支持療法",
+    "cycle": "各化学療法サイクルd1",
+    "drugIds": [
+      "granisetron"
+    ],
+    "monthlyBrand": 1900,
+    "monthlyGeneric": 1800,
+    "genericType": "GE",
+    "genericNote": "グラニセトロン後発品",
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準R7.4",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"
+    ]
+  },
+  {
+    "id": "pembro_gem_cbdca",
+    "name": "ペムブロリズマブ＋ゲムシタビン＋カルボプラチン",
+    "sub": "キイトルーダ＋GCarbo TNBC",
+    "group": "免疫/他",
+    "cycle": "3週毎（GEM d1,8）",
+    "drugIds": [
+      "pembrolizumab",
+      "gemcitabine",
+      "carboplatin"
+    ],
+    "monthlyBrand": 600000,
+    "monthlyGeneric": 590000,
+    "genericType": "GE",
+    "genericNote": "ゲムシタビン・カルボプラチンGE使用",
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準R7.4",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"
+    ]
+  },
+  {
+    "id": "pembro_ptx_cbdca",
+    "name": "ペムブロリズマブ＋パクリタキセル＋カルボプラチン",
+    "sub": "キイトルーダ＋TC TNBC",
+    "group": "免疫/他",
+    "cycle": "3週毎",
+    "drugIds": [
+      "pembrolizumab",
+      "paclitaxel",
+      "carboplatin"
+    ],
+    "monthlyBrand": 610000,
+    "monthlyGeneric": 595000,
+    "genericType": "GE",
+    "genericNote": "パクリタキセル・カルボプラチンGE使用",
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準R7.4",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"
+    ]
+  },
+  {
+    "id": "pembro_ac",
+    "name": "ペムブロリズマブ＋AC療法",
+    "sub": "キイトルーダ＋ドキソルビシン＋シクロホスファミド TNBC",
+    "group": "免疫/他",
+    "cycle": "3週毎×4",
+    "drugIds": [
+      "pembrolizumab",
+      "doxorubicin",
+      "cyclophosphamide"
+    ],
+    "monthlyBrand": 480000,
+    "monthlyGeneric": 460000,
+    "genericType": "GE",
+    "genericNote": "ドキソルビシン・シクロホスファミドGE使用",
+    "approved": true,
+    "lastChecked": "2025-04-01",
+    "source": "厚労省薬価基準R7.4",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2025/04/tp20250401-01.html"
     ]
   }
 ]
