@@ -838,7 +838,7 @@ export default function Dashboard(){
           <span style={{fontSize:11,color:"#94a3b8",fontWeight:500}}>Breast Cancer Drug Pipeline & Treatment Atlas</span>
         </div>
         <p style={{margin:"4px 0 0",fontSize:11,color:"#94a3b8"}}>治療開発パイプライン ・ 臨床試験タイムライン ・ 開発初期ランドスケープ ・ 日本の標準治療</p>
-        <p style={{margin:"3px 0 0",fontSize:10,color:"#64748b"}}>2026年2.0版　｜　最終更新: {UPDATED}　｜　収録薬剤: {DRUGS.length}　｜　収録試験: {TIMELINE.length}　｜　収録レジメン: {REGIMENS.length}　｜　収録用語: {GLOSSARY.terms.length}</p>
+        <p style={{margin:"3px 0 0",fontSize:10,color:"#64748b"}}>2026年2.1版　｜　最終更新: {UPDATED}　｜　収録薬剤: {DRUGS.length}　｜　収録試験: {TIMELINE.length}　｜　収録レジメン: {REGIMENS.length}　｜　収録用語: {GLOSSARY.terms.length}</p>
       </div>
 
       {/* Tabs */}
