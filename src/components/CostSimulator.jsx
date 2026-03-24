@@ -33,7 +33,7 @@ function simulate(monthlyMedical,rule,months){
 }
 
 const fmt=n=>n==null?"—":"¥"+n.toLocaleString();
-const GROUPS=["すべて","化学療法","HER2標的","CDK4/6","ホルモン","免疫/他","支持療法"];
+const GROUPS=["すべて","化学療法","HER2標的","CDK4/6","ホルモン","免疫/他","支持療法","検査"];
 const AGE_OPTS=KOUGAKU.ageGroups;
 const INC_OPTS=KOUGAKU.incomeCategories;
 const MONTH_OPTS=[1,3,6,12,24];
