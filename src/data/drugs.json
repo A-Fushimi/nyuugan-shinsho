@@ -2001,7 +2001,7 @@
     },
     "jp": {
       "s": "ok",
-      "t": "承認済 2024/9 TNBC + 2026/3/23 HR+/HER2-",
+      "t": "承認済 TNBC + HR+/HER2-",
       "url": "https://www.kegg.jp/medicus-bin/japic_med?japic_code=00071544"
     },
     "studies": [
@@ -2086,7 +2086,39 @@
     ],
     "next": "ASCENT-04→FDA申請見込み。1L TNBC新SoC候補",
     "isNew": true,
-    "newLabel": "3/23 HR+適応拡大承認"
+    "newLabel": "3/23 HR+適応拡大承認",
+    "indications": [
+      {
+        "label": "TNBC MBC 2L+",
+        "us": {
+          "s": "ok",
+          "t": "承認済 2020/4（迅速）→2021/4（通常）"
+        },
+        "eu": {
+          "s": "ok",
+          "t": "承認済 2021/11"
+        },
+        "jp": {
+          "s": "ok",
+          "t": "承認済 2024/9/24 トロデルビ"
+        }
+      },
+      {
+        "label": "HR+/HER2- MBC 3L+",
+        "us": {
+          "s": "ok",
+          "t": "承認済 2023/2（TROPiCS-02）"
+        },
+        "eu": {
+          "s": "ok",
+          "t": "承認済 2023"
+        },
+        "jp": {
+          "s": "ok",
+          "t": "🆕 承認済 2026/3/23"
+        }
+      }
+    ]
   },
   {
     "id": 27,
