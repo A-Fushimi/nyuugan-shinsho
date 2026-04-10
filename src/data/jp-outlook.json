@@ -1,7 +1,7 @@
 [
   {
     "cat": "new",
-    "name": "Tucatinib",
+    "name": "ツカイザ（tucatinib）",
     "generic": "tucatinib",
     "sub": "HER2+ MBC 3L+（脳転移）",
     "status": "2026/2/19 承認済。薬価収載待ち",
@@ -9,7 +9,7 @@
   },
   {
     "cat": "new",
-    "name": "Imlunestrant",
+    "name": "イムルリオ（imlunestrant）",
     "generic": "imlunestrant",
     "sub": "HR+/HER2- ESR1m MBC",
     "status": "2025/12/22 承認済",
@@ -17,62 +17,35 @@
   },
   {
     "cat": "expansion",
-    "name": "T-DXd（エンハーツ）",
+    "name": "エンハーツ（T-DXd）",
     "generic": "trastuzumab deruxtecan",
-    "sub": "HER2+ EBC 術後補助療法",
-    "status": "2026/2/27 日本申請中（DB-05、iDFS HR 0.47）",
+    "sub": "HR+/HER2低発現・超低発現 MBC",
+    "status": "2025/8/25 承認済（DB-06）",
     "color": "#2563eb"
   },
   {
     "cat": "expansion",
-    "name": "Dato-DXd（ダトロウェイ）",
-    "generic": "datopotamab deruxtecan",
-    "sub": "TNBC 1L",
-    "status": "2026/2/12 日本申請中（TB-02、OS有意延長）※HR+/HER2-は2024/12/27承認済",
-    "color": "#2563eb"
-  },
-  {
-    "cat": "expansion",
-    "name": "ペムブロリズマブ皮下注",
-    "generic": "pembrolizumab",
-    "sub": "TNBC含む全固形がん（Qlex）",
-    "status": "2025/9/19 FDA承認済。日本未申請→MSD開発見込み（2027年前後か）",
-    "color": "#2563eb"
-  },
-  {
-    "cat": "development",
-    "name": "Inavolisib",
-    "generic": "inavolisib",
-    "sub": "HR+/HER2- PIK3CAm MBC 1L",
-    "status": "FDA 2024/10承認済。中外製薬が国内開発中→2026年以降申請見込み",
-    "color": "#eab308"
-  },
-  {
-    "cat": "expansion",
-    "name": "トロデルビ（Sac-Gov）",
-    "generic": "sacituzumab govitecan",
-    "sub": "HR+/HER2- MBC（化学療法歴あり）",
-    "status": "✅ 2026/3/23 承認済 TROPiCS-02試験に基づく適応拡大。TNBC承認（2024/9）に続く2つ目の適応。",
-    "color": "#2563eb",
-    "isNew": true
-  },
-  {
-    "cat": "適応拡大",
-    "name": "トロデルビ（Sac-Gov）",
-    "generic": "sacituzumab govitecan",
-    "sub": "HR+/HER2- MBC（化学療法歴あり）",
-    "status": "✅ 2026/3/23 承認済",
-    "color": "#2563eb",
-    "isNew": true
-  },
-  {
-    "cat": "expansion",
-    "name": "T-DXd（エンハーツ）",
+    "name": "エンハーツ（T-DXd）",
     "generic": "trastuzumab deruxtecan",
     "sub": "HER2+ 固形がん（臓器横断）",
     "status": "🆕 2026/3/23 承認済",
-    "color": "#2563eb",
-    "isNew": true
+    "color": "#2563eb"
+  },
+  {
+    "cat": "expansion",
+    "name": "エンハーツ（T-DXd）",
+    "generic": "trastuzumab deruxtecan",
+    "sub": "HER2+ EBC 術後補助療法",
+    "status": "🆕 2026/2/27 申請中（DB-05）",
+    "color": "#2563eb"
+  },
+  {
+    "cat": "expansion",
+    "name": "トロデルビ（sacituzumab govitecan）",
+    "generic": "sacituzumab govitecan",
+    "sub": "HR+/HER2- MBC",
+    "status": "🆕 2026/3/23 承認済（TROPiCS-02）",
+    "color": "#2563eb"
   },
   {
     "cat": "expansion",
@@ -80,8 +53,7 @@
     "generic": "datopotamab deruxtecan",
     "sub": "TNBC 1L MBC（IO不適）",
     "status": "🆕 2026/2/12 申請中（TB-02）",
-    "color": "#2563eb",
-    "isNew": true
+    "color": "#2563eb"
   },
   {
     "cat": "expansion",
@@ -89,7 +61,22 @@
     "generic": "tucatinib",
     "sub": "HER2+ MBC 1L 維持療法",
     "status": "🆕 2026/4/8 申請中（HER2CLIMB-05）",
-    "color": "#2563eb",
-    "isNew": true
+    "color": "#2563eb"
+  },
+  {
+    "cat": "expansion",
+    "name": "キイトルーダ Qlex（pembrolizumab SC）",
+    "generic": "pembrolizumab",
+    "sub": "TNBC含む全固形がん（皮下注）",
+    "status": "FDA承認済（2025/9）。日本未申請",
+    "color": "#2563eb"
+  },
+  {
+    "cat": "development",
+    "name": "イナボリシブ（inavolisib）",
+    "generic": "inavolisib",
+    "sub": "HR+/HER2- PIK3CAm MBC 1L",
+    "status": "FDA承認済（2024/10）。中外製薬が国内開発中",
+    "color": "#eab308"
   }
 ]
