@@ -1,17 +1,17 @@
 import { useState, useMemo, useRef, useEffect, createContext, useContext, useCallback } from "react";
 import SoC from "./data/standard-treatments.json";
 import DRUGS_JSON from "./data/drugs.json";
-import EVENTS from "./data/events.json";
-import JP_OUTLOOK from "./data/jp-outlook.json";
-import LANDSCAPE from "./data/landscape.json";
+import EVENTS_JSON from "./data/events.json";
+import JP_OUTLOOK_JSON from "./data/jp-outlook.json";
+import LANDSCAPE_JSON from "./data/landscape.json";
 import TIMELINE_JSON from "./data/timeline.json";
 import CHANGELOG from "./data/changelog.json";
 import ALGO from "./data/treatment-algorithm.json";
 import _constants from "./data/constants.json";
-import GLOSSARY from "./data/glossary.json";
+import GLOSSARY_JSON from "./data/glossary.json";
 import CostSimulator from "./components/CostSimulator.jsx";
 import HistoryTimeline from "./components/HistoryTimeline.jsx";
-import REGIMENS from "./data/regimens.json";
+import REGIMENS_JSON from "./data/regimens.json";
 import { supabase } from "./lib/supabase";
 
 const { S, SC, SB, MOA_CAT_LABELS, STAGE_STYLE, stColors, subColors } = _constants;
@@ -583,8 +583,8 @@ function GlossaryTab(){
   const [search,setSearch]=useState("");
   const [highlight,setHighlight]=useState(null);
   const [expanded,setExpanded]=useState(null);
-  const cats=GLOSSARY.categories;
-  const terms=GLOSSARY.terms;
+  const cats=GLOSSARY_JSON.categories;
+  const terms=GLOSSARY_JSON.terms;
 
   const filtered=useMemo(()=>{
     let list=terms;
@@ -681,7 +681,7 @@ function LandscapeTab(){
   const stages=["ALL","IND","FIH","PhI","PhIb/II","PhII"];
 
   const filtered=useMemo(()=>{
-    let list=LANDSCAPE;
+    let list=LANDSCAPE_JSON;
     if(subFilter!=="ALL")list=list.filter(d=>d.sub.includes(subFilter));
     if(stageFilter!=="ALL")list=list.filter(d=>d.stage===stageFilter);
     if(lsSearch.trim())list=list.filter(d=>(d.name+d.co+d.tgt+d.id+(d.note||"")).toLowerCase().includes(lsSearch.toLowerCase()));
@@ -697,7 +697,7 @@ function LandscapeTab(){
     return Object.entries(g).sort((a,b)=>b[1].length-a[1].length);
   },[filtered]);
 
-  const catCount=useMemo(()=>{const s=new Set();LANDSCAPE.forEach(d=>s.add(d.moa_cat));return s.size;},[]);
+  const catCount=useMemo(()=>{const s=new Set();LANDSCAPE_JSON.forEach(d=>s.add(d.moa_cat));return s.size;},[]);
 
   const toggle=(cat)=>setOpenCats(prev=>({...prev,[cat]:!prev[cat]}));
 
@@ -714,7 +714,7 @@ function LandscapeTab(){
           治療開発パイプラインの収録基準（A-D）を満たさない早期開発品を収録。基準Dを満たした時点でパイプラインタブに昇格。
         </p>
         <p style={{margin:"0 0 12px",fontSize:12,color:"#475569"}}>
-          {LANDSCAPE.length}薬剤を{catCount}カテゴリに分類。ClinicalTrials.gov + 学会発表 + 企業パイプラインから収集（最終更新: {UPDATED}）
+          {LANDSCAPE_JSON.length}薬剤を{catCount}カテゴリに分類。ClinicalTrials.gov + 学会発表 + 企業パイプラインから収集（最終更新: {UPDATED}）
         </p>
 
         {/* Filters */}
@@ -792,6 +792,11 @@ export default function Dashboard(){
   const [dbSource,setDbSource]=useState("json");
   const [DRUGS,setDrugs]=useState(DRUGS_JSON);
   const [TIMELINE,setTimeline]=useState(TIMELINE_JSON);
+  const [EVENTS,setEvents]=useState(EVENTS_JSON);
+  const [JP_OUTLOOK,setJpOutlook]=useState(JP_OUTLOOK_JSON);
+  const [LANDSCAPE,setLandscape]=useState(LANDSCAPE_JSON);
+  const [GLOSSARY,setGlossary]=useState(GLOSSARY_JSON);
+  const [REGIMENS,setRegimens]=useState(REGIMENS_JSON);
 
   // Supabaseからpipeline概要を取得し、JSONデータの承認状況を最新化
   useEffect(()=>{
@@ -827,6 +832,37 @@ export default function Dashboard(){
             return{...tl,_dbStatus:match.status,_dbDrug:match.drug,_dbPfsHr:match.pfs_hr,_dbOsHr:match.os_hr};
           });
           if(!cancelled)setTimeline(updated2);
+        }
+        // Fetch events
+        const {data:evData}=await supabase.from("events").select("*").order("sort_order");
+        if(evData&&evData.length>0&&!cancelled){
+          // Group by quarter
+          const grouped={};
+          evData.forEach(e=>{
+            if(!grouped[e.quarter])grouped[e.quarter]={q:e.quarter,done:e.done,items:[]};
+            grouped[e.quarter].items.push({text:e.item_text,result:e.item_result||undefined});
+          });
+          setEvents(Object.values(grouped));
+        }
+        // Fetch jp_outlook
+        const {data:jpData}=await supabase.from("jp_outlook").select("*").order("sort_order");
+        if(jpData&&jpData.length>0&&!cancelled){
+          setJpOutlook(jpData.map(j=>({name:j.drug_name,generic:j.generic_name,sub:j.sub,status:j.status,color:j.color,jpCategory:j.jp_category})));
+        }
+        // Fetch landscape
+        const {data:lsData}=await supabase.from("landscape").select("*");
+        if(lsData&&lsData.length>0&&!cancelled){
+          setLandscape(lsData.map(l=>({id:l.drug_name,name:l.drug_name,co:l.company,moa_cat:l.moa_category,tgt:l.target,sub:l.subtypes||[],stage:l.stage,nct:l.nct,nct_url:l.nct_url,status:l.status,fih_date:l.fih_date,n_enrolled:l.n_enrolled,early_result:l.early_result,source_url:l.source_url,source_label:l.source_label,note:l.note,updated:l.updated})));
+        }
+        // Fetch glossary
+        const {data:glData}=await supabase.from("glossary").select("*");
+        if(glData&&glData.length>0&&!cancelled){
+          setGlossary({categories:GLOSSARY_JSON.categories,terms:glData.map(g=>({id:g.term_id,term:g.term,termJa:g.term_ja,reading:g.reading,category:g.category,definition:g.definition,image:g.image,relatedTerms:g.related_terms||[]}))});
+        }
+        // Fetch regimens
+        const {data:rgData}=await supabase.from("regimens").select("*");
+        if(rgData&&rgData.length>0&&!cancelled){
+          setRegimens(rgData.map(r=>({id:r.regimen_id,name:r.name,sub:r.sub,group:r.regimen_group,cycle:r.cycle,drugIds:r.drug_ids||[],monthlyBrand:r.monthly_brand,monthlyGeneric:r.monthly_generic,genericType:r.generic_type,genericNote:r.generic_note,approved:r.approved,lastChecked:r.last_checked,source:r.source,sourceUrl:r.source_urls||[]})));
         }
       }catch(e){
         console.warn("Supabase fetch failed, using JSON:",e.message);
