@@ -52,7 +52,7 @@
     "ep": "PFS（IRC）",
     "ep2": "OS, ORR",
     "st": "run",
-    "fpi": 2021.0,
+    "fpi": 2021,
     "lpi": 2024.35,
     "readout": 2026.8,
     "nct": "NCT04711252",
@@ -303,7 +303,7 @@
     "res": "PFS HR 0.60 (p=0.0007)",
     "res2": "ORR/CBR改善傾向",
     "st": "pos",
-    "fpi": 2024.0,
+    "fpi": 2024,
     "lpi": 2025.2,
     "readout": 2026.2,
     "nct": "NCT06105632",
@@ -328,7 +328,7 @@
     "ep": "PFS（IRC）",
     "ep2": "OS",
     "st": "run",
-    "fpi": 2025.0,
+    "fpi": 2025,
     "lpi": 2027.5,
     "readout": 2027.5,
     "nct": "NCT06760637",
@@ -352,7 +352,7 @@
     "ep2": "OS, ORR",
     "st": "run",
     "fpi": 2025.583,
-    "lpi": 2026.0,
+    "lpi": 2026,
     "readout": 2027.5,
     "nct": "NCT07062965",
     "note": "KAT6i vs EVE+ET。2027年",
@@ -376,7 +376,7 @@
     "res": "mPFS 15.0 vs 7.3m (HR 0.43)",
     "res2": "ORR 58% vs 25%",
     "st": "pos",
-    "fpi": 2020.0,
+    "fpi": 2020,
     "lpi": 2022.2,
     "readout": 2024,
     "nct": "NCT04191499",
@@ -612,10 +612,10 @@
     "readout": 2027.5,
     "nct": "NCT04975997",
     "note": "T-DXd 1L HR+/HER2-。重要な適応拡大試験",
-    "pcd": "2026-03",
+    "pcd": "2027-11",
     "scd": "2032-06",
     "enrollment": "ACTIVE_NOT_RECRUITING",
-    "enrollmentTarget": 864,
+    "enrollmentTarget": 939,
     "primaryEndpoint": "pCR",
     "regulatory": {
       "fda": {
@@ -1220,12 +1220,16 @@
     "ep2": "OS, ORR, DOR",
     "res": "mPFS 5.5 vs 4.0m (HR 0.66)。mOS 14.4 vs 11.2m (HR 0.79)",
     "st": "pos",
-    "fpi": 2019.417,
+    "fpi": 2019.333,
     "lpi": 2021.5,
     "readout": 2022.5,
     "nct": "NCT03901339",
     "resultUrl": "https://pubmed.ncbi.nlm.nih.gov/37633306/",
-    "resultRef": "Lancet 2023"
+    "resultRef": "Lancet 2023",
+    "enrollment": "COMPLETED",
+    "enrollmentTarget": 543,
+    "pcd": "2023-10",
+    "scd": "2023-10"
   },
   {
     "drug": "Sac-Gov",
@@ -1244,7 +1248,11 @@
     "readout": 2020.5,
     "nct": "NCT02574455",
     "resultUrl": "https://www.nejm.org/doi/full/10.1056/NEJMoa2028485",
-    "resultRef": "NEJM 2021"
+    "resultRef": "NEJM 2021",
+    "enrollment": "COMPLETED",
+    "enrollmentTarget": 529,
+    "pcd": "2020-03",
+    "scd": "2020-12"
   },
   {
     "drug": "Sac-Gov",
@@ -1261,7 +1269,11 @@
     "fpi": 2022.917,
     "lpi": 2025.5,
     "readout": 2027.5,
-    "nct": "NCT05633654"
+    "nct": "NCT05633654",
+    "enrollment": "RECRUITING",
+    "enrollmentTarget": 1514,
+    "pcd": "2027-06",
+    "scd": "2031-08"
   },
   {
     "drug": "Sac-Gov",
@@ -1275,12 +1287,16 @@
     "ep2": "",
     "res": "RP2D=10mg/kg。mTNBC ORR 25%",
     "st": "pos",
-    "fpi": 2021.833,
+    "fpi": 2021.75,
     "lpi": 2023,
     "readout": 2024,
     "nct": "NCT05101096",
     "resultUrl": "https://pubmed.ncbi.nlm.nih.gov/39302614/",
-    "resultRef": "Int J Clin Oncol 2024"
+    "resultRef": "Int J Clin Oncol 2024",
+    "enrollment": "ACTIVE_NOT_RECRUITING",
+    "enrollmentTarget": 135,
+    "pcd": "2026-05",
+    "scd": "2026-05"
   },
   {
     "drug": "iza-bren",
@@ -1300,7 +1316,11 @@
     "nct": "NCT06382142",
     "note": "2026/2/25 topline positive。初のbispecific ADC Phase III。詳細データは学会発表予定",
     "resultUrl": "https://www.targetedonc.com/view/iza-bren-meets-pfs-and-os-end-points-in-phase-3-tnbc-trial",
-    "resultRef": "BMS press 2026/2/25"
+    "resultRef": "BMS press 2026/2/25",
+    "enrollment": "ACTIVE_NOT_RECRUITING",
+    "enrollmentTarget": 418,
+    "pcd": "2026-06",
+    "scd": "2026-06"
   },
   {
     "drug": "iza-bren",

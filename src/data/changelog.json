@@ -1,5 +1,13 @@
 [
   {
+    "ver": "auto",
+    "date": "2026-04-10",
+    "type": "auto",
+    "items": [
+      "試験ステータス自動更新（6件変更: DB-11: enrollmentTarget: 864 → 939、TROPiCS-02: fpi: 2019-06 → 2019-05、ASCENT: enrollment: ? → COMPLETED、ASCENT-05: enrollment: ? → RECRUITING、ASCENT-J02: fpi: 2021-11 → 2021-10、他1件）"
+    ]
+  },
+  {
     "ver": "2.2",
     "date": "2026-03-25",
     "items": [
