@@ -4,7 +4,7 @@ import DRUGS_JSON from "./data/drugs.json";
 import EVENTS from "./data/events.json";
 import JP_OUTLOOK from "./data/jp-outlook.json";
 import LANDSCAPE from "./data/landscape.json";
-import TIMELINE from "./data/timeline.json";
+import TIMELINE_JSON from "./data/timeline.json";
 import CHANGELOG from "./data/changelog.json";
 import ALGO from "./data/treatment-algorithm.json";
 import _constants from "./data/constants.json";
@@ -38,7 +38,7 @@ function DrugLink({generic,label,subtle}){
 function TrialLink({trial,label}){
   const nav=useContext(NavContext);
   if(!nav)return <span>{label||trial}</span>;
-  const t=TIMELINE.find(t=>t.trial===trial);
+  const t=TIMELINE_JSON.find(t=>t.trial===trial);
   const display=label||trial;
   return <span onClick={(e)=>{e.stopPropagation();nav.goToTrial(trial);}} style={{color:"#7c3aed",cursor:"pointer",borderBottom:"1px dashed #c4b5fd",fontWeight:500}} title={t?`${t.trial}: ${t.pop}`:""}>{display}</span>;
 }
@@ -153,7 +153,7 @@ function DrugCard({d,focusDrug,onFocusClear}){
                 <thead><tr style={{background:"#f8fafc"}}>{["研究名","相","対象","試験治療","対照","結果","状態","出典"].map((h,i)=><th key={i} style={{textAlign:"left",padding:"3px 6px",color:"#64748b"}}>{h}</th>)}</tr></thead>
                 <tbody>{d.studies.map((t,i)=>(
                   <tr key={i} style={{borderTop:"1px solid #f1f5f9"}}>
-                    <td style={{padding:"3px 6px",fontWeight:600}}>{TIMELINE.some(tl=>tl.trial===t.n)?<TrialLink trial={t.n}/>:t.n}</td>
+                    <td style={{padding:"3px 6px",fontWeight:600}}>{TIMELINE_JSON.some(tl=>tl.trial===t.n)?<TrialLink trial={t.n}/>:t.n}</td>
                     <td style={{padding:"3px 6px"}}>{t.ph}</td>
                     <td style={{padding:"3px 6px"}}>{t.pop}</td>
                     <td style={{padding:"3px 6px",color:"#1d4ed8"}}>{t.arm||"-"}</td>
@@ -295,7 +295,7 @@ function TreatmentAlgorithm(){
                         <span style={{display:"inline-block",padding:"2px 8px",borderRadius:4,fontSize:11,fontWeight:600,color:pc,background:`${pc}18`,border:`1px solid ${pc}40`}}>{d.phase}</span>
                         {(()=>{const dr=DRUGS_JSON.find(x=>x.name.includes(d.drug)||x.generic===d.drug);return dr?<span onClick={e=>{e.stopPropagation();nav.goToDrug(dr.generic)}} style={{fontSize:13,fontWeight:700,color:"#0f172a",cursor:"pointer"}}>{d.drug}</span>:<span style={{fontSize:13,fontWeight:700,color:"#0f172a"}}>{d.drug}</span>})()}
                       </div>
-                      {(()=>{const tl=TIMELINE.find(x=>x.trial===d.trial.split("/")[0]);return tl?<span onClick={e=>{e.stopPropagation();nav.goToTrial(tl.trial)}} style={{fontSize:11,color:"#94a3b8",fontFamily:"monospace",cursor:"pointer"}}>{d.trial}</span>:<span style={{fontSize:11,color:"#94a3b8",fontFamily:"monospace"}}>{d.trial}</span>})()}
+                      {(()=>{const tl=TIMELINE_JSON.find(x=>x.trial===d.trial.split("/")[0]);return tl?<span onClick={e=>{e.stopPropagation();nav.goToTrial(tl.trial)}} style={{fontSize:11,color:"#94a3b8",fontFamily:"monospace",cursor:"pointer"}}>{d.trial}</span>:<span style={{fontSize:11,color:"#94a3b8",fontFamily:"monospace"}}>{d.trial}</span>})()}
                       {d.resultUrl&&<a href={d.resultUrl} target="_blank" rel="noopener noreferrer" style={{fontSize:10,color:"#059669",textDecoration:"none"}}>📄{d.resultRef||"結果"}</a>}
                       <span style={{fontSize:11,color:"#64748b",lineHeight:1.5}}>{d.note}</span>
                     </div>
@@ -386,7 +386,7 @@ function GanttChart({focusTrial,onFocusClear}){
   const moas=["ALL","SERD","CDK4/6i","ADC","PI3K/AKT","TKI","KAT6i","BsAb/IO"];
 
   const filtered=useMemo(()=>{
-    let list=TIMELINE;
+    let list=TIMELINE_JSON;
     if(subFilter!=="ALL")list=list.filter(t=>t.sub===subFilter);
     if(statusFilter!=="ALL")list=list.filter(t=>t.st===statusFilter);
     if(moaFilter!=="ALL")list=list.filter(t=>(DRUG_MOA[t.drug]||"")=== moaFilter);
@@ -791,6 +791,7 @@ export default function Dashboard(){
   const [focusTrial,setFocusTrial]=useState(null);
   const [dbSource,setDbSource]=useState("json");
   const [DRUGS,setDrugs]=useState(DRUGS_JSON);
+  const [TIMELINE,setTimeline]=useState(TIMELINE_JSON);
 
   // Supabaseからpipeline概要を取得し、JSONデータの承認状況を最新化
   useEffect(()=>{
@@ -816,8 +817,19 @@ export default function Dashboard(){
           };
         });
         if(!cancelled){setDrugs(updated);setDbSource("supabase");}
+        // Also fetch trial summary
+        const {data:trialData,error:trialErr}=await supabase.from("v_trial_summary").select("*");
+        if(!trialErr&&trialData&&trialData.length>0&&!cancelled){
+          // Merge Supabase trial data with JSON timeline
+          const updated2=TIMELINE_JSON.map(tl=>{
+            const match=trialData.find(t=>t.trial_name===tl.trial);
+            if(!match)return tl;
+            return{...tl,_dbStatus:match.status,_dbDrug:match.drug,_dbPfsHr:match.pfs_hr,_dbOsHr:match.os_hr};
+          });
+          if(!cancelled)setTimeline(updated2);
+        }
       }catch(e){
-        console.warn("Supabase pipeline fetch failed, using JSON:",e.message);
+        console.warn("Supabase fetch failed, using JSON:",e.message);
       }
     }
     fetchPipeline();
