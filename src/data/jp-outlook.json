@@ -48,12 +48,12 @@
     "color": "#eab308"
   },
   {
-    "drug": "トロデルビ（Sac-Gov）",
+    "cat": "expansion",
+    "name": "トロデルビ（Sac-Gov）",
     "generic": "sacituzumab govitecan",
-    "indication": "HR+/HER2- MBC（化学療法歴あり）",
-    "category": "expansion",
-    "status": "✅ 2026/3/23 承認済",
-    "detail": "TROPiCS-02試験に基づく適応拡大。TNBC承認（2024/9）に続く2つ目の適応。",
+    "sub": "HR+/HER2- MBC（化学療法歴あり）",
+    "status": "✅ 2026/3/23 承認済 TROPiCS-02試験に基づく適応拡大。TNBC承認（2024/9）に続く2つ目の適応。",
+    "color": "#2563eb",
     "isNew": true
   },
   {
@@ -62,6 +62,33 @@
     "generic": "sacituzumab govitecan",
     "sub": "HR+/HER2- MBC（化学療法歴あり）",
     "status": "✅ 2026/3/23 承認済",
+    "color": "#2563eb",
+    "isNew": true
+  },
+  {
+    "cat": "expansion",
+    "name": "T-DXd（エンハーツ）",
+    "generic": "trastuzumab deruxtecan",
+    "sub": "HER2+ 固形がん（臓器横断）",
+    "status": "🆕 2026/3/23 承認済",
+    "color": "#2563eb",
+    "isNew": true
+  },
+  {
+    "cat": "expansion",
+    "name": "ダトロウェイ（Dato-DXd）",
+    "generic": "datopotamab deruxtecan",
+    "sub": "TNBC 1L MBC（IO不適）",
+    "status": "🆕 2026/2/12 申請中（TB-02）",
+    "color": "#2563eb",
+    "isNew": true
+  },
+  {
+    "cat": "expansion",
+    "name": "ツカイザ（tucatinib）",
+    "generic": "tucatinib",
+    "sub": "HER2+ MBC 1L 維持療法",
+    "status": "🆕 2026/4/8 申請中（HER2CLIMB-05）",
     "color": "#2563eb",
     "isNew": true
   }

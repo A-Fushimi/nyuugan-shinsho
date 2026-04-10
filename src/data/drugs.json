@@ -600,7 +600,7 @@
     },
     "us": {
       "s": "rev",
-      "t": "FDA NDA申請中 FDA承認予定 6/5/2026"
+      "t": "FDA NDA受理 PDUFA 6/5/2026"
     },
     "eu": {
       "s": "dev",
@@ -664,7 +664,7 @@
     },
     "us": {
       "s": "rev",
-      "t": "FDA NDA受理 FDA承認予定 12/18/2026"
+      "t": "FDA NDA受理 PDUFA 12/18/2026"
     },
     "eu": {
       "s": "rev",
@@ -1078,7 +1078,7 @@
     "moa": "PI3KとmTORを同時に阻害（IV製剤）",
     "us": {
       "s": "rev",
-      "t": "FDA NDA申請済"
+      "t": "FDA NDA受理 Priority Review PDUFA 7/17/2026"
     },
     "eu": {
       "s": "dev",
@@ -1291,6 +1291,51 @@
         "jp": {
           "s": "ok",
           "t": "承認済"
+        }
+      },
+      {
+        "label": "HER2+ 固形がん（臓器横断）",
+        "us": {
+          "s": "ok",
+          "t": "承認済 2024/8"
+        },
+        "eu": {
+          "s": "rev",
+          "t": "申請中"
+        },
+        "jp": {
+          "s": "ok",
+          "t": "🆕 承認済 2026/3/23"
+        }
+      },
+      {
+        "label": "HER2+ EBC 術後補助（post-NAC）",
+        "us": {
+          "s": "rev",
+          "t": "sBLA受理 PDUFA 7/7/2026"
+        },
+        "eu": {
+          "s": "rev",
+          "t": "申請中"
+        },
+        "jp": {
+          "s": "rev",
+          "t": "🆕 2026/2/27 申請中（DB-05）"
+        }
+      },
+      {
+        "label": "HER2+ EBC 術前（neoadjuvant）",
+        "us": {
+          "s": "rev",
+          "t": "sBLA受理 PDUFA 5/18/2026"
+        },
+        "eu": {
+          "s": "p3",
+          "t": "Phase III (DB-11)"
+        },
+        "jp": {
+          "s": "p3",
+          "t": "Phase III"
         }
       }
     ],
@@ -1516,7 +1561,7 @@
     },
     "jp": {
       "s": "ok",
-      "t": "承認済 2026/2/19 ツカイザ",
+      "t": "承認済 2026/2/19 ツカイザ。🆕 4/8 維持療法申請",
       "url": "https://www.pmda.go.jp/drugs/2026/P20260219001/index.html"
     },
     "studies": [
@@ -1553,7 +1598,39 @@
         "pr": "ASCO 2024"
       }
     ],
-    "next": "日本薬価収載待ち。HER2CLIMB-02で2L使用も"
+    "next": "日本薬価収載待ち。HER2CLIMB-02で2L使用も",
+    "indications": [
+      {
+        "label": "HER2+ MBC 3L+（脳転移）",
+        "us": {
+          "s": "ok",
+          "t": "承認済 2020/4"
+        },
+        "eu": {
+          "s": "ok",
+          "t": "承認済"
+        },
+        "jp": {
+          "s": "ok",
+          "t": "承認済 2026/2/19"
+        }
+      },
+      {
+        "label": "HER2+ MBC 1L 維持療法",
+        "us": {
+          "s": "p3",
+          "t": "Phase III (HER2CLIMB-05)"
+        },
+        "eu": {
+          "s": "p3",
+          "t": "Phase III"
+        },
+        "jp": {
+          "s": "rev",
+          "t": "🆕 2026/4/8 申請中"
+        }
+      }
+    ]
   },
   {
     "id": 19,
@@ -2158,7 +2235,7 @@
         "label": "TNBC 1L MBC（IO不適）",
         "us": {
           "s": "rev",
-          "t": "Priority Review FDA承認予定 2026 Q2"
+          "t": "Priority Review PDUFA 6/2/2026"
         },
         "eu": {
           "s": "p3",
@@ -2166,7 +2243,7 @@
         },
         "jp": {
           "s": "dev",
-          "t": "開発中"
+          "t": "🆕 2026/2/12 申請中"
         }
       }
     ],

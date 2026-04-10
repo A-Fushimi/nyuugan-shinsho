@@ -26,6 +26,9 @@
     "done": false,
     "items": [
       {
+        "text": "T-DXd neoadjuvant FDA承認判断（PDUFA 5/18、DB-11）"
+      },
+      {
         "text": "Camizestrant FDA諮問委員会（4/30）",
         "generic": "camizestrant"
       },
@@ -34,7 +37,7 @@
         "generic": "vepdegestrant"
       },
       {
-        "text": "Dato-DXd TNBC FDA承認判断（Q2）",
+        "text": "Dato-DXd TNBC FDA承認判断（PDUFA 6/2）",
         "generic": "datopotamab deruxtecan"
       },
       {
@@ -47,12 +50,15 @@
     "done": false,
     "items": [
       {
-        "text": "T-DXd post-NAC FDA承認判断（Q3）",
+        "text": "T-DXd post-NAC FDA承認判断（PDUFA 7/7、DB-05）",
         "generic": "trastuzumab deruxtecan"
       },
       {
         "text": "Camizestrant SERENA-4 結果発表（H2）",
         "generic": "camizestrant"
+      },
+      {
+        "text": "Gedatolisib FDA承認判断（PDUFA 7/17）"
       }
     ]
   },
