@@ -1281,5 +1281,42 @@
     "nct": "NCT05101096",
     "resultUrl": "https://pubmed.ncbi.nlm.nih.gov/39302614/",
     "resultRef": "Int J Clin Oncol 2024"
+  },
+  {
+    "drug": "iza-bren",
+    "trial": "BL-B01D1-307",
+    "ph": "III",
+    "sub": "TNBC",
+    "pop": "mTNBC 2L+（タキサン後）",
+    "arm": "izalontamab brengitecan q3w",
+    "ctrl": "ICC (eribulin/vinorelbine/gemcitabine/capecitabine)",
+    "ep": "PFS + OS（co-primary）",
+    "ep2": "ORR, DOR",
+    "res": "PFS+OS co-primary EP達成（詳細データ未公表）",
+    "st": "pos",
+    "fpi": 2024.417,
+    "lpi": 2025.5,
+    "readout": 2026.167,
+    "nct": "NCT06382142",
+    "note": "2026/2/25 topline positive。初のbispecific ADC Phase III。詳細データは学会発表予定",
+    "resultUrl": "https://www.targetedonc.com/view/iza-bren-meets-pfs-and-os-end-points-in-phase-3-tnbc-trial",
+    "resultRef": "BMS press 2026/2/25"
+  },
+  {
+    "drug": "iza-bren",
+    "trial": "IZABRIGHT-Breast01",
+    "ph": "II/III",
+    "sub": "TNBC",
+    "pop": "mTNBC 1L（IO不適）",
+    "arm": "izalontamab brengitecan",
+    "ctrl": "ICC (PTX/nab-PTX/capecitabine/GCarbo)",
+    "ep": "PFS, OS",
+    "ep2": "ORR, DOR",
+    "st": "run",
+    "fpi": 2025.5,
+    "lpi": 2027.5,
+    "readout": 2028,
+    "nct": "",
+    "note": "Global Phase 2/3。BMS/SystImmune。1L TNBC IO不適"
   }
 ]
