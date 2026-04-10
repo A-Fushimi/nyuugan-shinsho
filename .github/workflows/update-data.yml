@@ -76,7 +76,6 @@ jobs:
             gh issue create \
               --title "🏛 承認ステータス変更検出 $(date +%Y-%m-%d)" \
               --body-file .github/regulatory-check-result.md \
-              --label "auto,regulatory"
           fi
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
