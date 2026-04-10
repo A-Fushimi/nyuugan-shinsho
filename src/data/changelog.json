@@ -1,5 +1,18 @@
 [
   {
+    "ver": "2.3",
+    "date": "2026-04-11",
+    "type": "minor",
+    "items": [
+      "2026年4月アップデート: エンハーツ固形がん日本承認(3/23)、ツカイザ維持療法申請(4/8)、ダトロウェイTNBC申請(2/12)",
+      "FDA PDUFA日程追加: T-DXd neoadj 5/18、Dato-DXd TNBC 6/2、Vepdegestrant 6/5、T-DXd post-NAC 7/7、Gedatolisib 7/17",
+      "Iza-bren（初のbispecific ADC）Phase III positive追加（TNBC 2L+）、タイムライン43試験に拡大",
+      "トロデルビ・エンハーツ・ツカイザを適応別承認状況テーブルに対応",
+      "Supabase DB統合: 全タブのデータをSupabaseからリアルタイム取得（JSONフォールバック付き）",
+      "自動更新システム: 毎週月曜に試験ステータス、水曜にFDA/PMDA承認を自動チェック"
+    ]
+  },
+  {
     "ver": "2.2",
     "date": "2026-03-25",
     "items": [
