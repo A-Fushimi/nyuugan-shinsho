@@ -1,6 +1,6 @@
 import { useState, useMemo, useRef, useEffect, createContext, useContext, useCallback } from "react";
 import SoC from "./data/standard-treatments.json";
-import DRUGS from "./data/drugs.json";
+import DRUGS_JSON from "./data/drugs.json";
 import EVENTS from "./data/events.json";
 import JP_OUTLOOK from "./data/jp-outlook.json";
 import LANDSCAPE from "./data/landscape.json";
@@ -12,6 +12,7 @@ import GLOSSARY from "./data/glossary.json";
 import CostSimulator from "./components/CostSimulator.jsx";
 import HistoryTimeline from "./components/HistoryTimeline.jsx";
 import REGIMENS from "./data/regimens.json";
+import { supabase } from "./lib/supabase";
 
 const { S, SC, SB, MOA_CAT_LABELS, STAGE_STYLE, stColors, subColors } = _constants;
 const NavContext = createContext(null);
@@ -28,7 +29,7 @@ function SubChip({t}){
 function DrugLink({generic,label,subtle}){
   const nav=useContext(NavContext);
   if(!nav)return <span>{label||generic}</span>;
-  const drug=DRUGS.find(d=>d.generic===generic);
+  const drug=DRUGS_JSON.find(d=>d.generic===generic);
   const display=label||(drug?drug.name:generic);
   const st=subtle?{cursor:"pointer"}:{color:"#2563eb",cursor:"pointer",borderBottom:"1px dashed #93c5fd",fontWeight:500};
   return <span onClick={(e)=>{e.stopPropagation();nav.goToDrug(generic);}} style={st} title={drug?`${drug.name} (${drug.generic}) — クリックで詳細`:""}>{display}</span>;
@@ -292,7 +293,7 @@ function TreatmentAlgorithm(){
                     <div key={i} style={{display:"flex",alignItems:"flex-start",gap:10,padding:"8px 10px",background:"#f8fafc",borderRadius:6,flexWrap:"wrap"}}>
                       <div style={{display:"flex",alignItems:"center",gap:6,flexShrink:0}}>
                         <span style={{display:"inline-block",padding:"2px 8px",borderRadius:4,fontSize:11,fontWeight:600,color:pc,background:`${pc}18`,border:`1px solid ${pc}40`}}>{d.phase}</span>
-                        {(()=>{const dr=DRUGS.find(x=>x.name.includes(d.drug)||x.generic===d.drug);return dr?<span onClick={e=>{e.stopPropagation();nav.goToDrug(dr.generic)}} style={{fontSize:13,fontWeight:700,color:"#0f172a",cursor:"pointer"}}>{d.drug}</span>:<span style={{fontSize:13,fontWeight:700,color:"#0f172a"}}>{d.drug}</span>})()}
+                        {(()=>{const dr=DRUGS_JSON.find(x=>x.name.includes(d.drug)||x.generic===d.drug);return dr?<span onClick={e=>{e.stopPropagation();nav.goToDrug(dr.generic)}} style={{fontSize:13,fontWeight:700,color:"#0f172a",cursor:"pointer"}}>{d.drug}</span>:<span style={{fontSize:13,fontWeight:700,color:"#0f172a"}}>{d.drug}</span>})()}
                       </div>
                       {(()=>{const tl=TIMELINE.find(x=>x.trial===d.trial.split("/")[0]);return tl?<span onClick={e=>{e.stopPropagation();nav.goToTrial(tl.trial)}} style={{fontSize:11,color:"#94a3b8",fontFamily:"monospace",cursor:"pointer"}}>{d.trial}</span>:<span style={{fontSize:11,color:"#94a3b8",fontFamily:"monospace"}}>{d.trial}</span>})()}
                       {d.resultUrl&&<a href={d.resultUrl} target="_blank" rel="noopener noreferrer" style={{fontSize:10,color:"#059669",textDecoration:"none"}}>📄{d.resultRef||"結果"}</a>}
@@ -529,7 +530,7 @@ function GanttChart({focusTrial,onFocusClear}){
                 {t.enrollment&&<span style={{fontSize:10,padding:"1px 6px",borderRadius:4,background:t.enrollment==="RECRUITING"?"#dbeafe":"#f1f5f9",color:t.enrollment==="RECRUITING"?"#2563eb":"#64748b",fontWeight:600}}>{enrollLabels[t.enrollment]||t.enrollment}</span>}
               </div>
               <div style={{color:"#334155",lineHeight:1.7}}>
-                <div><strong>薬剤:</strong> <DrugLink generic={DRUGS.find(d=>d.generic===t.drug||d.name.includes(t.drug))?.generic||""} label={t.drug}/></div>
+                <div><strong>薬剤:</strong> <DrugLink generic={DRUGS_JSON.find(d=>d.generic===t.drug||d.name.includes(t.drug))?.generic||""} label={t.drug}/></div>
                 <div><strong>対象:</strong> {t.pop}</div>
                 {t.arm&&<div><strong>治療群:</strong> {t.arm}</div>}
                 {t.ctrl&&<div><strong>対照群:</strong> {t.ctrl}</div>}
@@ -788,6 +789,40 @@ export default function Dashboard(){
   const [search,setSearch]=useState("");
   const [focusDrug,setFocusDrug]=useState(null);
   const [focusTrial,setFocusTrial]=useState(null);
+  const [dbSource,setDbSource]=useState("json");
+  const [DRUGS,setDrugs]=useState(DRUGS_JSON);
+
+  // Supabaseからpipeline概要を取得し、JSONデータの承認状況を最新化
+  useEffect(()=>{
+    let cancelled=false;
+    async function fetchPipeline(){
+      try{
+        const {data,error}=await supabase.from("v_pipeline_overview").select("*");
+        if(error)throw error;
+        if(cancelled||!data||data.length===0)return;
+        // Supabaseのpipelineデータで、JSON側の承認状況を上書き
+        const updated=DRUGS_JSON.map(drug=>{
+          const matches=data.filter(p=>p.generic_name===drug.generic);
+          if(matches.length===0)return drug;
+          const m=matches[0];
+          return{
+            ...drug,
+            // Supabase側の最新承認状況で上書き（あれば）
+            _dbFda:m.fda_status,
+            _dbEma:m.ema_status,
+            _dbPmda:m.pmda_status,
+            _dbPhase:m.phase,
+            _dbLastUpdated:m.last_updated,
+          };
+        });
+        if(!cancelled){setDrugs(updated);setDbSource("supabase");}
+      }catch(e){
+        console.warn("Supabase pipeline fetch failed, using JSON:",e.message);
+      }
+    }
+    fetchPipeline();
+    return()=>{cancelled=true;};
+  },[]);
   const subs=["ALL","HR+/HER2-","HER2+","TNBC","HER2-low"];
   const CLS_GROUPS={
     "ALL":"すべて",
@@ -819,7 +854,7 @@ export default function Dashboard(){
     if(clsFilter!=="ALL")list=list.filter(d=>clsMatch(d.cls,clsFilter));
     if(search.trim())list=list.filter(d=>(d.name+d.generic+d.co+d.cls).toLowerCase().includes(search.toLowerCase()));
     return list;
-  },[filter,clsFilter,search]);
+  },[DRUGS,filter,clsFilter,search]);
 
   const goToDrug=useCallback((generic)=>{
     setFilter("ALL");setSearch("");setFocusDrug(generic);setTab("drugs");
@@ -838,7 +873,7 @@ export default function Dashboard(){
           <span style={{fontSize:11,color:"#94a3b8",fontWeight:500}}>Breast Cancer Drug Pipeline & Treatment Atlas</span>
         </div>
         <p style={{margin:"4px 0 0",fontSize:11,color:"#94a3b8"}}>治療開発パイプライン ・ 臨床試験タイムライン ・ 開発初期ランドスケープ ・ 日本の標準治療</p>
-        <p style={{margin:"3px 0 0",fontSize:10,color:"#64748b"}}>2026年2.2版　｜　最終更新: {UPDATED}　｜　収録薬剤: {DRUGS.length}　｜　収録試験: {TIMELINE.length}　｜　収録レジメン: {REGIMENS.length}　｜　収録用語: {GLOSSARY.terms.length}</p>
+        <p style={{margin:"3px 0 0",fontSize:10,color:"#64748b"}}>2026年2.2版　｜　最終更新: {UPDATED}　｜　収録薬剤: {DRUGS.length}　｜　収録試験: {TIMELINE.length}　｜　収録レジメン: {REGIMENS.length}　｜　収録用語: {GLOSSARY.terms.length}{dbSource==="supabase"&&<span style={{marginLeft:8,color:"#16a34a",fontSize:9}}>● DB接続中</span>}</p>
       </div>
 
       {/* Tabs */}
