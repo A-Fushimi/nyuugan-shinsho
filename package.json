@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "postbuild": "node scripts/prerender.mjs",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "update-trials": "node scripts/update-trials.mjs",
+    "check-regulatory": "node scripts/check-regulatory.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.103.0",

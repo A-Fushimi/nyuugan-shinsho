@@ -1,0 +1,82 @@
+name: Weekly Data Update
+
+on:
+  schedule:
+    # 毎週月曜 UTC 0:00 (JST 9:00) — 試験ステータス更新
+    - cron: '0 0 * * 1'
+    # 毎週水曜 UTC 1:00 (JST 10:00) — 承認ステータスチェック
+    - cron: '0 1 * * 3'
+  workflow_dispatch:
+    inputs:
+      task:
+        description: 'Which task to run'
+        required: true
+        default: 'both'
+        type: choice
+        options:
+          - trials
+          - regulatory
+          - both
+
+jobs:
+  update-trials:
+    if: >-
+      github.event_name == 'workflow_dispatch' && (github.event.inputs.task == 'trials' || github.event.inputs.task == 'both')
+      || github.event.schedule == '0 0 * * 1'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Update trial statuses from ClinicalTrials.gov
+        run: node scripts/update-trials.mjs
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+      - name: Commit changes if any
+        run: |
+          git diff --quiet src/data/ || (
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add src/data/timeline.json src/data/changelog.json src/App.jsx
+            git commit -m "auto: 試験ステータス更新 $(date +%Y-%m-%d)"
+            git push
+          )
+
+  check-regulatory:
+    if: >-
+      github.event_name == 'workflow_dispatch' && (github.event.inputs.task == 'regulatory' || github.event.inputs.task == 'both')
+      || github.event.schedule == '0 1 * * 3'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Check FDA/PMDA regulatory updates
+        run: node scripts/check-regulatory.mjs
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+      - name: Create GitHub Issue if findings
+        if: hashFiles('.github/regulatory-check-result.md') != ''
+        run: |
+          if [ -f .github/regulatory-check-result.md ]; then
+            gh issue create \
+              --title "🏛 承認ステータス変更検出 $(date +%Y-%m-%d)" \
+              --body-file .github/regulatory-check-result.md \
+              --label "auto,regulatory"
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
