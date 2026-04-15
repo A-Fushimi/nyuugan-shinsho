@@ -1163,5 +1163,27 @@
     "lastChecked": "2025-04-01",
     "source": "診療報酬点数表",
     "sourceUrl": []
+  },
+  {
+    "id": "tucatinib",
+    "name": "ツカチニブ＋トラスツズマブ＋カペシタビン",
+    "sub": "ツカイザ＋ハーセプチン＋ゼローダ HER2+ MBC 3L+",
+    "group": "HER2標的",
+    "cycle": "21日サイクル",
+    "drugIds": [
+      "tucatinib",
+      "trastuzumab",
+      "capecitabine"
+    ],
+    "monthlyBrand": 1500000,
+    "monthlyGeneric": 1430000,
+    "genericType": "BS+GE",
+    "genericNote": "トラスツズマブBS＋カペシタビンGE",
+    "approved": true,
+    "lastChecked": "2026-04-21",
+    "source": "厚労省薬価基準（ツカイザ50mg 2,818.40円/錠、100mg 7,317.00円/錠）",
+    "sourceUrl": [
+      "https://www.mhlw.go.jp/topics/2026/04/tp20260401-01.html"
+    ]
   }
 ]
