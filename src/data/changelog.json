@@ -1,10 +1,16 @@
 [
   {
-    "ver": "auto",
-    "date": "2026-05-11",
-    "type": "auto",
+    "ver": "2.4",
+    "date": "2026-05-16",
+    "type": "minor",
     "items": [
-      "試験ステータス自動更新（1件変更: OptiTROP-Breast02: pcd: 2026-03 → 2026-12）"
+      "🆕 Vepdegestrant（Veppanu）FDA承認（2026/5/1）— 初のPROTAC承認、HR+/HER2- ESR1m MBC",
+      "🆕 ツカイザ日本発売（2026/4/21、薬価収載済 50mg 2,818.40円/100mg 7,317.00円）",
+      "🆕 Guardant360 CDx ESR1検査 日本承認（2026/4/21）",
+      "Camizestrant FDA ODAC否決（4/30、6-3）— ESR1m switch戦略の臨床的意義に疑問",
+      "ESMO Breast 2026結果反映: lidERA陽性（iDFS HR 0.70）、CAPItello-291最終OS未達、PHERGain-2（HER2+ chemo-free戦略）",
+      "ツカイザ維持療法 日本適応追加申請（2026/4/8、HER2CLIMB-05ベース）",
+      "治療費概算: ツカチニブ＋トラスツズマブ＋カペシタビン併用レジメン追加"
     ]
   },
   {
