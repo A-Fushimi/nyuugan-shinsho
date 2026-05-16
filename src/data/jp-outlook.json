@@ -78,5 +78,13 @@
     "sub": "HR+/HER2- PIK3CAm MBC 1L",
     "status": "FDA承認済（2024/10）。中外製薬が国内開発中",
     "color": "#eab308"
+  },
+  {
+    "cat": "expansion",
+    "name": "Guardant360 CDx（ESR1検査）",
+    "generic": "companion-diagnostic",
+    "sub": "ESR1変異検出（SERD適応判定用）",
+    "status": "🆕 2026/4/21 CDxとして承認",
+    "color": "#2563eb"
   }
 ]

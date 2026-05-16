@@ -26,6 +26,14 @@
     "done": false,
     "items": [
       {
+        "text": "Camizestrant ODAC 4/30（6-3否決）",
+        "result": "❌"
+      },
+      {
+        "text": "ツカイザ（tucatinib）日本発売 4/21",
+        "result": "✅"
+      },
+      {
         "text": "T-DXd neoadjuvant FDA承認判断（PDUFA 5/18、DB-11）"
       },
       {
@@ -33,8 +41,8 @@
         "generic": "camizestrant"
       },
       {
-        "text": "Vepdegestrant FDA承認判断（6/5）",
-        "generic": "vepdegestrant"
+        "text": "Vepdegestrant FDA承認 5/1（初のPROTAC、Veppanu）",
+        "result": "✅"
       },
       {
         "text": "Dato-DXd TNBC FDA承認判断（PDUFA 6/2）",
@@ -42,6 +50,14 @@
       },
       {
         "text": "ASCO 2026（5/29-6/2）"
+      },
+      {
+        "text": "Guardant360 CDx ESR1検査 日本承認 4/21",
+        "result": "✅"
+      },
+      {
+        "text": "ESMO Breast 2026: lidERA陽性、CAPItello-291 OS未達、PHERGain-2 (HER2+ chemo-free)",
+        "result": "✅"
       }
     ]
   },
