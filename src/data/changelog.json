@@ -1,5 +1,13 @@
 [
   {
+    "ver": "auto",
+    "date": "2026-05-18",
+    "type": "auto",
+    "items": [
+      "試験ステータス自動更新（3件変更: DB-05: pcd: 2025-12 → 2025-07、PHERGain-2: fpi: 2022-07 → 2021-08、CAPItello-291 OS final: fpi: 2020-02 → 2020-04）"
+    ]
+  },
+  {
     "ver": "2.4",
     "date": "2026-05-16",
     "type": "minor",

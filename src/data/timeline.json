@@ -532,8 +532,8 @@
     "note": "ESMO 2025。FDA承認予定 2026 Q3",
     "resultUrl": "https://www.nejm.org/doi/full/10.1056/NEJMoa2514661",
     "resultRef": "NEJM 2026",
-    "pcd": "2025-12",
-    "scd": "2030-12",
+    "pcd": "2025-07",
+    "scd": "2028-06",
     "enrollment": "ACTIVE_NOT_RECRUITING",
     "enrollmentTarget": 1600,
     "primaryEndpoint": "iDFS",
@@ -1351,13 +1351,17 @@
     "ep2": "EFS, HRQoL",
     "res": "pCR 59.6%。化学療法なしでもHER2+ EBC治療可能性示唆",
     "st": "pos",
-    "fpi": 2022.5,
+    "fpi": 2021.583,
     "lpi": 2024,
     "readout": 2026.333,
     "nct": "NCT04733118",
     "note": "ESMO Breast 2026。化学療法フリー戦略",
     "resultUrl": "https://dailyreporter.esmo.org/esmo-breast-cancer-2026/latest-news/chemotherapy-free-adjuvant-treatment-preserves-quality-of-life-in-her2-positive-early-breast-cancer",
-    "resultRef": "ESMO Breast 2026"
+    "resultRef": "ESMO Breast 2026",
+    "enrollment": "ACTIVE_NOT_RECRUITING",
+    "enrollmentTarget": 393,
+    "pcd": "2027-03",
+    "scd": "2028-03"
   },
   {
     "drug": "capivasertib",
@@ -1371,12 +1375,16 @@
     "ep2": "PFS",
     "res": "❌ OS有意差なし（PIK3CA/AKT1/PTEN変異群でも全体集団でも）。PFSはpositive既報",
     "st": "neg",
-    "fpi": 2020.083,
+    "fpi": 2020.25,
     "lpi": 2022.083,
     "readout": 2026.333,
     "nct": "NCT04305496",
     "note": "ESMO Breast 2026最終OS解析。Negative",
     "resultUrl": "https://www.oncology-central.com/esmo-breast-cancer-congress-2026-editor-highlights/",
-    "resultRef": "ESMO Breast 2026"
+    "resultRef": "ESMO Breast 2026",
+    "enrollment": "ACTIVE_NOT_RECRUITING",
+    "enrollmentTarget": 818,
+    "pcd": "2023-05",
+    "scd": "2026-06"
   }
 ]
