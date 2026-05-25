@@ -335,8 +335,8 @@
     "note": "1L registrational。2027年",
     "pcd": "2029-01",
     "scd": "2037-12",
-    "enrollment": "RECRUITING",
-    "enrollmentTarget": 1020,
+    "enrollment": "ACTIVE_NOT_RECRUITING",
+    "enrollmentTarget": 1035,
     "primaryEndpoint": "PFS",
     "regulatory": null
   },
