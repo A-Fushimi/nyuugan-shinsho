@@ -1,6 +1,14 @@
 [
   {
     "ver": "auto",
+    "date": "2026-07-13",
+    "type": "auto",
+    "items": [
+      "試験ステータス自動更新（1件変更: ASCENT-J02: pcd: 2026-05 → 2027-05）"
+    ]
+  },
+  {
+    "ver": "auto",
     "date": "2026-05-25",
     "type": "auto",
     "items": [
