@@ -526,15 +526,15 @@
     },
     "us": {
       "s": "rev",
-      "t": "ODAC否決 4/30（6-3）。FDA最終判断待ち"
+      "t": "ODAC否決 4/30（6-3）→FDA審査延長（追加データ審査中）。最終判断待ち"
     },
     "eu": {
       "s": "rev",
-      "t": "EMA申請中"
+      "t": "🆕 CHMP肯定的見解 2026/5/22（SERENA-6）"
     },
     "jp": {
-      "s": "dev",
-      "t": "SERENA-4に日本参加。FDA承認後申請見込み"
+      "s": "rev",
+      "t": "SERENA-6で日本審査中"
     },
     "studies": [
       {
@@ -565,9 +565,9 @@
         "pop": "HR+/HER2- ESR1m出現時 1L MBC",
         "arm": "camizestrant + CDK4/6i（AI→スイッチ）",
         "ctrl": "AI + CDK4/6i 継続",
-        "res": "mPFS 16.0 vs 9.2m (HR 0.44)",
+        "res": "mPFS 16.0 vs 9.2m (HR 0.44)。最終PFS2 25.7 vs 19.1m (HR 0.63、ASCO2026)",
         "st": "pos",
-        "pr": "ASCO 2025 LBA"
+        "pr": "ASCO 2025・2026 / NEJM"
       },
       {
         "n": "SERENA-4",
@@ -575,12 +575,12 @@
         "pop": "HR+/HER2- 1L MBC",
         "arm": "camizestrant + palbociclib",
         "ctrl": "AI + palbociclib",
-        "res": "進行中",
+        "res": "進行中（主要完了 2026年8月見込み）",
         "st": "run",
         "pr": "2026 H2"
       }
     ],
-    "next": "FDA諮問委員会 4/30→FDA承認判断"
+    "next": "ODAC否決後FDAが審査延長。EMA CHMP肯定的(5/22)。SERENA-4は2026 H2読み出し"
   },
   {
     "id": 7,
@@ -1075,14 +1075,14 @@
     "sub": [
       "HR+/HER2-"
     ],
-    "moa": "PI3KとmTORを同時に阻害（IV製剤）",
+    "moa": "class I PI3K全アイソフォーム(α/β/δ/γ)とmTORC1/2を同時に阻害する初のpan-PI3K/mTOR阻害薬（IV製剤）",
     "us": {
-      "s": "rev",
-      "t": "FDA NDA受理 Priority Review PDUFA 7/17/2026"
+      "s": "ok",
+      "t": "🆕 承認済 2026/7/14 REVTORPYK（PIK3CA野生型）"
     },
     "eu": {
       "s": "dev",
-      "t": "開発中"
+      "t": "承認後、他地域へ申請予定"
     },
     "jp": {
       "s": "dev",
@@ -1114,15 +1114,15 @@
       {
         "n": "VIKTORIA-1",
         "ph": "III",
-        "pop": "HR+/HER2- 1L MBC",
-        "arm": "gedatolisib + palbociclib + fulvestrant",
-        "ctrl": "palbociclib + fulvestrant",
-        "res": "PFS有意改善",
+        "pop": "HR+/HER2- PIK3CA野生型 CDK4/6i既治療",
+        "arm": "gedatolisib + fulvestrant ± palbociclib",
+        "ctrl": "fulvestrant",
+        "res": "三剤 mPFS 9.3 vs 2.0m (HR 0.24)／二剤 7.4 vs 2.0m (HR 0.33)",
         "st": "pos",
-        "pr": "SABCS 2024"
+        "pr": "ESMO 2025 / JCO 2026"
       }
     ],
-    "next": "FDA承認判断 2026年"
+    "next": "🆕 FDA承認(2026/7/14, PIK3CA野生型)。PIK3CA変異コホート(VIKTORIA-1 Study 2)でsNDA申請予定(2026 Q3)"
   },
   {
     "id": 15,
@@ -1259,23 +1259,8 @@
           "t": "EMA申請中"
         },
         "jp": {
-          "s": "dev",
-          "t": "第一三共開発中"
-        }
-      },
-      {
-        "label": "HER2+ EBC post-NAC",
-        "us": {
           "s": "rev",
-          "t": "Priority Review FDA承認予定 2026 Q3"
-        },
-        "eu": {
-          "s": "dev",
-          "t": "申請予定"
-        },
-        "jp": {
-          "s": "dev",
-          "t": "申請準備中"
+          "t": "申請中（DB-09）"
         }
       },
       {
@@ -1311,8 +1296,8 @@
       {
         "label": "HER2+ EBC 術後補助（post-NAC）",
         "us": {
-          "s": "rev",
-          "t": "sBLA受理 PDUFA 7/7/2026"
+          "s": "ok",
+          "t": "🆕 承認済 2026/5/15（DB-05）"
         },
         "eu": {
           "s": "rev",
@@ -1326,16 +1311,16 @@
       {
         "label": "HER2+ EBC 術前（neoadjuvant）",
         "us": {
-          "s": "rev",
-          "t": "sBLA受理 PDUFA 5/18/2026"
+          "s": "ok",
+          "t": "🆕 承認済 2026/5/15（DB-11）"
         },
         "eu": {
-          "s": "p3",
-          "t": "Phase III (DB-11)"
+          "s": "dev",
+          "t": "未承認（米・中で承認）"
         },
         "jp": {
-          "s": "p3",
-          "t": "Phase III"
+          "s": "dev",
+          "t": "未承認（術前は国内申請未公表）"
         }
       }
     ],
@@ -1401,9 +1386,20 @@
         "pop": "HER2+ EBC post-NAC residual",
         "arm": "T-DXd",
         "ctrl": "T-DM1",
-        "res": "iDFS有意改善",
+        "res": "3年iDFS 92.4% vs 83.7% (HR 0.47)",
         "st": "pos",
-        "pr": "ESMO 2025 LBA"
+        "pr": "ESMO 2025 / NEJM 2026"
+      },
+      {
+        "n": "DB-11",
+        "ph": "III",
+        "pop": "HER2+ 高リスク早期乳がん 術前",
+        "arm": "T-DXd→THP",
+        "ctrl": "ddAC→THP",
+        "res": "pCR 67.3% vs 56.3% (p=0.003)",
+        "st": "pos",
+        "pr": "Ann Oncol 2026",
+        "url": "https://doi.org/10.1016/j.annonc.2025.10.019"
       },
       {
         "n": "DB-04",
@@ -1438,7 +1434,7 @@
         "pr": "readout 2027"
       }
     ],
-    "next": "post-NAC FDA FDA承認予定 2026 Q3。DB-12脳転移試験進行中"
+    "next": "🆕 早期乳がん 術前(DB-11)・術後(DB-05) をFDA承認(2026/5/15)。DB-12脳転移試験は2027年readout"
   },
   {
     "id": 17,
@@ -2234,16 +2230,16 @@
       {
         "label": "TNBC 1L MBC（IO不適）",
         "us": {
-          "s": "rev",
-          "t": "Priority Review PDUFA 6/2/2026"
+          "s": "ok",
+          "t": "🆕 承認済 2026/5/22（TB-02）"
         },
         "eu": {
-          "s": "p3",
-          "t": "Ph III"
+          "s": "rev",
+          "t": "🆕 CHMP肯定的見解 2026/6/26"
         },
         "jp": {
-          "s": "dev",
-          "t": "🆕 2026/2/12 申請中"
+          "s": "rev",
+          "t": "🆕 2026/2/12 申請中（TB-02）"
         }
       }
     ],
@@ -2299,9 +2295,9 @@
         "pop": "TNBC 1L MBC IO不適",
         "arm": "Dato-DXd",
         "ctrl": "医師選択化学療法",
-        "res": "mOS HR 0.79, mPFS HR 0.57",
+        "res": "mOS 23.7 vs 18.7m (HR 0.79), mPFS 10.8 vs 5.6m (HR 0.57)",
         "st": "pos",
-        "pr": "ESMO 2025"
+        "pr": "ESMO 2025 / Ann Oncol 2026"
       },
       {
         "n": "TB-04",
@@ -2314,7 +2310,7 @@
         "pr": "readout 2027"
       }
     ],
-    "next": "TNBC FDA FDA承認予定 2026 Q2。TB-04（ADC+IO）進行中"
+    "next": "🆕 TNBC 1L(IO不適) をFDA承認(2026/5/22)。TB-04（ADC+IO）は2027年readout"
   },
   {
     "id": 28,

@@ -23,40 +23,43 @@
   },
   {
     "q": "2026 Q2",
-    "done": false,
+    "done": true,
     "items": [
       {
-        "text": "Camizestrant ODAC 4/30（6-3否決）",
-        "result": "❌"
+        "text": "🆕 エンハーツ 早期乳がん 術前(DB-11)・術後(DB-05) FDA 2適応同時承認（5/15）",
+        "generic": "trastuzumab deruxtecan",
+        "result": "✅ pCR 67.3% vs 56.3%（術前）／3年iDFS 92.4% vs 83.7%・HR 0.47（術後）。治癒目的セッティングへ初進出",
+        "isNew": true
       },
       {
-        "text": "ツカイザ（tucatinib）日本発売 4/21",
+        "text": "🆕 ダトロウェイ TNBC 1L（IO不適）FDA承認（5/22）",
+        "generic": "datopotamab deruxtecan",
+        "result": "✅ TROPION-Breast02。初のTROP2 ADCによるOS延長（23.7 vs 18.7m・HR 0.79）。NCCN Category 1",
+        "isNew": true
+      },
+      {
+        "text": "Vepdegestrant FDA承認（5/1、初のPROTAC、Veppanu）",
         "result": "✅"
       },
       {
-        "text": "T-DXd neoadjuvant FDA承認判断（PDUFA 5/18、DB-11）"
-      },
-      {
-        "text": "Camizestrant FDA諮問委員会（4/30）",
-        "generic": "camizestrant"
-      },
-      {
-        "text": "Vepdegestrant FDA承認 5/1（初のPROTAC、Veppanu）",
+        "text": "ツカイザ（tucatinib）日本発売（4/21）",
         "result": "✅"
       },
       {
-        "text": "Dato-DXd TNBC FDA承認判断（PDUFA 6/2）",
-        "generic": "datopotamab deruxtecan"
-      },
-      {
-        "text": "ASCO 2026（5/29-6/2）"
-      },
-      {
-        "text": "Guardant360 CDx ESR1検査 日本承認 4/21",
+        "text": "Guardant360 CDx ESR1検査 日本承認（4/21）",
         "result": "✅"
       },
       {
-        "text": "ESMO Breast 2026: lidERA陽性、CAPItello-291 OS未達、PHERGain-2 (HER2+ chemo-free)",
+        "text": "Camizestrant ODAC（4/30、6-3否決）→FDA審査延長",
+        "generic": "camizestrant",
+        "result": "❌→⏳ ODAC否決後、FDAが追加データ審査のため審査期間を延長。EMA CHMPは肯定的見解（5/22）"
+      },
+      {
+        "text": "ASCO 2026（5/29-6/2）",
+        "result": "✅ SERENA-6最終PFS2陽性、ASCENT-03/04（SG 1L）、iza-bren（PANKU-Breast02）、VIKTORIA-1 Study 2（PIK3CA変異）等"
+      },
+      {
+        "text": "ESMO Breast 2026: lidERA陽性、CAPItello-291 OS未達、PHERGain-2（HER2+ chemo-free）",
         "result": "✅"
       }
     ]
@@ -66,15 +69,22 @@
     "done": false,
     "items": [
       {
-        "text": "T-DXd post-NAC FDA承認判断（PDUFA 7/7、DB-05）",
-        "generic": "trastuzumab deruxtecan"
+        "text": "🆕 ゲダトリシブ（REVTORPYK）FDA承認（7/14、PIK3CA野生型）",
+        "generic": "gedatolisib",
+        "result": "✅ VIKTORIA-1。初のpan-PI3K/mTOR阻害薬（三剤 mPFS 9.3 vs 2.0m・HR 0.24）",
+        "isNew": true
       },
       {
-        "text": "Camizestrant SERENA-4 結果発表（H2）",
+        "text": "ゲダトリシブ PIK3CA変異コホート sNDA申請予定（Q3、Celcuity）",
+        "generic": "gedatolisib"
+      },
+      {
+        "text": "Camizestrant SERENA-4 結果発表（H2、主要完了8月見込み）",
         "generic": "camizestrant"
       },
       {
-        "text": "Gedatolisib FDA承認判断（PDUFA 7/17）"
+        "text": "Camizestrant（SERENA-6）FDA最終判断（審査延長後）",
+        "generic": "camizestrant"
       }
     ]
   },
