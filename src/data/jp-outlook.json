@@ -86,5 +86,13 @@
     "sub": "ESR1変異検出（SERD適応判定用）",
     "status": "🆕 2026/4/21 CDxとして承認",
     "color": "#2563eb"
+  },
+  {
+    "cat": "development",
+    "name": "カミゼストラント（camizestrant）",
+    "generic": "camizestrant",
+    "sub": "HR+/HER2- ESR1変異出現 1L MBC",
+    "status": "SERENA-6で日本審査中（米国はODAC否決後に審査延長・EU CHMP肯定的）",
+    "color": "#eab308"
   }
 ]
