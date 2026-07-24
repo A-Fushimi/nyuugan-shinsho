@@ -38,6 +38,12 @@
         "isNew": true
       },
       {
+        "text": "🆕 トロデルビ TNBC 1L FDA承認（6/24）",
+        "generic": "sacituzumab govitecan",
+        "result": "✅ ASCENT-03/04。単剤（IO不適）＋キイトルーダ併用（PD-L1 CPS≥10）。PD-L1問わず1L TNBCで初のADC、NCCN Category 1",
+        "isNew": true
+      },
+      {
         "text": "Vepdegestrant FDA承認（5/1、初のPROTAC、Veppanu）",
         "result": "✅"
       },
@@ -50,9 +56,9 @@
         "result": "✅"
       },
       {
-        "text": "Camizestrant ODAC（4/30、6-3否決）→FDA審査延長",
+        "text": "Camizestrant ODAC（4/30、6-3否決）→FDA審査延長／🇯🇵日本承認",
         "generic": "camizestrant",
-        "result": "❌→⏳ ODAC否決後、FDAが追加データ審査のため審査期間を延長。EMA CHMPは肯定的見解（5/22）"
+        "result": "米国はODAC否決後にFDA審査3ヶ月延長で最終判断待ち。一方🇯🇵日本承認（エトカマ錠、2026/6）・EMA CHMP肯定的（5/22）"
       },
       {
         "text": "ASCO 2026（5/29-6/2）",
@@ -83,8 +89,9 @@
         "generic": "camizestrant"
       },
       {
-        "text": "Camizestrant（SERENA-6）FDA最終判断（審査延長後）",
-        "generic": "camizestrant"
+        "text": "Camizestrant EU承認（Etcamah、7/23）／FDA最終判断待ち",
+        "generic": "camizestrant",
+        "result": "🇪🇺 欧州委員会が承認（Etcamah）。🇺🇸 FDAは審査3ヶ月延長中で最終判断待ち"
       }
     ]
   },

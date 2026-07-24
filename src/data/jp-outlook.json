@@ -96,11 +96,11 @@
     "color": "#2563eb"
   },
   {
-    "cat": "development",
-    "name": "カミゼストラント（camizestrant）",
+    "cat": "new",
+    "name": "エトカマ（camizestrant）",
     "generic": "camizestrant",
     "sub": "HR+/HER2- ESR1変異出現 1L MBC",
-    "status": "SERENA-6で日本審査中（米国はODAC否決後に審査延長・EU CHMP肯定的）",
-    "color": "#eab308"
+    "status": "🆕 2026年6月 承認（エトカマ錠75mg、SERENA-6）",
+    "color": "#16a34a"
   }
 ]
