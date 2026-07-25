@@ -12,11 +12,10 @@ import GLOSSARY_JSON from "./data/glossary.json";
 import CostSimulator from "./components/CostSimulator.jsx";
 import HistoryTimeline from "./components/HistoryTimeline.jsx";
 import REGIMENS_JSON from "./data/regimens.json";
-import { supabase } from "./lib/supabase";
 
 const { S, SC, SB, MOA_CAT_LABELS, STAGE_STYLE, stColors, subColors } = _constants;
 const NavContext = createContext(null);
-const UPDATED = "2026年7月24日";
+const UPDATED = "2026年7月25日";
 
 function Chip({text,color,bg}){return <span style={{fontSize:11,fontWeight:600,color,background:bg,padding:"2px 8px",borderRadius:999,whiteSpace:"nowrap",display:"inline-block"}}>{text}</span>}
 function StatusChip({s}){return <Chip text={S[s]||s} color={s==="ok"?"#15803d":s==="rev"?"#1d4ed8":s==="no"?"#94a3b8":"#374151"} bg={SB[s]||"#f1f5f9"}/>}
@@ -789,7 +788,6 @@ export default function Dashboard(){
   const [search,setSearch]=useState("");
   const [focusDrug,setFocusDrug]=useState(null);
   const [focusTrial,setFocusTrial]=useState(null);
-  const [dbSource,setDbSource]=useState("json");
   const [DRUGS,setDrugs]=useState(DRUGS_JSON);
   const [TIMELINE,setTimeline]=useState(TIMELINE_JSON);
   const [EVENTS,setEvents]=useState(EVENTS_JSON);
@@ -798,79 +796,10 @@ export default function Dashboard(){
   const [GLOSSARY,setGlossary]=useState(GLOSSARY_JSON);
   const [REGIMENS,setRegimens]=useState(REGIMENS_JSON);
 
-  // Supabaseからpipeline概要を取得し、JSONデータの承認状況を最新化
-  useEffect(()=>{
-    let cancelled=false;
-    async function fetchPipeline(){
-      try{
-        const {data,error}=await supabase.from("v_pipeline_overview").select("*");
-        if(error)throw error;
-        if(cancelled||!data||data.length===0)return;
-        // Supabaseのpipelineデータで、JSON側の承認状況を上書き
-        const updated=DRUGS_JSON.map(drug=>{
-          const matches=data.filter(p=>p.generic_name===drug.generic);
-          if(matches.length===0)return drug;
-          const m=matches[0];
-          return{
-            ...drug,
-            // Supabase側の最新承認状況で上書き（あれば）
-            _dbFda:m.fda_status,
-            _dbEma:m.ema_status,
-            _dbPmda:m.pmda_status,
-            _dbPhase:m.phase,
-            _dbLastUpdated:m.last_updated,
-          };
-        });
-        if(!cancelled){setDrugs(updated);setDbSource("supabase");}
-        // Also fetch trial summary
-        const {data:trialData,error:trialErr}=await supabase.from("v_trial_summary").select("*");
-        if(!trialErr&&trialData&&trialData.length>0&&!cancelled){
-          // Merge Supabase trial data with JSON timeline
-          const updated2=TIMELINE_JSON.map(tl=>{
-            const match=trialData.find(t=>t.trial_name===tl.trial);
-            if(!match)return tl;
-            return{...tl,_dbStatus:match.status,_dbDrug:match.drug,_dbPfsHr:match.pfs_hr,_dbOsHr:match.os_hr};
-          });
-          if(!cancelled)setTimeline(updated2);
-        }
-        // Fetch events
-        const {data:evData}=await supabase.from("events").select("*").order("sort_order");
-        if(evData&&evData.length>0&&!cancelled){
-          // Group by quarter
-          const grouped={};
-          evData.forEach(e=>{
-            if(!grouped[e.quarter])grouped[e.quarter]={q:e.quarter,done:e.done,items:[]};
-            grouped[e.quarter].items.push({text:e.item_text,result:e.item_result||undefined});
-          });
-          setEvents(Object.values(grouped));
-        }
-        // Fetch jp_outlook
-        const {data:jpData}=await supabase.from("jp_outlook").select("*").order("sort_order");
-        if(jpData&&jpData.length>0&&!cancelled){
-          setJpOutlook(jpData.map(j=>({name:j.drug_name,generic:j.generic_name,sub:j.sub,status:j.status,color:j.color,jpCategory:j.jp_category})));
-        }
-        // Fetch landscape
-        const {data:lsData}=await supabase.from("landscape").select("*");
-        if(lsData&&lsData.length>0&&!cancelled){
-          setLandscape(lsData.map(l=>({id:l.drug_name,name:l.drug_name,co:l.company,moa_cat:l.moa_category,tgt:l.target,sub:l.subtypes||[],stage:l.stage,nct:l.nct,nct_url:l.nct_url,status:l.status,fih_date:l.fih_date,n_enrolled:l.n_enrolled,early_result:l.early_result,source_url:l.source_url,source_label:l.source_label,note:l.note,updated:l.updated})));
-        }
-        // Fetch glossary
-        const {data:glData}=await supabase.from("glossary").select("*");
-        if(glData&&glData.length>0&&!cancelled){
-          setGlossary({categories:GLOSSARY_JSON.categories,terms:glData.map(g=>({id:g.term_id,term:g.term,termJa:g.term_ja,reading:g.reading,category:g.category,definition:g.definition,image:g.image,relatedTerms:g.related_terms||[]}))});
-        }
-        // Fetch regimens
-        const {data:rgData}=await supabase.from("regimens").select("*");
-        if(rgData&&rgData.length>0&&!cancelled){
-          setRegimens(rgData.map(r=>({id:r.regimen_id,name:r.name,sub:r.sub,group:r.regimen_group,cycle:r.cycle,drugIds:r.drug_ids||[],monthlyBrand:r.monthly_brand,monthlyGeneric:r.monthly_generic,genericType:r.generic_type,genericNote:r.generic_note,approved:r.approved,lastChecked:r.last_checked,source:r.source,sourceUrl:r.source_urls||[]})));
-        }
-      }catch(e){
-        console.warn("Supabase fetch failed, using JSON:",e.message);
-      }
-    }
-    fetchPipeline();
-    return()=>{cancelled=true;};
-  },[]);
+  // データの正（source of truth）は src/data/*.json。
+  // 以前はSupabaseの events/jp_outlook/landscape/glossary/regimens 等でJSONを上書きしていたが、
+  // JSON更新が本番に反映されない原因になっていたため、Supabaseオーバーレイは廃止した。
+  // 更新は JSON を編集 → main にマージ → GitHub Pages デプロイ、で反映される。
   const subs=["ALL","HR+/HER2-","HER2+","TNBC","HER2-low"];
   const CLS_GROUPS={
     "ALL":"すべて",
@@ -921,7 +850,7 @@ export default function Dashboard(){
           <span style={{fontSize:11,color:"#94a3b8",fontWeight:500}}>Breast Cancer Drug Pipeline & Treatment Atlas</span>
         </div>
         <p style={{margin:"4px 0 0",fontSize:11,color:"#94a3b8"}}>治療開発パイプライン ・ 臨床試験タイムライン ・ 開発初期ランドスケープ ・ 日本の標準治療</p>
-        <p style={{margin:"3px 0 0",fontSize:10,color:"#64748b"}}>2026年2.6版　｜　最終更新: {UPDATED}　｜　収録薬剤: {DRUGS.length}　｜　収録試験: {TIMELINE.length}　｜　収録レジメン: {REGIMENS.length}　｜　収録用語: {GLOSSARY.terms.length}{dbSource==="supabase"&&<span style={{marginLeft:8,color:"#16a34a",fontSize:9}}>● DB接続中</span>}</p>
+        <p style={{margin:"3px 0 0",fontSize:10,color:"#64748b"}}>2026年2.6版　｜　最終更新: {UPDATED}　｜　収録薬剤: {DRUGS.length}　｜　収録試験: {TIMELINE.length}　｜　収録レジメン: {REGIMENS.length}　｜　収録用語: {GLOSSARY.terms.length}</p>
       </div>
 
       {/* Tabs */}
