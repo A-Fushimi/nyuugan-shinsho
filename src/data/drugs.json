@@ -526,15 +526,15 @@
     },
     "us": {
       "s": "rev",
-      "t": "ODAC否決 4/30（6-3）→FDA審査延長（追加データ審査中）。最終判断待ち"
+      "t": "ODAC否決 4/30（6-3）→FDA審査3ヶ月延長。最終判断待ち"
     },
     "eu": {
-      "s": "rev",
-      "t": "🆕 CHMP肯定的見解 2026/5/22（SERENA-6）"
+      "s": "ok",
+      "t": "🆕 EC承認 2026/7（Etcamah）"
     },
     "jp": {
-      "s": "rev",
-      "t": "SERENA-6で日本審査中"
+      "s": "ok",
+      "t": "🆕 承認済 2026/6（エトカマ錠）"
     },
     "studies": [
       {
@@ -580,7 +580,7 @@
         "pr": "2026 H2"
       }
     ],
-    "next": "ODAC否決後FDAが審査延長。EMA CHMP肯定的(5/22)。SERENA-4は2026 H2読み出し"
+    "next": "🇯🇵日本(エトカマ)・🇪🇺EU(Etcamah)承認。🇺🇸FDAは審査延長中で最終判断待ち。SERENA-4は2026 H2読み出し"
   },
   {
     "id": 7,
@@ -1285,8 +1285,8 @@
           "t": "承認済 2024/8"
         },
         "eu": {
-          "s": "rev",
-          "t": "申請中"
+          "s": "ok",
+          "t": "🆕 承認済 2026/6/29"
         },
         "jp": {
           "s": "ok",
@@ -2157,10 +2157,25 @@
         "url": "https://pubmed.ncbi.nlm.nih.gov/39302614/"
       }
     ],
-    "next": "ASCENT-04→FDA申請見込み。1L TNBC新SoC候補",
+    "next": "🆕 TNBC 1L(±IO)をFDA承認(2026/6/24, ASCENT-03/04)。ASCENT-05(術後)進行中",
     "isNew": true,
-    "newLabel": "3/23 HR+適応拡大承認",
+    "newLabel": "6/24 TNBC 1L FDA承認",
     "indications": [
+      {
+        "label": "TNBC 1L MBC（±IO）",
+        "us": {
+          "s": "ok",
+          "t": "🆕 承認済 2026/6/24（ASCENT-03/04）"
+        },
+        "eu": {
+          "s": "rev",
+          "t": "申請中"
+        },
+        "jp": {
+          "s": "dev",
+          "t": "国内開発中"
+        }
+      },
       {
         "label": "TNBC MBC 2L+",
         "us": {
