@@ -1,5 +1,18 @@
 [
   {
+    "ver": "2.8",
+    "date": "2026-08-23",
+    "type": "minor",
+    "items": [
+      "🆕 周術期（術後補助療法）の経口SERD 第III相を4試験まとめて収録 — これまで lidERA（giredestrant）・EMBER-4（imlunestrant）のみだった領域を拡充",
+      "🆕 CAMBRIA-1（camizestrant）— 標準内分泌療法を2〜5年完了した中〜高リスク例で、camizestrant 5年へスイッチする延長療法。主要評価項目 IBCFS、約4,300例、2027年読み出し予定",
+      "🆕 CAMBRIA-2（camizestrant）— 術後初回補助療法として camizestrant 7年をAI/タモキシフェンと直接比較（両群でabemaciclib併用可）。約5,500例、2030年読み出し予定",
+      "🆕 ELEGANT（elacestrant）— リンパ節転移陽性・高リスク早期乳がんで elacestrant 5年 vs 標準内分泌療法。約4,220例、2029年読み出し予定",
+      "🆕 TREAT ctDNA（elacestrant、EORTC主導）— 術後内分泌療法中にctDNAが陽性化した段階（画像上の再発前）で elacestrant にスイッチする戦略を検証",
+      "臨床試験タイムラインを計50試験に拡大。カミゼストラント・エラセストラントの薬剤カードにも周術期試験を反映"
+    ]
+  },
+  {
     "ver": "2.7",
     "date": "2026-08-23",
     "type": "minor",
