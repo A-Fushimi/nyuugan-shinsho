@@ -1386,5 +1386,28 @@
     "enrollmentTarget": 818,
     "pcd": "2023-05",
     "scd": "2026-06"
+  },
+  {
+    "drug": "pembrolizumab",
+    "trial": "KEYNOTE-756",
+    "ph": "III",
+    "sub": "HR+/HER2-",
+    "pop": "高リスク早期乳がん 周術期（Grade 3・ER+/HER2-、T1c-2 cN1-2 or T3-4 cN0-2）",
+    "arm": "術前 pembrolizumab + PTX→AC/EC → 術後 pembrolizumab + 内分泌療法",
+    "ctrl": "術前 placebo + PTX→AC/EC → 術後 placebo + 内分泌療法",
+    "ep": "pCR（ypT0/Tis ypN0）＋ EFS（dual primary）",
+    "ep2": "OS, 安全性",
+    "res": "pCR 24.3% vs 15.6%（差 8.5pt、P=0.00005）",
+    "res2": "EFS 未成熟（追跡継続中）",
+    "st": "pos",
+    "fpi": 2018.917,
+    "lpi": 2022.583,
+    "readout": 2023.75,
+    "nct": "NCT03725059",
+    "note": "ESMO 2023 LBA21で初報、Nat Med 2025で全結果公表。HR+/HER2-早期乳がんで初のIO陽性Phase III（pCR）。もう一方の主要評価項目EFSは未成熟で追跡継続中",
+    "resultUrl": "https://doi.org/10.1038/s41591-024-03415-7",
+    "resultRef": "Nat Med 2025",
+    "enrollment": "ACTIVE_NOT_RECRUITING",
+    "enrollmentTarget": 1278
   }
 ]

@@ -1874,7 +1874,8 @@
     "cls": "免疫CPI（PD-1）",
     "tgt": "PD-1",
     "sub": [
-      "TNBC"
+      "TNBC",
+      "HR+/HER2-"
     ],
     "moa": "PD-1阻害による抗腫瘍免疫活性化",
     "pat": "🇺🇸 2028/12（物質特許）。IRA薬価交渉 2028/1→バイオシミラー参入2029年頃",
@@ -1966,9 +1967,20 @@
         "st": "pos",
         "pr": "NEJM 2022",
         "url": "https://www.nejm.org/doi/full/10.1056/NEJMoa2200674"
+      },
+      {
+        "n": "KEYNOTE-756",
+        "ph": "III",
+        "pop": "HR+/HER2- 高リスク早期乳がん（Grade 3）周術期",
+        "arm": "術前 pembrolizumab + 化学療法 → 術後 pembrolizumab + 内分泌療法",
+        "ctrl": "術前 placebo + 化学療法 → 術後 placebo + 内分泌療法",
+        "res": "pCR 24.3% vs 15.6%（差 8.5pt、P=0.00005）。EFSは未成熟で追跡継続中",
+        "st": "pos",
+        "pr": "Nat Med 2025",
+        "url": "https://doi.org/10.1038/s41591-024-03415-7"
       }
     ],
-    "next": "皮下注Qlex承認済→切替"
+    "next": "KEYNOTE-756のEFS（もう一方の主要評価項目）読み出し待ち。HR+/HER2-での承認可否はEFS次第。皮下注Qlex承認済→切替"
   },
   {
     "id": 25,
