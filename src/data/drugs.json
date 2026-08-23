@@ -504,9 +504,29 @@
         "st": "pos",
         "pr": "JCO 2022",
         "url": "https://pubmed.ncbi.nlm.nih.gov/35584336/"
+      },
+      {
+        "n": "ELEGANT",
+        "ph": "III",
+        "pop": "HR+/HER2- EBC 術後（リンパ節転移陽性・高リスク）",
+        "arm": "elacestrant 5年",
+        "ctrl": "標準内分泌療法（AI/タモキシフェン）",
+        "res": "進行中（主要評価項目 IBCFS、2029年読み出し予定）",
+        "st": "run",
+        "pr": "NCT06492616"
+      },
+      {
+        "n": "TREAT ctDNA",
+        "ph": "III",
+        "pop": "HR+/HER2- EBC 術後ET中に ctDNA 陽性化（遠隔転移なし）",
+        "arm": "elacestrant へスイッチ",
+        "ctrl": "標準内分泌療法 継続",
+        "res": "進行中（EORTC主導、画像上の再発前スイッチ戦略）",
+        "st": "run",
+        "pr": "NCT05512364"
       }
     ],
-    "next": "日本開発未定"
+    "next": "日本開発未定。周術期はELEGANT（2029年）・TREAT ctDNA（EORTC）が進行中"
   },
   {
     "id": 6,
@@ -578,9 +598,29 @@
         "res": "進行中（主要完了 2026年8月見込み）",
         "st": "run",
         "pr": "2026 H2"
+      },
+      {
+        "n": "CAMBRIA-1",
+        "ph": "III",
+        "pop": "HR+/HER2- EBC 術後（標準ET 2〜5年完了、中〜高リスク）",
+        "arm": "camizestrant 5年（延長療法）",
+        "ctrl": "標準内分泌療法 継続",
+        "res": "進行中（主要評価項目 IBCFS、2027年読み出し予定）",
+        "st": "run",
+        "pr": "NCT05774951"
+      },
+      {
+        "n": "CAMBRIA-2",
+        "ph": "III",
+        "pop": "HR+/HER2- EBC 術後 初回補助療法（中高〜高リスク）",
+        "arm": "camizestrant 7年 ± abemaciclib",
+        "ctrl": "標準内分泌療法 ± abemaciclib",
+        "res": "進行中（主要評価項目 IBCFS、2030年読み出し予定）",
+        "st": "run",
+        "pr": "NCT05952557"
       }
     ],
-    "next": "🇯🇵日本(エトカマ)・🇪🇺EU(Etcamah)承認。🇺🇸FDAは審査延長中で最終判断待ち。SERENA-4は2026 H2読み出し"
+    "next": "🇯🇵日本(エトカマ)・🇪🇺EU(Etcamah)承認。🇺🇸FDAは審査延長中で最終判断待ち。SERENA-4は2026 H2読み出し。周術期はCAMBRIA-1（2027年）・CAMBRIA-2（2030年）が進行中"
   },
   {
     "id": 7,
