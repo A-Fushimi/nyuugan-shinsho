@@ -1,5 +1,13 @@
 [
   {
+    "ver": "auto",
+    "date": "2026-08-24",
+    "type": "auto",
+    "items": [
+      "試験ステータス自動更新（3件変更: CAPItello-292: enrollment: RECRUITING → ACTIVE_NOT_RECRUITING、KEYNOTE-756: enrollmentTarget: 1278 → 1240、CAMBRIA-2: enrollment: RECRUITING → ACTIVE_NOT_RECRUITING）"
+    ]
+  },
+  {
     "ver": "2.8",
     "date": "2026-08-23",
     "type": "minor",

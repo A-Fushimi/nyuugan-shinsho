@@ -465,8 +465,8 @@
     "note": "1L AKTi試験。2027年",
     "pcd": "2027-11",
     "scd": "2029-08",
-    "enrollment": "RECRUITING",
-    "enrollmentTarget": 895,
+    "enrollment": "ACTIVE_NOT_RECRUITING",
+    "enrollmentTarget": 893,
     "primaryEndpoint": "PFS",
     "regulatory": null
   },
@@ -1408,7 +1408,9 @@
     "resultUrl": "https://doi.org/10.1038/s41591-024-03415-7",
     "resultRef": "Nat Med 2025",
     "enrollment": "ACTIVE_NOT_RECRUITING",
-    "enrollmentTarget": 1278
+    "enrollmentTarget": 1240,
+    "pcd": "2031-01",
+    "scd": "2031-01"
   },
   {
     "drug": "camizestrant",
@@ -1445,12 +1447,12 @@
     "res": "進行中",
     "st": "run",
     "fpi": 2023.75,
-    "lpi": 2027.0,
+    "lpi": 2027,
     "readout": 2030.167,
     "nct": "NCT05952557",
     "note": "経口SERDを術後初回補助療法でAI/タモキシフェンと直接比較。両群でabemaciclib併用可。登録継続中（最終登録時期は推定）",
-    "enrollment": "RECRUITING",
-    "enrollmentTarget": 5500,
+    "enrollment": "ACTIVE_NOT_RECRUITING",
+    "enrollmentTarget": 5511,
     "pcd": "2030-03",
     "scd": "2037-05"
   },
