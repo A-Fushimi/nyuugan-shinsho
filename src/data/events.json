@@ -58,7 +58,7 @@
       {
         "text": "Camizestrant ODAC（4/30、6-3否決）→FDA審査延長／🇯🇵日本承認",
         "generic": "camizestrant",
-        "result": "米国はODAC否決後にFDA審査3ヶ月延長で最終判断待ち。一方🇯🇵日本承認（エトカマ錠、2026/6）・EMA CHMP肯定的（5/22）"
+        "result": "米国はODAC否決後にFDA審査3ヶ月延長で最終判断待ち。一方🇯🇵日本承認（エトカマ錠、2026/6/19）・EMA CHMP肯定的（5/22）"
       },
       {
         "text": "ASCO 2026（5/29-6/2）",
@@ -81,17 +81,29 @@
         "isNew": true
       },
       {
-        "text": "ゲダトリシブ PIK3CA変異コホート sNDA申請予定（Q3、Celcuity）",
-        "generic": "gedatolisib"
+        "text": "ゲダトリシブ PIK3CA変異 sNDA提出（8/26）",
+        "generic": "gedatolisib",
+        "result": "✅ VIKTORIA-1 Study 2（三剤 mPFS 11.1 vs 5.6m・HR 0.50 vs アルペリシブ）。承認されれば変異の有無を問わず使用可能に"
       },
       {
-        "text": "Camizestrant SERENA-4 結果発表（H2、主要完了8月見込み）",
-        "generic": "camizestrant"
-      },
-      {
-        "text": "Camizestrant EU承認（Etcamah、7/23）／FDA最終判断待ち",
+        "text": "Camizestrant SERENA-4（1L）結果発表（9/11）",
         "generic": "camizestrant",
-        "result": "🇪🇺 欧州委員会が承認（Etcamah）。🇺🇸 FDAは審査3ヶ月延長中で最終判断待ち"
+        "result": "❌ 主要評価項目のPFS未達（数値的改善のみ）。1L全例への前倒し投与は支持されず、ESR1変異が検出された時点でスイッチする戦略（SERENA-6）に絞られた"
+      },
+      {
+        "text": "🆕 Camizestrant FDA迅速承認（9/4）／EU承認（7月）",
+        "generic": "camizestrant",
+        "result": "✅ ODAC否決を覆しFDAが迅速承認。ctDNAでESR1変異を検出した時点でスイッチする初の承認。Guardant360 CDxを同時承認",
+        "isNew": true
+      },
+      {
+        "text": "🆕🇯🇵 エンハーツ＋ペルツズマブ HER2+ 1次治療・ダトロウェイ TNBC 日本承認（9/16）",
+        "generic": "trastuzumab deruxtecan",
+        "result": "✅ DESTINY-Breast09（mPFS 40.7 vs 26.9m）とTROPION-Breast02に基づく2件同時承認。国内の1次治療にADCが本格参入",
+        "isNew": true
+      },
+      {
+        "text": "🇯🇵 医薬品第二部会（8/24）: キイトルーダ皮下注（キイジェクト）承認了承、イブランス HR+/HER2+ 維持療法 適応拡大了承"
       }
     ]
   },

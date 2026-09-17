@@ -545,8 +545,8 @@
       "note": "視覚系AEが特徴的。ESR1変異出現時の分子進行に基づくスイッチ戦略"
     },
     "us": {
-      "s": "rev",
-      "t": "ODAC否決 4/30（6-3）→FDA審査3ヶ月延長。最終判断待ち"
+      "s": "ok",
+      "t": "🆕 迅速承認 2026/9/4（Etcamah、ESR1変異検出時・CDK4/6i併用）"
     },
     "eu": {
       "s": "ok",
@@ -554,7 +554,7 @@
     },
     "jp": {
       "s": "ok",
-      "t": "🆕 承認済 2026/6（エトカマ錠）"
+      "t": "承認済 2026/6/19（エトカマ錠75mg）"
     },
     "studies": [
       {
@@ -585,7 +585,7 @@
         "pop": "HR+/HER2- ESR1m出現時 1L MBC",
         "arm": "camizestrant + CDK4/6i（AI→スイッチ）",
         "ctrl": "AI + CDK4/6i 継続",
-        "res": "mPFS 16.0 vs 9.2m (HR 0.44)。最終PFS2 25.7 vs 19.1m (HR 0.63、ASCO2026)",
+        "res": "mPFS 16.0 vs 9.2m (HR 0.44)。最終PFS2 25.7 vs 19.1m (HR 0.63、ASCO2026)。本試験に基づきFDA迅速承認(2026/9/4)",
         "st": "pos",
         "pr": "ASCO 2025・2026 / NEJM"
       },
@@ -595,9 +595,9 @@
         "pop": "HR+/HER2- 1L MBC",
         "arm": "camizestrant + palbociclib",
         "ctrl": "AI + palbociclib",
-        "res": "進行中（主要完了 2026年8月見込み）",
-        "st": "run",
-        "pr": "2026 H2"
+        "res": "❌ 主要EP未達（PFS有意差なし、数値的改善のみ。2026/9/11トップライン）",
+        "st": "neg",
+        "pr": "AstraZeneca 2026/9/11"
       },
       {
         "n": "CAMBRIA-1",
@@ -620,7 +620,7 @@
         "pr": "NCT05952557"
       }
     ],
-    "next": "🇯🇵日本(エトカマ)・🇪🇺EU(Etcamah)承認。🇺🇸FDAは審査延長中で最終判断待ち。SERENA-4は2026 H2読み出し。周術期はCAMBRIA-1（2027年）・CAMBRIA-2（2030年）が進行中"
+    "next": "🇺🇸FDA迅速承認(2026/9/4、ODAC否決を覆す)。🇯🇵日本(エトカマ)・🇪🇺EU承認済。SERENA-4(1L)は主要EP未達。周術期CAMBRIA-1(2027年)・CAMBRIA-2(2030年)が進行中"
   },
   {
     "id": 7,
@@ -1160,9 +1160,19 @@
         "res": "三剤 mPFS 9.3 vs 2.0m (HR 0.24)／二剤 7.4 vs 2.0m (HR 0.33)",
         "st": "pos",
         "pr": "ESMO 2025 / JCO 2026"
+      },
+      {
+        "n": "VIKTORIA-1 Study 2",
+        "ph": "III",
+        "pop": "HR+/HER2- PIK3CA変異 CDK4/6i既治療",
+        "arm": "gedatolisib + fulvestrant ± palbociclib",
+        "ctrl": "alpelisib + fulvestrant",
+        "res": "三剤 mPFS 11.1 vs 5.6m (HR 0.50)／二剤 11.3 vs 5.6m (HR 0.51)。高血糖はalpelisibより低頻度",
+        "st": "pos",
+        "pr": "ASCO 2026 LBA1008"
       }
     ],
-    "next": "🆕 FDA承認(2026/7/14, PIK3CA野生型)。PIK3CA変異コホート(VIKTORIA-1 Study 2)でsNDA申請予定(2026 Q3)"
+    "next": "🆕 PIK3CA変異へのsNDAをFDAへ提出(2026/8/26)。承認されればPIK3CA変異の有無を問わず使用可能に"
   },
   {
     "id": 15,
@@ -1299,8 +1309,8 @@
           "t": "EMA申請中"
         },
         "jp": {
-          "s": "rev",
-          "t": "申請中（DB-09）"
+          "s": "ok",
+          "t": "🆕 承認済 2026/9/16（DB-09）"
         }
       },
       {
@@ -2305,8 +2315,8 @@
           "t": "🆕 CHMP肯定的見解 2026/6/26"
         },
         "jp": {
-          "s": "rev",
-          "t": "🆕 2026/2/12 申請中（TB-02）"
+          "s": "ok",
+          "t": "🆕 承認済 2026/9/16（TB-02）"
         }
       }
     ],
@@ -2377,7 +2387,7 @@
         "pr": "readout 2027"
       }
     ],
-    "next": "🆕 TNBC 1L(IO不適) をFDA承認(2026/5/22)。TB-04（ADC+IO）は2027年readout"
+    "next": "🆕 TNBC 1L を日本でも承認(2026/9/16)。米国2026/5/22承認。TB-04（ADC+IO）は2027年readout"
   },
   {
     "id": 28,
