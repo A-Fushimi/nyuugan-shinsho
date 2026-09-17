@@ -16,7 +16,7 @@
     "lpi": 2023.817,
     "readout": 2025.5,
     "nct": "NCT04964934",
-    "note": "ASCO 2025 LBA。FDA諮問委員会 4/30/2026",
+    "note": "ASCO 2025 LBA。ODAC否決(2026/4/30)後、FDA迅速承認(2026/9/4)",
     "resultUrl": "https://www.nejm.org/doi/full/10.1056/NEJMoa2502929",
     "resultRef": "NEJM 2025",
     "pcd": "2025-06",
@@ -29,11 +29,11 @@
         "submission": "2025-11",
         "pdufa": null,
         "adcom": "2026-04-30",
-        "approval": null
+        "approval": "2026-09-04"
       },
       "pmda": {
         "submission": null,
-        "approval": null
+        "approval": "2026-06-19"
       },
       "ema": {
         "submission": "2025-11",
@@ -51,18 +51,22 @@
     "ctrl": "AI + palbociclib",
     "ep": "PFS（IRC）",
     "ep2": "OS, ORR",
-    "st": "run",
+    "st": "neg",
     "fpi": 2021,
     "lpi": 2024.35,
-    "readout": 2026.8,
+    "readout": 2026.75,
     "nct": "NCT04711252",
-    "note": "2026 H2 readout予定",
+    "note": "2026/9/11 AstraZenecaトップライン発表。1L全例への前倒し投与は支持されず",
     "pcd": "2026-08",
     "scd": "2029-02",
     "enrollment": "ACTIVE_NOT_RECRUITING",
     "enrollmentTarget": 1370,
     "primaryEndpoint": "PFS",
-    "regulatory": null
+    "regulatory": null,
+    "res": "❌ 主要EP未達（PFS有意差なし、数値的改善のみ）",
+    "res2": "HR・中央値は未公表",
+    "resultUrl": "https://www.astrazeneca.com/media-centre/press-releases/2026/update-on-serena-4-phase-iii-trial.html",
+    "resultRef": "AstraZeneca 2026/9/11"
   },
   {
     "drug": "giredestrant",
@@ -504,7 +508,7 @@
       },
       "pmda": {
         "submission": null,
-        "approval": null
+        "approval": "2026-09-16"
       },
       "ema": {
         "submission": null,
@@ -733,7 +737,7 @@
       },
       "pmda": {
         "submission": null,
-        "approval": null
+        "approval": "2026-09-16"
       },
       "ema": {
         "submission": null,
