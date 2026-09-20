@@ -9,10 +9,13 @@
     "postbuild": "node scripts/prerender.mjs",
     "preview": "vite preview",
     "update-trials": "node scripts/update-trials.mjs",
-    "check-regulatory": "node scripts/check-regulatory.mjs"
+    "check-regulatory": "node scripts/check-regulatory.mjs",
+    "triage": "node scripts/triage.mjs",
+    "test": "node --test \"scripts/__tests__/*.test.mjs\""
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.103.0",
+    "@typesafe-ai/sdk": "^0.6.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
