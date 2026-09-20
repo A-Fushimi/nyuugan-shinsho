@@ -23,6 +23,11 @@ on:
         required: false
         default: false
         type: boolean
+      collect_only:
+        description: 'Triage: collect only (print sources, no Jev, no commit, no Issue)'
+        required: false
+        default: false
+        type: boolean
 
 jobs:
   update-trials:
@@ -104,7 +109,9 @@ jobs:
       - run: npm ci
       - name: Triage incoming information with Jev
         run: |
-          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+          if [ "${{ github.event.inputs.collect_only }}" = "true" ]; then
+            node scripts/triage.mjs --collect-only
+          elif [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
             node scripts/triage.mjs --dry-run
           else
             node scripts/triage.mjs
@@ -112,7 +119,7 @@ jobs:
         env:
           TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
       - name: Commit triage logs if any
-        if: ${{ github.event.inputs.dry_run != 'true' }}
+        if: ${{ github.event.inputs.dry_run != 'true' && github.event.inputs.collect_only != 'true' }}
         run: |
           git diff --quiet data/triage/ && git diff --cached --quiet data/triage/ && [ -z "$(git ls-files --others --exclude-standard data/triage/)" ] || (
             git config user.name "github-actions[bot]"

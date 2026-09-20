@@ -10,6 +10,7 @@
  *   node scripts/triage.mjs --dry-run             # 書き込みなし、レポートを標準出力へ
  *   node scripts/triage.mjs --offline --dry-run   # ネットワーク/Jev を使わず fixtures で全経路を通す
  *   node scripts/triage.mjs --source=oncolo,kegg  # ソース限定
+ *   node scripts/triage.mjs --collect-only     # 収集結果だけを表示（Jev は呼ばない）
  *   node scripts/triage.mjs --limit=50            # 判定件数の上限（既定 200）
  *   node scripts/triage.mjs --ctgov-limit=30      # CT.gov だけの上限（既定 80、--limit より先に適用）
  *
@@ -43,6 +44,7 @@ function parseArgs(argv) {
   const opts = {
     dryRun: argv.includes('--dry-run'),
     offline: argv.includes('--offline'),
+    collectOnly: argv.includes('--collect-only'),
     sources: SOURCE_NAMES,
     limit: DEFAULT_LIMIT,
     ctgovLimit: DEFAULT_CTGOV_LIMIT,
@@ -220,6 +222,21 @@ async function main() {
 
   // ── 既知チェック（重複除外）──
   const seen = loadSeen();
+  if (opts.collectOnly) {
+    // 収集結果の確認用（Jev は呼ばない）。ソース別に先頭 12 件のタイトル・日付・本文冒頭を出す
+    for (const name of opts.sources) {
+      const its = items.filter((i) => i.source === name);
+      console.log(`\n── ${name}: ${its.length}件（先頭12件） ──`);
+      for (const it of its.slice(0, 12)) {
+        console.log(`  [${it.date || '----'}] ${String(it.title).slice(0, 120)}`);
+        const body = String(it.body || '').replace(/\s+/g, ' ').slice(0, 160);
+        if (body && body !== it.title) console.log(`      ${body}`);
+      }
+    }
+    console.log('\n✅ 完了（COLLECT ONLY）\n');
+    return;
+  }
+
   const fresh = items.filter((i) => !seen[i.id]);
   const skipped = items.length - fresh.length;
   if (skipped > 0) console.log(`⏭  判定済みのため除外: ${skipped}件`);
