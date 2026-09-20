@@ -11,11 +11,15 @@
  *   node scripts/triage.mjs --offline --dry-run   # ネットワーク/Jev を使わず fixtures で全経路を通す
  *   node scripts/triage.mjs --source=oncolo,kegg  # ソース限定
  *   node scripts/triage.mjs --limit=50            # 判定件数の上限（既定 200）
+ *   node scripts/triage.mjs --ctgov-limit=30      # CT.gov だけの上限（既定 80、--limit より先に適用）
+ *
+ * 判定するソースの順序は oncolo → kegg → openfda → ctgov。
+ * CT.gov は件数が桁違いに多いので、先に --ctgov-limit で絞ってから全体の --limit を掛ける。
  */
 
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs';
 import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
+import { fileURLToPath, pathToFileURL } from 'url';
 
 import { createJevClient, judgeItem, COST_PER_MILLION_INPUT_TOKENS } from './lib/jev.mjs';
 import { decide } from './lib/triage-policy.mjs';
@@ -27,7 +31,11 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const resolve = (...p) => join(__dirname, '..', ...p);
 
 const DEFAULT_LIMIT = 200;
+const DEFAULT_CTGOV_LIMIT = 80;
 const CONCURRENCY = 4;
+
+/** 判定する順序。CT.gov は最後（数が多く、埋もれさせないため） */
+export const SOURCE_PRIORITY = ['oncolo', 'kegg', 'openfda', 'ctgov'];
 
 // ── CLI 引数 ──
 
@@ -37,6 +45,7 @@ function parseArgs(argv) {
     offline: argv.includes('--offline'),
     sources: SOURCE_NAMES,
     limit: DEFAULT_LIMIT,
+    ctgovLimit: DEFAULT_CTGOV_LIMIT,
   };
   const src = argv.find((a) => a.startsWith('--source='));
   if (src) {
@@ -51,7 +60,61 @@ function parseArgs(argv) {
     const n = Number.parseInt(lim.slice('--limit='.length), 10);
     if (Number.isFinite(n) && n > 0) opts.limit = n;
   }
+  const clim = argv.find((a) => a.startsWith('--ctgov-limit='));
+  if (clim) {
+    const n = Number.parseInt(clim.slice('--ctgov-limit='.length), 10);
+    if (Number.isFinite(n) && n >= 0) opts.ctgovLimit = n;
+  }
   return opts;
+}
+
+// ── ソース優先度と上限（純粋関数） ──
+
+/**
+ * ソース別の上限を掛けたうえで SOURCE_PRIORITY の順に並べ、最後に全体の上限で切る。
+ *
+ * @param {Array<{source:string}>} items
+ * @param {{limit?:number, caps?:Record<string,number>, order?:string[]}} opts
+ * @returns {{targets:Array, carry:Array, carryBySource:Record<string,number>}}
+ */
+export function orderAndCap(items = [], { limit = Infinity, caps = {}, order = SOURCE_PRIORITY } = {}) {
+  const bySource = new Map();
+  for (const it of items) {
+    const key = it?.source || 'unknown';
+    if (!bySource.has(key)) bySource.set(key, []);
+    bySource.get(key).push(it);
+  }
+  // 既知の順序 → それ以外は出現順
+  const names = [
+    ...order.filter((n) => bySource.has(n)),
+    ...[...bySource.keys()].filter((n) => !order.includes(n)),
+  ];
+
+  const carry = [];
+  const carryBySource = {};
+  const bump = (name, n) => {
+    if (n > 0) carryBySource[name] = (carryBySource[name] || 0) + n;
+  };
+
+  const ordered = [];
+  for (const name of names) {
+    const group = bySource.get(name);
+    const cap = Number.isFinite(caps[name]) ? Math.max(0, caps[name]) : Infinity;
+    const kept = group.slice(0, cap);
+    const dropped = group.slice(cap);
+    ordered.push(...kept);
+    carry.push(...dropped);
+    bump(name, dropped.length);
+  }
+
+  const max = Number.isFinite(limit) ? Math.max(0, limit) : ordered.length;
+  const targets = ordered.slice(0, max);
+  for (const it of ordered.slice(max)) {
+    carry.push(it);
+    bump(it?.source || 'unknown', 1);
+  }
+
+  return { targets, carry, carryBySource };
 }
 
 // ── seen.json ──
@@ -119,7 +182,9 @@ async function main() {
   console.log(
     `   モード: ${opts.offline ? '🧪 OFFLINE（fixtures）' : '🌐 オンライン'} / ${opts.dryRun ? '🔍 DRY RUN' : '✏️  本番実行'}`
   );
-  console.log(`   ソース: ${opts.sources.join(', ')} / 上限: ${opts.limit}件`);
+  console.log(
+    `   ソース: ${opts.sources.join(', ')} / 上限: ${opts.limit}件 (ctgov ${opts.ctgovLimit}件)`
+  );
   console.log(`   日時: ${new Date().toISOString()}\n`);
 
   // ── Jev クライアント（API キーが無ければ収集する前に終了）──
@@ -159,9 +224,17 @@ async function main() {
   const skipped = items.length - fresh.length;
   if (skipped > 0) console.log(`⏭  判定済みのため除外: ${skipped}件`);
 
-  const targets = fresh.slice(0, opts.limit);
-  if (targets.length < fresh.length) {
-    console.log(`⚠ 上限 ${opts.limit}件を超えたため ${fresh.length - targets.length}件は次回に持ち越します`);
+  const { targets, carry, carryBySource } = orderAndCap(fresh, {
+    limit: opts.limit,
+    caps: { ctgov: opts.ctgovLimit },
+  });
+  if (carry.length > 0) {
+    const detail = Object.entries(carryBySource)
+      .map(([name, n]) => `${name} ${n}件`)
+      .join(' / ');
+    console.log(
+      `⚠ 上限（全体 ${opts.limit}件 / ctgov ${opts.ctgovLimit}件）を超えたため ${carry.length}件は次回に持ち越します: ${detail}`
+    );
   }
   if (targets.length === 0) {
     console.log('\n✅ 新規の判定対象はありません\n');
@@ -231,7 +304,12 @@ async function main() {
   console.log('\n✅ 完了\n');
 }
 
-main().catch((e) => {
-  console.error(e);
-  process.exit(1);
-});
+const isMain =
+  process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
+
+if (isMain) {
+  main().catch((e) => {
+    console.error(e);
+    process.exit(1);
+  });
+}

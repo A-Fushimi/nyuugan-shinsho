@@ -198,3 +198,59 @@ ctgov 固有:
 - Supabase は使わない（JSON が唯一の正、という既存方針に従う）
 - API キーはコードに書かない。ログに state 全文を出さない（SDK logLevel は既定 warn）
 - Jev の答えは「型が保証される」だけで真実は保証しない。accept でも人が確認してから events.json / changelog.json に反映する
+
+---
+
+## 14. Phase B 初回実行の所見と調整（2026-09-20）
+
+GitHub Actions で初めて実データを流した（200 件判定、model `jev-1.13.0`、概算 $0.018）。
+そこで見えた 4 つの問題と、それに対する変更をここに残す。
+
+### 所見
+
+1. **oncolo.jp が HTTP 403**（0 件）。Actions ランナーからの既定 Node fetch の User-Agent が
+   ボットとして弾かれたものと見られる。
+2. **KEGG のパーサが壊れていた**。取れたのは 2 件だけで、タイトルは `2025/12/22` と
+   `Last updated: August 26, 2026`。行ベースの「年が入っていれば拾う」条件が
+   実際のページ構造と合っていない。
+3. **CT.gov が流入を占拠**。ctgov 485 件に対し openFDA 29 件 / KEGG 2 件で、
+   200 件の上限がほぼ ctgov で埋まり 316 件が持ち越しになった。さらに ctgov の 107 件が
+   ルール9（`novel_agent ≥ 0.65`）で priority ≈ 1.0 の accept になり、
+   Issue の「🔴 採用候補」が早期相の試験 107 件で埋まって実ニュースが埋もれた。
+4. **openFDA が全件 review**。本文には `submission: SUPPL #24 (Efficacy)` のように
+   submission class が入っているのに使っていなかった。Labeling / Manufacturing (CMC) などの
+   臨床的に意味のない一部変更が多く、また同一ブランド・同一日の複数 SUPPL
+   （例: enhertu の #41 と #43、どちらも 2026-05-15）が別項目として並んでいた。
+
+### 変更
+
+- **A. HTTP ヘッダ**: 外向きの取得を `fetchWithHeaders()`（`triage-sources.mjs`）に一本化し、
+  ブラウザ風の `User-Agent` / `Accept` / `Accept-Language` を付ける。`fetchImpl` は差し替え可能のまま。
+- **B. KEGG の頑健化と診断**: 「日付を含み、かつ日付以外に 8 文字以上（文字を含む）の中身がある行」
+  だけを採用し、`Last updated` などはデニーリストで落とす。加えて BRITE の `/entry/Dxxxxx`
+  アンカーからも項目を作る。抽出が 3 件未満のときだけ、総行数と
+  `乳` / `/entry/D` / `承認` を含む行を最大 15 行（各 160 字）標準出力に出す
+  （読み取りのみ。kegg.jp に接続できない環境で構造を確かめるため、次回の CI ログに残す）。
+- **C. ソース優先度とソース別上限**: 判定順を oncolo → KEGG → openFDA → CT.gov に固定し、
+  `--ctgov-limit=N`（既定 80）を `--limit` より先に適用する。持ち越しはソース別の件数で表示。
+  並べ替えと上限は `scripts/triage.mjs` の純粋関数 `orderAndCap()` に切り出してテストしている。
+- **D. openFDA の事前フィルタとマージ**: `submission_class_code` /
+  `submission_class_code_description` を見て、`EFFICACY` / `Efficacy…` / `New Indication` /
+  `Original` / `TYPE 1`〜`TYPE 10` と区分不明のものだけを残し、`LABELING` /
+  `MANUFACTURING (CMC)` / `REMS` / `BIOEQUIV` などは落とす。
+  同一ブランド・同一日のレコードは 1 件にまとめ、body に全 submission 番号と `class:` 行を、
+  `meta.submissionClass` に区分の説明を入れる。
+- **E. レポートの組み替え**（`triage-report.mjs`）:
+  「🔴 採用候補」は CT.gov 以外の accept のみ（優先度降順）。
+  CT.gov の accept は新セクション「🧪 ランドスケープ候補（CT.gov 新規作用機序の試験, N件）」に
+  `tags.moa` ごとの件数付きで集め、N > 15 なら `<details>` に畳む
+  （各行: タイトル / phase / sponsor / NCT リンク / `novel_agent`）。
+  「🟡 要確認」はソース別にまとめ、1 ソースが 15 件を超えたらそのソースだけ `<details>`。
+  セクション順は 採用候補 → 要確認 → ランドスケープ候補 → 破棄。
+  レポートは accept + review ≥ 1 **または** CT.gov の accept ≥ 1 で生成する。
+- **F. ワークフロー**: `workflow_dispatch` に `dry_run`（boolean、既定 false）を追加。
+  true のとき `node scripts/triage.mjs --dry-run` で走らせ、コミットと Issue 起票の
+  両ステップを `if: ${{ github.event.inputs.dry_run != 'true' }}` でスキップする。
+
+しきい値（`THRESHOLDS`）自体は今回変えていない。ルール9の accept を捨てるのではなく
+置き場所を変えた（ランドスケープ候補）ので、`data/triage/<date>.json` からの再計算も従来どおり効く。

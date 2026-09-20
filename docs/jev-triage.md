@@ -56,9 +56,52 @@ node scripts/triage.mjs --source=oncolo,kegg
 # 判定件数の上限（コスト暴走防止。既定 200 件）
 node scripts/triage.mjs --limit=50
 
+# CT.gov だけの上限（既定 80 件）。--limit より先に適用される
+node scripts/triage.mjs --ctgov-limit=30
+
 # テスト
 npm test
 ```
+
+### ソースの優先順位と上限
+
+判定は **oncolo → KEGG → openFDA → CT.gov** の順に行う。
+CT.gov は登録数が桁違いに多く（初回実行では 485 件 / 全 516 件）、
+放っておくと `--limit` を CT.gov だけで使い切ってしまうため、
+
+1. まず `--ctgov-limit`（既定 80）で CT.gov を絞る
+2. 次にソース優先順で並べ、`--limit`（既定 200）で全体を切る
+
+という二段構えにしてある。あふれた分は持ち越しとしてソース別の件数がログに出る
+（`⚠ 上限（全体 200件 / ctgov 80件）を超えたため … ctgov 405件`）。
+並べ替えと上限の適用は `scripts/triage.mjs` の `orderAndCap()`（純粋関数、テスト済み）。
+
+### 取得時の HTTP ヘッダ
+
+oncolo / KEGG / openFDA への取得はすべて `fetchWithHeaders()`（`triage-sources.mjs`）を通し、
+ブラウザに近い `User-Agent` / `Accept` / `Accept-Language` を付ける。
+既定の Node fetch の UA では oncolo.jp が GitHub Actions ランナーから **HTTP 403** を返した。
+
+### openFDA の事前フィルタ
+
+openFDA の submission は大半が Labeling / Manufacturing (CMC) / REMS などの一部変更で、
+臨床的な意味がない。`isMeaningfulSubmissionClass()` が
+`submission_class_code` / `submission_class_code_description` を見て、
+
+- 残す: `EFFICACY`、`Efficacy…`、`New Indication`、`Original`、`TYPE 1`〜`TYPE 10`、区分が空のもの
+- 落とす: `LABELING`、`MANUFACTURING (CMC)`、`REMS`、`BIOEQUIV`、`MEDGUIDE` など
+
+さらに **同一ブランド・同一日** の複数 SUPPL は 1 件にまとめ、
+body に全 submission 番号（`SUPPL #41 (Efficacy) / SUPPL #43 (Efficacy-New Indication)`）と
+`class:` 行を、`meta.submissionClass` に区分の説明を入れる。
+
+### KEGG パーサ
+
+- 日付を含み、かつ **日付以外に 8 文字以上（英字・かな・漢字を含む）** の中身がある行だけを拾う
+  （`2025/12/22` のような日付だけの行と `Last updated: …` は落とす）
+- BRITE の `/entry/Dxxxxx` へのリンクからも項目を作る（アンカー文字列＋その行）
+- 抽出が 3 件未満のときだけ、総行数と `乳` / `/entry/D` / `承認` を含む行を最大 15 行
+  （各 160 字）標準出力に出す。次回の CI ログでページ構造を確かめるための診断で、書き込みはしない
 
 - 判定は **1 アイテム = 1 リクエスト**、**4 並列**。HTTP のリトライ（408/429/5xx）は SDK 内蔵。
 - 1 件が例外で落ちても全体は止まらず、その件は `review` ＋ `reasons: ["Jev error: …"]` になる。
@@ -72,7 +115,7 @@ npm test
 |---|---|
 | `data/triage/<YYYY-MM-DD>.json` | その回の全判定（item / answers / decision / priority / reasons / tags / usage）。**生の answers を残してある**ので、しきい値を変えても再推論せず再計算できる |
 | `data/triage/seen.json` | `{ "<id>": { "decision", "date" } }`。discard も含めて再通知を防ぐ |
-| `.github/triage-result.md` | Issue 本文。accept + review が 1 件以上のときだけ生成される |
+| `.github/triage-result.md` | Issue 本文。accept + review が 1 件以上、または CT.gov の accept が 1 件以上のときだけ生成される。セクションは 🔴 採用候補 → 🟡 要確認 → 🧪 ランドスケープ候補 → ⚪ 破棄 の順 |
 
 ---
 
@@ -138,7 +181,8 @@ state に載せる情報は `buildState()`（`jev.mjs`）。本文は 2000 字�
 - 1 件あたりの state + 質問はおよそ 700〜1,400 入力トークンなので、**約 $0.0004 / 判定**。
 - 週次で 100 件判定しても **約 $0.04 / 週**、年間で $2 程度。
 - `--limit`（既定 200）が 1 回あたりの上限。想定外の流入があっても
-  1 回 $0.1 を超えないようになっている。
+  1 回 $0.1 を超えないようになっている。`--ctgov-limit`（既定 80）はその内訳の上限。
+- 実測: 初回実行（2026-09-20、200 件、jev-1.13.0）で **$0.018**。
 - 実測値は毎回のレポート末尾（`入力トークン … / 概算コスト …`）と
   `data/triage/<date>.json` の `usage` に残る。
 
@@ -150,10 +194,14 @@ state に載せる情報は `buildState()`（`jev.mjs`）。本文は 2000 字�
 
 - 起動: 毎週水曜 UTC 1:00（`0 1 * * 3`）の cron、または `workflow_dispatch` で
   `task` に `triage` か `both` を選ぶ。
+- `workflow_dispatch` には **`dry_run`（boolean、既定 false）** がある。
+  `true` にすると `node scripts/triage.mjs --dry-run` で走り、
+  **コミットも Issue 起票もしない**（ログでレポートを確認するだけ）。
+  しきい値や収集を変えたあとの確認に使う。
 - `node scripts/triage.mjs` を `TYPESAFE_API_KEY` 付きで実行。
-- `data/triage/` に変更（新規ファイル含む）があればコミット＆プッシュ。
+- `data/triage/` に変更（新規ファイル含む）があればコミット＆プッシュ（dry_run のときはスキップ）。
 - `.github/triage-result.md` があれば `gh issue create` で
-  「📥 情報トリアージ YYYY-MM-DD」という Issue を起票する。
+  「📥 情報トリアージ YYYY-MM-DD」という Issue を起票する（dry_run のときはスキップ）。
 
 ---
 
@@ -163,6 +211,7 @@ state に載せる情報は `buildState()`（`jev.mjs`）。本文は 2000 字�
 
 1. Issue「📥 情報トリアージ」を開く。
 2. 🔴 **採用候補** を上から確認する。`★` は impact スコア（優先度）。
+   ここには **CT.gov 以外**（oncolo / KEGG / openFDA）の accept だけが優先度順に並ぶ。
    - 一次情報（プレスリリース、PMDA / FDA、学会抄録、ClinicalTrials.gov）にあたって裏を取る。
 3. 裏が取れたものを手で反映する。
    - 承認・申請・試験結果などの出来事 → `src/data/events.json` に 1 件追加
@@ -170,11 +219,16 @@ state に載せる情報は `buildState()`（`jev.mjs`）。本文は 2000 字�
    - サイトの記載を書き換えたら → `src/data/changelog.json` に更新内容を 1 行追加。
    - 開発品そのものが新規なら `src/data/drugs.json` / `timeline.json` 側の追加を検討する
      （`scripts/landscape_*.py` の出力と突き合わせる）。
-4. 🟡 **要確認** は判断が割れたもの。反映するか捨てるかを人が決める。
+4. 🟡 **要確認** は判断が割れたもの。ソース別に並ぶ（1 ソースで 15 件を超えると `<details>` に畳まれる）。
+   反映するか捨てるかを人が決める。
    捨てる場合は何もしなくてよい（`seen.json` に記録済みなので再掲されない）。
-5. ⚪ **破棄** は `<details>` の中。取りこぼしがないか流し読みし、
+5. 🧪 **ランドスケープ候補** は CT.gov の accept（新規作用機序の試験）。作用機序（`moa`）ごとに
+   件数付きでまとめてある（15 件を超えると `<details>`）。各行は タイトル / phase / sponsor /
+   NCT リンク / `novel_agent` の確率。ここは「今すぐ events.json に書くもの」ではなく、
+   `src/data/drugs.json` / `timeline.json` の開発品リストを見直すための材料として使う。
+6. ⚪ **破棄** は `<details>` の中。取りこぼしがないか流し読みし、
    誤って捨てられていたらしきい値か質問文を直す（§3・§4）。
-6. 反映が終わったら Issue を閉じる。
+7. 反映が終わったら Issue を閉じる。
 
 > 注意: Jev の答えは「型が保証される」だけで、内容の真偽は保証されない。
 > 出典を確認せずに events.json へ書かないこと。
