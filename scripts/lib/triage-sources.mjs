@@ -1,7 +1,7 @@
 /**
  * 乳がん新書 — 収集（Collectors）と TriageItem への正規化
  *
- * oncolo.jp RSS / KEGG 新薬承認 / openFDA / ClinicalTrials.gov から情報を集め、
+ * Google ニュース RSS / oncolo.jp RSS / KEGG 新薬承認 / openFDA / ClinicalTrials.gov から情報を集め、
  * 共通スキーマ（設計書 §5 の TriageItem）に整える。
  * ここではキーワードによる取捨選択はしない（意味的判断は Jev に任せる）。
  */
@@ -15,7 +15,7 @@ import { matchKnownDrugs } from './known-drugs.mjs';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const resolve = (...p) => join(__dirname, '..', '..', ...p);
 
-export const SOURCE_NAMES = ['oncolo', 'kegg', 'openfda', 'ctgov'];
+export const SOURCE_NAMES = ['gnews', 'oncolo', 'kegg', 'openfda', 'ctgov'];
 
 const OPENFDA_API = 'https://api.fda.gov/drug/drugsfda.json';
 const ONCOLO_FEED = 'https://oncolo.jp/feed';
@@ -139,27 +139,14 @@ export function parseOncoloFeed(xml, knownDrugs) {
 
 async function collectOncolo({ knownDrugs, fetchImpl }) {
   try {
-    let resp = await fetchWithHeaders(fetchImpl, ONCOLO_FEED);
-    if (!resp.ok && process.env.TRIAGE_DEBUG_HTML) {
-      // 403 の切り分け: ブラウザ完全一致の UA と、フィード URL 違いを試す
-      const tries = [
-        [ONCOLO_FEED, { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36' }],
-        ['https://oncolo.jp/feed/', {}],
-        ['https://oncolo.jp/?feed=rss2', {}],
-        ['https://oncolo.jp/news', {}],
-      ];
-      for (const [url, headers] of tries) {
-        try {
-          const r = await fetchWithHeaders(fetchImpl, url, { headers });
-          const txt = await r.text();
-          console.log(`  ⓘ oncolo try ${url} UA=${headers['User-Agent'] ? 'chrome' : 'default'} -> HTTP ${r.status} ${r.headers.get('server') || ''} ${txt.slice(0, 120).replace(/\s+/g, ' ')}`);
-        } catch (e) {
-          console.log(`  ⓘ oncolo try ${url} -> error ${e.message}`);
-        }
-      }
-    }
+    const resp = await fetchWithHeaders(fetchImpl, ONCOLO_FEED);
     if (!resp.ok) {
-      console.warn(`  ⚠ oncolo.jp RSS: HTTP ${resp.status}`);
+      // 2026-09-20 の調査: /feed /feed/ /?feed=rss2 /news のどれも、ブラウザ完全一致の UA でも
+      // awselb/2.0 から 403 が返る。UA ではなく IP レベルの遮断なので、ここでは黙って諦め、
+      // 日本語ニュースは gnews（Google ニュース RSS）で代替する。
+      console.warn(
+        `  ⚠ oncolo.jp RSS: HTTP ${resp.status}（GitHub Actions からは遮断されるため Google ニュースで代替）`
+      );
       return [];
     }
     return parseOncoloFeed(await resp.text(), knownDrugs);
@@ -169,103 +156,243 @@ async function collectOncolo({ knownDrugs, fetchImpl }) {
   }
 }
 
-// ── KEGG 新薬承認 ──
+// ── Google ニュース RSS（日本語） ──
 
-/** 明らかに新薬承認ではない行（ページのフッタ等） */
-const KEGG_DENY_RE = /last\s+updated|copyright|all\s+rights\s+reserved|kegg\s+drug\s+database/i;
+/**
+ * oncolo.jp がデータセンターから遮断されているため、日本語ニュースの主経路はこちら。
+ * news.google.com は GitHub Actions からも取得できる。
+ */
+export const GNEWS_QUERIES = [
+  '乳がん 承認',
+  '乳がん 申請 承認 薬',
+  '乳がん 臨床試験 結果',
+  '乳癌 新薬',
+];
 
-/** 日付らしきトークン（除去して「日付以外の中身」を数えるために使う） */
-const KEGG_DATE_TOKEN_RE =
-  /\d{4}\s*[-/.年]\s*\d{1,2}\s*[-/.月]\s*\d{1,2}\s*日?|[A-Z][a-z]+\s+\d{1,2},?\s+\d{4}|\d{1,2}\s+[A-Z][a-z]+\s+\d{4}|\d{4}\s*[-/.]\s*\d{1,2}|\d{4}\s*年|\d{4}/g;
+/** 直近 GNEWS_WINDOW_DAYS 日以内の記事だけを対象にする */
+export const GNEWS_WINDOW_DAYS = 30;
 
-/** 文字（英字・かな・漢字）を含むか */
-const KEGG_LETTER_RE = /[A-Za-z぀-ゟ゠-ヿ一-鿿]/;
-
-/** 「日付以外の中身」が 8 文字以上あり、かつ文字を含むか */
-export function keggLineHasSubstance(line, minChars = 8) {
-  const rest = String(line || '')
-    .replace(KEGG_DATE_TOKEN_RE, ' ')
-    .replace(/[\s\d.,:;/()\[\]|+-]+/g, '');
-  return rest.length >= minChars && KEGG_LETTER_RE.test(rest);
+/** クエリ 1 本ぶんの RSS URL */
+export function gnewsUrl(query) {
+  return `https://news.google.com/rss/search?q=${encodeURIComponent(query)}&hl=ja&gl=JP&ceid=JP:ja`;
 }
 
-/** KEGG BRITE の薬剤エントリへのリンク（D 番号） */
-const KEGG_ENTRY_RE = /<a[^>]+href="[^"]*\/entry\/(D\d{5})"[^>]*>([\s\S]*?)<\/a>/gi;
-
-function keggItem(key, title, body, knownDrugs, meta = {}) {
-  return {
-    id: makeId('kegg', key),
-    source: 'kegg',
-    title: String(title).slice(0, 200),
-    body: String(body).slice(0, 2000),
-    url: KEGG_URL,
-    date: toISODate(String(body).match(/\d{4}[-/]\d{1,2}[-/]\d{1,2}/)?.[0] || '') || '',
-    meta,
-    knownDrugs: matchKnownDrugs([title, body], knownDrugs),
-  };
+/** Google ニュースのタイトル末尾の ` - 媒体名` を落とす */
+export function stripGnewsPublisher(title, publisher) {
+  const t = String(title || '').trim();
+  if (publisher && t.endsWith(` - ${publisher}`)) {
+    return t.slice(0, -(publisher.length + 3)).trim();
+  }
+  return t.replace(/\s+-\s+[^-]{1,60}$/, '').trim();
 }
 
 /**
- * KEGG の HTML から新薬承認らしき行を拾う。
- *
- * 2026-09-20 の初回実行では「2025/12/22」「Last updated: August 26, 2026」のような
- * 日付だけの行を拾ってしまっていたので、
- *   (1) 日付を含み、かつ日付以外に 8 文字以上（文字を含む）の中身がある行
- *   (2) BRITE の /entry/Dxxxxx へのリンク（アンカー文字列＋その行）
- * の 2 通りで候補を作る。
+ * Google ニュース RSS を TriageItem 配列に変換する（1 クエリぶん）。
+ * @param {string} xml
+ * @param {Set<string>} knownDrugs
+ * @param {{now?:Date, windowDays?:number, query?:string}} [opts]
  */
-export function parseKegg(html, knownDrugs) {
-  const year = new Date().getFullYear();
-  const yearRe = new RegExp(`(${year}|${year - 1})`);
-  const seenKeys = new Set();
+export function parseGnewsFeed(xml, knownDrugs, opts = {}) {
+  const { now = new Date(), windowDays = GNEWS_WINDOW_DAYS, query = '' } = opts;
+  const limitIso = new Date(now.getTime() - windowDays * 86400000)
+    .toISOString()
+    .split('T')[0];
   const items = [];
-  const lines = String(html).split('\n');
-
-  for (const raw of lines) {
-    const line = stripTags(raw);
-
-    // (2) BRITE: /entry/Dxxxxx へのアンカー
-    KEGG_ENTRY_RE.lastIndex = 0;
-    let m;
-    while ((m = KEGG_ENTRY_RE.exec(raw))) {
-      const dNo = m[1];
-      const anchor = stripTags(m[2]);
-      if (!anchor) continue;
-      const key = `${dNo}:${anchor}`;
-      if (seenKeys.has(key)) continue;
-      seenKeys.add(key);
-      const body = line && line !== anchor ? `${anchor} — ${line}` : anchor;
-      items.push(keggItem(key, anchor, body, knownDrugs, { keggEntry: dNo }));
-    }
-
-    // (1) 日付を含む実体のある行
-    if (!line || line.length < 10 || !yearRe.test(line)) continue;
-    if (KEGG_DENY_RE.test(line)) continue;
-    if (!keggLineHasSubstance(line)) continue;
-    if (seenKeys.has(line)) continue;
-    seenKeys.add(line);
-    items.push(keggItem(line, line, line, knownDrugs));
+  const re = /<item>([\s\S]*?)<\/item>/gi;
+  let match;
+  while ((match = re.exec(String(xml)))) {
+    const chunk = match[1];
+    const publisher = stripTags(
+      chunk.match(/<source[^>]*>([\s\S]*?)<\/source>/i)?.[1] || ''
+    );
+    const rawTitle = stripTags(chunk.match(/<title>([\s\S]*?)<\/title>/i)?.[1] || '');
+    const title = stripGnewsPublisher(rawTitle, publisher);
+    const link = stripTags(chunk.match(/<link>([\s\S]*?)<\/link>/i)?.[1] || '');
+    const body = stripTags(
+      chunk.match(/<description>([\s\S]*?)<\/description>/i)?.[1] || ''
+    ).slice(0, 2000);
+    const date = toISODate(chunk.match(/<pubDate>([\s\S]*?)<\/pubDate>/i)?.[1] || '');
+    if (!link || !title) continue;
+    if (!date || date < limitIso) continue;
+    const meta = {};
+    if (publisher) meta.publisher = publisher;
+    if (query) meta.query = query;
+    items.push({
+      id: makeId('gnews', link),
+      source: 'gnews',
+      title,
+      body,
+      url: link,
+      date,
+      meta,
+      knownDrugs: matchKnownDrugs([title, body], knownDrugs),
+    });
   }
-
-  if (items.length < 3) logKeggDiagnostics(lines, items.length);
   return items;
 }
 
 /**
- * 収穫が少ないときだけ、次回 CI でページ構造が分かるように手掛かりを出す（読み取りのみ）。
+ * 複数クエリの RSS をまとめ、リンク（Google ニュースの記事 URL）で重複を除く。
+ * @param {Array<string|{xml:string, query?:string}>} feeds
  */
-export function logKeggDiagnostics(lines, found, logger = console.log) {
-  logger(`  ⓘ KEGG 診断: 抽出 ${found}件 / 総行数 ${lines.length}`);
-  let shown = 0;
-  for (const raw of lines) {
-    if (shown >= 15) break;
-    const line = stripTags(raw);
-    const hit = raw.includes('/entry/D') || line.includes('乳') || line.includes('承認');
-    if (!hit || !line) continue;
-    logger(`    | ${line.slice(0, 160)}`);
-    shown += 1;
+export function parseGnewsFeeds(feeds, knownDrugs, opts = {}) {
+  const seen = new Set();
+  const out = [];
+  for (const feed of feeds || []) {
+    const xml = typeof feed === 'string' ? feed : feed?.xml;
+    const query = typeof feed === 'string' ? '' : feed?.query || '';
+    for (const item of parseGnewsFeed(xml, knownDrugs, { ...opts, query })) {
+      if (seen.has(item.url)) continue;
+      seen.add(item.url);
+      out.push(item);
+    }
   }
-  if (shown === 0) logger('    | （乳 / /entry/D / 承認 を含む行はありませんでした）');
+  return out;
+}
+
+async function collectGnews({ knownDrugs, fetchImpl }) {
+  const feeds = [];
+  for (const query of GNEWS_QUERIES) {
+    try {
+      await sleep(300);
+      const resp = await fetchWithHeaders(fetchImpl, gnewsUrl(query));
+      if (!resp.ok) {
+        console.warn(`  ⚠ Google ニュース（${query}）: HTTP ${resp.status}`);
+        continue;
+      }
+      feeds.push({ xml: await resp.text(), query });
+    } catch (e) {
+      console.warn(`  ⚠ Google ニュース（${query}）取得エラー: ${e.message}`);
+    }
+  }
+  return parseGnewsFeeds(feeds, knownDrugs);
+}
+
+// ── KEGG 新薬承認 ──
+
+/** 直近 KEGG_WINDOW_DAYS 日以内の承認だけを対象にする */
+export const KEGG_WINDOW_DAYS = 120;
+
+/** 日付セル（YYYY/M/D、ゼロ埋めなし） */
+const KEGG_DATE_CELL_RE = /^\d{4}\/\d{1,2}\/\d{1,2}$/;
+
+/** KEGG BRITE の薬剤エントリへのリンク（D 番号） */
+const KEGG_ENTRY_HREF_RE = /\/entry\/(D\d{5})/i;
+
+/** ATC コードへのリンク（br08303） */
+const KEGG_ATC_HREF_RE = /\/brite\/br08303\/([A-Z0-9]+)/i;
+
+/** D 番号・ATC コード・日付だけで構成されたセルか（タイトルには使えない） */
+export function isKeggCodeCell(text) {
+  const t = String(text || '').trim();
+  if (!t) return true;
+  const compact = t.replace(/[\s(),/]/g, '');
+  if (!compact) return true;
+  return /^(?:D\d{5}|[A-Z]\d{2}[A-Z]{2}\d{2}|\d{4}\d{1,2}\d{1,2})+$/.test(compact);
+}
+
+/** HTML から `<tr>` ブロックごとの `<td>` セル（生 HTML と整形テキスト）を取り出す */
+export function keggRows(html) {
+  const rows = [];
+  const trRe = /<tr\b[^>]*>([\s\S]*?)<\/tr>/gi;
+  let tr;
+  while ((tr = trRe.exec(String(html)))) {
+    const cells = [];
+    const tdRe = /<td\b[^>]*>([\s\S]*?)<\/td>/gi;
+    let td;
+    while ((td = tdRe.exec(tr[1]))) {
+      cells.push({ raw: td[1], text: stripTags(td[1]) });
+    }
+    if (cells.length > 0) rows.push(cells);
+  }
+  return rows;
+}
+
+/** YYYY/M/D → YYYY-MM-DD */
+function keggIsoDate(text) {
+  const m = String(text).match(/^(\d{4})\/(\d{1,2})\/(\d{1,2})$/);
+  if (!m) return '';
+  return `${m[1]}-${m[2].padStart(2, '0')}-${m[3].padStart(2, '0')}`;
+}
+
+/**
+ * KEGG 新薬承認リスト（br08318.html）の表を TriageItem 配列にする。
+ *
+ * 実物は 1 行 1 `<td>` の HTML テーブル（9712 行 / 319KB）で、
+ * 「日付セル（YYYY/M/D）」と「/entry/Dxxxxx へのリンクを含むセル」の両方を持つ `<tr>` が承認行。
+ *
+ * @param {string} html
+ * @param {Set<string>} knownDrugs
+ * @param {{now?:Date, windowDays?:number, logger?:Function}} [opts]
+ */
+export function parseKegg(html, knownDrugs, opts = {}) {
+  const { now = new Date(), windowDays = KEGG_WINDOW_DAYS, logger = console.log } = opts;
+  const limitIso = new Date(now.getTime() - windowDays * 86400000)
+    .toISOString()
+    .split('T')[0];
+  const rows = keggRows(html);
+  const items = [];
+  const seen = new Set();
+  let approvalRows = 0;
+
+  for (const cells of rows) {
+    const dateIdx = cells.findIndex((c) => KEGG_DATE_CELL_RE.test(c.text));
+    const entryIdx = cells.findIndex((c) => KEGG_ENTRY_HREF_RE.test(c.raw));
+    if (dateIdx < 0 || entryIdx < 0) continue;
+    const dNo = cells[entryIdx].raw.match(KEGG_ENTRY_HREF_RE)[1].toUpperCase();
+    approvalRows += 1;
+
+    const iso = keggIsoDate(cells[dateIdx].text);
+    if (!iso || iso < limitIso) continue;
+
+    const atcIdx = cells.findIndex((c) => KEGG_ATC_HREF_RE.test(c.raw));
+    const atc = atcIdx >= 0 ? cells[atcIdx].raw.match(KEGG_ATC_HREF_RE)[1].toUpperCase() : '';
+
+    const after = Math.max(dateIdx, entryIdx, atcIdx) + 1;
+    const titleCell = cells.slice(after).find((c) => c.text && !isKeggCodeCell(c.text));
+    const title = titleCell?.text || `KEGG 新薬承認 ${dNo} (${iso})`;
+
+    const key = `${dNo}:${iso}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+
+    const body = cells
+      .map((c) => c.text)
+      .filter(Boolean)
+      .join(' | ')
+      .slice(0, 2000);
+    const meta = { keggEntry: dNo };
+    if (atc) meta.atc = atc;
+
+    items.push({
+      id: makeId('kegg', `${dNo}${iso}`),
+      source: 'kegg',
+      title: title.slice(0, 200),
+      body,
+      url: `https://www.kegg.jp/entry/${dNo}`,
+      date: iso,
+      meta,
+      knownDrugs: matchKnownDrugs([title, body], knownDrugs),
+    });
+  }
+
+  if (approvalRows < 1) logKeggDiagnostics(html, items.length, logger);
+  return items;
+}
+
+/**
+ * 承認行が 1 件も取れなかったときだけ、先頭 5 つの `<tr>` のセルを出す（読み取りのみ）。
+ */
+export function logKeggDiagnostics(html, found, logger = console.log) {
+  const rows = keggRows(html);
+  logger(`  ⓘ KEGG 診断: 抽出 ${found}件 / <tr> ${rows.length}個`);
+  if (rows.length === 0) {
+    logger('    | （<tr> が 1 つも見つかりませんでした）');
+    return;
+  }
+  for (const cells of rows.slice(0, 5)) {
+    logger(`    | ${cells.map((c) => c.text).join(' | ').slice(0, 160)}`);
+  }
 }
 
 async function collectKegg({ knownDrugs, fetchImpl }) {
@@ -275,21 +402,7 @@ async function collectKegg({ knownDrugs, fetchImpl }) {
       console.warn(`  ⚠ KEGG: HTTP ${resp.status}`);
       return [];
     }
-    const html = await resp.text();
-    if (process.env.TRIAGE_DEBUG_HTML) {
-      // ページ構造の確認用: /entry/D を含む生 HTML 行を先頭から数行出す
-      const rawLines = String(html).split('\n');
-      console.log(`  ⓘ KEGG raw: ${rawLines.length} lines, ${html.length} chars`);
-      let shown = 0;
-      for (let i = 0; i < rawLines.length && shown < 8; i++) {
-        if (!rawLines[i].includes('/entry/D')) continue;
-        console.log(`    L${i}: ${rawLines[i].slice(0, 500)}`);
-        if (i > 0) console.log(`    L${i - 1}(prev): ${rawLines[i - 1].slice(0, 300)}`);
-        if (i + 1 < rawLines.length) console.log(`    L${i + 1}(next): ${rawLines[i + 1].slice(0, 300)}`);
-        shown += 1;
-      }
-    }
-    return parseKegg(html, knownDrugs);
+    return parseKegg(await resp.text(), knownDrugs);
   } catch (e) {
     console.warn(`  ⚠ KEGG 取得エラー: ${e.message}`);
     return [];
@@ -477,6 +590,9 @@ export async function collect({ sources = SOURCE_NAMES, knownDrugs, fetchImpl = 
   for (const name of sources) {
     let items = [];
     switch (name) {
+      case 'gnews':
+        items = await collectGnews({ knownDrugs, fetchImpl });
+        break;
       case 'oncolo':
         items = await collectOncolo({ knownDrugs, fetchImpl });
         break;

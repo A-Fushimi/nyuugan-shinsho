@@ -2,7 +2,7 @@
 
 対象: `scripts/triage.mjs` と `scripts/lib/*`（設計は [jev-triage-plan.md](./jev-triage-plan.md)）
 
-oncolo.jp RSS / KEGG 新薬承認 / openFDA / ClinicalTrials.gov から流入する情報を、
+Google ニュース RSS（日本語）/ oncolo.jp RSS / KEGG 新薬承認 / openFDA / ClinicalTrials.gov から流入する情報を、
 TypeSafe AI の System One モデル **Jev** に型付きで判定させ、
 **採用（accept） / 要確認（review） / 破棄（discard）** に振り分けて GitHub Issue にまとめる。
 
@@ -50,8 +50,11 @@ node scripts/triage.mjs --dry-run
 # ネットワークも Jev も使わず、fixtures だけで全経路を通す（動作確認・CI 用）
 node scripts/triage.mjs --offline --dry-run
 
-# ソースを限定（oncolo / kegg / openfda / ctgov）
-node scripts/triage.mjs --source=oncolo,kegg
+# ソースを限定（gnews / oncolo / kegg / openfda / ctgov）
+node scripts/triage.mjs --source=gnews,kegg
+
+# 収集結果だけを確認する（Jev を呼ばず、ソース別に先頭 12 件のタイトル・日付・本文冒頭を出す）
+node scripts/triage.mjs --collect-only
 
 # 判定件数の上限（コスト暴走防止。既定 200 件）
 node scripts/triage.mjs --limit=50
@@ -63,9 +66,32 @@ node scripts/triage.mjs --ctgov-limit=30
 npm test
 ```
 
+### ソース一覧
+
+| ソース | 取得元 | 窓 | 備考 |
+|---|---|---|---|
+| `gnews` | Google ニュース RSS（日本語版、`news.google.com/rss/search?...&hl=ja&gl=JP&ceid=JP:ja`）を 4 クエリぶん（`乳がん 承認` / `乳がん 申請 承認 薬` / `乳がん 臨床試験 結果` / `乳癌 新薬`） | `GNEWS_WINDOW_DAYS` = 30 日 | 日本語ニュースの主経路。クエリ間の重複は記事リンクで除く。`meta.publisher` に媒体名、タイトル末尾の ` - 媒体名` は落とす |
+| `oncolo` | oncolo.jp RSS (`/feed`) | なし | **GitHub Actions からは HTTP 403**（下記）。ローカルや自宅回線からは取れるので収集器は残してある |
+| `kegg` | KEGG 新薬承認リスト `br08318.html` | `KEGG_WINDOW_DAYS` = 120 日 | 日本の承認。`<tr>` 単位で解析 |
+| `openfda` | openFDA drugsfda | `OPENFDA_WINDOW_DAYS` = 180 日 | 承認（`AP`）の submission のみ |
+| `ctgov` | `data/ctgov_filtered.json`（無ければ `ctgov_raw.json`）| なし | ネットワークは使わない |
+
+### oncolo.jp の 403 について
+
+2026-09-20 の調査で、GitHub Actions ランナーからは `/feed` `/feed/` `/?feed=rss2` `/news` の
+どれも、ブラウザ完全一致の Chrome UA を付けても `awselb/2.0` から **403 Forbidden** が返ることを確認した。
+User-Agent ではなく **IP レベルの遮断**なので、UA を変えても回避できない。
+そのため oncolo は収集器を残したまま、非 OK のときは
+
+```
+⚠ oncolo.jp RSS: HTTP 403（GitHub Actions からは遮断されるため Google ニュースで代替）
+```
+
+と 1 行警告して空配列を返すだけにしてある。日本語ニュースは `gnews` が代替する。
+
 ### ソースの優先順位と上限
 
-判定は **oncolo → KEGG → openFDA → CT.gov** の順に行う。
+判定は **Google ニュース → oncolo → KEGG → openFDA → CT.gov** の順に行う。
 CT.gov は登録数が桁違いに多く（初回実行では 485 件 / 全 516 件）、
 放っておくと `--limit` を CT.gov だけで使い切ってしまうため、
 
@@ -78,7 +104,7 @@ CT.gov は登録数が桁違いに多く（初回実行では 485 件 / 全 516 
 
 ### 取得時の HTTP ヘッダ
 
-oncolo / KEGG / openFDA への取得はすべて `fetchWithHeaders()`（`triage-sources.mjs`）を通し、
+Google ニュース / oncolo / KEGG / openFDA への取得はすべて `fetchWithHeaders()`（`triage-sources.mjs`）を通し、
 ブラウザに近い `User-Agent` / `Accept` / `Accept-Language` を付ける。
 既定の Node fetch の UA では oncolo.jp が GitHub Actions ランナーから **HTTP 403** を返した。
 
@@ -97,11 +123,24 @@ body に全 submission 番号（`SUPPL #41 (Efficacy) / SUPPL #43 (Efficacy-New 
 
 ### KEGG パーサ
 
-- 日付を含み、かつ **日付以外に 8 文字以上（英字・かな・漢字を含む）** の中身がある行だけを拾う
-  （`2025/12/22` のような日付だけの行と `Last updated: …` は落とす）
-- BRITE の `/entry/Dxxxxx` へのリンクからも項目を作る（アンカー文字列＋その行）
-- 抽出が 3 件未満のときだけ、総行数と `乳` / `/entry/D` / `承認` を含む行を最大 15 行
-  （各 160 字）標準出力に出す。次回の CI ログでページ構造を確かめるための診断で、書き込みはしない
+`br08318.html` は 1 行 1 `<td>` の HTML テーブル（約 9,700 行 / 319KB）なので、
+**行ベースではなく `<tr>` ブロック単位**で解析する（`parseKegg()`）。
+
+- `<tr>…</tr>` を大文字小文字を問わず取り出し、その中の `<td>` を全てタグ除去・空白正規化して並べる
+- **承認行の条件**: `^\d{4}/\d{1,2}/\d{1,2}$`（`2026/8/24` のようにゼロ埋めなし）のセルと、
+  `/entry/D\d{5}` へのリンクを含むセルの両方があること
+- `date` = 日付セルの ISO 変換、`meta.keggEntry` = D 番号、`meta.atc` = `/brite/br08303/` リンクの ATC コード、
+  `url` = `https://www.kegg.jp/entry/<D番号>`、`id` = `makeId('kegg', D番号 + 日付)`
+- `title` は D 番号・ATC の後ろにある最初の「コードだけではない」セル（薬剤名）。
+  取れなければ `KEGG 新薬承認 D12615 (2026-08-24)` にフォールバックする
+- `body` は全セルを ` | ` で連結（2000 字まで）
+- **窓**: `KEGG_WINDOW_DAYS`（既定 120 日）以内の日付だけを残す。テストでは `now` を注入できる
+- 承認行が 1 件も取れなかったときだけ、`<tr>` の数と先頭 5 ブロックのセル（各 160 字）を
+  標準出力に出す（`logKeggDiagnostics()`、読み取りのみ）
+
+> 旧実装（行ベースで「年が入っていれば拾う」＋アンカー拾い）は、タイトルが `D12615` だけの
+> 項目を 935 件作って全部 Jev に投げてしまっていた。`keggLineHasSubstance()` /
+> `KEGG_DENY_RE` / `TRIAGE_DEBUG_HTML` の生 HTML ダンプはこの書き換えで削除した。
 
 - 判定は **1 アイテム = 1 リクエスト**、**4 並列**。HTTP のリトライ（408/429/5xx）は SDK 内蔵。
 - 1 件が例外で落ちても全体は止まらず、その件は `review` ＋ `reasons: ["Jev error: …"]` になる。
@@ -194,10 +233,15 @@ state に載せる情報は `buildState()`（`jev.mjs`）。本文は 2000 字�
 
 - 起動: 毎週水曜 UTC 1:00（`0 1 * * 3`）の cron、または `workflow_dispatch` で
   `task` に `triage` か `both` を選ぶ。
-- `workflow_dispatch` には **`dry_run`（boolean、既定 false）** がある。
+- `workflow_dispatch` には **`dry_run`（boolean、既定 false）** と
+  **`collect_only`（boolean、既定 false）** がある。
   `true` にすると `node scripts/triage.mjs --dry-run` で走り、
   **コミットも Issue 起票もしない**（ログでレポートを確認するだけ）。
   しきい値や収集を変えたあとの確認に使う。
+- `collect_only` を `true` にすると `node scripts/triage.mjs --collect-only` で走り、
+  **Jev を一切呼ばず**にソース別の件数と先頭 12 件（日付・タイトル・本文冒頭）をログに出して終わる。
+  コミットも Issue 起票もしない。収集器（パーサ）を直したあと、判定コストをかけずに
+  実データで取れ高を確かめるためのもの。`dry_run` より先に評価される。
 - `node scripts/triage.mjs` を `TYPESAFE_API_KEY` 付きで実行。
 - `data/triage/` に変更（新規ファイル含む）があればコミット＆プッシュ（dry_run のときはスキップ）。
 - `.github/triage-result.md` があれば `gh issue create` で

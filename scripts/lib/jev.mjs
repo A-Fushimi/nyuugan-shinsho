@@ -34,6 +34,7 @@ export const MOA_CATEGORIES = {
 
 /** ソース名 → state に書く説明 */
 export const SOURCE_LABELS = {
+  gnews: 'Google ニュース（日本語、乳がん関連の検索結果）',
   oncolo: 'oncolo.jp（日本のがん情報ニュースサイト）',
   kegg: 'KEGG 新薬承認リスト（日本の承認医薬品）',
   openfda: 'openFDA drugsfda（米国 FDA の承認・一部変更承認レコード）',

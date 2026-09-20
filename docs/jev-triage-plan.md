@@ -254,3 +254,67 @@ GitHub Actions で初めて実データを流した（200 件判定、model `jev
 
 しきい値（`THRESHOLDS`）自体は今回変えていない。ルール9の accept を捨てるのではなく
 置き場所を変えた（ランドスケープ候補）ので、`data/triage/<date>.json` からの再計算も従来どおり効く。
+
+### 第2ラウンド（2026-09-20、`--collect-only` での実データ確認）
+
+`workflow_dispatch` の `collect_only` を使って GitHub Actions 上で収集だけを走らせ
+（Jev は呼ばない＝無料）、Phase B の変更 A・B が実際のページ構造に合っているかを確かめた。
+ここで 2 つの事実が確定した。
+
+#### 事実 1: KEGG は行ベースでは解けない（`br08318.html`、9,712 行 / 319KB）
+
+実物は **1 行 1 `<td>` の HTML テーブル**で、承認 1 件が `<tr>` にまたがっている。
+
+```html
+      <td>2026/8/24</td>
+      <td><a href="/entry/D12615" id="D12615">D12615</a></td>
+      <td>(<a href="/brite/br08303/J05AX34">J05AX34</a>)</td>
+      …（同じ <tr> 内に薬剤名・会社名・効能のセルが続く）
+```
+
+日付は `YYYY/M/D`（ゼロ埋めなし）。Phase B の行ベース実装（日付＋実体のある行／`/entry/D` アンカー）は
+この構造では **タイトルが `D12615` だけの項目を 935 件**作り、そのすべてが Jev に投げられて
+判定コストを無駄にしていた。
+
+- **変更**: `parseKegg()` を `<tr>` ブロック単位に書き換えた。
+  「`^\d{4}/\d{1,2}/\d{1,2}$` のセル」と「`/entry/D\d{5}` リンクを含むセル」の両方を持つ行を承認行とし、
+  `date` / `meta.keggEntry` / `meta.atc`（`/brite/br08303/`）/ `url`（`https://www.kegg.jp/entry/<D番号>`）/
+  `id`（`makeId('kegg', D番号+日付)`）を組み立てる。`title` は D 番号・ATC より後ろの
+  最初の「コードだけではない」セル（無ければ `KEGG 新薬承認 D12615 (2026-08-24)`）、
+  `body` は全セルを ` | ` で連結（2000 字）。
+- **窓**: `KEGG_WINDOW_DAYS`（既定 120 日、export）で古い承認を落とす。テストでは `now` を注入する。
+- 旧来の `keggLineHasSubstance()` / `KEGG_DENY_RE` / 行ベースのフォールバック、
+  および `collectKegg()` の `TRIAGE_DEBUG_HTML` 生 HTML ダンプは削除した。
+  `logKeggDiagnostics()` は残し、**承認行が 0 件のときだけ**先頭 5 つの `<tr>` のセルを出す。
+- fixture `scripts/__tests__/fixtures/kegg.sample.html`（4 行: 乳がん関連の新しい 2 行 /
+  乳がん以外の新しい 1 行 / 120 日より古い 1 行）で、件数・日付・D 番号・窓・タイトルをテストする。
+
+#### 事実 2: oncolo.jp は GitHub Actions を遮断している
+
+`/feed` `/feed/` `/?feed=rss2` `/news` のいずれも、ブラウザ完全一致の Chrome UA を付けても
+`awselb/2.0` から **403 Forbidden**。Phase B で疑った User-Agent の問題ではなく **IP レベルの遮断**で、
+ヘッダでは回避できない。
+
+- **変更**: oncolo の収集器は残す（ローカル実行では取れる）が、`TRIAGE_DEBUG_HTML` の再試行ブロックは削除し、
+  非 OK なら
+  `⚠ oncolo.jp RSS: HTTP 403（GitHub Actions からは遮断されるため Google ニュースで代替）`
+  と 1 行だけ警告して `[]` を返す。
+- **新ソース `gnews`（Google ニュース RSS・日本語）**: データセンターからも取得できる。
+  `GNEWS_QUERIES = ['乳がん 承認', '乳がん 申請 承認 薬', '乳がん 臨床試験 結果', '乳癌 新薬']` の
+  各クエリで `https://news.google.com/rss/search?q=…&hl=ja&gl=JP&ceid=JP:ja` を叩き、
+  `<item>` の title / link / pubDate / description / `<source>`（→ `meta.publisher`）を拾う。
+  クエリ間の重複は記事リンク（`https://news.google.com/rss/articles/…`）で除き、
+  `GNEWS_WINDOW_DAYS`（既定 30 日、export）以内のものだけを残す。
+  タイトル末尾の ` - 媒体名` は落とす。`id = makeId('gnews', link)`。HTTP は同じ `fetchWithHeaders()`。
+- `SOURCE_NAMES`（`triage-sources.mjs`）と `SOURCE_LABELS`（`jev.mjs`、
+  `'Google ニュース（日本語、乳がん関連の検索結果）'`）に `gnews` を追加し、
+  `SOURCE_PRIORITY`（`triage.mjs`）は **gnews → oncolo → kegg → openfda → ctgov** に変更した。
+- `--offline` でも新ソースを通すため、`items.sample.json` に gnews を 2 件
+  （accept 相当の国内承認ニュース / discard 相当の一般記事）と、対応する答えを
+  `jev.answers.sample.json` に追加した（fixtures は 12 件 → 14 件）。
+
+#### 運用面
+
+`workflow_dispatch` の `collect_only` 入力（＝`node scripts/triage.mjs --collect-only`）は
+Jev を呼ばずに収集結果だけをログに出すので、パーサを直したあとの確認はこれで行う。
+運用ガイド（`docs/jev-triage.md`）にソース一覧・oncolo の 403・KEGG の窓・`collect_only` を追記した。

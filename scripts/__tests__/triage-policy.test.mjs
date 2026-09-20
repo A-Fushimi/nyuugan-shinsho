@@ -116,10 +116,12 @@ test('relevant が欠落していれば要確認', () => {
   assert.match(r.reasons.join(' '), /欠落/);
 });
 
-test('fixtures の12件が期待どおりに振り分けられる', () => {
+test('fixtures の14件が期待どおりに振り分けられる', () => {
   const items = JSON.parse(readFileSync(join(__dirname, 'fixtures/items.sample.json'), 'utf-8'));
   const fx = JSON.parse(readFileSync(join(__dirname, 'fixtures/jev.answers.sample.json'), 'utf-8'));
   const expected = {
+    'gnews:sample-jp-approval': 'accept',
+    'gnews:sample-general-article': 'discard',
     'oncolo:sample-jp-approval': 'accept',
     'openfda:sample-us-approval': 'accept',
     'oncolo:sample-ph3-result': 'accept',
@@ -133,7 +135,7 @@ test('fixtures の12件が期待どおりに振り分けられる', () => {
     'ctgov:sample-chemo-only': 'discard',
     'ctgov:sample-unclear-novelty': 'review',
   };
-  assert.equal(items.length, 12);
+  assert.equal(items.length, 14);
   for (const item of items) {
     const rec = fx[item.id];
     assert.ok(rec, `${item.id} の答えが fixtures にある`);

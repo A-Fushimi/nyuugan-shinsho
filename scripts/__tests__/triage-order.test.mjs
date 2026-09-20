@@ -7,16 +7,22 @@ import { orderAndCap, SOURCE_PRIORITY } from '../triage.mjs';
 
 const mk = (source, n) => Array.from({ length: n }, (_, i) => ({ source, id: `${source}:${i}` }));
 
-test('SOURCE_PRIORITY は oncolo → kegg → openfda → ctgov', () => {
-  assert.deepEqual(SOURCE_PRIORITY, ['oncolo', 'kegg', 'openfda', 'ctgov']);
+test('SOURCE_PRIORITY は gnews → oncolo → kegg → openfda → ctgov', () => {
+  assert.deepEqual(SOURCE_PRIORITY, ['gnews', 'oncolo', 'kegg', 'openfda', 'ctgov']);
 });
 
 test('収集順に関わらずソース優先度の順に並べ替える', () => {
-  const items = [...mk('ctgov', 2), ...mk('oncolo', 1), ...mk('openfda', 1), ...mk('kegg', 1)];
+  const items = [
+    ...mk('ctgov', 2),
+    ...mk('oncolo', 1),
+    ...mk('openfda', 1),
+    ...mk('kegg', 1),
+    ...mk('gnews', 1),
+  ];
   const { targets } = orderAndCap(items);
   assert.deepEqual(
     targets.map((t) => t.source),
-    ['oncolo', 'kegg', 'openfda', 'ctgov', 'ctgov']
+    ['gnews', 'oncolo', 'kegg', 'openfda', 'ctgov', 'ctgov']
   );
 });
 
