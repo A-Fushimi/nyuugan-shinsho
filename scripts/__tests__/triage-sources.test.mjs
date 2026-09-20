@@ -150,11 +150,6 @@ test('KEGG: 実ページの列構成（一般名｜販売名｜会社）から�
   assert.ok(cami.knownDrugs.includes('camizestrant'));
 });
 
-  assert.equal(items.length, 1);
-  assert.ok(!items[0].body.includes('<a'), items[0].body);
-  assert.ok(!items[0].body.includes('href='), items[0].body);
-});
-
 // ── C. Google ニュース RSS ──
 
 /** Google ニュース RSS に近い作り物（1 クエリぶん） */
@@ -180,6 +175,10 @@ test('gnews: description のエスケープ済み HTML はタグごと落ちる'
   const items = parseGnewsFeed(gnewsXml([
     { title: 'テスト記事', publisher: 'テスト社', link: 'https://news.google.com/rss/articles/x1', pubDate: 'Fri, 18 Sep 2026 00:00:00 GMT' },
   ]), known, { now: new Date('2026-09-20T00:00:00Z') });
+  assert.equal(items.length, 1);
+  assert.ok(!items[0].body.includes('<a'), items[0].body);
+  assert.ok(!items[0].body.includes('href='), items[0].body);
+});
 
 test('gnewsUrl: 日本語版の検索 RSS URL を組み立てる', () => {
   assert.equal(
