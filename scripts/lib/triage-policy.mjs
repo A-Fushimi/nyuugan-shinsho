@@ -15,7 +15,7 @@ export const THRESHOLDS = {
   /** relevant.noul がこれ以上なら「関連あり」と確定 */
   relevantHigh: 0.65,
   /** impact.score がこれ以上なら採用 */
-  impactAccept: 2.0,
+  impactAccept: 1.8,
   /** impact.score がこれ以上なら要確認（未満は破棄） */
   impactReview: 1.0,
   /** category.confidence がこれ未満の accept は要確認に格下げ */

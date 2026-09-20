@@ -166,7 +166,7 @@ body に全 submission 番号（`SUPPL #41 (Efficacy) / SUPPL #43 (Efficacy-New 
 export const THRESHOLDS = {
   relevantLow: 0.35,        // これ未満は破棄
   relevantHigh: 0.65,       // これ以上で「乳がん薬物療法に関係あり」と確定
-  impactAccept: 2.0,        // これ以上で採用
+  impactAccept: 1.8,        // これ以上で採用（海外承認は Jev が 1.8〜2.0 を付けるため）
   impactReview: 1.0,        // これ以上で要確認（未満は破棄）
   categoryConfidence: 0.5,  // これ未満の accept は要確認に格下げ
   novelLow: 0.35,           // ctgov: これ未満は破棄（既存化療・支持療法）

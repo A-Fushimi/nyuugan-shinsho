@@ -30,7 +30,7 @@ function answers({ relevant = 0.9, impact = 2.5, conf = 0.9, novel, moa } = {}) 
 test('THRESHOLDS が設計書の値で公開されている', () => {
   assert.equal(THRESHOLDS.relevantLow, 0.35);
   assert.equal(THRESHOLDS.relevantHigh, 0.65);
-  assert.equal(THRESHOLDS.impactAccept, 2.0);
+  assert.equal(THRESHOLDS.impactAccept, 1.8);
   assert.equal(THRESHOLDS.impactReview, 1.0);
   assert.equal(THRESHOLDS.categoryConfidence, 0.5);
   assert.equal(THRESHOLDS.novelLow, 0.35);
@@ -57,9 +57,9 @@ test('ルール3: relevant 0.65 以上 かつ impact 2.0 以上は採用、prior
   assert.equal(r2.priority, 2.9);
 });
 
-test('ルール4: impact 1.0 以上 2.0 未満は要確認', () => {
+test('ルール4: impact 1.0 以上 1.8 未満は要確認', () => {
   assert.equal(decide(NEWS, answers({ impact: 1.0 })).decision, 'review');
-  assert.equal(decide(NEWS, answers({ impact: 1.99 })).decision, 'review');
+  assert.equal(decide(NEWS, answers({ impact: 1.79 })).decision, 'review');
   assert.match(decide(NEWS, answers({ impact: 1.5 })).reasons.join(' '), /参考情報/);
 });
 

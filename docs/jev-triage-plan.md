@@ -318,3 +318,15 @@ GitHub Actions で初めて実データを流した（200 件判定、model `jev
 `workflow_dispatch` の `collect_only` 入力（＝`node scripts/triage.mjs --collect-only`）は
 Jev を呼ばずに収集結果だけをログに出すので、パーサを直したあとの確認はこれで行う。
 運用ガイド（`docs/jev-triage.md`）にソース一覧・oncolo の 403・KEGG の窓・`collect_only` を追記した。
+
+### 第3ラウンド（2026-09-20）実データでの最終調整
+
+本番実行（125件、$0.010）の結果:
+- gnews 19件 → accept 10（日本承認・適応拡大・安全性情報）/ review 6 / discard 3（凍結療法・市場レポートなど）。すべて妥当
+- kegg 13件 → accept 1（カミゼストラント）/ discard 12（他領域の新薬）。すべて妥当
+- openfda 13件 → review 13（効能追加の補足申請。適応内容が本文に無いため人の確認が必要）
+- ctgov 80件 → accept 55（ランドスケープ候補）/ review 3 / discard 22
+
+調整: FDA/EU 承認のニュースに Jev が impact 1.8〜2.0 を付けるため（ルーブリック「2: 海外承認」の少し下）、
+`THRESHOLDS.impactAccept` を 2.0 → 1.8 に下げた。これで海外承認は accept、
+薬価収載・申請などの参考情報（1.0〜1.8）は review のまま。
