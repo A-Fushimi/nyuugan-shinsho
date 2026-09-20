@@ -51,7 +51,7 @@ const keggNow = new Date('2026-09-20T00:00:00Z');
 
 test('KEGG: <tr> ベースで承認行だけを拾う（窓 120 日）', () => {
   const items = parseKegg(keggHtml, known, { now: keggNow });
-  assert.equal(items.length, 3); // 2026/2/10 の行は 120 日より前なので落ちる
+  assert.equal(items.length, 4); // 2026/2/10 の行は 120 日より前なので落ちる
   assert.ok(items.every((i) => i.source === 'kegg'));
   assert.ok(!items.some((i) => i.meta.keggEntry === 'D09996'));
 });
@@ -90,7 +90,7 @@ test('KEGG: body は行の全セルを | で連結する', () => {
 test('KEGG: 窓（KEGG_WINDOW_DAYS）を動かせば古い行も入る', () => {
   assert.equal(KEGG_WINDOW_DAYS, 120);
   const items = parseKegg(keggHtml, known, { now: keggNow, windowDays: 400 });
-  assert.equal(items.length, 4);
+  assert.equal(items.length, 5);
   assert.equal(items[3].meta.keggEntry, 'D09996');
 });
 
@@ -136,6 +136,23 @@ test('isKeggCodeCell: コードだけのセルを見分ける', () => {
   assert.equal(isKeggCodeCell(''), true);
   assert.equal(isKeggCodeCell('エンハーツ点滴静注用100mg'), false);
   assert.equal(isKeggCodeCell('第一三共'), false);
+  assert.equal(isKeggCodeCell('4291'), true); // 薬効分類番号
+  assert.equal(isKeggCodeCell('NME'), true);
+  assert.equal(isKeggCodeCell('Camizestrant'), false);
+});
+
+test('KEGG: 実ページの列構成（一般名｜販売名｜会社）からタイトルを組み立てる', () => {
+  const items = parseKegg(keggHtml, known, { now: keggNow });
+  const cami = items.find((it) => it.meta.keggEntry === 'D12049');
+  assert.ok(cami, 'D12049 が抽出される');
+  assert.equal(cami.title, 'Camizestrant（Etcamah） AstraZeneca');
+  assert.equal(cami.meta.atc, 'L02BA05');
+  assert.ok(cami.knownDrugs.includes('camizestrant'));
+});
+
+  assert.equal(items.length, 1);
+  assert.ok(!items[0].body.includes('<a'), items[0].body);
+  assert.ok(!items[0].body.includes('href='), items[0].body);
 });
 
 // ── C. Google ニュース RSS ──
@@ -158,6 +175,11 @@ const GN_LINK_A = 'https://news.google.com/rss/articles/CBMiAAAA-shared';
 const GN_LINK_B = 'https://news.google.com/rss/articles/CBMiBBBB-only-in-2nd';
 const GN_LINK_OLD = 'https://news.google.com/rss/articles/CBMiCCCC-old';
 const gnewsNow = new Date('2026-09-20T00:00:00Z');
+
+test('gnews: description のエスケープ済み HTML はタグごと落ちる', () => {
+  const items = parseGnewsFeed(gnewsXml([
+    { title: 'テスト記事', publisher: 'テスト社', link: 'https://news.google.com/rss/articles/x1', pubDate: 'Fri, 18 Sep 2026 00:00:00 GMT' },
+  ]), known, { now: new Date('2026-09-20T00:00:00Z') });
 
 test('gnewsUrl: 日本語版の検索 RSS URL を組み立てる', () => {
   assert.equal(

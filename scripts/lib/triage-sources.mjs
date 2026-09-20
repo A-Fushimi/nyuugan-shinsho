@@ -59,9 +59,11 @@ function stripTags(s) {
     .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1')
     .replace(/<[^>]*>/g, ' ')
     .replace(/&nbsp;/g, ' ')
-    .replace(/&amp;/g, '&')
     .replace(/&lt;/g, '<')
     .replace(/&gt;/g, '>')
+    // RSS の description は HTML がエスケープされていることが多いので、デコード後にもう一度タグを落とす
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/&amp;/g, '&')
     .replace(/&quot;/g, '"')
     .replace(/&#8217;|&#039;/g, "'")
     .replace(/\s+/g, ' ')
@@ -288,7 +290,8 @@ export function isKeggCodeCell(text) {
   if (!t) return true;
   const compact = t.replace(/[\s(),/]/g, '');
   if (!compact) return true;
-  return /^(?:D\d{5}|[A-Z]\d{2}[A-Z]{2}\d{2}|\d{4}\d{1,2}\d{1,2})+$/.test(compact);
+  // D番号 / ATC / 日付 / 4桁の薬効分類番号 / NME・BLA などの区分
+  return /^(?:D\d{5}|[A-Z]\d{2}[A-Z]{2}\d{2}|\d{4}\d{1,2}\d{1,2}|\d{4}|NME|BLA|NCE)+$/i.test(compact);
 }
 
 /** HTML から `<tr>` ブロックごとの `<td>` セル（生 HTML と整形テキスト）を取り出す */
@@ -349,8 +352,13 @@ export function parseKegg(html, knownDrugs, opts = {}) {
     const atc = atcIdx >= 0 ? cells[atcIdx].raw.match(KEGG_ATC_HREF_RE)[1].toUpperCase() : '';
 
     const after = Math.max(dateIdx, entryIdx, atcIdx) + 1;
-    const titleCell = cells.slice(after).find((c) => c.text && !isKeggCodeCell(c.text));
-    const title = titleCell?.text || `KEGG 新薬承認 ${dNo} (${iso})`;
+    // 実ページの列: 日付 | D番号 | (ATC) | 薬効分類 | 一般名 | 販売名 | 会社 | NME/BLA
+    const textCells = cells.slice(after).map((c) => c.text).filter((t) => t && !isKeggCodeCell(t));
+    const [nameCell, brandCell, companyCell] = textCells;
+    let title = nameCell || '';
+    if (brandCell) title += `（${brandCell}）`;
+    if (companyCell) title += ` ${companyCell}`;
+    if (!title) title = `KEGG 新薬承認 ${dNo} (${iso})`;
 
     const key = `${dNo}:${iso}`;
     if (seen.has(key)) continue;
