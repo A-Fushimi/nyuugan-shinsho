@@ -110,7 +110,7 @@ jobs:
       - name: Triage incoming information with Jev
         run: |
           if [ "${{ github.event.inputs.collect_only }}" = "true" ]; then
-            node scripts/triage.mjs --collect-only
+            TRIAGE_DEBUG_HTML=1 node scripts/triage.mjs --collect-only
           elif [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
             node scripts/triage.mjs --dry-run
           else

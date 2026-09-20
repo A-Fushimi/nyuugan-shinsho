@@ -139,7 +139,25 @@ export function parseOncoloFeed(xml, knownDrugs) {
 
 async function collectOncolo({ knownDrugs, fetchImpl }) {
   try {
-    const resp = await fetchWithHeaders(fetchImpl, ONCOLO_FEED);
+    let resp = await fetchWithHeaders(fetchImpl, ONCOLO_FEED);
+    if (!resp.ok && process.env.TRIAGE_DEBUG_HTML) {
+      // 403 の切り分け: ブラウザ完全一致の UA と、フィード URL 違いを試す
+      const tries = [
+        [ONCOLO_FEED, { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36' }],
+        ['https://oncolo.jp/feed/', {}],
+        ['https://oncolo.jp/?feed=rss2', {}],
+        ['https://oncolo.jp/news', {}],
+      ];
+      for (const [url, headers] of tries) {
+        try {
+          const r = await fetchWithHeaders(fetchImpl, url, { headers });
+          const txt = await r.text();
+          console.log(`  ⓘ oncolo try ${url} UA=${headers['User-Agent'] ? 'chrome' : 'default'} -> HTTP ${r.status} ${r.headers.get('server') || ''} ${txt.slice(0, 120).replace(/\s+/g, ' ')}`);
+        } catch (e) {
+          console.log(`  ⓘ oncolo try ${url} -> error ${e.message}`);
+        }
+      }
+    }
     if (!resp.ok) {
       console.warn(`  ⚠ oncolo.jp RSS: HTTP ${resp.status}`);
       return [];
@@ -257,7 +275,21 @@ async function collectKegg({ knownDrugs, fetchImpl }) {
       console.warn(`  ⚠ KEGG: HTTP ${resp.status}`);
       return [];
     }
-    return parseKegg(await resp.text(), knownDrugs);
+    const html = await resp.text();
+    if (process.env.TRIAGE_DEBUG_HTML) {
+      // ページ構造の確認用: /entry/D を含む生 HTML 行を先頭から数行出す
+      const rawLines = String(html).split('\n');
+      console.log(`  ⓘ KEGG raw: ${rawLines.length} lines, ${html.length} chars`);
+      let shown = 0;
+      for (let i = 0; i < rawLines.length && shown < 8; i++) {
+        if (!rawLines[i].includes('/entry/D')) continue;
+        console.log(`    L${i}: ${rawLines[i].slice(0, 500)}`);
+        if (i > 0) console.log(`    L${i - 1}(prev): ${rawLines[i - 1].slice(0, 300)}`);
+        if (i + 1 < rawLines.length) console.log(`    L${i + 1}(next): ${rawLines[i + 1].slice(0, 300)}`);
+        shown += 1;
+      }
+    }
+    return parseKegg(html, knownDrugs);
   } catch (e) {
     console.warn(`  ⚠ KEGG 取得エラー: ${e.message}`);
     return [];
