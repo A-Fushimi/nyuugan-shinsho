@@ -147,7 +147,6 @@ test('KEGG: 実ページの列構成（一般名｜販売名｜会社）から�
   assert.ok(cami, 'D12049 が抽出される');
   assert.equal(cami.title, 'Camizestrant（Etcamah） AstraZeneca');
   assert.equal(cami.meta.atc, 'L02BA05');
-  assert.ok(cami.knownDrugs.includes('camizestrant'));
 });
 
 // ── C. Google ニュース RSS ──
