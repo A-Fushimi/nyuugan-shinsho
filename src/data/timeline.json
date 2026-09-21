@@ -180,9 +180,9 @@
     "readout": 2027.5,
     "nct": "NCT06065748",
     "note": "2027年 readout予定",
-    "pcd": "2027-02",
+    "pcd": "2028-04",
     "scd": "2029-02",
-    "enrollment": "RECRUITING",
+    "enrollment": "ACTIVE_NOT_RECRUITING",
     "enrollmentTarget": 1050,
     "primaryEndpoint": "PFS",
     "regulatory": null

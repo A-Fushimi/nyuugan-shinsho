@@ -1,5 +1,13 @@
 [
   {
+    "ver": "auto",
+    "date": "2026-09-21",
+    "type": "auto",
+    "items": [
+      "試験ステータス自動更新（1件変更: pionERA: enrollment: RECRUITING → ACTIVE_NOT_RECRUITING）"
+    ]
+  },
+  {
     "ver": "2.9",
     "date": "2026-09-17",
     "type": "minor",
