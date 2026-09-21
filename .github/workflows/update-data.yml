@@ -65,6 +65,9 @@ jobs:
       github.event_name == 'workflow_dispatch' && (github.event.inputs.task == 'regulatory' || github.event.inputs.task == 'both')
       || github.event.schedule == '0 1 * * 3'
     runs-on: ubuntu-latest
+    # triage と同じ水曜に走り、どちらも main に push するので直列化する
+    concurrency:
+      group: data-push-${{ github.ref }}
     permissions:
       contents: write
       issues: write
@@ -75,17 +78,24 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - name: Check FDA/PMDA regulatory updates
+      - name: Check FDA approvals against drugs.json
         run: node scripts/check-regulatory.mjs
-        env:
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+      # seen.json を残さないと、同じ承認を毎週報告してしまう
+      - name: Commit regulatory seen state if changed
+        run: |
+          git diff --quiet data/regulatory/ && [ -z "$(git ls-files --others --exclude-standard data/regulatory/)" ] || (
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add data/regulatory
+            git commit -m "auto: 承認チェックの報告済み記録を更新 $(date +%Y-%m-%d)"
+            git push
+          )
       - name: Create GitHub Issue if findings
         if: hashFiles('.github/regulatory-check-result.md') != ''
         run: |
           if [ -f .github/regulatory-check-result.md ]; then
             gh issue create \
-              --title "🏛 承認ステータス変更検出 $(date +%Y-%m-%d)" \
+              --title "🏛 FDA承認とサイトの差分 $(date +%Y-%m-%d)" \
               --body-file .github/regulatory-check-result.md
           fi
         env:
@@ -97,6 +107,9 @@ jobs:
       github.event_name == 'workflow_dispatch' && (github.event.inputs.task == 'triage' || github.event.inputs.task == 'both')
       || github.event.schedule == '0 1 * * 3'
     runs-on: ubuntu-latest
+    # check-regulatory と同じ水曜に走り、どちらも main に push するので直列化する
+    concurrency:
+      group: data-push-${{ github.ref }}
     permissions:
       contents: write
       issues: write

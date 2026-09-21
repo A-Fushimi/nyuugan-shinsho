@@ -83,7 +83,8 @@ docs/jev-triage.md               # 運用ドキュメント（セットアップ
 既存ファイルの変更:
 - `package.json`: 依存 `@typesafe-ai/sdk` 追加、scripts に `"triage": "node scripts/triage.mjs"`, `"test": "node --test scripts/__tests__/"`
 - `.github/workflows/update-data.yml`: `triage` ジョブ追加（毎週水曜 regulatory の後、または独立 cron）。`TYPESAFE_API_KEY` を secrets から渡す。結果ファイルがあれば Issue 起票。`data/triage/` の変更をコミット
-- `check-regulatory.mjs`: 変更しない（後方互換）。トリアージが安定したら oncolo/KEGG 部分を削る判断は人が行う
+- `check-regulatory.mjs`: 当初は変更しない方針だったが、トリアージ稼働後に oncolo/KEGG 部分を削除した（2026-09）。
+  現在は openFDA の承認と `drugs.json` の突き合わせに専念し、報告済みの承認は `data/regulatory/seen.json` に記録する。→ [regulatory-check.md](./regulatory-check.md)
 
 ## 5. TriageItem（正規化スキーマ）
 
