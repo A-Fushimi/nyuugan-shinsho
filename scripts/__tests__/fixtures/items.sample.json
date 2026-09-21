@@ -1,0 +1,179 @@
+[
+  {
+    "id": "gnews:sample-jp-approval",
+    "source": "gnews",
+    "title": "ベージニオ、高リスクHR陽性HER2陰性早期乳がんの術後薬物療法として国内で適応追加承認",
+    "body": "日本イーライリリーは、CDK4/6阻害薬アベマシクリブ（製品名ベージニオ）について、再発高リスクのホルモン受容体陽性HER2陰性早期乳がんに対する術後内分泌療法との併用の適応追加承認を取得したと発表した。monarchE試験の結果に基づく。",
+    "url": "https://news.google.com/rss/articles/CBMiSAMPLE-jp-approval",
+    "date": "2026-09-17",
+    "meta": {
+      "publisher": "日経バイオテク",
+      "query": "乳がん 承認"
+    },
+    "knownDrugs": [
+      "abemaciclib",
+      "ベージニオ"
+    ]
+  },
+  {
+    "id": "gnews:sample-general-article",
+    "source": "gnews",
+    "title": "乳がん経験者が語る、治療と仕事の両立のヒント",
+    "body": "乳がんの治療を受けながら働き続けるために、職場への伝え方や休職・時短勤務の制度の使い方を、経験者と産業医が語る。薬物療法の内容には踏み込まない。",
+    "url": "https://news.google.com/rss/articles/CBMiSAMPLE-general",
+    "date": "2026-09-13",
+    "meta": {
+      "publisher": "地方紙オンライン",
+      "query": "乳癌 新薬"
+    },
+    "knownDrugs": []
+  },
+  {
+    "id": "oncolo:sample-jp-approval",
+    "source": "oncolo",
+    "title": "エンハーツ、HER2低発現の手術不能・再発乳がんに国内承認",
+    "body": "第一三共は、抗HER2抗体薬物複合体トラスツズマブ デルクステカン（製品名エンハーツ）について、HER2低発現の手術不能または再発乳がんに対する適応追加の承認を厚生労働省から取得したと発表した。DESTINY-Breast04試験の結果に基づく。",
+    "url": "https://oncolo.jp/news/sample-jp-approval",
+    "date": "2026-09-16",
+    "meta": {},
+    "knownDrugs": [
+      "trastuzumab deruxtecan",
+      "エンハーツ"
+    ]
+  },
+  {
+    "id": "openfda:sample-us-approval",
+    "source": "openfda",
+    "title": "FDA SUPPL #12 承認: camizestrant（camizestrant）2026-09-10",
+    "body": "application: NDA218000\nsponsor: AstraZeneca\nsubmission: SUPPL #12 (Efficacy-New Indication)\nproducts: CAMIZESTRANT TABLET",
+    "url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=218000",
+    "date": "2026-09-10",
+    "meta": {
+      "generic": "camizestrant",
+      "brand": "camizestrant",
+      "application": "NDA218000"
+    },
+    "knownDrugs": [
+      "camizestrant"
+    ]
+  },
+  {
+    "id": "oncolo:sample-ph3-result",
+    "source": "oncolo",
+    "title": "ESMO2026：DESTINY-Breast09試験、HER2陽性転移乳がん一次治療でPFS延長",
+    "body": "HER2陽性の転移・再発乳がんの一次治療において、トラスツズマブ デルクステカン＋ペルツズマブ併用がタキサン＋トラスツズマブ＋ペルツズマブに対し無増悪生存期間を有意に延長した第III相試験の結果が報告された。",
+    "url": "https://oncolo.jp/news/sample-ph3-result",
+    "date": "2026-09-14",
+    "meta": {},
+    "knownDrugs": [
+      "trastuzumab deruxtecan"
+    ]
+  },
+  {
+    "id": "oncolo:sample-other-cancer",
+    "source": "oncolo",
+    "title": "進行非小細胞肺がんに対する新規EGFR阻害薬、国内第I相試験を開始",
+    "body": "EGFR変異陽性の進行非小細胞肺がんを対象とした新規EGFRチロシンキナーゼ阻害薬の第I相試験が国内で開始された。乳がんは対象に含まれない。",
+    "url": "https://oncolo.jp/news/sample-other-cancer",
+    "date": "2026-09-12",
+    "meta": {},
+    "knownDrugs": []
+  },
+  {
+    "id": "oncolo:sample-supportive",
+    "source": "oncolo",
+    "title": "がん化学療法中の口内炎ケア、患者さんができる5つの工夫",
+    "body": "抗がん剤治療中に起こりやすい口内炎について、日常のセルフケアの方法を看護師が解説する。含嗽や保湿、food選びの工夫を紹介。",
+    "url": "https://oncolo.jp/news/sample-supportive",
+    "date": "2026-09-11",
+    "meta": {},
+    "knownDrugs": []
+  },
+  {
+    "id": "kegg:sample-biosimilar",
+    "source": "kegg",
+    "title": "トラスツズマブBS点滴静注用150mg「NK」 2026-09-05 承認",
+    "body": "トラスツズマブBS点滴静注用150mg「NK」 バイオ後続品 2026-09-05 承認",
+    "url": "https://www.kegg.jp/kegg/drug/br08318.html",
+    "date": "2026-09-05",
+    "meta": {},
+    "knownDrugs": []
+  },
+  {
+    "id": "kegg:sample-pricing-ambiguous",
+    "source": "kegg",
+    "title": "イナボリシブ錠 薬価基準収載 2026-09-01",
+    "body": "イナボリシブ錠3mg/9mg 薬価基準収載 2026-09-01 PIK3CA変異陽性HR陽性HER2陰性乳がん",
+    "url": "https://www.kegg.jp/kegg/drug/br08318.html",
+    "date": "2026-09-01",
+    "meta": {},
+    "knownDrugs": [
+      "inavolisib"
+    ]
+  },
+  {
+    "id": "oncolo:sample-filing",
+    "source": "oncolo",
+    "title": "国内で新規経口SERDの製造販売承認申請、HR陽性進行乳がん対象",
+    "body": "ESR1変異を有するHR陽性HER2陰性の進行・再発乳がんを対象に、新規経口SERDの製造販売承認申請が行われたと発表された。",
+    "url": "https://oncolo.jp/news/sample-filing",
+    "date": "2026-09-08",
+    "meta": {},
+    "knownDrugs": []
+  },
+  {
+    "id": "oncolo:sample-uncertain",
+    "source": "oncolo",
+    "title": "ピンクリボン月間、乳がん検診と治療の最新事情を語るセミナー開催",
+    "body": "10月のピンクリボン月間に合わせ、乳がんの検診受診率向上を目的としたセミナーが開催される。薬物療法の進歩にも触れる予定。",
+    "url": "https://oncolo.jp/news/sample-uncertain",
+    "date": "2026-09-09",
+    "meta": {},
+    "knownDrugs": []
+  },
+  {
+    "id": "ctgov:sample-novel-adc",
+    "source": "ctgov",
+    "title": "A Phase 2 Study of XYZ-101, a Novel B7-H4 Directed Antibody-Drug Conjugate, in Patients With Advanced Triple-Negative Breast Cancer",
+    "body": "conditions: Triple-Negative Breast Cancer\ninterventions: XYZ-101\nphase: PHASE2 / status: RECRUITING / enrollment: 120\nXYZ-101 is a novel antibody-drug conjugate targeting B7-H4 with a topoisomerase I inhibitor payload.",
+    "url": "https://clinicaltrials.gov/study/NCT07777001",
+    "date": "2026-09-03",
+    "meta": {
+      "nct": "NCT07777001",
+      "sponsor": "XYZ Therapeutics",
+      "phase": "PHASE2",
+      "status": "RECRUITING"
+    },
+    "knownDrugs": []
+  },
+  {
+    "id": "ctgov:sample-chemo-only",
+    "source": "ctgov",
+    "title": "Dose-Dense Epirubicin and Cyclophosphamide Followed by Paclitaxel in Early Breast Cancer",
+    "body": "conditions: Breast Cancer\ninterventions: Epirubicin, Cyclophosphamide, Paclitaxel\nphase: PHASE3 / status: RECRUITING / enrollment: 400\nStandard chemotherapy regimens administered in the neoadjuvant setting.",
+    "url": "https://clinicaltrials.gov/study/NCT07777002",
+    "date": "2026-09-02",
+    "meta": {
+      "nct": "NCT07777002",
+      "sponsor": "University Hospital",
+      "phase": "PHASE3",
+      "status": "RECRUITING"
+    },
+    "knownDrugs": []
+  },
+  {
+    "id": "ctgov:sample-unclear-novelty",
+    "source": "ctgov",
+    "title": "Metronomic Capecitabine With or Without an Investigational Oral Agent ABC-77 in Hormone Receptor-Positive Metastatic Breast Cancer",
+    "body": "conditions: Breast Cancer\ninterventions: Capecitabine, ABC-77\nphase: PHASE2 / status: NOT_YET_RECRUITING / enrollment: 60\nABC-77 is described only as an oral investigational agent; its mechanism of action is not stated in the registration.",
+    "url": "https://clinicaltrials.gov/study/NCT07777003",
+    "date": "2026-09-01",
+    "meta": {
+      "nct": "NCT07777003",
+      "sponsor": "Regional Cancer Center",
+      "phase": "PHASE2",
+      "status": "NOT_YET_RECRUITING"
+    },
+    "knownDrugs": []
+  }
+]

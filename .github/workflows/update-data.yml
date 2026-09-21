@@ -16,7 +16,18 @@ on:
         options:
           - trials
           - regulatory
+          - triage
           - both
+      dry_run:
+        description: 'Triage: dry run (no commit, no Issue)'
+        required: false
+        default: false
+        type: boolean
+      collect_only:
+        description: 'Triage: collect only (print sources, no Jev, no commit, no Issue)'
+        required: false
+        default: false
+        type: boolean
 
 jobs:
   update-trials:
@@ -76,6 +87,54 @@ jobs:
             gh issue create \
               --title "🏛 承認ステータス変更検出 $(date +%Y-%m-%d)" \
               --body-file .github/regulatory-check-result.md
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  triage:
+    # Jev 情報トリアージ（regulatory とは独立に実行）
+    if: >-
+      github.event_name == 'workflow_dispatch' && (github.event.inputs.task == 'triage' || github.event.inputs.task == 'both')
+      || github.event.schedule == '0 1 * * 3'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Triage incoming information with Jev
+        run: |
+          if [ "${{ github.event.inputs.collect_only }}" = "true" ]; then
+            node scripts/triage.mjs --collect-only
+          elif [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            node scripts/triage.mjs --dry-run
+          else
+            node scripts/triage.mjs
+          fi
+        env:
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+      - name: Commit triage logs if any
+        if: ${{ github.event.inputs.dry_run != 'true' && github.event.inputs.collect_only != 'true' }}
+        run: |
+          git diff --quiet data/triage/ && git diff --cached --quiet data/triage/ && [ -z "$(git ls-files --others --exclude-standard data/triage/)" ] || (
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add data/triage
+            git commit -m "auto: 情報トリアージ結果 $(date +%Y-%m-%d)"
+            git push
+          )
+      - name: Create GitHub Issue if triage result exists
+        if: ${{ github.event.inputs.dry_run != 'true' && hashFiles('.github/triage-result.md') != '' }}
+        run: |
+          if [ -f .github/triage-result.md ]; then
+            gh issue create \
+              --title "📥 情報トリアージ $(date +%Y-%m-%d)" \
+              --body-file .github/triage-result.md
           fi
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

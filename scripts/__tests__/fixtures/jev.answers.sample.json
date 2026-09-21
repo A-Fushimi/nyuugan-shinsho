@@ -1,0 +1,970 @@
+{
+  "gnews:sample-jp-approval": {
+    "model": "jev-1.2",
+    "usage": {
+      "input_tokens": 1120,
+      "output_tokens": 0
+    },
+    "answers": {
+      "relevant": {
+        "type": "noul",
+        "noul": 0.96
+      },
+      "category": {
+        "type": "choice",
+        "choice": "approval_jp",
+        "confidence": 0.9,
+        "probabilities": {
+          "approval_jp": 0.9,
+          "approval_us": 0.01,
+          "approval_eu": 0.0,
+          "filing": 0.04,
+          "trial_result": 0.03,
+          "trial_start": 0.0,
+          "guideline": 0.0,
+          "safety": 0.0,
+          "other": 0.02
+        }
+      },
+      "impact": {
+        "type": "score",
+        "score": 2.8,
+        "confidence": 0.84,
+        "probabilities": {
+          "0": 0.0,
+          "1": 0.03,
+          "2": 0.14,
+          "3": 0.83
+        }
+      },
+      "subtype": {
+        "type": "choice",
+        "choice": "hr_pos",
+        "confidence": 0.91,
+        "probabilities": {
+          "hr_pos": 0.91,
+          "her2_pos": 0.02,
+          "tnbc": 0.01,
+          "her2_low": 0.02,
+          "multiple": 0.02,
+          "unspecified": 0.02
+        }
+      },
+      "setting": {
+        "type": "choice",
+        "choice": "early",
+        "confidence": 0.89,
+        "probabilities": {
+          "early": 0.89,
+          "metastatic": 0.03,
+          "both": 0.06,
+          "unspecified": 0.02
+        }
+      }
+    }
+  },
+  "gnews:sample-general-article": {
+    "model": "jev-1.2",
+    "usage": {
+      "input_tokens": 700,
+      "output_tokens": 0
+    },
+    "answers": {
+      "relevant": {
+        "type": "noul",
+        "noul": 0.09
+      },
+      "category": {
+        "type": "choice",
+        "choice": "other",
+        "confidence": 0.86,
+        "probabilities": {
+          "approval_jp": 0.0,
+          "approval_us": 0.0,
+          "approval_eu": 0.0,
+          "filing": 0.0,
+          "trial_result": 0.01,
+          "trial_start": 0.0,
+          "guideline": 0.03,
+          "safety": 0.1,
+          "other": 0.86
+        }
+      },
+      "impact": {
+        "type": "score",
+        "score": 0.3,
+        "confidence": 0.72,
+        "probabilities": {
+          "0": 0.75,
+          "1": 0.21,
+          "2": 0.03,
+          "3": 0.01
+        }
+      },
+      "subtype": {
+        "type": "choice",
+        "choice": "unspecified",
+        "confidence": 0.93,
+        "probabilities": {
+          "hr_pos": 0.02,
+          "her2_pos": 0.01,
+          "tnbc": 0.01,
+          "her2_low": 0.01,
+          "multiple": 0.02,
+          "unspecified": 0.93
+        }
+      },
+      "setting": {
+        "type": "choice",
+        "choice": "unspecified",
+        "confidence": 0.87,
+        "probabilities": {
+          "early": 0.05,
+          "metastatic": 0.05,
+          "both": 0.03,
+          "unspecified": 0.87
+        }
+      }
+    }
+  },
+  "oncolo:sample-jp-approval": {
+    "model": "jev-1.2",
+    "usage": {
+      "input_tokens": 1180,
+      "output_tokens": 0
+    },
+    "answers": {
+      "relevant": {
+        "type": "noul",
+        "noul": 0.97
+      },
+      "category": {
+        "type": "choice",
+        "choice": "approval_jp",
+        "confidence": 0.88,
+        "probabilities": {
+          "approval_jp": 0.88,
+          "approval_us": 0.02,
+          "approval_eu": 0.01,
+          "filing": 0.04,
+          "trial_result": 0.03,
+          "trial_start": 0.0,
+          "guideline": 0.0,
+          "safety": 0.0,
+          "other": 0.02
+        }
+      },
+      "impact": {
+        "type": "score",
+        "score": 2.9,
+        "confidence": 0.86,
+        "probabilities": {
+          "0": 0.0,
+          "1": 0.02,
+          "2": 0.08,
+          "3": 0.9
+        }
+      },
+      "subtype": {
+        "type": "choice",
+        "choice": "her2_low",
+        "confidence": 0.79,
+        "probabilities": {
+          "hr_pos": 0.04,
+          "her2_pos": 0.11,
+          "tnbc": 0.02,
+          "her2_low": 0.79,
+          "multiple": 0.03,
+          "unspecified": 0.01
+        }
+      },
+      "setting": {
+        "type": "choice",
+        "choice": "metastatic",
+        "confidence": 0.91,
+        "probabilities": {
+          "early": 0.02,
+          "metastatic": 0.91,
+          "both": 0.05,
+          "unspecified": 0.02
+        }
+      }
+    }
+  },
+  "openfda:sample-us-approval": {
+    "model": "jev-1.2",
+    "usage": {
+      "input_tokens": 860,
+      "output_tokens": 0
+    },
+    "answers": {
+      "relevant": {
+        "type": "noul",
+        "noul": 0.93
+      },
+      "category": {
+        "type": "choice",
+        "choice": "approval_us",
+        "confidence": 0.85,
+        "probabilities": {
+          "approval_jp": 0.01,
+          "approval_us": 0.85,
+          "approval_eu": 0.02,
+          "filing": 0.06,
+          "trial_result": 0.02,
+          "trial_start": 0.0,
+          "guideline": 0.0,
+          "safety": 0.01,
+          "other": 0.03
+        }
+      },
+      "impact": {
+        "type": "score",
+        "score": 2.3,
+        "confidence": 0.72,
+        "probabilities": {
+          "0": 0.01,
+          "1": 0.09,
+          "2": 0.49,
+          "3": 0.41
+        }
+      },
+      "subtype": {
+        "type": "choice",
+        "choice": "hr_pos",
+        "confidence": 0.74,
+        "probabilities": {
+          "hr_pos": 0.74,
+          "her2_pos": 0.03,
+          "tnbc": 0.02,
+          "her2_low": 0.02,
+          "multiple": 0.04,
+          "unspecified": 0.15
+        }
+      },
+      "setting": {
+        "type": "choice",
+        "choice": "metastatic",
+        "confidence": 0.63,
+        "probabilities": {
+          "early": 0.06,
+          "metastatic": 0.63,
+          "both": 0.08,
+          "unspecified": 0.23
+        }
+      }
+    }
+  },
+  "oncolo:sample-ph3-result": {
+    "model": "jev-1.2",
+    "usage": {
+      "input_tokens": 1040,
+      "output_tokens": 0
+    },
+    "answers": {
+      "relevant": {
+        "type": "noul",
+        "noul": 0.96
+      },
+      "category": {
+        "type": "choice",
+        "choice": "trial_result",
+        "confidence": 0.92,
+        "probabilities": {
+          "approval_jp": 0.0,
+          "approval_us": 0.0,
+          "approval_eu": 0.0,
+          "filing": 0.02,
+          "trial_result": 0.92,
+          "trial_start": 0.03,
+          "guideline": 0.0,
+          "safety": 0.0,
+          "other": 0.03
+        }
+      },
+      "impact": {
+        "type": "score",
+        "score": 2.6,
+        "confidence": 0.77,
+        "probabilities": {
+          "0": 0.0,
+          "1": 0.04,
+          "2": 0.32,
+          "3": 0.64
+        }
+      },
+      "subtype": {
+        "type": "choice",
+        "choice": "her2_pos",
+        "confidence": 0.94,
+        "probabilities": {
+          "hr_pos": 0.01,
+          "her2_pos": 0.94,
+          "tnbc": 0.01,
+          "her2_low": 0.02,
+          "multiple": 0.01,
+          "unspecified": 0.01
+        }
+      },
+      "setting": {
+        "type": "choice",
+        "choice": "metastatic",
+        "confidence": 0.93,
+        "probabilities": {
+          "early": 0.01,
+          "metastatic": 0.93,
+          "both": 0.04,
+          "unspecified": 0.02
+        }
+      }
+    }
+  },
+  "oncolo:sample-other-cancer": {
+    "model": "jev-1.2",
+    "usage": {
+      "input_tokens": 780,
+      "output_tokens": 0
+    },
+    "answers": {
+      "relevant": {
+        "type": "noul",
+        "noul": 0.04
+      },
+      "category": {
+        "type": "choice",
+        "choice": "trial_start",
+        "confidence": 0.81,
+        "probabilities": {
+          "approval_jp": 0.01,
+          "approval_us": 0.0,
+          "approval_eu": 0.0,
+          "filing": 0.02,
+          "trial_result": 0.04,
+          "trial_start": 0.81,
+          "guideline": 0.0,
+          "safety": 0.0,
+          "other": 0.12
+        }
+      },
+      "impact": {
+        "type": "score",
+        "score": 0.2,
+        "confidence": 0.88,
+        "probabilities": {
+          "0": 0.83,
+          "1": 0.14,
+          "2": 0.02,
+          "3": 0.01
+        }
+      },
+      "subtype": {
+        "type": "choice",
+        "choice": "unspecified",
+        "confidence": 0.9,
+        "probabilities": {
+          "hr_pos": 0.02,
+          "her2_pos": 0.02,
+          "tnbc": 0.02,
+          "her2_low": 0.01,
+          "multiple": 0.03,
+          "unspecified": 0.9
+        }
+      },
+      "setting": {
+        "type": "choice",
+        "choice": "unspecified",
+        "confidence": 0.86,
+        "probabilities": {
+          "early": 0.03,
+          "metastatic": 0.08,
+          "both": 0.03,
+          "unspecified": 0.86
+        }
+      }
+    }
+  },
+  "oncolo:sample-supportive": {
+    "model": "jev-1.2",
+    "usage": {
+      "input_tokens": 740,
+      "output_tokens": 0
+    },
+    "answers": {
+      "relevant": {
+        "type": "noul",
+        "noul": 0.12
+      },
+      "category": {
+        "type": "choice",
+        "choice": "other",
+        "confidence": 0.87,
+        "probabilities": {
+          "approval_jp": 0.0,
+          "approval_us": 0.0,
+          "approval_eu": 0.0,
+          "filing": 0.0,
+          "trial_result": 0.01,
+          "trial_start": 0.0,
+          "guideline": 0.04,
+          "safety": 0.08,
+          "other": 0.87
+        }
+      },
+      "impact": {
+        "type": "score",
+        "score": 0.4,
+        "confidence": 0.7,
+        "probabilities": {
+          "0": 0.64,
+          "1": 0.31,
+          "2": 0.04,
+          "3": 0.01
+        }
+      },
+      "subtype": {
+        "type": "choice",
+        "choice": "unspecified",
+        "confidence": 0.92,
+        "probabilities": {
+          "hr_pos": 0.02,
+          "her2_pos": 0.02,
+          "tnbc": 0.01,
+          "her2_low": 0.01,
+          "multiple": 0.02,
+          "unspecified": 0.92
+        }
+      },
+      "setting": {
+        "type": "choice",
+        "choice": "unspecified",
+        "confidence": 0.83,
+        "probabilities": {
+          "early": 0.05,
+          "metastatic": 0.07,
+          "both": 0.05,
+          "unspecified": 0.83
+        }
+      }
+    }
+  },
+  "kegg:sample-biosimilar": {
+    "model": "jev-1.2",
+    "usage": {
+      "input_tokens": 690,
+      "output_tokens": 0
+    },
+    "answers": {
+      "relevant": {
+        "type": "noul",
+        "noul": 0.72
+      },
+      "category": {
+        "type": "choice",
+        "choice": "approval_jp",
+        "confidence": 0.8,
+        "probabilities": {
+          "approval_jp": 0.8,
+          "approval_us": 0.0,
+          "approval_eu": 0.0,
+          "filing": 0.05,
+          "trial_result": 0.0,
+          "trial_start": 0.0,
+          "guideline": 0.0,
+          "safety": 0.02,
+          "other": 0.13
+        }
+      },
+      "impact": {
+        "type": "score",
+        "score": 0.6,
+        "confidence": 0.66,
+        "probabilities": {
+          "0": 0.48,
+          "1": 0.45,
+          "2": 0.06,
+          "3": 0.01
+        }
+      },
+      "subtype": {
+        "type": "choice",
+        "choice": "her2_pos",
+        "confidence": 0.68,
+        "probabilities": {
+          "hr_pos": 0.02,
+          "her2_pos": 0.68,
+          "tnbc": 0.01,
+          "her2_low": 0.03,
+          "multiple": 0.06,
+          "unspecified": 0.2
+        }
+      },
+      "setting": {
+        "type": "choice",
+        "choice": "unspecified",
+        "confidence": 0.71,
+        "probabilities": {
+          "early": 0.1,
+          "metastatic": 0.11,
+          "both": 0.08,
+          "unspecified": 0.71
+        }
+      }
+    }
+  },
+  "kegg:sample-pricing-ambiguous": {
+    "model": "jev-1.2",
+    "usage": {
+      "input_tokens": 720,
+      "output_tokens": 0
+    },
+    "answers": {
+      "relevant": {
+        "type": "noul",
+        "noul": 0.95
+      },
+      "category": {
+        "type": "choice",
+        "choice": "approval_jp",
+        "confidence": 0.42,
+        "probabilities": {
+          "approval_jp": 0.42,
+          "approval_us": 0.01,
+          "approval_eu": 0.0,
+          "filing": 0.18,
+          "trial_result": 0.02,
+          "trial_start": 0.0,
+          "guideline": 0.02,
+          "safety": 0.03,
+          "other": 0.32
+        }
+      },
+      "impact": {
+        "type": "score",
+        "score": 2.4,
+        "confidence": 0.74,
+        "probabilities": {
+          "0": 0.0,
+          "1": 0.08,
+          "2": 0.44,
+          "3": 0.48
+        }
+      },
+      "subtype": {
+        "type": "choice",
+        "choice": "hr_pos",
+        "confidence": 0.89,
+        "probabilities": {
+          "hr_pos": 0.89,
+          "her2_pos": 0.02,
+          "tnbc": 0.01,
+          "her2_low": 0.02,
+          "multiple": 0.02,
+          "unspecified": 0.04
+        }
+      },
+      "setting": {
+        "type": "choice",
+        "choice": "metastatic",
+        "confidence": 0.7,
+        "probabilities": {
+          "early": 0.05,
+          "metastatic": 0.7,
+          "both": 0.08,
+          "unspecified": 0.17
+        }
+      }
+    }
+  },
+  "oncolo:sample-filing": {
+    "model": "jev-1.2",
+    "usage": {
+      "input_tokens": 820,
+      "output_tokens": 0
+    },
+    "answers": {
+      "relevant": {
+        "type": "noul",
+        "noul": 0.9
+      },
+      "category": {
+        "type": "choice",
+        "choice": "filing",
+        "confidence": 0.83,
+        "probabilities": {
+          "approval_jp": 0.09,
+          "approval_us": 0.0,
+          "approval_eu": 0.0,
+          "filing": 0.83,
+          "trial_result": 0.03,
+          "trial_start": 0.01,
+          "guideline": 0.0,
+          "safety": 0.0,
+          "other": 0.04
+        }
+      },
+      "impact": {
+        "type": "score",
+        "score": 1.6,
+        "confidence": 0.61,
+        "probabilities": {
+          "0": 0.02,
+          "1": 0.42,
+          "2": 0.5,
+          "3": 0.06
+        }
+      },
+      "subtype": {
+        "type": "choice",
+        "choice": "hr_pos",
+        "confidence": 0.9,
+        "probabilities": {
+          "hr_pos": 0.9,
+          "her2_pos": 0.01,
+          "tnbc": 0.01,
+          "her2_low": 0.02,
+          "multiple": 0.02,
+          "unspecified": 0.04
+        }
+      },
+      "setting": {
+        "type": "choice",
+        "choice": "metastatic",
+        "confidence": 0.88,
+        "probabilities": {
+          "early": 0.02,
+          "metastatic": 0.88,
+          "both": 0.06,
+          "unspecified": 0.04
+        }
+      }
+    }
+  },
+  "oncolo:sample-uncertain": {
+    "model": "jev-1.2",
+    "usage": {
+      "input_tokens": 760,
+      "output_tokens": 0
+    },
+    "answers": {
+      "relevant": {
+        "type": "noul",
+        "noul": 0.48
+      },
+      "category": {
+        "type": "choice",
+        "choice": "other",
+        "confidence": 0.64,
+        "probabilities": {
+          "approval_jp": 0.01,
+          "approval_us": 0.0,
+          "approval_eu": 0.0,
+          "filing": 0.01,
+          "trial_result": 0.04,
+          "trial_start": 0.01,
+          "guideline": 0.05,
+          "safety": 0.24,
+          "other": 0.64
+        }
+      },
+      "impact": {
+        "type": "score",
+        "score": 0.9,
+        "confidence": 0.55,
+        "probabilities": {
+          "0": 0.34,
+          "1": 0.45,
+          "2": 0.18,
+          "3": 0.03
+        }
+      },
+      "subtype": {
+        "type": "choice",
+        "choice": "unspecified",
+        "confidence": 0.85,
+        "probabilities": {
+          "hr_pos": 0.03,
+          "her2_pos": 0.03,
+          "tnbc": 0.02,
+          "her2_low": 0.02,
+          "multiple": 0.05,
+          "unspecified": 0.85
+        }
+      },
+      "setting": {
+        "type": "choice",
+        "choice": "unspecified",
+        "confidence": 0.8,
+        "probabilities": {
+          "early": 0.07,
+          "metastatic": 0.07,
+          "both": 0.06,
+          "unspecified": 0.8
+        }
+      }
+    }
+  },
+  "ctgov:sample-novel-adc": {
+    "model": "jev-1.2",
+    "usage": {
+      "input_tokens": 1320,
+      "output_tokens": 0
+    },
+    "answers": {
+      "relevant": {
+        "type": "noul",
+        "noul": 0.9
+      },
+      "category": {
+        "type": "choice",
+        "choice": "trial_start",
+        "confidence": 0.87,
+        "probabilities": {
+          "approval_jp": 0.0,
+          "approval_us": 0.0,
+          "approval_eu": 0.0,
+          "filing": 0.0,
+          "trial_result": 0.06,
+          "trial_start": 0.87,
+          "guideline": 0.0,
+          "safety": 0.0,
+          "other": 0.07
+        }
+      },
+      "impact": {
+        "type": "score",
+        "score": 1.2,
+        "confidence": 0.6,
+        "probabilities": {
+          "0": 0.06,
+          "1": 0.7,
+          "2": 0.21,
+          "3": 0.03
+        }
+      },
+      "subtype": {
+        "type": "choice",
+        "choice": "tnbc",
+        "confidence": 0.95,
+        "probabilities": {
+          "hr_pos": 0.01,
+          "her2_pos": 0.01,
+          "tnbc": 0.95,
+          "her2_low": 0.01,
+          "multiple": 0.01,
+          "unspecified": 0.01
+        }
+      },
+      "setting": {
+        "type": "choice",
+        "choice": "metastatic",
+        "confidence": 0.89,
+        "probabilities": {
+          "early": 0.02,
+          "metastatic": 0.89,
+          "both": 0.04,
+          "unspecified": 0.05
+        }
+      },
+      "novel_agent": {
+        "type": "noul",
+        "noul": 0.93
+      },
+      "moa": {
+        "type": "choice",
+        "choice": "ADC",
+        "confidence": 0.96,
+        "probabilities": {
+          "ADC": 0.96,
+          "bispecific": 0.01,
+          "PROTAC_degrader": 0.0,
+          "oral_SERD_next": 0.0,
+          "CDK_next": 0.0,
+          "epigenetic": 0.0,
+          "IO_next": 0.01,
+          "cell_therapy": 0.0,
+          "RDC": 0.0,
+          "small_mol_other": 0.01,
+          "Ab_other": 0.01,
+          "other": 0.0,
+          "none": 0.0
+        }
+      }
+    }
+  },
+  "ctgov:sample-chemo-only": {
+    "model": "jev-1.2",
+    "usage": {
+      "input_tokens": 1150,
+      "output_tokens": 0
+    },
+    "answers": {
+      "relevant": {
+        "type": "noul",
+        "noul": 0.88
+      },
+      "category": {
+        "type": "choice",
+        "choice": "trial_start",
+        "confidence": 0.85,
+        "probabilities": {
+          "approval_jp": 0.0,
+          "approval_us": 0.0,
+          "approval_eu": 0.0,
+          "filing": 0.0,
+          "trial_result": 0.05,
+          "trial_start": 0.85,
+          "guideline": 0.0,
+          "safety": 0.0,
+          "other": 0.1
+        }
+      },
+      "impact": {
+        "type": "score",
+        "score": 1.1,
+        "confidence": 0.58,
+        "probabilities": {
+          "0": 0.12,
+          "1": 0.7,
+          "2": 0.16,
+          "3": 0.02
+        }
+      },
+      "subtype": {
+        "type": "choice",
+        "choice": "unspecified",
+        "confidence": 0.72,
+        "probabilities": {
+          "hr_pos": 0.06,
+          "her2_pos": 0.05,
+          "tnbc": 0.06,
+          "her2_low": 0.02,
+          "multiple": 0.09,
+          "unspecified": 0.72
+        }
+      },
+      "setting": {
+        "type": "choice",
+        "choice": "early",
+        "confidence": 0.93,
+        "probabilities": {
+          "early": 0.93,
+          "metastatic": 0.02,
+          "both": 0.03,
+          "unspecified": 0.02
+        }
+      },
+      "novel_agent": {
+        "type": "noul",
+        "noul": 0.06
+      },
+      "moa": {
+        "type": "choice",
+        "choice": "none",
+        "confidence": 0.94,
+        "probabilities": {
+          "ADC": 0.0,
+          "bispecific": 0.0,
+          "PROTAC_degrader": 0.0,
+          "oral_SERD_next": 0.0,
+          "CDK_next": 0.0,
+          "epigenetic": 0.0,
+          "IO_next": 0.0,
+          "cell_therapy": 0.0,
+          "RDC": 0.0,
+          "small_mol_other": 0.03,
+          "Ab_other": 0.0,
+          "other": 0.03,
+          "none": 0.94
+        }
+      }
+    }
+  },
+  "ctgov:sample-unclear-novelty": {
+    "model": "jev-1.2",
+    "usage": {
+      "input_tokens": 1210,
+      "output_tokens": 0
+    },
+    "answers": {
+      "relevant": {
+        "type": "noul",
+        "noul": 0.85
+      },
+      "category": {
+        "type": "choice",
+        "choice": "trial_start",
+        "confidence": 0.8,
+        "probabilities": {
+          "approval_jp": 0.0,
+          "approval_us": 0.0,
+          "approval_eu": 0.0,
+          "filing": 0.0,
+          "trial_result": 0.07,
+          "trial_start": 0.8,
+          "guideline": 0.0,
+          "safety": 0.0,
+          "other": 0.13
+        }
+      },
+      "impact": {
+        "type": "score",
+        "score": 1.3,
+        "confidence": 0.54,
+        "probabilities": {
+          "0": 0.05,
+          "1": 0.64,
+          "2": 0.27,
+          "3": 0.04
+        }
+      },
+      "subtype": {
+        "type": "choice",
+        "choice": "hr_pos",
+        "confidence": 0.88,
+        "probabilities": {
+          "hr_pos": 0.88,
+          "her2_pos": 0.02,
+          "tnbc": 0.02,
+          "her2_low": 0.02,
+          "multiple": 0.02,
+          "unspecified": 0.04
+        }
+      },
+      "setting": {
+        "type": "choice",
+        "choice": "metastatic",
+        "confidence": 0.9,
+        "probabilities": {
+          "early": 0.02,
+          "metastatic": 0.9,
+          "both": 0.04,
+          "unspecified": 0.04
+        }
+      },
+      "novel_agent": {
+        "type": "noul",
+        "noul": 0.52
+      },
+      "moa": {
+        "type": "choice",
+        "choice": "other",
+        "confidence": 0.38,
+        "probabilities": {
+          "ADC": 0.04,
+          "bispecific": 0.02,
+          "PROTAC_degrader": 0.02,
+          "oral_SERD_next": 0.08,
+          "CDK_next": 0.06,
+          "epigenetic": 0.03,
+          "IO_next": 0.03,
+          "cell_therapy": 0.0,
+          "RDC": 0.01,
+          "small_mol_other": 0.28,
+          "Ab_other": 0.02,
+          "other": 0.38,
+          "none": 0.03
+        }
+      }
+    }
+  }
+}
