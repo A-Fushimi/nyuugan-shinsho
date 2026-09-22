@@ -246,6 +246,8 @@ state に載せる情報は `buildState()`（`jev.mjs`）。本文は 2000 字�
 - `data/triage/` に変更（新規ファイル含む）があればコミット＆プッシュ（dry_run のときはスキップ）。
 - `.github/triage-result.md` があれば `gh issue create` で
   「📥 情報トリアージ YYYY-MM-DD」という Issue を起票する（dry_run のときはスキップ）。
+- 同じ水曜に走る `check-regulatory` ジョブとは `concurrency: data-push-<ref>` で直列化している
+  （どちらも main に push するため）。役割の違いは [regulatory-check.md](./regulatory-check.md) を参照。
 
 ---
 
