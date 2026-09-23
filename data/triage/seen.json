@@ -1630,5 +1630,333 @@
   "ctgov:fdee088b992cf309": {
     "decision": "discard",
     "date": "2026-09-21"
+  },
+  "gnews:6e0751e8429a26d9": {
+    "decision": "review",
+    "date": "2026-09-23"
+  },
+  "openfda:971b5e7e50e108e2": {
+    "decision": "review",
+    "date": "2026-09-23"
+  },
+  "ctgov:e8ddce5dd67ef6ce": {
+    "decision": "discard",
+    "date": "2026-09-23"
+  },
+  "ctgov:cc918a6fdf84c8e8": {
+    "decision": "accept",
+    "date": "2026-09-23"
+  },
+  "ctgov:a37db9553f39ddd4": {
+    "decision": "accept",
+    "date": "2026-09-23"
+  },
+  "ctgov:5eada9470534b767": {
+    "decision": "accept",
+    "date": "2026-09-23"
+  },
+  "ctgov:fe6c16cd77206eec": {
+    "decision": "discard",
+    "date": "2026-09-23"
+  },
+  "ctgov:3a54aa39e1799767": {
+    "decision": "accept",
+    "date": "2026-09-23"
+  },
+  "ctgov:ee4507255f573958": {
+    "decision": "accept",
+    "date": "2026-09-23"
+  },
+  "ctgov:63beee5c15a3a5bf": {
+    "decision": "accept",
+    "date": "2026-09-23"
+  },
+  "ctgov:a341c34459c98e0f": {
+    "decision": "accept",
+    "date": "2026-09-23"
+  },
+  "ctgov:d46ae982fd9812d8": {
+    "decision": "accept",
+    "date": "2026-09-23"
+  },
+  "ctgov:388853d86b3588de": {
+    "decision": "review",
+    "date": "2026-09-23"
+  },
+  "ctgov:549852a508323384": {
+    "decision": "accept",
+    "date": "2026-09-23"
+  },
+  "ctgov:76264138efa52c43": {
+    "decision": "accept",
+    "date": "2026-09-23"
+  },
+  "ctgov:f34dc4da254ce2a9": {
+    "decision": "review",
+    "date": "2026-09-23"
+  },
+  "ctgov:4a8961206f921f36": {
+    "decision": "discard",
+    "date": "2026-09-23"
+  },
+  "ctgov:a393c35bbe8daf7b": {
+    "decision": "discard",
+    "date": "2026-09-23"
+  },
+  "ctgov:73455c7a69494adb": {
+    "decision": "accept",
+    "date": "2026-09-23"
+  },
+  "ctgov:21ddbcd310a23117": {
+    "decision": "discard",
+    "date": "2026-09-23"
+  },
+  "ctgov:7235301befdb76ac": {
+    "decision": "discard",
+    "date": "2026-09-23"
+  },
+  "ctgov:299c3c8c432a5cb3": {
+    "decision": "accept",
+    "date": "2026-09-23"
+  },
+  "ctgov:4e5324ddd506a667": {
+    "decision": "discard",
+    "date": "2026-09-23"
+  },
+  "ctgov:b8f9e15b1c3dbeef": {
+    "decision": "discard",
+    "date": "2026-09-23"
+  },
+  "ctgov:6ba8680a18a3d16b": {
+    "decision": "accept",
+    "date": "2026-09-23"
+  },
+  "ctgov:4f92b310f59794dd": {
+    "decision": "accept",
+    "date": "2026-09-23"
+  },
+  "ctgov:c896e7335660e340": {
+    "decision": "accept",
+    "date": "2026-09-23"
+  },
+  "ctgov:0d4850add899928b": {
+    "decision": "accept",
+    "date": "2026-09-23"
+  },
+  "ctgov:b4e7c5f0ea4a5b69": {
+    "decision": "accept",
+    "date": "2026-09-23"
+  },
+  "ctgov:71c7c69cfd5c6686": {
+    "decision": "discard",
+    "date": "2026-09-23"
+  },
+  "ctgov:647429d6902b0faf": {
+    "decision": "accept",
+    "date": "2026-09-23"
+  },
+  "ctgov:b174c817a89ba343": {
+    "decision": "accept",
+    "date": "2026-09-23"
+  },
+  "ctgov:d01127fdb66f2c0c": {
+    "decision": "discard",
+    "date": "2026-09-23"
+  },
+  "ctgov:1fa231d6a75c368d": {
+    "decision": "discard",
+    "date": "2026-09-23"
+  },
+  "ctgov:7681451e024edad6": {
+    "decision": "discard",
+    "date": "2026-09-23"
+  },
+  "ctgov:7e0dbcf3d81329c2": {
+    "decision": "review",
+    "date": "2026-09-23"
+  },
+  "ctgov:f9f0ee118948495c": {
+    "decision": "discard",
+    "date": "2026-09-23"
+  },
+  "ctgov:9b230b081ed0ed3a": {
+    "decision": "accept",
+    "date": "2026-09-23"
+  },
+  "ctgov:61f9f87ca3929d86": {
+    "decision": "discard",
+    "date": "2026-09-23"
+  },
+  "ctgov:c69c84d87d7e9b57": {
+    "decision": "discard",
+    "date": "2026-09-23"
+  },
+  "ctgov:e1807daa10bd6bac": {
+    "decision": "discard",
+    "date": "2026-09-23"
+  },
+  "ctgov:bbb6683b53da4cbe": {
+    "decision": "accept",
+    "date": "2026-09-23"
+  },
+  "ctgov:cb5552494383f047": {
+    "decision": "discard",
+    "date": "2026-09-23"
+  },
+  "ctgov:8ca243f7dddb41fc": {
+    "decision": "accept",
+    "date": "2026-09-23"
+  },
+  "ctgov:a3069557a8a56ced": {
+    "decision": "accept",
+    "date": "2026-09-23"
+  },
+  "ctgov:92ec24c60a6a5cb4": {
+    "decision": "accept",
+    "date": "2026-09-23"
+  },
+  "ctgov:07e9f8c13313dfc9": {
+    "decision": "discard",
+    "date": "2026-09-23"
+  },
+  "ctgov:cb5e3b75e2a0a242": {
+    "decision": "accept",
+    "date": "2026-09-23"
+  },
+  "ctgov:75afd0f9c41d26b8": {
+    "decision": "discard",
+    "date": "2026-09-23"
+  },
+  "ctgov:53b2ec282ded15f3": {
+    "decision": "accept",
+    "date": "2026-09-23"
+  },
+  "ctgov:94f29c810aee6c96": {
+    "decision": "accept",
+    "date": "2026-09-23"
+  },
+  "ctgov:1c753d49aeaaa625": {
+    "decision": "discard",
+    "date": "2026-09-23"
+  },
+  "ctgov:418e77aadbdf3ce3": {
+    "decision": "accept",
+    "date": "2026-09-23"
+  },
+  "ctgov:a9937139b3beeae0": {
+    "decision": "discard",
+    "date": "2026-09-23"
+  },
+  "ctgov:af1a3b7479d314bb": {
+    "decision": "discard",
+    "date": "2026-09-23"
+  },
+  "ctgov:a9602166eee8ff80": {
+    "decision": "accept",
+    "date": "2026-09-23"
+  },
+  "ctgov:d0fc481c21962fdc": {
+    "decision": "discard",
+    "date": "2026-09-23"
+  },
+  "ctgov:172af186e51734dd": {
+    "decision": "accept",
+    "date": "2026-09-23"
+  },
+  "ctgov:210cd28af6e051f2": {
+    "decision": "accept",
+    "date": "2026-09-23"
+  },
+  "ctgov:d6b47df820c8bd78": {
+    "decision": "accept",
+    "date": "2026-09-23"
+  },
+  "ctgov:f3a0f13337c86bf8": {
+    "decision": "accept",
+    "date": "2026-09-23"
+  },
+  "ctgov:563ad0ca0883381c": {
+    "decision": "review",
+    "date": "2026-09-23"
+  },
+  "ctgov:ff9804ca8f9428b5": {
+    "decision": "accept",
+    "date": "2026-09-23"
+  },
+  "ctgov:99d0824d4c97456e": {
+    "decision": "accept",
+    "date": "2026-09-23"
+  },
+  "ctgov:f48942339288a081": {
+    "decision": "accept",
+    "date": "2026-09-23"
+  },
+  "ctgov:3853f51b89e69275": {
+    "decision": "accept",
+    "date": "2026-09-23"
+  },
+  "ctgov:22beab57fc21c130": {
+    "decision": "accept",
+    "date": "2026-09-23"
+  },
+  "ctgov:01c0679558c14f39": {
+    "decision": "discard",
+    "date": "2026-09-23"
+  },
+  "ctgov:4988ccd5e8b77f3f": {
+    "decision": "accept",
+    "date": "2026-09-23"
+  },
+  "ctgov:ee57ad2be34cf76e": {
+    "decision": "discard",
+    "date": "2026-09-23"
+  },
+  "ctgov:898f9a5c9f61244f": {
+    "decision": "accept",
+    "date": "2026-09-23"
+  },
+  "ctgov:30d249bfcc495899": {
+    "decision": "review",
+    "date": "2026-09-23"
+  },
+  "ctgov:fc9660d0d214e53f": {
+    "decision": "discard",
+    "date": "2026-09-23"
+  },
+  "ctgov:28891a306cf12831": {
+    "decision": "discard",
+    "date": "2026-09-23"
+  },
+  "ctgov:23269bfbc4354b7d": {
+    "decision": "accept",
+    "date": "2026-09-23"
+  },
+  "ctgov:d97bd3fa8f42ba21": {
+    "decision": "discard",
+    "date": "2026-09-23"
+  },
+  "ctgov:ce9a01f5bd176b99": {
+    "decision": "discard",
+    "date": "2026-09-23"
+  },
+  "ctgov:c820ae337852c3b9": {
+    "decision": "accept",
+    "date": "2026-09-23"
+  },
+  "ctgov:54cb7ac131c4e5f7": {
+    "decision": "accept",
+    "date": "2026-09-23"
+  },
+  "ctgov:9ba0040e00020eff": {
+    "decision": "discard",
+    "date": "2026-09-23"
+  },
+  "ctgov:576b272be44aa498": {
+    "decision": "discard",
+    "date": "2026-09-23"
+  },
+  "ctgov:3bf4eeff4a205959": {
+    "decision": "accept",
+    "date": "2026-09-23"
   }
 }
