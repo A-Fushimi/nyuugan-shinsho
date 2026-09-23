@@ -60,11 +60,22 @@ npm test
 
 - 起動: 毎週水曜 UTC 1:00（`0 1 * * 3`）の cron、または `workflow_dispatch` で
   `task` に `regulatory` か `both` を選ぶ。
-- `data/regulatory/` に変更があればコミット＆プッシュ。**この記録が残らないと毎週同じ Issue が立つ。**
 - `.github/regulatory-check-result.md` があれば `gh issue create` で
   「🏛 FDA承認とサイトの差分 YYYY-MM-DD」という Issue を起票する。
-- `triage` ジョブと同じ水曜に走り、どちらも main に push するので、
-  `concurrency: data-push-<ref>` で直列化している。
+- そのあとで `data/regulatory/` をコミット＆プッシュ。**この記録が残らないと毎週同じ Issue が立つ。**
+
+順序が大事で、**起票 → 記録**にしてある。逆にすると、記録は成功したが起票に失敗したときに
+「報告済み」だけが残り、その所見が二度と出てこない。この順序なら、起票に失敗しても記録が残らないので
+次回また報告される（重複は出るが、埋もれるよりよい）。
+
+`main` への push は 3 ジョブとも次の 2 つで守っている。
+
+- `concurrency: data-push-<ref>` — `check-regulatory` と `triage` は同じ水曜に走り、
+  `workflow_dispatch` の `task: both` では 3 つとも並走するので直列化する。
+- `actions/checkout` の `ref: main` / `fetch-depth: 0` と、push 前の `git pull --rebase origin main` —
+  checkout は既定では「起動のきっかけになったコミット」を取るので、同じ run の別ジョブが先に push すると
+  main より後ろになり、push が `! [rejected] (fetch first)` で弾かれる（2026-09-23 に実際に起きた）。
+  直列化だけでは防げないので、常に main の先端を取ってから rebase して push する。
 
 ---
 

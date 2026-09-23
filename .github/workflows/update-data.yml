@@ -35,11 +35,20 @@ jobs:
       github.event_name == 'workflow_dispatch' && (github.event.inputs.task == 'trials' || github.event.inputs.task == 'both')
       || github.event.schedule == '0 0 * * 1'
     runs-on: ubuntu-latest
+    # workflow_dispatch の task: both では他のジョブと並走し、どれも main に push するので直列化する
+    concurrency:
+      group: data-push-${{ github.ref }}
     permissions:
       contents: write
       issues: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          # 既定では「起動のきっかけになったコミット」を checkout するので、
+          # 同じ run の別ジョブが先に push すると main より後ろになり push が弾かれる。
+          # 常に main の先端を取る。
+          ref: main
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -57,7 +66,8 @@ jobs:
             git config user.email "github-actions[bot]@users.noreply.github.com"
             git add src/data/timeline.json src/data/changelog.json src/App.jsx
             git commit -m "auto: 試験ステータス更新 $(date +%Y-%m-%d)"
-            git push
+            git pull --rebase origin main
+            git push origin HEAD:main
           )
 
   check-regulatory:
@@ -73,6 +83,12 @@ jobs:
       issues: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          # 既定では「起動のきっかけになったコミット」を checkout するので、
+          # 同じ run の別ジョブが先に push すると main より後ろになり push が弾かれる。
+          # 常に main の先端を取る。
+          ref: main
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -80,16 +96,6 @@ jobs:
       - run: npm ci
       - name: Check FDA approvals against drugs.json
         run: node scripts/check-regulatory.mjs
-      # seen.json を残さないと、同じ承認を毎週報告してしまう
-      - name: Commit regulatory seen state if changed
-        run: |
-          git diff --quiet data/regulatory/ && [ -z "$(git ls-files --others --exclude-standard data/regulatory/)" ] || (
-            git config user.name "github-actions[bot]"
-            git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add data/regulatory
-            git commit -m "auto: 承認チェックの報告済み記録を更新 $(date +%Y-%m-%d)"
-            git push
-          )
       - name: Create GitHub Issue if findings
         if: hashFiles('.github/regulatory-check-result.md') != ''
         run: |
@@ -100,6 +106,19 @@ jobs:
           fi
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # 起票のあとに記録する。順序が逆だと、起票に失敗したときに
+      # 「報告済み」だけが残って所見が埋もれる。
+      # この記録が残らないと、同じ承認を毎週報告してしまう。
+      - name: Commit regulatory seen state if changed
+        run: |
+          git diff --quiet data/regulatory/ && [ -z "$(git ls-files --others --exclude-standard data/regulatory/)" ] || (
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add data/regulatory
+            git commit -m "auto: 承認チェックの報告済み記録を更新 $(date +%Y-%m-%d)"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          )
 
   triage:
     # Jev 情報トリアージ（regulatory とは独立に実行）
@@ -115,6 +134,12 @@ jobs:
       issues: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          # 既定では「起動のきっかけになったコミット」を checkout するので、
+          # 同じ run の別ジョブが先に push すると main より後ろになり push が弾かれる。
+          # 常に main の先端を取る。
+          ref: main
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -139,7 +164,8 @@ jobs:
             git config user.email "github-actions[bot]@users.noreply.github.com"
             git add data/triage
             git commit -m "auto: 情報トリアージ結果 $(date +%Y-%m-%d)"
-            git push
+            git pull --rebase origin main
+            git push origin HEAD:main
           )
       - name: Create GitHub Issue if triage result exists
         if: ${{ github.event.inputs.dry_run != 'true' && hashFiles('.github/triage-result.md') != '' }}
