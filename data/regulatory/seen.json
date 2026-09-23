@@ -1,1 +1,58 @@
-{}
+{
+  "openfda:fa24c3d38d65eed7": {
+    "decision": "reported",
+    "date": "2026-09-23"
+  },
+  "openfda:acc192586b9c9f8b": {
+    "decision": "reported",
+    "date": "2026-09-23"
+  },
+  "openfda:56a4371583482313": {
+    "decision": "reported",
+    "date": "2026-09-23"
+  },
+  "openfda:051c1f544f740b87": {
+    "decision": "reported",
+    "date": "2026-09-23"
+  },
+  "openfda:971b5e7e50e108e2": {
+    "decision": "reported",
+    "date": "2026-09-23"
+  },
+  "openfda:32cc4d6aa7216e01": {
+    "decision": "reported",
+    "date": "2026-09-23"
+  },
+  "openfda:1035ba6a997a9808": {
+    "decision": "reflected",
+    "date": "2026-09-23"
+  },
+  "openfda:f2146b4288a23cfd": {
+    "decision": "reported",
+    "date": "2026-09-23"
+  },
+  "openfda:cbf5eb0a2fe9330f": {
+    "decision": "reflected",
+    "date": "2026-09-23"
+  },
+  "openfda:d17feda031c61291": {
+    "decision": "reflected",
+    "date": "2026-09-23"
+  },
+  "openfda:e76d4dc650cfebde": {
+    "decision": "reported",
+    "date": "2026-09-23"
+  },
+  "openfda:140a87f799e9835d": {
+    "decision": "reported",
+    "date": "2026-09-23"
+  },
+  "openfda:9b9f356e1a882ce7": {
+    "decision": "reported",
+    "date": "2026-09-23"
+  },
+  "openfda:45fe43a0d73ee449": {
+    "decision": "reported",
+    "date": "2026-09-23"
+  }
+}
