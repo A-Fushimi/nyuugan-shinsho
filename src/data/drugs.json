@@ -1875,7 +1875,7 @@
     "id": 23,
     "name": "DB-1303",
     "generic": "BNT323/DB-1303",
-    "co": "BioNTech/Daiichi Sankyo",
+    "co": "BioNTech/DualityBio",
     "cls": "ADC（HER2）次世代",
     "tgt": "HER2",
     "sub": [
@@ -1914,7 +1914,7 @@
         "url": "https://clinicaltrials.gov/study/NCT05150691"
       }
     ],
-    "next": "Phase III設計検討中。BioNTech 2026年複数readout予定"
+    "next": "中国Ph III（対T-DM1、HER2+ MBC 2L）でPFS主要評価項目達成、中国NMPAがBLA受理(2026/4)。DYNASTY-Breast02（HR+/HER2-low）結果待ち"
   },
   {
     "id": 24,
@@ -2611,8 +2611,8 @@
       "note": "SN-38系（トロデルビ）と比較して下痢が軽度。骨髄抑制が主な毒性"
     },
     "us": {
-      "s": "rev",
-      "t": "FDA申請中（TNBC 2L+ OptiTROP-Breast01ベース）"
+      "s": "p3",
+      "t": "FDA申請の公表なし。グローバルPh III（TroFuse-010/011等）進行中"
     },
     "eu": {
       "s": "dev",
@@ -2667,14 +2667,15 @@
         "pr": "ESMO 2025"
       },
       {
-        "n": "OptiTROP-Breast03/TroFuse",
+        "n": "OptiTROP-Breast03",
         "ph": "III",
-        "pop": "TNBC 1L MBC PD-L1+",
-        "arm": "sac-TMT + pembrolizumab",
-        "ctrl": "化学療法 + pembrolizumab",
-        "res": "進行中",
-        "st": "run",
-        "pr": "readout 2027"
+        "pop": "TNBC 1L MBC（PD-L1陰性、またはPD-L1陽性で周術期IO後再発）",
+        "arm": "sac-TMT 単剤",
+        "ctrl": "医師選択化学療法",
+        "res": "PFS主要評価項目達成（中間解析）。OS未成熟",
+        "st": "pos",
+        "pr": "Kelun-Biotech 2026/5/21",
+        "url": "https://www.biospace.com/press-releases/kelun-biotech-announces-phase-iii-trial-of-sacituzumab-tirumotecan-sac-tmt-versus-chemotherapy-as-first-line-treatment-for-advanced-tnbc-met-primary-endpoint-of-pfs"
       },
       {
         "n": "TroFuse-011",
@@ -2697,7 +2698,7 @@
         "pr": "SABCS 2025 design"
       }
     ],
-    "next": "FDA承認判断（TNBC 2L+）。1L・EBC試験が多数進行中"
+    "next": "中国でTNBC 1L（OptiTROP-Breast03）の適応追加申請が受理。グローバルではTroFuse-011（TNBC 1L）等が進行中"
   },
   {
     "id": 32,

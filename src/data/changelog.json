@@ -1,5 +1,19 @@
 [
   {
+    "ver": "3.0",
+    "date": "2026-10-06",
+    "type": "minor",
+    "items": [
+      "🆕🇺🇸 イムルリオ（imlunestrant）＋ベージニオ（abemaciclib）FDA承認（2026/9/18）— ESR1変異・内分泌療法後のHR+/HER2- 転移・再発乳がん。EMBER-3でESR1変異例の mPFS 11.1 vs 5.5ヶ月（対imlunestrant単剤、探索的解析）。Guardant360 CDxを同時承認",
+      "🆕🇯🇵 キイジェクト（キイトルーダ皮下注）承認（2026/9/16）— 国内初の皮下注免疫チェックポイント阻害薬。イブランス HR+かつHER2+ 化学療法後の維持療法（PATINA）も同日に適応追加承認",
+      "🇪🇺 エンハーツ 術後治療（DESTINY-Breast05：術前治療後に浸潤癌が残存したHER2+早期乳がん）にEU CHMPが承認勧告（2026/9）— 3年iDFS 92.4% vs 83.7%（HR 0.47、対T-DM1）",
+      "ギレデストラント 術後（lidERA）のFDA優先審査（承認判断予定 2026/11/30）を追記。evERAはNEJMに掲載",
+      "ADC領域の収録点検: 中国で承認・Ph III陽性のHER2 ADC 4試験を新規収録（トラスツズマブ レゼテカン HORIZON-Breast01、トラスツズマブ ボチドチン KL166-III-06、ディシタマブ ベドチン RC48-C006、ARX788 ACE-Breast-02）。いずれも日米欧では未承認",
+      "修正: OptiTROP-Breast03 はsac-TMT単剤 対 化学療法の1次治療TNBC試験（PFS主要評価項目達成）であり、記載内容を訂正。iza-bren PANKU-Breast02（ASCO 2026、mPFS 8.5 vs 3.1ヶ月・OS延長）の詳細結果を反映。sac-TMTの米国ステータス、DB-1303の開発企業（DualityBio）を訂正",
+      "注目イベント（2026 Q3を完了に）・日本承認見通し・薬剤カード・臨床試験タイムラインを最新化"
+    ]
+  },
+  {
     "ver": "auto",
     "date": "2026-10-05",
     "type": "auto",

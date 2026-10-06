@@ -562,11 +562,11 @@
           },
           {
             "drug": "Sac-TMT",
-            "trial": "OptiTROP-Breast03",
-            "note": "次世代TROP2-ADC。周術期設定",
+            "trial": "TroFuse-032",
+            "note": "次世代TROP2-ADC。術前ペムブロリズマブ併用（周術期）",
             "phase": "Ph III ⏳",
             "color": "cyan",
-            "trialUrl": null
+            "trialUrl": "https://clinicaltrials.gov/study/NCT06966700"
           }
         ]
       },
