@@ -85,7 +85,7 @@
     "lpi": 2024.333,
     "readout": 2025.8,
     "nct": "NCT05306340",
-    "note": "ESMO 2025。FDA承認予定 12/18/2026",
+    "note": "ESMO 2025、NEJM 2026。FDA承認予定 12/18/2026",
     "resultUrl": "https://www.annalsofoncology.org/article/S0923-7534(25)04796-9/fulltext",
     "resultRef": "Ann Oncol 2025 (ESMO LBA16)",
     "pcd": "2025-07",
@@ -127,7 +127,7 @@
     "lpi": 2023.983,
     "readout": 2026.333,
     "nct": "NCT04961996",
-    "note": "SABCS 2025。iDFS HR 0.70",
+    "note": "SABCS 2025。iDFS HR 0.70。FDA優先審査 PDUFA 11/30/2026",
     "resultUrl": "https://dailyreporter.esmo.org/esmo-breast-cancer-2026/latest-news/sustained-quality-of-life-benefits-reported-with-first-line-antibody-drug-conjugate-in-triple-negative-breast-cancer",
     "resultRef": "ESMO Breast 2026",
     "pcd": "2025-08",
@@ -135,7 +135,22 @@
     "enrollment": "ACTIVE_NOT_RECRUITING",
     "enrollmentTarget": 4170,
     "primaryEndpoint": "iDFS",
-    "regulatory": null
+    "regulatory": {
+      "fda": {
+        "submission": "2026-06",
+        "pdufa": "2026-11-30",
+        "adcom": null,
+        "approval": null
+      },
+      "pmda": {
+        "submission": null,
+        "approval": null
+      },
+      "ema": {
+        "submission": null,
+        "approval": null
+      }
+    }
   },
   {
     "drug": "giredestrant",
@@ -240,13 +255,13 @@
     "ep": "PFS（ESR1m群）",
     "ep2": "OS, ORR, PFS（ITT）",
     "res": "ESR1m群 mPFS 5.5 vs 3.8m (HR 0.62)",
-    "res2": "ITT PFS HR 0.87 (有意差なし)",
+    "res2": "ITT PFS HR 0.87 (有意差なし)。アベマシクリブ併用 ESR1m群 mPFS 11.1 vs 5.5m（対単剤）",
     "st": "pos",
     "fpi": 2021.75,
     "lpi": 2023.35,
     "readout": 2024.5,
     "nct": "NCT04975308",
-    "note": "NEJM 2025。FDA/EMA/PMDA承認済み",
+    "note": "NEJM 2025。単剤はFDA/EMA/PMDA承認済み。アベマシクリブ併用（ESR1m）はFDA承認 2026/9/18",
     "resultUrl": "https://www.nejm.org/doi/full/10.1056/NEJMoa2410858",
     "resultRef": "NEJM 2025",
     "pcd": "2024-06",
@@ -526,14 +541,14 @@
     "ctrl": "T-DM1",
     "ep": "iDFS",
     "ep2": "OS, DRFI",
-    "res": "iDFS有意改善",
+    "res": "3y iDFS 92.4% vs 83.7% (HR 0.47)",
     "res2": "OS immature",
     "st": "pos",
     "fpi": 2020.917,
     "lpi": 2023.917,
     "readout": 2025.8,
     "nct": "NCT04622319",
-    "note": "ESMO 2025。FDA承認予定 2026 Q3",
+    "note": "ESMO 2025。FDA承認 2026/5/15、EU CHMP承認勧告 2026/9、日本申請中",
     "resultUrl": "https://www.nejm.org/doi/full/10.1056/NEJMoa2514661",
     "resultRef": "NEJM 2026",
     "pcd": "2025-07",
@@ -546,10 +561,10 @@
         "submission": "2026-01",
         "pdufa": null,
         "adcom": null,
-        "approval": null
+        "approval": "2026-05-15"
       },
       "pmda": {
-        "submission": null,
+        "submission": "2026-02",
         "approval": null
       },
       "ema": {
@@ -1187,7 +1202,7 @@
     "lpi": 2021.817,
     "readout": 2024.9,
     "nct": "NCT02947685",
-    "note": "SABCS 2024 GS2-12。NEJM 2026。維持療法",
+    "note": "SABCS 2024 GS2-12。NEJM 2026。維持療法。日本承認 2026/9/16",
     "resultUrl": "https://www.nejm.org/doi/full/10.1056/NEJMoa2511218",
     "resultRef": "NEJM 2026",
     "pcd": "2024-10",
@@ -1203,8 +1218,8 @@
         "approval": null
       },
       "pmda": {
-        "submission": null,
-        "approval": null
+        "submission": "2025-11",
+        "approval": "2026-09-16"
       },
       "ema": {
         "submission": null,

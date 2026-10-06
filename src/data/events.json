@@ -72,7 +72,7 @@
   },
   {
     "q": "2026 Q3",
-    "done": false,
+    "done": true,
     "items": [
       {
         "text": "🆕 ゲダトリシブ（REVTORPYK）FDA承認（7/14、PIK3CA野生型）",
@@ -103,7 +103,19 @@
         "isNew": true
       },
       {
-        "text": "🇯🇵 医薬品第二部会（8/24）: キイトルーダ皮下注（キイジェクト）承認了承、イブランス HR+/HER2+ 維持療法 適応拡大了承"
+        "text": "🇯🇵 キイジェクト（キイトルーダ皮下注）承認・イブランス HR+/HER2+ 維持療法 適応追加（9/16）",
+        "result": "✅ 8/24の医薬品第二部会を経て承認。キイジェクトは国内初の皮下注免疫チェックポイント阻害薬"
+      },
+      {
+        "text": "🆕 イムルリオ（imlunestrant）＋アベマシクリブ FDA承認（9/18、ESR1変異）",
+        "generic": "imlunestrant",
+        "result": "✅ EMBER-3。ESR1変異例で mPFS 11.1 vs 5.5m（対imlunestrant単剤、探索的解析）。Guardant360 CDxを同時承認",
+        "isNew": true
+      },
+      {
+        "text": "エンハーツ 術後（DB-05）EU CHMP承認勧告（9/14-17会合）",
+        "generic": "trastuzumab deruxtecan",
+        "result": "✅ 術前治療後に浸潤癌が残存したHER2+早期乳がん。3年iDFS 92.4% vs 83.7%（HR 0.47、対T-DM1）"
       }
     ]
   },
@@ -112,7 +124,11 @@
     "done": false,
     "items": [
       {
-        "text": "ESMO 2026（10/23-27）"
+        "text": "Giredestrant lidERA（術後）FDA承認判断（11/30、優先審査）",
+        "generic": "giredestrant"
+      },
+      {
+        "text": "ESMO 2026（10/23-27、マドリード）: VIKTORIA-1 Study 2 更新結果（LBA16）等"
       },
       {
         "text": "Giredestrant evERA FDA承認判断（12/18）",
