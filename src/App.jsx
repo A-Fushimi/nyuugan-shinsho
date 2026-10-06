@@ -15,7 +15,7 @@ import REGIMENS_JSON from "./data/regimens.json";
 
 const { S, SC, SB, MOA_CAT_LABELS, STAGE_STYLE, stColors, subColors } = _constants;
 const NavContext = createContext(null);
-const UPDATED = "2026年10月5日";
+const UPDATED = "2026年10月6日";
 
 function Chip({text,color,bg}){return <span style={{fontSize:11,fontWeight:600,color,background:bg,padding:"2px 8px",borderRadius:999,whiteSpace:"nowrap",display:"inline-block"}}>{text}</span>}
 function StatusChip({s}){return <Chip text={S[s]||s} color={s==="ok"?"#15803d":s==="rev"?"#1d4ed8":s==="no"?"#94a3b8":"#374151"} bg={SB[s]||"#f1f5f9"}/>}
@@ -495,7 +495,7 @@ function GanttChart({focusTrial,onFocusClear}){
                 const activeRatio=barW>0?Math.min(activeW/barW*100,100):100;
                 // Bar text
                 const barText=t.st==="pos"?`✓ ${t.res||"Positive"}`:t.st==="neg"?`✗ ${t.res||"Negative"}`:"進行中";
-                return barW>0?(
+                return t.fpi!=null&&barW>0?(
                   <div style={{position:"absolute",left:pct(t.fpi)+"%",width:barW+"%",height:20,top:2,borderRadius:4,overflow:"visible",cursor:"pointer"}}>
                     {/* Follow-up portion (full bar, light) */}
                     <div style={{position:"absolute",left:0,top:0,right:0,bottom:0,background:barBg,borderRadius:4,border:`1px solid ${sc}40`}}/>
@@ -509,7 +509,7 @@ function GanttChart({focusTrial,onFocusClear}){
                 ):null;
               })()}
               {/* Enrollment bar (thin gray at bottom) */}
-              <div style={{position:"absolute",left:pct(t.fpi)+"%",width:(pct(t.lpi)-pct(t.fpi))+"%",height:3,top:23,background:"#9ca3af",opacity:0.5,borderRadius:2}}/>
+              {t.fpi!=null&&t.lpi!=null&&<div style={{position:"absolute",left:pct(t.fpi)+"%",width:(pct(t.lpi)-pct(t.fpi))+"%",height:3,top:23,background:"#9ca3af",opacity:0.5,borderRadius:2}}/>}
               {/* Readout marker ▼ */}
               {t.readout&&<div style={{position:"absolute",left:pct(t.readout)+"%",top:-2,fontSize:9,color:sc,transform:"translateX(-50%)",lineHeight:1,fontWeight:700}}>▼</div>}
               {/* PCD marker ◆ (ongoing only) */}
@@ -540,8 +540,8 @@ function GanttChart({focusTrial,onFocusClear}){
                 <div style={{marginTop:6,padding:"6px 10px",background:"#fff",borderRadius:6,border:"1px solid #e2e8f0"}}>
                   <div style={{fontSize:11,fontWeight:700,color:"#475569",marginBottom:4}}>📅 試験日程</div>
                   <div style={{display:"grid",gridTemplateColumns:"auto 1fr",gap:"2px 12px",fontSize:11,color:"#334155"}}>
-                    <span style={{color:"#64748b"}}>試験開始 (FPI):</span><span>{Math.floor(t.fpi)}年{Math.round((t.fpi-Math.floor(t.fpi))*12)+1}月</span>
-                    <span style={{color:"#64748b"}}>登録完了 (LPI):</span><span>{Math.floor(t.lpi)}年{Math.round((t.lpi-Math.floor(t.lpi))*12)+1}月{t.enrollment==="RECRUITING"?" （推定）":""}</span>
+                    <span style={{color:"#64748b"}}>試験開始 (FPI):</span><span>{t.fpi!=null?`${Math.floor(t.fpi)}年${Math.round((t.fpi-Math.floor(t.fpi))*12)+1}月`:"—"}</span>
+                    <span style={{color:"#64748b"}}>登録完了 (LPI):</span><span>{t.lpi!=null?`${Math.floor(t.lpi)}年${Math.round((t.lpi-Math.floor(t.lpi))*12)+1}月${t.enrollment==="RECRUITING"?" （推定）":""}`:"—"}</span>
                     {t.pcd&&<><span style={{color:"#64748b"}}>主要評価完了 (PCD):</span><span>{fmtYM(t.pcd)}{t.st==="run"?" （推定）":""}</span></>}
                     {t.scd&&<><span style={{color:"#64748b"}}>試験完了 (SCD):</span><span>{fmtYM(t.scd)} （推定）</span></>}
                     {t.readout&&<><span style={{color:"#64748b"}}>結果発表:</span><span style={{fontWeight:600}}>{Math.floor(t.readout)}年</span></>}
@@ -850,7 +850,7 @@ export default function Dashboard(){
           <span style={{fontSize:11,color:"#94a3b8",fontWeight:500}}>Breast Cancer Drug Pipeline & Treatment Atlas</span>
         </div>
         <p style={{margin:"4px 0 0",fontSize:11,color:"#94a3b8"}}>治療開発パイプライン ・ 臨床試験タイムライン ・ 開発初期ランドスケープ ・ 日本の標準治療</p>
-        <p style={{margin:"3px 0 0",fontSize:10,color:"#64748b"}}>2026年2.9版　｜　最終更新: {UPDATED}　｜　収録薬剤: {DRUGS.length}　｜　収録試験: {TIMELINE.length}　｜　収録レジメン: {REGIMENS.length}　｜　収録用語: {GLOSSARY.terms.length}</p>
+        <p style={{margin:"3px 0 0",fontSize:10,color:"#64748b"}}>2026年3.0版　｜　最終更新: {UPDATED}　｜　収録薬剤: {DRUGS.length}　｜　収録試験: {TIMELINE.length}　｜　収録レジメン: {REGIMENS.length}　｜　収録用語: {GLOSSARY.terms.length}</p>
       </div>
 
       {/* Tabs */}

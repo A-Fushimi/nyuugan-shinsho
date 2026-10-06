@@ -76,8 +76,8 @@
     "name": "キイジェクト（pembrolizumab 皮下注）",
     "generic": "pembrolizumab",
     "sub": "TNBC含む全固形がん（皮下注）",
-    "status": "🆕 2026/8/24 医薬品第二部会で承認了承（静注と同じ23適応）",
-    "color": "#2563eb"
+    "status": "🆕 2026/9/16 承認（静注と同じ適応、国内初の皮下注免疫チェックポイント阻害薬）",
+    "color": "#16a34a"
   },
   {
     "cat": "development",
@@ -108,7 +108,7 @@
     "name": "イブランス（palbociclib）",
     "generic": "palbociclib",
     "sub": "HR+かつHER2+ MBC 化学療法後の維持療法",
-    "status": "🆕 2026/8/24 医薬品第二部会で適応拡大了承（PATINA）",
+    "status": "🆕 2026/9/16 適応追加承認（PATINA）",
     "color": "#2563eb"
   }
 ]

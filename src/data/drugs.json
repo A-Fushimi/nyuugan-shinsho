@@ -72,8 +72,8 @@
     },
     "jp": {
       "s": "ok",
-      "t": "承認済 2017/9 イブランス",
-      "url": "https://www.kegg.jp/medicus-bin/japic_med?japic_code=00068468"
+      "t": "承認済 2017/9 イブランス／🆕 2026/9/16 HR+かつHER2+ 化学療法後の維持療法（PATINA）適応追加",
+      "url": "https://www.pfizer.co.jp/pfizer/company/press/2026/2026-09-16-02"
     },
     "studies": [
       {
@@ -391,8 +391,8 @@
     ],
     "us": {
       "s": "ok",
-      "t": "承認済 2025/9 Inluriyo",
-      "url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=219060"
+      "t": "承認済 2025/9 Inluriyo（単剤）／🆕 2026/9/18 アベマシクリブ併用（ESR1変異）を追加承認",
+      "url": "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-imlunestrant-combination-abemaciclib-er-positive-her2-negative-esr1-mutated-advanced-or"
     },
     "eu": {
       "s": "ok",
@@ -433,7 +433,7 @@
         "pop": "HR+/HER2- ESR1m MBC 2L+",
         "arm": "imlunestrant mono / imlunestrant + abemaciclib",
         "ctrl": "fulvestrant or exemestane（医師選択）",
-        "res": "ESR1m群 mPFS 5.5 vs 3.8m (HR 0.62)",
+        "res": "ESR1m群 mPFS 5.5 vs 3.8m (HR 0.62)。アベマシクリブ併用: ESR1m群 mPFS 11.1 vs 5.5m（対imlunestrant単剤、探索的解析）",
         "st": "pos",
         "pr": "NEJM 2025",
         "url": "https://www.nejm.org/doi/full/10.1056/NEJMoa2410858"
@@ -449,7 +449,7 @@
         "pr": "結果待ち"
       }
     ],
-    "next": "EMBER-4（術後EBC）結果待ち"
+    "next": "🆕 FDAがアベマシクリブ併用を承認(2026/9/18、ESR1変異・内分泌療法後)。EMBER-4（術後EBC）結果待ち"
   },
   {
     "id": 5,
@@ -704,7 +704,7 @@
     },
     "us": {
       "s": "rev",
-      "t": "FDA NDA受理 PDUFA 12/18/2026"
+      "t": "FDA NDA受理 2件: lidERA（術後）優先審査 PDUFA 11/30/2026／evERA（転移・再発）PDUFA 12/18/2026"
     },
     "eu": {
       "s": "rev",
@@ -745,7 +745,7 @@
         "ctrl": "SoC ET + everolimus",
         "res": "ESR1m群 mPFS 9.99 vs 5.45m (HR 0.38)。ITT HR 0.56",
         "st": "pos",
-        "pr": "ESMO 2025"
+        "pr": "ESMO 2025 / NEJM 2026"
       },
       {
         "n": "lidERA",
@@ -778,7 +778,7 @@
         "pr": "readout 2027"
       }
     ],
-    "next": "FDA FDA承認予定 12/18/2026。pionERA 2027年"
+    "next": "FDA承認判断: lidERA 11/30/2026・evERA 12/18/2026。evERAはNEJM掲載（2026/9）。pionERA 2027年"
   },
   {
     "id": 9,
@@ -1172,7 +1172,7 @@
         "pr": "ASCO 2026 LBA1008"
       }
     ],
-    "next": "🆕 PIK3CA変異へのsNDAをFDAへ提出(2026/8/26)。承認されればPIK3CA変異の有無を問わず使用可能に"
+    "next": "🆕 PIK3CA変異へのsNDAをFDAへ提出(2026/8/26)。米国で発売開始(2026/9/30)。ESMO 2026でStudy 2の更新結果を発表予定(LBA16)"
   },
   {
     "id": 15,
@@ -1484,7 +1484,7 @@
         "pr": "readout 2027"
       }
     ],
-    "next": "🆕 早期乳がん 術前(DB-11)・術後(DB-05) をFDA承認(2026/5/15)。DB-12脳転移試験は2027年readout"
+    "next": "🆕 術後(DB-05)がEU CHMP承認勧告(2026/9/14-17会合)。日本はDB-05申請中(2026/2/27)。DB-12脳転移試験は2027年readout"
   },
   {
     "id": 17,
@@ -1875,7 +1875,7 @@
     "id": 23,
     "name": "DB-1303",
     "generic": "BNT323/DB-1303",
-    "co": "BioNTech/Daiichi Sankyo",
+    "co": "BioNTech/DualityBio",
     "cls": "ADC（HER2）次世代",
     "tgt": "HER2",
     "sub": [
@@ -1914,7 +1914,7 @@
         "url": "https://clinicaltrials.gov/study/NCT05150691"
       }
     ],
-    "next": "Phase III設計検討中。BioNTech 2026年複数readout予定"
+    "next": "中国Ph III（対T-DM1、HER2+ MBC 2L）でPFS主要評価項目達成、中国NMPAがBLA受理(2026/4)。DYNASTY-Breast02（HR+/HER2-low）結果待ち"
   },
   {
     "id": 24,
@@ -2059,8 +2059,8 @@
       "t": "EMA申請中"
     },
     "jp": {
-      "s": "dev",
-      "t": "MSD日本で開発状況未確認"
+      "s": "ok",
+      "t": "🆕 承認済 2026/9/16 キイジェクト配合皮下注（国内初の皮下注免疫チェックポイント阻害薬）"
     },
     "studies": [
       {
@@ -2074,7 +2074,7 @@
         "pr": "ELCC 2025"
       }
     ],
-    "next": "EU承認判断。日本申請時期未定"
+    "next": "EU承認判断。日本は2026/9/16承認（薬価収載待ち）"
   },
   {
     "id": 26,
@@ -2611,8 +2611,8 @@
       "note": "SN-38系（トロデルビ）と比較して下痢が軽度。骨髄抑制が主な毒性"
     },
     "us": {
-      "s": "rev",
-      "t": "FDA申請中（TNBC 2L+ OptiTROP-Breast01ベース）"
+      "s": "p3",
+      "t": "FDA申請の公表なし。グローバルPh III（TroFuse-010/011等）進行中"
     },
     "eu": {
       "s": "dev",
@@ -2667,14 +2667,15 @@
         "pr": "ESMO 2025"
       },
       {
-        "n": "OptiTROP-Breast03/TroFuse",
+        "n": "OptiTROP-Breast03",
         "ph": "III",
-        "pop": "TNBC 1L MBC PD-L1+",
-        "arm": "sac-TMT + pembrolizumab",
-        "ctrl": "化学療法 + pembrolizumab",
-        "res": "進行中",
-        "st": "run",
-        "pr": "readout 2027"
+        "pop": "TNBC 1L MBC（PD-L1陰性、またはPD-L1陽性で周術期IO後再発）",
+        "arm": "sac-TMT 単剤",
+        "ctrl": "医師選択化学療法",
+        "res": "PFS主要評価項目達成（中間解析）。OS未成熟",
+        "st": "pos",
+        "pr": "Kelun-Biotech 2026/5/21",
+        "url": "https://www.biospace.com/press-releases/kelun-biotech-announces-phase-iii-trial-of-sacituzumab-tirumotecan-sac-tmt-versus-chemotherapy-as-first-line-treatment-for-advanced-tnbc-met-primary-endpoint-of-pfs"
       },
       {
         "n": "TroFuse-011",
@@ -2697,7 +2698,7 @@
         "pr": "SABCS 2025 design"
       }
     ],
-    "next": "FDA承認判断（TNBC 2L+）。1L・EBC試験が多数進行中"
+    "next": "中国でTNBC 1L（OptiTROP-Breast03）の適応追加申請が受理。グローバルではTroFuse-011（TNBC 1L）等が進行中"
   },
   {
     "id": 32,

@@ -17,8 +17,8 @@
     "early_result": "ORR 56% (HER2+ MBC 2L+)",
     "source_url": "https://clinicaltrials.gov/study/NCT05041972",
     "source_label": "ClinicalTrials.gov",
-    "note": "site-specific conjugation ADC",
-    "updated": "2026-03-22"
+    "note": "site-specific conjugation ADC。中国Ph III（ACE-Breast-02）陽性",
+    "updated": "2026-10-06"
   },
   {
     "id": "RC48",
@@ -39,8 +39,8 @@
     "early_result": "ORR 42.9% (HER2-low BC)",
     "source_url": "https://doi.org/10.1002/cac2.12577",
     "source_label": "Cancer Commun 2024",
-    "note": "中国承認済 (胃癌/UC)。乳癌はPhII",
-    "updated": "2026-03-22"
+    "note": "中国承認済 (胃癌/UC/HER2+乳癌 肝転移)。乳癌Ph III（RC48-C006）陽性",
+    "updated": "2026-10-06"
   },
   {
     "id": "MRG002",
@@ -398,11 +398,11 @@
     "status": "active",
     "fih_date": "2021-06",
     "n_enrolled": null,
-    "early_result": "Ph I 乳癌 ORR 36.4%。Ph III TNBC PFS+OS両主要EP達成（初のbispecific ADC）",
-    "source_url": "https://www.targetedonc.com/view/iza-bren-meets-pfs-and-os-end-points-in-phase-3-tnbc-trial",
-    "source_label": "Ph III TNBC 2025",
+    "early_result": "Ph I 乳癌 ORR 36.4%。Ph III TNBC（PANKU-Breast02）mPFS 8.5 vs 3.1m (HR 0.29)、OS有意延長",
+    "source_url": "https://www.cancernetwork.com/view/izalontamab-brengitecan-improves-os-pfs-in-advanced-metastatic-tnbc",
+    "source_label": "ASCO 2026",
     "note": "世界初bispecific ADCでPhase III OS達成。TNBC新治療候補",
-    "updated": "2026-03-22"
+    "updated": "2026-10-06"
   },
   {
     "id": "XMT-1660",
