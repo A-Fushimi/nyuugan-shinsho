@@ -2326,5 +2326,17 @@
   "ctgov:07f4d532695fadd5": {
     "decision": "accept",
     "date": "2026-09-30"
+  },
+  "gnews:f0ce4191b9663089": {
+    "decision": "accept",
+    "date": "2026-10-07"
+  },
+  "gnews:5e4fbf2a3b4c1361": {
+    "decision": "discard",
+    "date": "2026-10-07"
+  },
+  "gnews:f57e1aec2d980cd8": {
+    "decision": "discard",
+    "date": "2026-10-07"
   }
 }
