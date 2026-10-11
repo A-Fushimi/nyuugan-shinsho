@@ -1055,7 +1055,7 @@
     "lpi": 2024.267,
     "readout": 2025.9,
     "nct": "NCT05132582",
-    "note": "SABCS 2025 GS1-01。維持療法",
+    "note": "SABCS 2025 GS1-01。維持療法。FDA承認 2026/10/7、日本申請中（2026/4/8）",
     "resultUrl": "https://ascopubs.org/doi/10.1200/JCO-25-02600",
     "resultRef": "JCO 2025",
     "pcd": "2025-09",
@@ -1068,10 +1068,10 @@
         "submission": null,
         "pdufa": null,
         "adcom": null,
-        "approval": null
+        "approval": "2026-10-07"
       },
       "pmda": {
-        "submission": null,
+        "submission": "2026-04",
         "approval": null
       },
       "ema": {
@@ -1297,6 +1297,29 @@
     "enrollmentTarget": 1514,
     "pcd": "2027-06",
     "scd": "2031-08"
+  },
+  {
+    "drug": "Dato-DXd",
+    "trial": "TROPION-Breast03",
+    "ph": "III",
+    "sub": "TNBC",
+    "pop": "TNBC EBC 術後（術前治療後に浸潤癌が残存、Stage I-III）",
+    "arm": "Dato-DXd + durvalumab ／ Dato-DXd 単剤（2:1:2）",
+    "ctrl": "主治医選択（capecitabine and/or pembrolizumab）",
+    "ep": "iDFS（Dato-DXd+durvalumab vs 主治医選択）",
+    "ep2": "OS, DRFI, Dato-DXd単剤のiDFS",
+    "res": "進行中",
+    "st": "run",
+    "fpi": 2022.917,
+    "lpi": 2025.5,
+    "readout": 2027.75,
+    "nct": "NCT05629585",
+    "note": "ASCENT-05と同じく術後残存病変TNBCでのADC試験。日本参加",
+    "pcd": "2027-09",
+    "scd": "2030-01",
+    "enrollment": "ACTIVE_NOT_RECRUITING",
+    "enrollmentTarget": 1174,
+    "primaryEndpoint": "iDFS"
   },
   {
     "drug": "Sac-Gov",
