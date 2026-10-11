@@ -684,7 +684,7 @@
         "pr": "ASCO 2025 LBA / NEJM"
       }
     ],
-    "next": "FDA FDA承認予定 6/5/2026"
+    "next": "米国で承認済（2026/5/1、ESR1変異・内分泌療法後）。EU・日本の申請は未公表"
   },
   {
     "id": 8,
@@ -1597,7 +1597,7 @@
     },
     "us": {
       "s": "ok",
-      "t": "承認済 2020/4 Tukysa",
+      "t": "承認済 2020/4 Tukysa／🆕 2026/10/7 HER2+ 1次治療後の維持療法（HER2CLIMB-05）を追加承認",
       "url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=213411"
     },
     "eu": {
@@ -1644,7 +1644,7 @@
         "pr": "ASCO 2024"
       }
     ],
-    "next": "日本薬価収載待ち。HER2CLIMB-02で2L使用も",
+    "next": "日本で維持療法（HER2CLIMB-05）申請中（2026/4/8）。米国は2026/10/7承認",
     "indications": [
       {
         "label": "HER2+ MBC 3L+（脳転移）",
@@ -1664,8 +1664,8 @@
       {
         "label": "HER2+ MBC 1L 維持療法",
         "us": {
-          "s": "p3",
-          "t": "Phase III (HER2CLIMB-05)"
+          "s": "ok",
+          "t": "🆕 承認済 2026/10/7（HER2CLIMB-05、HP併用）"
         },
         "eu": {
           "s": "p3",

@@ -222,15 +222,15 @@
           {
             "drug": "カミゼストラント",
             "trial": "SERENA-4/6",
-            "note": "次世代SERD。1L/2Lで試験進行中。FDA申請中",
-            "phase": "Ph III",
+            "note": "次世代SERD。ESR1変異検出時スイッチ（SERENA-6）で2026/6日本承認・2026/9 FDA迅速承認。SERENA-4（1L）は主要EP未達",
+            "phase": "Ph III ✓",
             "color": "amber",
             "trialUrl": "https://clinicaltrials.gov/study/NCT04711252"
           },
           {
             "drug": "ベプデゲストラント",
             "trial": "VERITAC-2",
-            "note": "PROTAC ER分解薬。新規MOA。FDA申請中",
+            "note": "PROTAC ER分解薬。新規MOA。2026/5 FDA承認（ESR1変異）。日本開発未定",
             "phase": "Ph III ✓",
             "color": "amber",
             "trialUrl": "https://clinicaltrials.gov/study/NCT05654623",
@@ -250,7 +250,7 @@
           {
             "drug": "ゲダトリシブ",
             "trial": "VIKTORIA-1",
-            "note": "PI3K/mTOR二重阻害。FDA申請中",
+            "note": "PI3K/mTOR二重阻害。2026/7 FDA承認（PIK3CA野生型）。変異型はsNDA提出済。日本開発未定",
             "phase": "Ph III ✓",
             "color": "green",
             "trialUrl": "https://clinicaltrials.gov/study/NCT05501886",
@@ -260,7 +260,7 @@
           {
             "drug": "Dato-DXd",
             "trial": "TB-02/04",
-            "note": "TROP2-ADC。HR+2L以降。TNBC FDA承認判断Q2",
+            "note": "TROP2-ADC。HR+は化学療法歴ありで承認済。TNBC 1L（IO不適）はTB-02でFDA（2026/5）・日本（2026/9）承認",
             "phase": "Ph III",
             "color": "amber",
             "trialUrl": "https://clinicaltrials.gov/study/NCT05374512",
@@ -456,7 +456,7 @@
           {
             "drug": "T-DXd",
             "trial": "DB-09/12",
-            "note": "1L設定でHP+chemo vs T-DXd。ゲームチェンジャー候補",
+            "note": "1LでT-DXd+PがTHPに対しPFS延長（DB-09）。2026/9日本承認。DB-12（脳転移）進行中",
             "phase": "Ph III ✓",
             "color": "green",
             "trialUrl": "https://clinicaltrials.gov/study/NCT04784715",
@@ -466,7 +466,7 @@
           {
             "drug": "ツカチニブ",
             "trial": "HER2CLIMB-02",
-            "note": "+T-DM1併用。2L設定。Ph III結果発表済み",
+            "note": "+T-DM1併用（2L設定、HER2CLIMB-02）。1L維持療法（HER2CLIMB-05）は2026/10 FDA承認・日本申請中",
             "phase": "Ph III ✓",
             "color": "green",
             "trialUrl": "https://clinicaltrials.gov/study/NCT03975647",

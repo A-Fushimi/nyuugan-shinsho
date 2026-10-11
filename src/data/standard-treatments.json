@@ -64,7 +64,7 @@
           "fulvestrant + alpelisib（PIK3CAm）",
           "fulvestrant + capivasertib（AKT pathway altered）"
         ],
-        "note": "ESR1m検査（ctDNA）で治療選択。イムルリオは2025/12日本承認。camizestrant, vepdegestrant, giredestrantはFDA申請中→今後選択肢追加"
+        "note": "ESR1m検査（ctDNA）で治療選択。イムルリオは2025/12日本承認。カミゼストラント（エトカマ）は1次治療中のESR1変異検出時にスイッチする用法で2026/6日本承認。vepdegestrantは米国承認（2026/5）、giredestrantはFDA審査中"
       },
       {
         "line": "2L+ PIK3CAm陽性",
@@ -79,7 +79,7 @@
         "regimens": [
           "T-DXd（エンハーツ）（HER2-low含む）",
           "Dato-DXd（ダトロウェイ）（化学療法歴あり）",
-          "sacituzumab govitecan（トロデルビ）（日本未承認: HR+適応）"
+          "sacituzumab govitecan（トロデルビ）（2026/3 HR+適応 日本承認）"
         ],
         "note": "HER2-lowはIHC 1+ or IHC 2+/ISH-。T-DXdが標準。Dato-DXdは日本2024/12世界初承認"
       },
@@ -135,9 +135,9 @@
         "line": "1L",
         "regimens": [
           "taxane + HP（トラスツズマブ+ペルツズマブ）",
-          "T-DXd + pertuzumab（DESTINY-Breast09準拠、日本未承認）"
+          "T-DXd + pertuzumab（エンハーツ、DESTINY-Breast09。2026/9/16日本承認）"
         ],
-        "note": "THP標準。DB-09でT-DXd+Pの優越性が示されたが日本未承認"
+        "note": "THPに加え、DB-09でPFSの優越性が示されたT-DXd+Pが2026/9に国内承認され選択肢に。THP導入後のツカイザ維持療法（HER2CLIMB-05）は米国承認（2026/10）・日本申請中"
       },
       {
         "line": "2L",
@@ -218,9 +218,9 @@
         "line": "1L（PD-L1陰性/IO不適）",
         "regimens": [
           "化学療法（anthracycline, taxane, eribulin等）",
-          "Dato-DXd（日本未承認。FDA Priority Review中）"
+          "Dato-DXd（ダトロウェイ、TROPION-Breast02。2026/9/16日本承認）"
         ],
-        "note": "IO不適のTNBC 1LはアンメットニーズA大。ASCENT-03（SG mono）も今後選択肢に"
+        "note": "IO不適のTNBC 1LでDato-DXdがOS延長（TB-02）し、2026/9に国内承認。SG単剤（ASCENT-03）は米国承認済・日本未承認"
       },
       {
         "line": "2L+",

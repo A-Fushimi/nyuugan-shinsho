@@ -124,6 +124,12 @@
     "done": false,
     "items": [
       {
+        "text": "🆕 ツカイザ（tucatinib）HER2+ 1次維持療法 FDA承認（10/7）",
+        "generic": "tucatinib",
+        "result": "✅ HER2CLIMB-05。導入療法（THP 4-8サイクル）後の維持療法としてHP併用。mPFS 24.9 vs 16.3m（HR 0.64）。日本は2026/4/8申請中",
+        "isNew": true
+      },
+      {
         "text": "Giredestrant lidERA（術後）FDA承認判断（11/30、優先審査）",
         "generic": "giredestrant"
       },
