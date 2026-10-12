@@ -1310,7 +1310,7 @@
     "ep2": "OS, DRFI, Dato-DXd単剤のiDFS",
     "res": "進行中",
     "st": "run",
-    "fpi": 2022.917,
+    "fpi": 2022.833,
     "lpi": 2025.5,
     "readout": 2027.75,
     "nct": "NCT05629585",
@@ -1562,15 +1562,17 @@
     "res": "mPFS 30.6 vs 8.3m (HR 0.22)",
     "res2": "ORR 81.7% vs 55.9%。OS未成熟",
     "st": "pos",
-    "fpi": null,
+    "fpi": 2022.583,
     "lpi": null,
     "readout": 2025.8,
     "nct": "NCT05424835",
     "note": "中国Ph III（287例）。中国NMPA承認（HER2+乳癌）。日米欧は未承認",
     "resultUrl": "https://www.thelancet.com/journals/lanonc/article/PIIS1470-2045(26)00193-2/abstract",
     "resultRef": "Lancet Oncol 2026",
-    "enrollmentTarget": 287,
-    "primaryEndpoint": "PFS"
+    "enrollmentTarget": 381,
+    "primaryEndpoint": "PFS",
+    "pcd": "2026-12",
+    "scd": "2027-12"
   },
   {
     "ph": "III",
@@ -1593,14 +1595,16 @@
     "resultRef": "ESMO 2025 LBA24",
     "enrollmentTarget": 365,
     "primaryEndpoint": "PFS",
-    "fpi": null,
+    "fpi": 2023.5,
     "lpi": null,
-    "nct": "NCT06968585"
+    "nct": "NCT06968585",
+    "pcd": "2026-11",
+    "scd": "2028-03"
   },
   {
     "ph": "III",
     "sub": "HER2+",
-    "enrollment": "ACTIVE_NOT_RECRUITING",
+    "enrollment": "UNKNOWN",
     "regulatory": null,
     "drug": "disitamab vedotin",
     "trial": "RC48-C006",
@@ -1619,7 +1623,10 @@
     "resultRef": "SABCS 2024",
     "primaryEndpoint": "PFS",
     "fpi": 2018.25,
-    "lpi": null
+    "lpi": null,
+    "enrollmentTarget": 301,
+    "pcd": "2024-07",
+    "scd": "2024-12"
   },
   {
     "ph": "III",

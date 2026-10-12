@@ -1,5 +1,13 @@
 [
   {
+    "ver": "auto",
+    "date": "2026-10-12",
+    "type": "auto",
+    "items": [
+      "試験ステータス自動更新（4件変更: TROPION-Breast03: fpi: 2022-12 → 2022-11、HORIZON-Breast01: fpi: null → 2022-08、KL166-III-06: fpi: null → 2023-07、RC48-C006: enrollment: ACTIVE_NOT_RECRUITING → UNKNOWN）"
+    ]
+  },
+  {
     "ver": "3.1",
     "date": "2026-10-11",
     "type": "minor",
