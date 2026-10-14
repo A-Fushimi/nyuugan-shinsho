@@ -2338,5 +2338,57 @@
   "gnews:f57e1aec2d980cd8": {
     "decision": "discard",
     "date": "2026-10-07"
+  },
+  "gnews:695c16fc9985e4c6": {
+    "decision": "accept",
+    "date": "2026-10-14"
+  },
+  "gnews:ea56030357560b47": {
+    "decision": "accept",
+    "date": "2026-10-14"
+  },
+  "gnews:c4ac481ac653f274": {
+    "decision": "accept",
+    "date": "2026-10-14"
+  },
+  "gnews:464ecf456454ea48": {
+    "decision": "review",
+    "date": "2026-10-14"
+  },
+  "gnews:491a0180e0a79698": {
+    "decision": "discard",
+    "date": "2026-10-14"
+  },
+  "gnews:bde5b85fe53b572b": {
+    "decision": "accept",
+    "date": "2026-10-14"
+  },
+  "gnews:7ac04ab7df367fbb": {
+    "decision": "discard",
+    "date": "2026-10-14"
+  },
+  "gnews:40467f798355b64e": {
+    "decision": "accept",
+    "date": "2026-10-14"
+  },
+  "gnews:8a26936953fb8b36": {
+    "decision": "accept",
+    "date": "2026-10-14"
+  },
+  "gnews:dc20ae7c713cfd0c": {
+    "decision": "discard",
+    "date": "2026-10-14"
+  },
+  "gnews:ee3fbae493e46ca0": {
+    "decision": "review",
+    "date": "2026-10-14"
+  },
+  "gnews:dd5c659a3782483c": {
+    "decision": "discard",
+    "date": "2026-10-14"
+  },
+  "openfda:27bba7d289ab91c9": {
+    "decision": "review",
+    "date": "2026-10-14"
   }
 }

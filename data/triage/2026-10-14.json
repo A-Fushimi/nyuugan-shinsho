@@ -1,0 +1,1219 @@
+[
+  {
+    "item": {
+      "id": "gnews:695c16fc9985e4c6",
+      "source": "gnews",
+      "title": "CDK4/6阻害薬パルボシクリブ、進行・再発乳がんに国内承認｜CareNet.com",
+      "body": "CDK4/6阻害薬パルボシクリブ、進行・再発乳がんに国内承認｜CareNet.com &nbsp;&nbsp; CareNet.com",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1KUnNFakJTQkRuOEw3Nnd5LXozNDAyS1FxS0c0Mi1qeXRYYWpYOExYelQ5RUlETVlodkYzbUlScmFBaWtaZWhLa1Nyb2dWekxJa2VuOFFVNS1IamhIZTFJ?oc=5",
+      "date": "2026-10-10",
+      "meta": {
+        "publisher": "CareNet.com",
+        "query": "乳がん 承認"
+      },
+      "knownDrugs": []
+    },
+    "answers": {
+      "relevant": {
+        "type": "noul",
+        "noul": 0.98
+      },
+      "category": {
+        "type": "choice",
+        "choice": "approval_jp",
+        "confidence": 1,
+        "probabilities": {
+          "approval_jp": 1,
+          "approval_us": 0,
+          "approval_eu": 0,
+          "filing": 0,
+          "trial_result": 0,
+          "trial_start": 0,
+          "guideline": 0,
+          "safety": 0,
+          "other": 0
+        }
+      },
+      "impact": {
+        "type": "score",
+        "score": 2.97,
+        "confidence": 0.99,
+        "legend": {
+          "0": "影響なし。情報としての価値もない",
+          "1": "参考情報。早期臨床試験の登録や、まだ実臨床に結びつかない基礎的な内容",
+          "2": "注目に値する。第III相試験の結果、海外での承認、日本での承認申請など",
+          "3": "実臨床を変える。日本での承認、標準治療を変える試験結果、ガイドライン改訂"
+        },
+        "probabilities": {
+          "0": 0,
+          "1": 0,
+          "2": 0.01,
+          "3": 0.99
+        }
+      },
+      "subtype": {
+        "type": "choice",
+        "choice": "hr_pos",
+        "confidence": 0.45,
+        "probabilities": {
+          "hr_pos": 0.54,
+          "her2_pos": 0,
+          "tnbc": 0,
+          "her2_low": 0,
+          "multiple": 0,
+          "unspecified": 0.46
+        }
+      },
+      "setting": {
+        "type": "choice",
+        "choice": "metastatic",
+        "confidence": 1,
+        "probabilities": {
+          "early": 0,
+          "metastatic": 1,
+          "both": 0,
+          "unspecified": 0
+        }
+      }
+    },
+    "decision": "accept",
+    "priority": 2.97,
+    "reasons": [
+      "影響度が高い (impact 2.97)"
+    ],
+    "tags": {
+      "category": "approval_jp",
+      "subtype": "hr_pos",
+      "setting": "metastatic"
+    },
+    "usage": {
+      "input_tokens": 1426,
+      "output_tokens": 238
+    },
+    "model": "jev-1.13.0"
+  },
+  {
+    "item": {
+      "id": "gnews:ea56030357560b47",
+      "source": "gnews",
+      "title": "乳がん治療薬、トリプルネガティブ乳がんに対する抗TROP-2 ADCの1次治療が承認",
+      "body": "乳がん治療薬、トリプルネガティブ乳がんに対する抗TROP-2 ADCの1次治療が承認 &nbsp;&nbsp; 日経バイオテクONLINE",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE53eU5FR2gzY1laNFlpQUtPdWlDczNGZ3VDRC1EeFFseFZaSVYtY0x3dHU5anMzbVV6NXRnalFDSTJ4SkEzc05UVUxiektvLTl3aFZmRUtSUXpTYTBCX0NteExxejZzQm5hS1FzM0NuVQ?oc=5",
+      "date": "2026-10-12",
+      "meta": {
+        "publisher": "日経バイオテクONLINE",
+        "query": "乳がん 承認"
+      },
+      "knownDrugs": []
+    },
+    "answers": {
+      "relevant": {
+        "type": "noul",
+        "noul": 0.98
+      },
+      "category": {
+        "type": "choice",
+        "choice": "approval_jp",
+        "confidence": 0.95,
+        "probabilities": {
+          "approval_jp": 0.96,
+          "approval_us": 0.01,
+          "approval_eu": 0,
+          "filing": 0,
+          "trial_result": 0,
+          "trial_start": 0,
+          "guideline": 0,
+          "safety": 0,
+          "other": 0.03
+        }
+      },
+      "impact": {
+        "type": "score",
+        "score": 2.94,
+        "confidence": 0.95,
+        "legend": {
+          "0": "影響なし。情報としての価値もない",
+          "1": "参考情報。早期臨床試験の登録や、まだ実臨床に結びつかない基礎的な内容",
+          "2": "注目に値する。第III相試験の結果、海外での承認、日本での承認申請など",
+          "3": "実臨床を変える。日本での承認、標準治療を変える試験結果、ガイドライン改訂"
+        },
+        "probabilities": {
+          "0": 0.01,
+          "1": 0,
+          "2": 0.02,
+          "3": 0.97
+        }
+      },
+      "subtype": {
+        "type": "choice",
+        "choice": "tnbc",
+        "confidence": 1,
+        "probabilities": {
+          "hr_pos": 0,
+          "her2_pos": 0,
+          "tnbc": 1,
+          "her2_low": 0,
+          "multiple": 0,
+          "unspecified": 0
+        }
+      },
+      "setting": {
+        "type": "choice",
+        "choice": "unspecified",
+        "confidence": 0.35,
+        "probabilities": {
+          "early": 0.1,
+          "metastatic": 0.38,
+          "both": 0.01,
+          "unspecified": 0.51
+        }
+      }
+    },
+    "decision": "accept",
+    "priority": 2.94,
+    "reasons": [
+      "影響度が高い (impact 2.94)"
+    ],
+    "tags": {
+      "category": "approval_jp",
+      "subtype": "tnbc",
+      "setting": "unspecified"
+    },
+    "usage": {
+      "input_tokens": 1447,
+      "output_tokens": 238
+    },
+    "model": "jev-1.13.0"
+  },
+  {
+    "item": {
+      "id": "gnews:c4ac481ac653f274",
+      "source": "gnews",
+      "title": "ダトロウェイ 中国でトリプルネガティブ乳がんに対する承認取得 第一三共",
+      "body": "ダトロウェイ 中国でトリプルネガティブ乳がんに対する承認取得 第一三共 &nbsp;&nbsp; 医薬通信社",
+      "url": "https://news.google.com/rss/articles/CBMi2gJBVV95cUxOS2p2bDJkZXpPZDg4THBqbUdkVlV3MlFtWGo2SURxSDJ0T0gwX3M3TTUzWTA5Y2xpbFA1dnRDZXNIMkctYi0tR2JwaDhzWDFvTGQ5UmZMdEZDdDNLOURiTzBkOEZWNC12bnM2NFZuZ3NEOVVjSzF5NkpzVjFzS2MyNld3d0R0M0JNRzJHbjBzN1ZaRW05eGtFYkQxM1h3eENFaHRQQWlZbXNSVUNic0xsOW1yRXZWN2FUekMxeWpIeTl5ZGZIVlZJQ3dTSjF0NFB0VVhFX2ZKRWR2SlBxUzJXMW14WXNkUlVsc3U5RW9ZVlphYnBtVm1GSnh2ay04eU10QXMwVE5BRmMwU284QWF3QjNIZ0I3TUlITEJuYktOcWthVzE5OVVja1RkcFNXTFJhWGFvWHVJM0ZseGZjcUJORVlITWlVOFhRbjZIYl9XMEs2eXA1WkpEcW9R?oc=5",
+      "date": "2026-10-08",
+      "meta": {
+        "publisher": "医薬通信社",
+        "query": "乳がん 承認"
+      },
+      "knownDrugs": []
+    },
+    "answers": {
+      "relevant": {
+        "type": "noul",
+        "noul": 0.98
+      },
+      "category": {
+        "type": "choice",
+        "choice": "other",
+        "confidence": 1,
+        "probabilities": {
+          "approval_jp": 0,
+          "approval_us": 0,
+          "approval_eu": 0,
+          "filing": 0,
+          "trial_result": 0,
+          "trial_start": 0,
+          "guideline": 0,
+          "safety": 0,
+          "other": 1
+        }
+      },
+      "impact": {
+        "type": "score",
+        "score": 1.97,
+        "confidence": 0.97,
+        "legend": {
+          "0": "影響なし。情報としての価値もない",
+          "1": "参考情報。早期臨床試験の登録や、まだ実臨床に結びつかない基礎的な内容",
+          "2": "注目に値する。第III相試験の結果、海外での承認、日本での承認申請など",
+          "3": "実臨床を変える。日本での承認、標準治療を変える試験結果、ガイドライン改訂"
+        },
+        "probabilities": {
+          "0": 0.01,
+          "1": 0.01,
+          "2": 0.98,
+          "3": 0
+        }
+      },
+      "subtype": {
+        "type": "choice",
+        "choice": "tnbc",
+        "confidence": 1,
+        "probabilities": {
+          "hr_pos": 0,
+          "her2_pos": 0,
+          "tnbc": 1,
+          "her2_low": 0,
+          "multiple": 0,
+          "unspecified": 0
+        }
+      },
+      "setting": {
+        "type": "choice",
+        "choice": "unspecified",
+        "confidence": 0.93,
+        "probabilities": {
+          "early": 0,
+          "metastatic": 0.05,
+          "both": 0,
+          "unspecified": 0.95
+        }
+      }
+    },
+    "decision": "accept",
+    "priority": 1.97,
+    "reasons": [
+      "影響度が高い (impact 1.97)"
+    ],
+    "tags": {
+      "category": "other",
+      "subtype": "tnbc",
+      "setting": "unspecified"
+    },
+    "usage": {
+      "input_tokens": 1436,
+      "output_tokens": 236
+    },
+    "model": "jev-1.13.0"
+  },
+  {
+    "item": {
+      "id": "gnews:464ecf456454ea48",
+      "source": "gnews",
+      "title": "乳がん治療薬の承認は、ファイザー株（PFE）にとって大きな転機となる可能性がある",
+      "body": "乳がん治療薬の承認は、ファイザー株（PFE）にとって大きな転機となる可能性がある &nbsp;&nbsp; Simply Wall Street",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOWjZ5TlFlZ0FDeHVDTVBNNHo3Sk9pTDlCQ0ZjWVZSaTNERVZhNGV0QzhBNTJjeThFd3c1SGxzTVJ6VGs1UFZfUWdYTFA4ZjZiZ1B3RUhLdVpzelFZT0xUNlJZM0tIb1VCM0VmZm4yQ0s3Z29DczF3U3NjS040Tl9tMkFRQm1GMlVzZ1BCa3VxQ3ZQcnVQdGd0TFF0MUlwVVltZEHSAaIBQVVfeXFMTlo2eU5RZWdBQ3h1Q01QTTR6N0pPaUw5QkNGY1lWUmkzREVWYTRldEM4QTUyY3k4RXd3NUhsc01SelRrNVBWX1FnWExQOGY2YmdQd0VIS3Vac3pRWU9MVDZSWTNLSG9VQjNFZmZuMkNLN2dvQ3Mxd1NzY0tONE5fbTJBUUJtRjJVc2dQQmt1cUN2UHJ1UHRndExRdDFJcFVZbWRB?oc=5",
+      "date": "2026-10-10",
+      "meta": {
+        "publisher": "Simply Wall Street",
+        "query": "乳がん 承認"
+      },
+      "knownDrugs": []
+    },
+    "answers": {
+      "relevant": {
+        "type": "noul",
+        "noul": 0.73
+      },
+      "category": {
+        "type": "choice",
+        "choice": "other",
+        "confidence": 0.76,
+        "probabilities": {
+          "approval_jp": 0.1,
+          "approval_us": 0.1,
+          "approval_eu": 0,
+          "filing": 0.01,
+          "trial_result": 0,
+          "trial_start": 0,
+          "guideline": 0,
+          "safety": 0,
+          "other": 0.79
+        }
+      },
+      "impact": {
+        "type": "score",
+        "score": 1.28,
+        "confidence": 0.26,
+        "legend": {
+          "0": "影響なし。情報としての価値もない",
+          "1": "参考情報。早期臨床試験の登録や、まだ実臨床に結びつかない基礎的な内容",
+          "2": "注目に値する。第III相試験の結果、海外での承認、日本での承認申請など",
+          "3": "実臨床を変える。日本での承認、標準治療を変える試験結果、ガイドライン改訂"
+        },
+        "probabilities": {
+          "0": 0.24,
+          "1": 0.25,
+          "2": 0.5,
+          "3": 0.01
+        }
+      },
+      "subtype": {
+        "type": "choice",
+        "choice": "unspecified",
+        "confidence": 1,
+        "probabilities": {
+          "hr_pos": 0,
+          "her2_pos": 0,
+          "tnbc": 0,
+          "her2_low": 0,
+          "multiple": 0,
+          "unspecified": 1
+        }
+      },
+      "setting": {
+        "type": "choice",
+        "choice": "unspecified",
+        "confidence": 1,
+        "probabilities": {
+          "early": 0,
+          "metastatic": 0,
+          "both": 0,
+          "unspecified": 1
+        }
+      }
+    },
+    "decision": "review",
+    "priority": 1.28,
+    "reasons": [
+      "参考情報レベルの影響度 (impact 1.28)"
+    ],
+    "tags": {
+      "category": "other",
+      "subtype": "unspecified",
+      "setting": "unspecified"
+    },
+    "usage": {
+      "input_tokens": 1438,
+      "output_tokens": 237
+    },
+    "model": "jev-1.13.0"
+  },
+  {
+    "item": {
+      "id": "gnews:491a0180e0a79698",
+      "source": "gnews",
+      "title": "ガーダントヘルス、乳がん検査でEU承認を取得 執筆",
+      "body": "ガーダントヘルス、乳がん検査でEU承認を取得 執筆 &nbsp;&nbsp; Investing.com - FX | 株式市場 | ファイナンス | 金融ニュース",
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE92R2V3LVhzdnN3NFNVUTQwdVpXYU9lY3hWb0RjRVc3TDNPQ0xwdHlMck5DMnAtajh5RDFTQ1BwSFZlS0Zpei1wWWl2NGFCMXBJRXdPS3RWVjljMW9oaXkwdExhbE1IS3A1U3RpaWQwQU8?oc=5",
+      "date": "2026-10-08",
+      "meta": {
+        "publisher": "Investing.com - FX | 株式市場 | ファイナンス | 金融ニュース",
+        "query": "乳がん 承認"
+      },
+      "knownDrugs": []
+    },
+    "answers": {
+      "relevant": {
+        "type": "noul",
+        "noul": 0.09
+      },
+      "category": {
+        "type": "choice",
+        "choice": "approval_eu",
+        "confidence": 0.99,
+        "probabilities": {
+          "approval_jp": 0,
+          "approval_us": 0,
+          "approval_eu": 0.99,
+          "filing": 0,
+          "trial_result": 0,
+          "trial_start": 0,
+          "guideline": 0,
+          "safety": 0,
+          "other": 0.01
+        }
+      },
+      "impact": {
+        "type": "score",
+        "score": 1.7,
+        "confidence": 0.7,
+        "legend": {
+          "0": "影響なし。情報としての価値もない",
+          "1": "参考情報。早期臨床試験の登録や、まだ実臨床に結びつかない基礎的な内容",
+          "2": "注目に値する。第III相試験の結果、海外での承認、日本での承認申請など",
+          "3": "実臨床を変える。日本での承認、標準治療を変える試験結果、ガイドライン改訂"
+        },
+        "probabilities": {
+          "0": 0.11,
+          "1": 0.08,
+          "2": 0.81,
+          "3": 0
+        }
+      },
+      "subtype": {
+        "type": "choice",
+        "choice": "unspecified",
+        "confidence": 1,
+        "probabilities": {
+          "hr_pos": 0,
+          "her2_pos": 0,
+          "tnbc": 0,
+          "her2_low": 0,
+          "multiple": 0,
+          "unspecified": 1
+        }
+      },
+      "setting": {
+        "type": "choice",
+        "choice": "unspecified",
+        "confidence": 1,
+        "probabilities": {
+          "early": 0,
+          "metastatic": 0,
+          "both": 0,
+          "unspecified": 1
+        }
+      }
+    },
+    "decision": "discard",
+    "priority": 0,
+    "reasons": [
+      "乳がん薬物療法に非該当 (relevant 0.09)"
+    ],
+    "tags": {
+      "category": "approval_eu",
+      "subtype": "unspecified",
+      "setting": "unspecified"
+    },
+    "usage": {
+      "input_tokens": 1460,
+      "output_tokens": 239
+    },
+    "model": "jev-1.13.0"
+  },
+  {
+    "item": {
+      "id": "gnews:bde5b85fe53b572b",
+      "source": "gnews",
+      "title": "ダトポタマブ デルクステカン、HR陽性/HER2陰性乳がんに承認／第一三共 ｜CareNet.com",
+      "body": "ダトポタマブ デルクステカン、HR陽性/HER2陰性乳がんに承認／第一三共 ｜CareNet.com &nbsp;&nbsp; CareNet.com",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9CN3d2dF8xRXFsMlN6b19nQW12d0Q3cFRlQ3JRMEJCM0RRalZwMVl0dXRDbmRYSmtuV2lIQm1Oc2M1cGEtS0VGYXRCeVE4V2xDdmhSZ1JTektpRXQyOFdj?oc=5",
+      "date": "2026-10-10",
+      "meta": {
+        "publisher": "CareNet.com",
+        "query": "乳がん 承認"
+      },
+      "knownDrugs": []
+    },
+    "answers": {
+      "relevant": {
+        "type": "noul",
+        "noul": 0.98
+      },
+      "category": {
+        "type": "choice",
+        "choice": "approval_jp",
+        "confidence": 0.99,
+        "probabilities": {
+          "approval_jp": 0.99,
+          "approval_us": 0,
+          "approval_eu": 0,
+          "filing": 0,
+          "trial_result": 0,
+          "trial_start": 0,
+          "guideline": 0,
+          "safety": 0,
+          "other": 0.01
+        }
+      },
+      "impact": {
+        "type": "score",
+        "score": 2.96,
+        "confidence": 0.95,
+        "legend": {
+          "0": "影響なし。情報としての価値もない",
+          "1": "参考情報。早期臨床試験の登録や、まだ実臨床に結びつかない基礎的な内容",
+          "2": "注目に値する。第III相試験の結果、海外での承認、日本での承認申請など",
+          "3": "実臨床を変える。日本での承認、標準治療を変える試験結果、ガイドライン改訂"
+        },
+        "probabilities": {
+          "0": 0.01,
+          "1": 0,
+          "2": 0.02,
+          "3": 0.97
+        }
+      },
+      "subtype": {
+        "type": "choice",
+        "choice": "hr_pos",
+        "confidence": 1,
+        "probabilities": {
+          "hr_pos": 1,
+          "her2_pos": 0,
+          "tnbc": 0,
+          "her2_low": 0,
+          "multiple": 0,
+          "unspecified": 0
+        }
+      },
+      "setting": {
+        "type": "choice",
+        "choice": "unspecified",
+        "confidence": 0.89,
+        "probabilities": {
+          "early": 0.01,
+          "metastatic": 0.06,
+          "both": 0.01,
+          "unspecified": 0.92
+        }
+      }
+    },
+    "decision": "accept",
+    "priority": 2.96,
+    "reasons": [
+      "影響度が高い (impact 2.96)"
+    ],
+    "tags": {
+      "category": "approval_jp",
+      "subtype": "hr_pos",
+      "setting": "unspecified"
+    },
+    "usage": {
+      "input_tokens": 1436,
+      "output_tokens": 238
+    },
+    "model": "jev-1.13.0"
+  },
+  {
+    "item": {
+      "id": "gnews:7ac04ab7df367fbb",
+      "source": "gnews",
+      "title": "DaeHwa Pharmaceuticalが中国で乳がん適応拡大株価9％超上昇 - CHOSUNBIZ",
+      "body": "DaeHwa Pharmaceuticalが中国で乳がん適応拡大株価9％超上昇 - CHOSUNBIZ &nbsp;&nbsp; Chosunbiz",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxORmZ4MEJMdVhEczR6TFdVODhEUzA1NDBjX29XQVNmeGlid1hVWFRjRFNPdFpYYmU4ZVMxdDdaWUd5eWM1aEllaG5rc3E2a0FxU3FpdUhvdVFQcGdtQVd4QjVhalk4eGFEYnZ1cVR0eW9lR0wzTllrVlhlMlJtdWpHSlNFRkVLUkgyMmZiNDNnbTlsUnh10gGUAUFVX3lxTE5GZngwQkx1WERzNHpMV1U4OERTMDU0MGNfb1dBU2Z4aWJ3WFVYVGNEU090WlhiZThlUzF0N1pZR3l5YzVoSWVobmtzcTZrQXFTcWl1SG91UVBwZ21BV3hCNWFqWTh4YURidnVxVHR5b2VHTDNOWWtWWGUyUm11akdKU0VGRUtSSDIyZmI0M2dtOWxSeHU?oc=5",
+      "date": "2026-10-12",
+      "meta": {
+        "publisher": "Chosunbiz",
+        "query": "乳がん 承認"
+      },
+      "knownDrugs": []
+    },
+    "answers": {
+      "relevant": {
+        "type": "noul",
+        "noul": 0.85
+      },
+      "category": {
+        "type": "choice",
+        "choice": "other",
+        "confidence": 1,
+        "probabilities": {
+          "approval_jp": 0,
+          "approval_us": 0,
+          "approval_eu": 0,
+          "filing": 0,
+          "trial_result": 0,
+          "trial_start": 0,
+          "guideline": 0,
+          "safety": 0,
+          "other": 1
+        }
+      },
+      "impact": {
+        "type": "score",
+        "score": 0.96,
+        "confidence": 0.03,
+        "legend": {
+          "0": "影響なし。情報としての価値もない",
+          "1": "参考情報。早期臨床試験の登録や、まだ実臨床に結びつかない基礎的な内容",
+          "2": "注目に値する。第III相試験の結果、海外での承認、日本での承認申請など",
+          "3": "実臨床を変える。日本での承認、標準治療を変える試験結果、ガイドライン改訂"
+        },
+        "probabilities": {
+          "0": 0.41,
+          "1": 0.21,
+          "2": 0.38,
+          "3": 0
+        }
+      },
+      "subtype": {
+        "type": "choice",
+        "choice": "unspecified",
+        "confidence": 1,
+        "probabilities": {
+          "hr_pos": 0,
+          "her2_pos": 0,
+          "tnbc": 0,
+          "her2_low": 0,
+          "multiple": 0,
+          "unspecified": 1
+        }
+      },
+      "setting": {
+        "type": "choice",
+        "choice": "unspecified",
+        "confidence": 1,
+        "probabilities": {
+          "early": 0,
+          "metastatic": 0,
+          "both": 0,
+          "unspecified": 1
+        }
+      }
+    },
+    "decision": "discard",
+    "priority": 0,
+    "reasons": [
+      "影響度が低い (impact 0.96)"
+    ],
+    "tags": {
+      "category": "other",
+      "subtype": "unspecified",
+      "setting": "unspecified"
+    },
+    "usage": {
+      "input_tokens": 1432,
+      "output_tokens": 237
+    },
+    "model": "jev-1.13.0"
+  },
+  {
+    "item": {
+      "id": "gnews:40467f798355b64e",
+      "source": "gnews",
+      "title": "エンハーツ 中国でHER2陽性早期乳がん術後薬物療法対象に承認取得 第一三共",
+      "body": "エンハーツ 中国でHER2陽性早期乳がん術後薬物療法対象に承認取得 第一三共 &nbsp;&nbsp; 医薬通信社",
+      "url": "https://news.google.com/rss/articles/CBMi0wJBVV95cUxOWHNoZFZfMWJXOU1VY0c3ODgwcHMwTHMzWHhUSXEySFBkQnVwYnB4Y2lLZjJXbzMwZktPeVVscHZKbFlnX1lNSlpzdjlBNTk4anN4d1NldjRZaUhXNHlvWnVXanFYU1ZHUWpXdURwSmNYamVJLVNMMXc5YTNMell5UzFHbmhSeUpMM0VWT1Y2NFo2eDRDWldoWWhVUGhiRFp3MWhvZVlfTUNBLXA3cGlCR1QxbF83VjVTSEp1WTNDblBGNzBkMWpiSXpidm1Ta2Y1N3BWblNEQldVY1F6YzBkUlltSEVqSW9JY0l2bDR3QlNaemlXekhrRWtQTHEtMlF2YXdrZjJkNnJ4VFVWOFAwajE3Ql9IWnFmSzZJV2w3ZDNVa28tYnBBZ1M2T2Zxc2JScnNPN1hoUVB5S09VQjhIdzkwS1I5NjVFQ1NPVG5aVzI4TWs?oc=5",
+      "date": "2026-10-08",
+      "meta": {
+        "publisher": "医薬通信社",
+        "query": "乳がん 承認"
+      },
+      "knownDrugs": []
+    },
+    "answers": {
+      "relevant": {
+        "type": "noul",
+        "noul": 0.98
+      },
+      "category": {
+        "type": "choice",
+        "choice": "other",
+        "confidence": 0.99,
+        "probabilities": {
+          "approval_jp": 0.01,
+          "approval_us": 0,
+          "approval_eu": 0,
+          "filing": 0,
+          "trial_result": 0,
+          "trial_start": 0,
+          "guideline": 0,
+          "safety": 0,
+          "other": 0.99
+        }
+      },
+      "impact": {
+        "type": "score",
+        "score": 1.94,
+        "confidence": 0.94,
+        "legend": {
+          "0": "影響なし。情報としての価値もない",
+          "1": "参考情報。早期臨床試験の登録や、まだ実臨床に結びつかない基礎的な内容",
+          "2": "注目に値する。第III相試験の結果、海外での承認、日本での承認申請など",
+          "3": "実臨床を変える。日本での承認、標準治療を変える試験結果、ガイドライン改訂"
+        },
+        "probabilities": {
+          "0": 0.02,
+          "1": 0.02,
+          "2": 0.96,
+          "3": 0
+        }
+      },
+      "subtype": {
+        "type": "choice",
+        "choice": "her2_pos",
+        "confidence": 1,
+        "probabilities": {
+          "hr_pos": 0,
+          "her2_pos": 1,
+          "tnbc": 0,
+          "her2_low": 0,
+          "multiple": 0,
+          "unspecified": 0
+        }
+      },
+      "setting": {
+        "type": "choice",
+        "choice": "early",
+        "confidence": 1,
+        "probabilities": {
+          "early": 1,
+          "metastatic": 0,
+          "both": 0,
+          "unspecified": 0
+        }
+      }
+    },
+    "decision": "accept",
+    "priority": 1.94,
+    "reasons": [
+      "影響度が高い (impact 1.94)"
+    ],
+    "tags": {
+      "category": "other",
+      "subtype": "her2_pos",
+      "setting": "early"
+    },
+    "usage": {
+      "input_tokens": 1438,
+      "output_tokens": 235
+    },
+    "model": "jev-1.13.0"
+  },
+  {
+    "item": {
+      "id": "gnews:8a26936953fb8b36",
+      "source": "gnews",
+      "title": "乳がん治療薬、HER2陽性の1次治療や周術期治療など、「エンハーツ」の適応拡大続く",
+      "body": "乳がん治療薬、HER2陽性の1次治療や周術期治療など、「エンハーツ」の適応拡大続く &nbsp;&nbsp; 日経バイオテクONLINE",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE55T3BMaDcwTk5UcEZTWnlGZmRjUWVlY2RJcS1xX0FDM2NzOWRJMGw3MUV4ZXo1XzV3cXloZTZmMEtKNlpXazRwRDRGUVUxZ3RRQjBJSFNHemZnVXBiSlN2TGVHdmhBUEpRVWZRT1FUTQ?oc=5",
+      "date": "2026-10-08",
+      "meta": {
+        "publisher": "日経バイオテクONLINE",
+        "query": "乳がん 承認"
+      },
+      "knownDrugs": []
+    },
+    "answers": {
+      "relevant": {
+        "type": "noul",
+        "noul": 0.98
+      },
+      "category": {
+        "type": "choice",
+        "choice": "approval_jp",
+        "confidence": 0.97,
+        "probabilities": {
+          "approval_jp": 0.97,
+          "approval_us": 0,
+          "approval_eu": 0,
+          "filing": 0,
+          "trial_result": 0,
+          "trial_start": 0,
+          "guideline": 0,
+          "safety": 0,
+          "other": 0.03
+        }
+      },
+      "impact": {
+        "type": "score",
+        "score": 2.52,
+        "confidence": 0.54,
+        "legend": {
+          "0": "影響なし。情報としての価値もない",
+          "1": "参考情報。早期臨床試験の登録や、まだ実臨床に結びつかない基礎的な内容",
+          "2": "注目に値する。第III相試験の結果、海外での承認、日本での承認申請など",
+          "3": "実臨床を変える。日本での承認、標準治療を変える試験結果、ガイドライン改訂"
+        },
+        "probabilities": {
+          "0": 0.03,
+          "1": 0.04,
+          "2": 0.29,
+          "3": 0.64
+        }
+      },
+      "subtype": {
+        "type": "choice",
+        "choice": "her2_pos",
+        "confidence": 1,
+        "probabilities": {
+          "hr_pos": 0,
+          "her2_pos": 1,
+          "tnbc": 0,
+          "her2_low": 0,
+          "multiple": 0,
+          "unspecified": 0
+        }
+      },
+      "setting": {
+        "type": "choice",
+        "choice": "early",
+        "confidence": 0.52,
+        "probabilities": {
+          "early": 0.64,
+          "metastatic": 0.01,
+          "both": 0.34,
+          "unspecified": 0.01
+        }
+      }
+    },
+    "decision": "accept",
+    "priority": 2.52,
+    "reasons": [
+      "影響度が高い (impact 2.52)"
+    ],
+    "tags": {
+      "category": "approval_jp",
+      "subtype": "her2_pos",
+      "setting": "early"
+    },
+    "usage": {
+      "input_tokens": 1451,
+      "output_tokens": 237
+    },
+    "model": "jev-1.13.0"
+  },
+  {
+    "item": {
+      "id": "gnews:dc20ae7c713cfd0c",
+      "source": "gnews",
+      "title": "IgA腎症治療薬、初の腎機能低下抑制薬が日本でも申請へ",
+      "body": "IgA腎症治療薬、初の腎機能低下抑制薬が日本でも申請へ &nbsp;&nbsp; 日経バイオテクONLINE",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBCcjc5aDY5V08wXy1sbmh0YXF6NmJBbjd0ZnVlU3poNlB3X0xEUFdxQktYX0pxRHRpYm5iTHdFY1FaQ0pHeEh2M3ZXRFRJczB1UGQzMWVTZjNDUVRJVWgxckhQdDRFM1V6X2stYVdLYw?oc=5",
+      "date": "2026-09-28",
+      "meta": {
+        "publisher": "日経バイオテクONLINE",
+        "query": "乳がん 申請 承認 薬"
+      },
+      "knownDrugs": []
+    },
+    "answers": {
+      "relevant": {
+        "type": "noul",
+        "noul": 0.02
+      },
+      "category": {
+        "type": "choice",
+        "choice": "filing",
+        "confidence": 0.99,
+        "probabilities": {
+          "approval_jp": 0,
+          "approval_us": 0,
+          "approval_eu": 0,
+          "filing": 0.99,
+          "trial_result": 0,
+          "trial_start": 0,
+          "guideline": 0,
+          "safety": 0,
+          "other": 0.01
+        }
+      },
+      "impact": {
+        "type": "score",
+        "score": 0.17,
+        "confidence": 0.83,
+        "legend": {
+          "0": "影響なし。情報としての価値もない",
+          "1": "参考情報。早期臨床試験の登録や、まだ実臨床に結びつかない基礎的な内容",
+          "2": "注目に値する。第III相試験の結果、海外での承認、日本での承認申請など",
+          "3": "実臨床を変える。日本での承認、標準治療を変える試験結果、ガイドライン改訂"
+        },
+        "probabilities": {
+          "0": 0.9,
+          "1": 0.03,
+          "2": 0.07,
+          "3": 0
+        }
+      },
+      "subtype": {
+        "type": "choice",
+        "choice": "unspecified",
+        "confidence": 1,
+        "probabilities": {
+          "hr_pos": 0,
+          "her2_pos": 0,
+          "tnbc": 0,
+          "her2_low": 0,
+          "multiple": 0,
+          "unspecified": 1
+        }
+      },
+      "setting": {
+        "type": "choice",
+        "choice": "unspecified",
+        "confidence": 1,
+        "probabilities": {
+          "early": 0,
+          "metastatic": 0,
+          "both": 0,
+          "unspecified": 1
+        }
+      }
+    },
+    "decision": "discard",
+    "priority": 0,
+    "reasons": [
+      "乳がん薬物療法に非該当 (relevant 0.02)"
+    ],
+    "tags": {
+      "category": "filing",
+      "subtype": "unspecified",
+      "setting": "unspecified"
+    },
+    "usage": {
+      "input_tokens": 1437,
+      "output_tokens": 238
+    },
+    "model": "jev-1.13.0"
+  },
+  {
+    "item": {
+      "id": "gnews:ee3fbae493e46ca0",
+      "source": "gnews",
+      "title": "乳がんオリゴ転移、今わかっていること・いないこと／日本臨床腫瘍学会｜CareNet.com",
+      "body": "乳がんオリゴ転移、今わかっていること・いないこと／日本臨床腫瘍学会｜CareNet.com &nbsp;&nbsp; CareNet.com",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1YYjdjdnVzbmJVTE1CZlJZQ0JCOHF4dFJ2TnVKem1LX0hLWkU2WDQwMHR2b2wtS0lwYU5mWXlSNzVmM0VVaEdjelVwbUtBWVYyQjRPLXcyTjNCOUIxM1hz?oc=5",
+      "date": "2026-10-10",
+      "meta": {
+        "publisher": "CareNet.com",
+        "query": "乳がん 臨床試験 結果"
+      },
+      "knownDrugs": []
+    },
+    "answers": {
+      "relevant": {
+        "type": "noul",
+        "noul": 0.37
+      },
+      "category": {
+        "type": "choice",
+        "choice": "other",
+        "confidence": 0.68,
+        "probabilities": {
+          "approval_jp": 0,
+          "approval_us": 0,
+          "approval_eu": 0,
+          "filing": 0,
+          "trial_result": 0.18,
+          "trial_start": 0,
+          "guideline": 0.1,
+          "safety": 0,
+          "other": 0.72
+        }
+      },
+      "impact": {
+        "type": "score",
+        "score": 1.02,
+        "confidence": 0.79,
+        "legend": {
+          "0": "影響なし。情報としての価値もない",
+          "1": "参考情報。早期臨床試験の登録や、まだ実臨床に結びつかない基礎的な内容",
+          "2": "注目に値する。第III相試験の結果、海外での承認、日本での承認申請など",
+          "3": "実臨床を変える。日本での承認、標準治療を変える試験結果、ガイドライン改訂"
+        },
+        "probabilities": {
+          "0": 0.09,
+          "1": 0.82,
+          "2": 0.06,
+          "3": 0.03
+        }
+      },
+      "subtype": {
+        "type": "choice",
+        "choice": "unspecified",
+        "confidence": 0.99,
+        "probabilities": {
+          "hr_pos": 0,
+          "her2_pos": 0,
+          "tnbc": 0,
+          "her2_low": 0,
+          "multiple": 0.01,
+          "unspecified": 0.99
+        }
+      },
+      "setting": {
+        "type": "choice",
+        "choice": "metastatic",
+        "confidence": 0.96,
+        "probabilities": {
+          "early": 0,
+          "metastatic": 0.97,
+          "both": 0,
+          "unspecified": 0.03
+        }
+      }
+    },
+    "decision": "review",
+    "priority": 0,
+    "reasons": [
+      "関連性が不確実 (relevant 0.37)"
+    ],
+    "tags": {
+      "category": "other",
+      "subtype": "unspecified",
+      "setting": "metastatic"
+    },
+    "usage": {
+      "input_tokens": 1446,
+      "output_tokens": 237
+    },
+    "model": "jev-1.13.0"
+  },
+  {
+    "item": {
+      "id": "gnews:dd5c659a3782483c",
+      "source": "gnews",
+      "title": "【新潟医療福祉大学】医療AIの性能評価では「どれだけ高い性能か」だけでなく「どのデータで評価したか」が重要",
+      "body": "【新潟医療福祉大学】医療AIの性能評価では「どれだけ高い性能か」だけでなく「どのデータで評価したか」が重要 &nbsp;&nbsp; NSGグループ",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5GX1o0N08zYjRWazdSeHM4aHFUWmFMRmRjU3hRbE50d1hNOXJtQ0tLendUZ1ZMRFhoOHFTUDd2TkVCN2dGMTVIYlAtUHhjUzRzQVlES0UzUGpqQQ?oc=5",
+      "date": "2026-10-06",
+      "meta": {
+        "publisher": "NSGグループ",
+        "query": "乳がん 臨床試験 結果"
+      },
+      "knownDrugs": []
+    },
+    "answers": {
+      "relevant": {
+        "type": "noul",
+        "noul": 0.04
+      },
+      "category": {
+        "type": "choice",
+        "choice": "other",
+        "confidence": 0.99,
+        "probabilities": {
+          "approval_jp": 0,
+          "approval_us": 0,
+          "approval_eu": 0,
+          "filing": 0,
+          "trial_result": 0.01,
+          "trial_start": 0,
+          "guideline": 0,
+          "safety": 0,
+          "other": 0.99
+        }
+      },
+      "impact": {
+        "type": "score",
+        "score": 0.57,
+        "confidence": 0.56,
+        "legend": {
+          "0": "影響なし。情報としての価値もない",
+          "1": "参考情報。早期臨床試験の登録や、まだ実臨床に結びつかない基礎的な内容",
+          "2": "注目に値する。第III相試験の結果、海外での承認、日本での承認申請など",
+          "3": "実臨床を変える。日本での承認、標準治療を変える試験結果、ガイドライン改訂"
+        },
+        "probabilities": {
+          "0": 0.44,
+          "1": 0.56,
+          "2": 0,
+          "3": 0
+        }
+      },
+      "subtype": {
+        "type": "choice",
+        "choice": "unspecified",
+        "confidence": 1,
+        "probabilities": {
+          "hr_pos": 0,
+          "her2_pos": 0,
+          "tnbc": 0,
+          "her2_low": 0,
+          "multiple": 0,
+          "unspecified": 1
+        }
+      },
+      "setting": {
+        "type": "choice",
+        "choice": "unspecified",
+        "confidence": 1,
+        "probabilities": {
+          "early": 0,
+          "metastatic": 0,
+          "both": 0,
+          "unspecified": 1
+        }
+      }
+    },
+    "decision": "discard",
+    "priority": 0,
+    "reasons": [
+      "乳がん薬物療法に非該当 (relevant 0.04)"
+    ],
+    "tags": {
+      "category": "other",
+      "subtype": "unspecified",
+      "setting": "unspecified"
+    },
+    "usage": {
+      "input_tokens": 1480,
+      "output_tokens": 237
+    },
+    "model": "jev-1.13.0"
+  },
+  {
+    "item": {
+      "id": "openfda:27bba7d289ab91c9",
+      "source": "openfda",
+      "title": "FDA SUPPL #10 承認: tukysa（tucatinib）2026-10-07",
+      "body": "application: NDA213411\nsponsor: SEAGEN\nsubmissions: SUPPL #10 (Efficacy)\nclass: Efficacy\nproducts: TUKYSA TABLET, TUKYSA TABLET",
+      "url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=213411",
+      "date": "2026-10-07",
+      "meta": {
+        "generic": "tucatinib",
+        "brand": "tukysa",
+        "application": "NDA213411",
+        "submissionClass": "Efficacy",
+        "submissions": [
+          "SUPPL #10"
+        ]
+      },
+      "knownDrugs": [
+        "tucatinib",
+        "tukysa"
+      ]
+    },
+    "answers": {
+      "relevant": {
+        "type": "noul",
+        "noul": 0.92
+      },
+      "category": {
+        "type": "choice",
+        "choice": "approval_us",
+        "confidence": 0.99,
+        "probabilities": {
+          "approval_jp": 0,
+          "approval_us": 0.99,
+          "approval_eu": 0,
+          "filing": 0.01,
+          "trial_result": 0,
+          "trial_start": 0,
+          "guideline": 0,
+          "safety": 0,
+          "other": 0
+        }
+      },
+      "impact": {
+        "type": "score",
+        "score": 1.68,
+        "confidence": 0.59,
+        "legend": {
+          "0": "影響なし。情報としての価値もない",
+          "1": "参考情報。早期臨床試験の登録や、まだ実臨床に結びつかない基礎的な内容",
+          "2": "注目に値する。第III相試験の結果、海外での承認、日本での承認申請など",
+          "3": "実臨床を変える。日本での承認、標準治療を変える試験結果、ガイドライン改訂"
+        },
+        "probabilities": {
+          "0": 0.09,
+          "1": 0.19,
+          "2": 0.68,
+          "3": 0.04
+        }
+      },
+      "subtype": {
+        "type": "choice",
+        "choice": "her2_pos",
+        "confidence": 0.63,
+        "probabilities": {
+          "hr_pos": 0,
+          "her2_pos": 0.69,
+          "tnbc": 0,
+          "her2_low": 0.01,
+          "multiple": 0,
+          "unspecified": 0.3
+        }
+      },
+      "setting": {
+        "type": "choice",
+        "choice": "unspecified",
+        "confidence": 0.69,
+        "probabilities": {
+          "early": 0,
+          "metastatic": 0.22,
+          "both": 0.01,
+          "unspecified": 0.77
+        }
+      }
+    },
+    "decision": "review",
+    "priority": 1.68,
+    "reasons": [
+      "参考情報レベルの影響度 (impact 1.68)"
+    ],
+    "tags": {
+      "category": "approval_us",
+      "subtype": "her2_pos",
+      "setting": "unspecified"
+    },
+    "usage": {
+      "input_tokens": 1493,
+      "output_tokens": 238
+    },
+    "model": "jev-1.13.0"
+  }
+]
