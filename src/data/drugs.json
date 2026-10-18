@@ -1305,8 +1305,9 @@
           "t": "承認済 2025/12"
         },
         "eu": {
-          "s": "rev",
-          "t": "EMA申請中"
+          "s": "ok",
+          "t": "承認済 2026/9/1（DB-09）",
+          "url": "https://www.astrazeneca.com/media-centre/press-releases/2026/enhertu-approved-in-eu-for-1l-her2-positive-mbc.html"
         },
         "jp": {
           "s": "ok",
@@ -1644,7 +1645,7 @@
         "pr": "ASCO 2024"
       }
     ],
-    "next": "日本で維持療法（HER2CLIMB-05）申請中（2026/4/8）。米国は2026/10/7承認",
+    "next": "🆕 EUでCHMPが維持療法（HER2CLIMB-05）の承認を勧告（2026/10/15）。米国は2026/10/7承認。日本は2026/4/8申請中",
     "indications": [
       {
         "label": "HER2+ MBC 3L+（脳転移）",
@@ -1668,8 +1669,9 @@
           "t": "🆕 承認済 2026/10/7（HER2CLIMB-05、HP併用）"
         },
         "eu": {
-          "s": "p3",
-          "t": "Phase III"
+          "s": "rev",
+          "t": "🆕 CHMP承認勧告 2026/10/15（HER2CLIMB-05）",
+          "url": "https://www.ema.europa.eu/en/medicines/human/variation/tukysa"
         },
         "jp": {
           "s": "rev",
@@ -2055,8 +2057,9 @@
       "url": "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-pembrolizumab-and-berahyaluronidase-bnhf-subcutaneous-injection"
     },
     "eu": {
-      "s": "rev",
-      "t": "EMA申請中"
+      "s": "ok",
+      "t": "承認済 2025/11/19 KEYTRUDA SC（成人の全承認適応）",
+      "url": "https://www.merck.com/news/european-commission-approves-subcutaneous-administration-of-keytruda-pembrolizumab-for-all-adult-indications-approved-in-the-european-union/"
     },
     "jp": {
       "s": "ok",
@@ -2074,7 +2077,7 @@
         "pr": "ELCC 2025"
       }
     ],
-    "next": "EU承認判断。日本は2026/9/16承認（薬価収載待ち）"
+    "next": "EUは2025/11承認済。日本は2026/9/16承認（薬価収載待ち）"
   },
   {
     "id": 26,
@@ -2296,8 +2299,9 @@
           "t": "承認済 2025/1"
         },
         "eu": {
-          "s": "rev",
-          "t": "EMA申請中"
+          "s": "ok",
+          "t": "承認済 2025/4（TB-01）",
+          "url": "https://www.daiichisankyo.com/files/news/pressrelease/pdf/202504/20250408_E2.pdf"
         },
         "jp": {
           "s": "ok",
@@ -2311,8 +2315,9 @@
           "t": "🆕 承認済 2026/5/22（TB-02）"
         },
         "eu": {
-          "s": "rev",
-          "t": "🆕 CHMP肯定的見解 2026/6/26"
+          "s": "ok",
+          "t": "🆕 承認済 2026/7/31（TB-02）",
+          "url": "https://www.astrazeneca.com/media-centre/press-releases/2026/datroway-approved-in-eu-for-tnbc.html"
         },
         "jp": {
           "s": "ok",
@@ -2325,7 +2330,7 @@
       "t": ""
     },
     "eu": {
-      "s": "rev",
+      "s": "ok",
       "t": ""
     },
     "jp": {
