@@ -2390,5 +2390,25 @@
   "openfda:27bba7d289ab91c9": {
     "decision": "review",
     "date": "2026-10-14"
+  },
+  "gnews:4920bdace6f900af": {
+    "decision": "accept",
+    "date": "2026-10-21"
+  },
+  "gnews:96ad8f90094a4ec8": {
+    "decision": "discard",
+    "date": "2026-10-21"
+  },
+  "gnews:30f7dfc0f519b1dc": {
+    "decision": "review",
+    "date": "2026-10-21"
+  },
+  "gnews:8d42d55bcc3002ee": {
+    "decision": "discard",
+    "date": "2026-10-21"
+  },
+  "openfda:6545c9768df61360": {
+    "decision": "review",
+    "date": "2026-10-21"
   }
 }

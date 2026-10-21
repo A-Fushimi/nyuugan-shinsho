@@ -1,0 +1,478 @@
+[
+  {
+    "item": {
+      "id": "gnews:4920bdace6f900af",
+      "source": "gnews",
+      "title": "「アバスチン」乳がんに対する効能追加の承認を申請｜CareNet.com",
+      "body": "「アバスチン」乳がんに対する効能追加の承認を申請｜CareNet.com &nbsp;&nbsp; CareNet.com",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE85U29aeW1uYXVEMXFZMFVPUFFONTluT1ZtWkhSam5hbGxES2dLakM4UkhPU2E4SzQxSzI4LVFRZVpPS2RHQ0VackpULTRaa0swR3Q3cG9fQWNvMU1LZW9N?oc=5",
+      "date": "2026-10-10",
+      "meta": {
+        "publisher": "CareNet.com",
+        "query": "乳がん 承認"
+      },
+      "knownDrugs": []
+    },
+    "answers": {
+      "relevant": {
+        "type": "noul",
+        "noul": 0.97
+      },
+      "category": {
+        "type": "choice",
+        "choice": "filing",
+        "confidence": 0.93,
+        "probabilities": {
+          "approval_jp": 0.06,
+          "approval_us": 0,
+          "approval_eu": 0,
+          "filing": 0.94,
+          "trial_result": 0,
+          "trial_start": 0,
+          "guideline": 0,
+          "safety": 0,
+          "other": 0
+        }
+      },
+      "impact": {
+        "type": "score",
+        "score": 2,
+        "confidence": 0.99,
+        "legend": {
+          "0": "影響なし。情報としての価値もない",
+          "1": "参考情報。早期臨床試験の登録や、まだ実臨床に結びつかない基礎的な内容",
+          "2": "注目に値する。第III相試験の結果、海外での承認、日本での承認申請など",
+          "3": "実臨床を変える。日本での承認、標準治療を変える試験結果、ガイドライン改訂"
+        },
+        "probabilities": {
+          "0": 0,
+          "1": 0,
+          "2": 0.99,
+          "3": 0.01
+        }
+      },
+      "subtype": {
+        "type": "choice",
+        "choice": "unspecified",
+        "confidence": 0.9,
+        "probabilities": {
+          "hr_pos": 0.01,
+          "her2_pos": 0.07,
+          "tnbc": 0,
+          "her2_low": 0,
+          "multiple": 0,
+          "unspecified": 0.92
+        }
+      },
+      "setting": {
+        "type": "choice",
+        "choice": "unspecified",
+        "confidence": 0.95,
+        "probabilities": {
+          "early": 0,
+          "metastatic": 0.04,
+          "both": 0,
+          "unspecified": 0.96
+        }
+      }
+    },
+    "decision": "accept",
+    "priority": 2,
+    "reasons": [
+      "影響度が高い (impact 2.00)"
+    ],
+    "tags": {
+      "category": "filing",
+      "subtype": "unspecified",
+      "setting": "unspecified"
+    },
+    "usage": {
+      "input_tokens": 1416,
+      "output_tokens": 238
+    },
+    "model": "jev-1.13.0"
+  },
+  {
+    "item": {
+      "id": "gnews:96ad8f90094a4ec8",
+      "source": "gnews",
+      "title": "IgA腎症治療薬、大塚製薬の抗APRIL抗体がeGFR低下を抑制、米国で正式承認を申請",
+      "body": "IgA腎症治療薬、大塚製薬の抗APRIL抗体がeGFR低下を抑制、米国で正式承認を申請 &nbsp;&nbsp; 日経バイオテクONLINE",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9SWFNTT1VnMTl5T0RCX0ZBT3hLaTZnWHJJN2J2dk5zN3lGdkIwT2VXTFduVGY0NDNJOXR2RUVvSV9sZUJXMEdTbFFxNVNja3ZDLWwtSG80VThEWUtyUW80Rks1Nmd1cHZpSFN1ME80OA?oc=5",
+      "date": "2026-09-30",
+      "meta": {
+        "publisher": "日経バイオテクONLINE",
+        "query": "乳がん 申請 承認 薬"
+      },
+      "knownDrugs": []
+    },
+    "answers": {
+      "relevant": {
+        "type": "noul",
+        "noul": 0.02
+      },
+      "category": {
+        "type": "choice",
+        "choice": "filing",
+        "confidence": 1,
+        "probabilities": {
+          "approval_jp": 0,
+          "approval_us": 0,
+          "approval_eu": 0,
+          "filing": 1,
+          "trial_result": 0,
+          "trial_start": 0,
+          "guideline": 0,
+          "safety": 0,
+          "other": 0
+        }
+      },
+      "impact": {
+        "type": "score",
+        "score": 0.09,
+        "confidence": 0.91,
+        "legend": {
+          "0": "影響なし。情報としての価値もない",
+          "1": "参考情報。早期臨床試験の登録や、まだ実臨床に結びつかない基礎的な内容",
+          "2": "注目に値する。第III相試験の結果、海外での承認、日本での承認申請など",
+          "3": "実臨床を変える。日本での承認、標準治療を変える試験結果、ガイドライン改訂"
+        },
+        "probabilities": {
+          "0": 0.94,
+          "1": 0.03,
+          "2": 0.03,
+          "3": 0
+        }
+      },
+      "subtype": {
+        "type": "choice",
+        "choice": "unspecified",
+        "confidence": 1,
+        "probabilities": {
+          "hr_pos": 0,
+          "her2_pos": 0,
+          "tnbc": 0,
+          "her2_low": 0,
+          "multiple": 0,
+          "unspecified": 1
+        }
+      },
+      "setting": {
+        "type": "choice",
+        "choice": "unspecified",
+        "confidence": 1,
+        "probabilities": {
+          "early": 0,
+          "metastatic": 0,
+          "both": 0,
+          "unspecified": 1
+        }
+      }
+    },
+    "decision": "discard",
+    "priority": 0,
+    "reasons": [
+      "乳がん薬物療法に非該当 (relevant 0.02)"
+    ],
+    "tags": {
+      "category": "filing",
+      "subtype": "unspecified",
+      "setting": "unspecified"
+    },
+    "usage": {
+      "input_tokens": 1461,
+      "output_tokens": 238
+    },
+    "model": "jev-1.13.0"
+  },
+  {
+    "item": {
+      "id": "gnews:30f7dfc0f519b1dc",
+      "source": "gnews",
+      "title": "DS-8201、HER2陽性乳がん第II相臨床試験の結果／第一三共｜CareNet.com",
+      "body": "DS-8201、HER2陽性乳がん第II相臨床試験の結果／第一三共｜CareNet.com &nbsp;&nbsp; CareNet.com",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9FOG55bVhCYjdXX1dQbHU4U2tpN2dHN2VJbmlic09aZndaV21jaENPUzc4Z21zS09sTG1CTHZFYjJ4aDhTbFZNaVR0eUg3OWlJREd2aXBTdTV0cEkwWlRZ?oc=5",
+      "date": "2026-10-10",
+      "meta": {
+        "publisher": "CareNet.com",
+        "query": "乳がん 臨床試験 結果"
+      },
+      "knownDrugs": [
+        "ds-8201"
+      ]
+    },
+    "answers": {
+      "relevant": {
+        "type": "noul",
+        "noul": 0.98
+      },
+      "category": {
+        "type": "choice",
+        "choice": "trial_result",
+        "confidence": 1,
+        "probabilities": {
+          "approval_jp": 0,
+          "approval_us": 0,
+          "approval_eu": 0,
+          "filing": 0,
+          "trial_result": 1,
+          "trial_start": 0,
+          "guideline": 0,
+          "safety": 0,
+          "other": 0
+        }
+      },
+      "impact": {
+        "type": "score",
+        "score": 1.27,
+        "confidence": 0.7,
+        "legend": {
+          "0": "影響なし。情報としての価値もない",
+          "1": "参考情報。早期臨床試験の登録や、まだ実臨床に結びつかない基礎的な内容",
+          "2": "注目に値する。第III相試験の結果、海外での承認、日本での承認申請など",
+          "3": "実臨床を変える。日本での承認、標準治療を変える試験結果、ガイドライン改訂"
+        },
+        "probabilities": {
+          "0": 0.01,
+          "1": 0.77,
+          "2": 0.15,
+          "3": 0.07
+        }
+      },
+      "subtype": {
+        "type": "choice",
+        "choice": "her2_pos",
+        "confidence": 1,
+        "probabilities": {
+          "hr_pos": 0,
+          "her2_pos": 1,
+          "tnbc": 0,
+          "her2_low": 0,
+          "multiple": 0,
+          "unspecified": 0
+        }
+      },
+      "setting": {
+        "type": "choice",
+        "choice": "unspecified",
+        "confidence": 0.87,
+        "probabilities": {
+          "early": 0,
+          "metastatic": 0.09,
+          "both": 0.01,
+          "unspecified": 0.9
+        }
+      }
+    },
+    "decision": "review",
+    "priority": 1.27,
+    "reasons": [
+      "参考情報レベルの影響度 (impact 1.27)"
+    ],
+    "tags": {
+      "category": "trial_result",
+      "subtype": "her2_pos",
+      "setting": "unspecified"
+    },
+    "usage": {
+      "input_tokens": 1442,
+      "output_tokens": 238
+    },
+    "model": "jev-1.13.0"
+  },
+  {
+    "item": {
+      "id": "gnews:8d42d55bcc3002ee",
+      "source": "gnews",
+      "title": "医療AIの過大評価に警鐘、乳がんMRIデータで評価手法の妥当性を検証 新潟医療...",
+      "body": "医療AIの過大評価に警鐘、乳がんMRIデータで評価手法の妥当性を検証 新潟医療... &nbsp;&nbsp; Med IT Tech",
+      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE56cV9DWGlMdUtuYXYzSGRpMTZqdmxERHV5a3l0a0toaFhvTjlsSUg4SXhhaTV3V092S3VWcWFnN3VMOVpBMzYyenhHaG5TTENjSUVaZWRTYnRMMEF4cU1ncmY3ZDNZSmtmdWFIRkFhb0RMVTdmeDVnWkx1MNIBgAFBVV95cUxOU1B2TGhmSjZxa3ZGNmtIclB4Rzg4Z2V1MUpyaF8zMktpUUZXNEM5RTBBLXpuX2RSOFFycXJrUGg5eDVmUVRYUXQxV0JwUndPcGdnNlkzLUpPbVFvWUJCWHZfc1IwcTktYkViZENoTEJZREtaZTctUVhjb3cxQWxzZg?oc=5",
+      "date": "2026-10-13",
+      "meta": {
+        "publisher": "Med IT Tech",
+        "query": "乳がん 臨床試験 結果"
+      },
+      "knownDrugs": []
+    },
+    "answers": {
+      "relevant": {
+        "type": "noul",
+        "noul": 0.06
+      },
+      "category": {
+        "type": "choice",
+        "choice": "other",
+        "confidence": 0.85,
+        "probabilities": {
+          "approval_jp": 0,
+          "approval_us": 0,
+          "approval_eu": 0,
+          "filing": 0,
+          "trial_result": 0.13,
+          "trial_start": 0,
+          "guideline": 0,
+          "safety": 0,
+          "other": 0.87
+        }
+      },
+      "impact": {
+        "type": "score",
+        "score": 0.86,
+        "confidence": 0.82,
+        "legend": {
+          "0": "影響なし。情報としての価値もない",
+          "1": "参考情報。早期臨床試験の登録や、まだ実臨床に結びつかない基礎的な内容",
+          "2": "注目に値する。第III相試験の結果、海外での承認、日本での承認申請など",
+          "3": "実臨床を変える。日本での承認、標準治療を変える試験結果、ガイドライン改訂"
+        },
+        "probabilities": {
+          "0": 0.16,
+          "1": 0.82,
+          "2": 0.02,
+          "3": 0
+        }
+      },
+      "subtype": {
+        "type": "choice",
+        "choice": "unspecified",
+        "confidence": 1,
+        "probabilities": {
+          "hr_pos": 0,
+          "her2_pos": 0,
+          "tnbc": 0,
+          "her2_low": 0,
+          "multiple": 0,
+          "unspecified": 1
+        }
+      },
+      "setting": {
+        "type": "choice",
+        "choice": "unspecified",
+        "confidence": 1,
+        "probabilities": {
+          "early": 0,
+          "metastatic": 0,
+          "both": 0,
+          "unspecified": 1
+        }
+      }
+    },
+    "decision": "discard",
+    "priority": 0,
+    "reasons": [
+      "乳がん薬物療法に非該当 (relevant 0.06)"
+    ],
+    "tags": {
+      "category": "other",
+      "subtype": "unspecified",
+      "setting": "unspecified"
+    },
+    "usage": {
+      "input_tokens": 1444,
+      "output_tokens": 237
+    },
+    "model": "jev-1.13.0"
+  },
+  {
+    "item": {
+      "id": "openfda:6545c9768df61360",
+      "source": "openfda",
+      "title": "FDA SUPPL #8, #191 承認: keytruda（pembrolizumab）2026-10-16",
+      "body": "application: BLA761467\nsponsor: MERCK SHARP DOHME\nsubmissions: SUPPL #8 (Efficacy) / SUPPL #191 (Efficacy)\nclass: Efficacy\nproducts: KEYTRUDA QLEX INJECTABLE, KEYTRUDA QLEX INJECTABLE",
+      "url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=761467",
+      "date": "2026-10-16",
+      "meta": {
+        "generic": "pembrolizumab",
+        "brand": "keytruda",
+        "application": "BLA761467",
+        "submissionClass": "Efficacy",
+        "submissions": [
+          "SUPPL #8",
+          "SUPPL #191"
+        ]
+      },
+      "knownDrugs": [
+        "keytruda",
+        "pembrolizumab"
+      ]
+    },
+    "answers": {
+      "relevant": {
+        "type": "noul",
+        "noul": 0.36
+      },
+      "category": {
+        "type": "choice",
+        "choice": "approval_us",
+        "confidence": 1,
+        "probabilities": {
+          "approval_jp": 0,
+          "approval_us": 1,
+          "approval_eu": 0,
+          "filing": 0,
+          "trial_result": 0,
+          "trial_start": 0,
+          "guideline": 0,
+          "safety": 0,
+          "other": 0
+        }
+      },
+      "impact": {
+        "type": "score",
+        "score": 1.5,
+        "confidence": 0.45,
+        "legend": {
+          "0": "影響なし。情報としての価値もない",
+          "1": "参考情報。早期臨床試験の登録や、まだ実臨床に結びつかない基礎的な内容",
+          "2": "注目に値する。第III相試験の結果、海外での承認、日本での承認申請など",
+          "3": "実臨床を変える。日本での承認、標準治療を変える試験結果、ガイドライン改訂"
+        },
+        "probabilities": {
+          "0": 0.15,
+          "1": 0.23,
+          "2": 0.6,
+          "3": 0.02
+        }
+      },
+      "subtype": {
+        "type": "choice",
+        "choice": "unspecified",
+        "confidence": 0.99,
+        "probabilities": {
+          "hr_pos": 0,
+          "her2_pos": 0,
+          "tnbc": 0,
+          "her2_low": 0,
+          "multiple": 0.01,
+          "unspecified": 0.99
+        }
+      },
+      "setting": {
+        "type": "choice",
+        "choice": "unspecified",
+        "confidence": 1,
+        "probabilities": {
+          "early": 0,
+          "metastatic": 0,
+          "both": 0,
+          "unspecified": 1
+        }
+      }
+    },
+    "decision": "review",
+    "priority": 0,
+    "reasons": [
+      "関連性が不確実 (relevant 0.36)"
+    ],
+    "tags": {
+      "category": "approval_us",
+      "subtype": "unspecified",
+      "setting": "unspecified"
+    },
+    "usage": {
+      "input_tokens": 1530,
+      "output_tokens": 238
+    },
+    "model": "jev-1.13.0"
+  }
+]
