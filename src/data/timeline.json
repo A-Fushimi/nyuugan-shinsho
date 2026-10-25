@@ -429,19 +429,19 @@
     "trial": "VIKTORIA-1",
     "ph": "III",
     "sub": "HR+/HER2-",
-    "pop": "1L MBC",
+    "pop": "CDK4/6i既治療 PIK3CA野生型 MBC",
     "arm": "gedatolisib + palbociclib + fulvestrant",
     "ctrl": "placebo + palbociclib + fulvestrant",
     "ep": "PFS（IRC）",
     "ep2": "OS, ORR",
-    "res": "PFS有意改善",
+    "res": "三剤 mPFS 9.3 vs 2.0m (HR 0.24)／二剤 7.4 vs 2.0m (HR 0.33)",
     "res2": "ORR改善",
     "st": "pos",
     "fpi": 2022.917,
     "lpi": 2025.017,
     "readout": 2024.9,
     "nct": "NCT05501886",
-    "note": "SABCS 2024。FDA申請済",
+    "note": "ESMO 2025（PIK3CA野生型コホート）。FDA承認(2026/7/14、REVTORPYK)。PIK3CA変異コホートはASCO 2026で発表、sNDA提出済",
     "resultUrl": "https://ascopubs.org/doi/10.1200/JCO-25-02643",
     "resultRef": "JCO 2026",
     "pcd": "2026-06",
@@ -454,7 +454,7 @@
         "submission": "2025-10",
         "pdufa": null,
         "adcom": null,
-        "approval": null
+        "approval": "2026-07-14"
       },
       "pmda": {
         "submission": null,
@@ -1188,6 +1188,29 @@
         "approval": "2022-03"
       }
     }
+  },
+  {
+    "drug": "abemaciclib",
+    "trial": "postMONARCH",
+    "ph": "III",
+    "sub": "HR+/HER2-",
+    "pop": "CDK4/6i＋AI既治療後に進行したMBC（2L）",
+    "arm": "abemaciclib + fulvestrant",
+    "ctrl": "placebo + fulvestrant",
+    "ep": "PFS（主治医判定）",
+    "ep2": "OS, PFS2, ORR",
+    "res": "mPFS 6.0 vs 5.3m (HR 0.73)",
+    "res2": "最終OS 32.1 vs 24.6m (HR 0.80, 95%CI 0.60-1.06, P=0.1145) 有意差なし",
+    "st": "pos",
+    "fpi": 2022.25,
+    "lpi": 2023.5,
+    "readout": 2024.4,
+    "nct": "NCT05169567",
+    "note": "ASCO 2024で主要解析（PFS陽性）。ESMO 2026で最終OS解析を発表（数値上は延長したが統計学的有意差なし）。CDK4/6阻害薬の継続（スイッチ）を検証した第III相試験",
+    "resultUrl": "https://clinicaltrials.gov/study/NCT05169567",
+    "resultRef": "ESMO 2026",
+    "enrollmentTarget": 368,
+    "primaryEndpoint": "PFS"
   },
   {
     "drug": "palbociclib",

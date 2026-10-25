@@ -345,9 +345,20 @@
         "st": "pos",
         "pr": "JAMA Oncol 2020",
         "url": "https://pubmed.ncbi.nlm.nih.gov/31563959/"
+      },
+      {
+        "n": "postMONARCH",
+        "ph": "III",
+        "pop": "HR+/HER2- CDK4/6i既治療後 MBC",
+        "arm": "abemaciclib + fulvestrant",
+        "ctrl": "placebo + fulvestrant",
+        "res": "mPFS 6.0 vs 5.3m (HR 0.73)。最終OS 32.1 vs 24.6m (HR 0.80, P=0.1145) で有意差なし",
+        "st": "pos",
+        "pr": "ASCO 2024 / ESMO 2026（最終OS）",
+        "url": "https://clinicaltrials.gov/study/NCT05169567"
       }
     ],
-    "next": "monarchE長期OS追跡"
+    "next": "monarchE長期OS追跡。postMONARCH最終OS（ESMO 2026）は数値上延長も有意差なし"
   },
   {
     "id": 4,
