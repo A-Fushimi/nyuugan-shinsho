@@ -509,7 +509,7 @@
     "note": "ESMO 2025。FDA承認済12/2025",
     "resultUrl": "https://www.nejm.org/doi/abs/10.1056/NEJMoa2508668",
     "resultRef": "NEJM 2026",
-    "pcd": "2026-11",
+    "pcd": "2027-05",
     "scd": "2029-12",
     "enrollment": "ACTIVE_NOT_RECRUITING",
     "enrollmentTarget": 1157,
@@ -1202,7 +1202,7 @@
     "res": "mPFS 6.0 vs 5.3m (HR 0.73)",
     "res2": "最終OS 32.1 vs 24.6m (HR 0.80, 95%CI 0.60-1.06, P=0.1145) 有意差なし",
     "st": "pos",
-    "fpi": 2022.25,
+    "fpi": 2022.167,
     "lpi": 2023.5,
     "readout": 2024.4,
     "nct": "NCT05169567",
@@ -1210,7 +1210,10 @@
     "resultUrl": "https://clinicaltrials.gov/study/NCT05169567",
     "resultRef": "ESMO 2026",
     "enrollmentTarget": 368,
-    "primaryEndpoint": "PFS"
+    "primaryEndpoint": "PFS",
+    "enrollment": "ACTIVE_NOT_RECRUITING",
+    "pcd": "2024-02",
+    "scd": "2027-12"
   },
   {
     "drug": "palbociclib",
