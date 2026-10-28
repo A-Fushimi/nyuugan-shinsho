@@ -2410,5 +2410,17 @@
   "openfda:6545c9768df61360": {
     "decision": "review",
     "date": "2026-10-21"
+  },
+  "gnews:00faecb6acf16fbd": {
+    "decision": "accept",
+    "date": "2026-10-28"
+  },
+  "gnews:27c25d8d36c8c6d4": {
+    "decision": "accept",
+    "date": "2026-10-28"
+  },
+  "gnews:68b9d1f63315fde0": {
+    "decision": "accept",
+    "date": "2026-10-28"
   }
 }
