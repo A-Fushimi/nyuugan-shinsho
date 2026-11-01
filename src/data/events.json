@@ -135,12 +135,18 @@
         "result": "✅ HER2CLIMB-05に基づきトラスツズマブ＋ペルツズマブ併用の維持療法として承認勧告。欧州委員会の最終承認待ち"
       },
       {
+        "text": "🇪🇺 エンハーツ 術後（DB-05）欧州委員会承認（10/27）",
+        "generic": "trastuzumab deruxtecan",
+        "result": "✅ 術前治療後に浸潤癌が残存したHER2+早期乳がんの術後療法。EUで早期乳がんへの初承認。3年iDFS 92.4% vs 83.7%（HR 0.47、対T-DM1）",
+        "isNew": true
+      },
+      {
         "text": "Giredestrant lidERA（術後）FDA承認判断（11/30、優先審査）",
         "generic": "giredestrant"
       },
       {
-        "text": "ESMO 2026（10/23-27、マドリード）: VIKTORIA-1 Study 2 更新結果（LBA16）、postMONARCH最終OS等",
-        "result": "postMONARCH最終OS: アベマシクリブ＋フルベストラントで mOS 32.1 vs 24.6m（HR 0.80、P=0.1145）、数値上は延長したが統計学的有意差なし（会期中のため順次更新）"
+        "text": "ESMO 2026（10/23-27、マドリード）: NATALEE 6年OS、KEYNOTE-B49、postMONARCH最終OS等",
+        "result": "✅ NATALEE（術後リボシクリブ）6年OS 91.9% vs 89.7%（HR 0.809）でOS改善／KEYNOTE-B49（HR+/HER2- MBC、PD-L1 CPS≥1）はペムブロリズマブ＋化学療法でPFS改善（6.7 vs 6.0m、HR 0.74）もOS改善なし／postMONARCH最終OS 32.1 vs 24.6m（HR 0.80、P=0.1145）で有意差なし"
       },
       {
         "text": "Giredestrant evERA FDA承認判断（12/18）",

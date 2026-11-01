@@ -231,13 +231,13 @@
         "pop": "HR+/HER2- EBC術後",
         "arm": "ribociclib 400mg + ET",
         "ctrl": "ET alone",
-        "res": "3y iDFS 90.4% vs 87.1% (HR 0.75)",
+        "res": "3y iDFS 90.4% vs 87.1% (HR 0.75)。6年OS 91.9% vs 89.7%（HR 0.809、95%CI 0.661–0.989）",
         "st": "pos",
-        "pr": "NEJM 2024",
+        "pr": "NEJM 2024 / ESMO 2026・Ann Oncol 2026（6年OS）",
         "url": "https://pubmed.ncbi.nlm.nih.gov/39442617/"
       }
     ],
-    "next": "日本未承認（ドラッグロス）。EBC術後データ成熟中"
+    "next": "日本未承認（ドラッグロス）。NATALEE 6年解析（ESMO 2026）で術後リボシクリブのOS改善を確認（HR 0.809）"
   },
   {
     "id": 3,
@@ -1362,8 +1362,9 @@
           "t": "🆕 承認済 2026/5/15（DB-05）"
         },
         "eu": {
-          "s": "rev",
-          "t": "申請中"
+          "s": "ok",
+          "t": "🆕 承認済 2026/10/27（DB-05）",
+          "url": "https://www.astrazeneca.com/media-centre/press-releases/2026/enhertu-approved-eu-for-her2-positive-ebc.html"
         },
         "jp": {
           "s": "rev",
@@ -1496,7 +1497,7 @@
         "pr": "readout 2027"
       }
     ],
-    "next": "🆕 術後(DB-05)がEU CHMP承認勧告(2026/9/14-17会合)。日本はDB-05申請中(2026/2/27)。DB-12脳転移試験は2027年readout"
+    "next": "🆕 術後(DB-05)を欧州委員会が承認(2026/10/27、EUの早期乳がんで初承認)。米国は2026/5/15承認、日本はDB-05申請中(2026/2/27)。DB-12脳転移試験は2027年readout"
   },
   {
     "id": 17,
@@ -2041,6 +2042,17 @@
         "st": "pos",
         "pr": "Nat Med 2025",
         "url": "https://doi.org/10.1038/s41591-024-03415-7"
+      },
+      {
+        "n": "KEYNOTE-B49",
+        "ph": "III",
+        "pop": "HR+/HER2- MBC 内分泌療法後・PD-L1 CPS≥1",
+        "arm": "pembrolizumab + 化学療法（医師選択）",
+        "ctrl": "placebo + 化学療法",
+        "res": "mPFS 6.7 vs 6.0m (HR 0.74, P=0.0089)。OSの有意な改善なし",
+        "st": "pos",
+        "pr": "ESMO 2026 LBA51",
+        "url": "https://www.cancernetwork.com/view/pembrolizumab-plus-chemo-improves-pfs-in-pd-l1-hr-her2-breast-cancer"
       }
     ],
     "next": "KEYNOTE-756のEFS（もう一方の主要評価項目）読み出し待ち。HR+/HER2-での承認可否はEFS次第。皮下注Qlex承認済→切替"

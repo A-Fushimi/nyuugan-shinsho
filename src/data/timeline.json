@@ -548,7 +548,7 @@
     "lpi": 2023.917,
     "readout": 2025.8,
     "nct": "NCT04622319",
-    "note": "ESMO 2025。FDA承認 2026/5/15、EU CHMP承認勧告 2026/9、日本申請中",
+    "note": "ESMO 2025。FDA承認 2026/5/15、EU承認 2026/10/27、日本申請中",
     "resultUrl": "https://www.nejm.org/doi/full/10.1056/NEJMoa2514661",
     "resultRef": "NEJM 2026",
     "pcd": "2025-07",
@@ -569,7 +569,7 @@
       },
       "ema": {
         "submission": null,
-        "approval": null
+        "approval": "2026-10-27"
       }
     }
   },
@@ -1258,6 +1258,29 @@
     }
   },
   {
+    "drug": "giredestrant",
+    "trial": "heredERA",
+    "ph": "III",
+    "sub": "HER2+",
+    "pop": "HR+（ER+）/HER2+ 転移・再発 1次治療（PH皮下注＋タキサン導入療法後の維持療法）",
+    "arm": "giredestrant + PH皮下注（フェスゴ）",
+    "ctrl": "PH皮下注（フェスゴ）± 内分泌療法（医師選択）",
+    "ep": "PFS（研究者判定）",
+    "ep2": "OS, ORR",
+    "st": "run",
+    "fpi": null,
+    "lpi": null,
+    "readout": null,
+    "nct": "NCT05296798",
+    "note": "経口SERDと抗HER2療法の併用を検証する第III相。導入812例・維持療法への無作為化730例を計画。結果未発表",
+    "resultUrl": "https://link.springer.com/article/10.1186/s12885-024-12179-9",
+    "resultRef": "BMC Cancer 2024（試験デザイン）",
+    "enrollment": "ACTIVE_NOT_RECRUITING",
+    "enrollmentTarget": 812,
+    "primaryEndpoint": "PFS",
+    "regulatory": null
+  },
+  {
     "drug": "Sac-Gov",
     "trial": "TROPiCS-02",
     "ph": "III",
@@ -1484,6 +1507,31 @@
     "enrollmentTarget": 1240,
     "pcd": "2031-01",
     "scd": "2031-01"
+  },
+  {
+    "drug": "pembrolizumab",
+    "trial": "KEYNOTE-B49",
+    "ph": "III",
+    "sub": "HR+/HER2-",
+    "pop": "HR+/HER2- 転移・再発 内分泌療法後・PD-L1 CPS≥1",
+    "arm": "pembrolizumab + 化学療法（PTX/nab-PTX/リポソーム化DXR/CAPから医師選択）",
+    "ctrl": "placebo + 化学療法",
+    "ep": "PFS（BICR）",
+    "ep2": "OS, ORR",
+    "res": "mPFS 6.7 vs 6.0m (HR 0.74, 95%CI 0.58–0.95, P=0.0089)",
+    "res2": "OSの有意な改善なし",
+    "st": "pos",
+    "fpi": null,
+    "lpi": null,
+    "readout": 2026.8,
+    "nct": "NCT04895358",
+    "note": "ESMO 2026 LBA51。342例。PFSは統計学的有意だが中央値の差は0.7ヶ月と小さく、OSは改善せず。承認申請の公表なし",
+    "resultUrl": "https://www.cancernetwork.com/view/pembrolizumab-plus-chemo-improves-pfs-in-pd-l1-hr-her2-breast-cancer",
+    "resultRef": "ESMO 2026 LBA51",
+    "enrollment": "ACTIVE_NOT_RECRUITING",
+    "enrollmentTarget": 342,
+    "primaryEndpoint": "PFS",
+    "regulatory": null
   },
   {
     "drug": "camizestrant",
