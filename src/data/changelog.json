@@ -1,5 +1,13 @@
 [
   {
+    "ver": "auto",
+    "date": "2026-11-02",
+    "type": "auto",
+    "items": [
+      "試験ステータス自動更新（2件変更: heredERA: fpi: null → 2022-07、KEYNOTE-B49: fpi: null → 2021-06）"
+    ]
+  },
+  {
     "ver": "3.4",
     "date": "2026-11-01",
     "type": "minor",

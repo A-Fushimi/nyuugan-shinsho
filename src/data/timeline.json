@@ -1268,7 +1268,7 @@
     "ep": "PFS（研究者判定）",
     "ep2": "OS, ORR",
     "st": "run",
-    "fpi": null,
+    "fpi": 2022.5,
     "lpi": null,
     "readout": null,
     "nct": "NCT05296798",
@@ -1276,9 +1276,11 @@
     "resultUrl": "https://link.springer.com/article/10.1186/s12885-024-12179-9",
     "resultRef": "BMC Cancer 2024（試験デザイン）",
     "enrollment": "ACTIVE_NOT_RECRUITING",
-    "enrollmentTarget": 812,
+    "enrollmentTarget": 922,
     "primaryEndpoint": "PFS",
-    "regulatory": null
+    "regulatory": null,
+    "pcd": "2028-06",
+    "scd": "2030-12"
   },
   {
     "drug": "Sac-Gov",
@@ -1521,7 +1523,7 @@
     "res": "mPFS 6.7 vs 6.0m (HR 0.74, 95%CI 0.58–0.95, P=0.0089)",
     "res2": "OSの有意な改善なし",
     "st": "pos",
-    "fpi": null,
+    "fpi": 2021.417,
     "lpi": null,
     "readout": 2026.8,
     "nct": "NCT04895358",
@@ -1531,7 +1533,9 @@
     "enrollment": "ACTIVE_NOT_RECRUITING",
     "enrollmentTarget": 342,
     "primaryEndpoint": "PFS",
-    "regulatory": null
+    "regulatory": null,
+    "pcd": "2026-04",
+    "scd": "2027-12"
   },
   {
     "drug": "camizestrant",
