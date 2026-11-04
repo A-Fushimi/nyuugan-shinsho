@@ -2422,5 +2422,29 @@
   "gnews:68b9d1f63315fde0": {
     "decision": "accept",
     "date": "2026-10-28"
+  },
+  "gnews:d4faed0ce1733846": {
+    "decision": "accept",
+    "date": "2026-11-04"
+  },
+  "gnews:129e6f12348b93e7": {
+    "decision": "accept",
+    "date": "2026-11-04"
+  },
+  "gnews:17cc1485f4114bfd": {
+    "decision": "review",
+    "date": "2026-11-04"
+  },
+  "gnews:c54679ee0a7b3331": {
+    "decision": "accept",
+    "date": "2026-11-04"
+  },
+  "gnews:701caa82755cd069": {
+    "decision": "review",
+    "date": "2026-11-04"
+  },
+  "openfda:c3cf1cf059b95adf": {
+    "decision": "review",
+    "date": "2026-11-04"
   }
 }

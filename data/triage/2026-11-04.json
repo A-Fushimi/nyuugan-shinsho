@@ -1,0 +1,571 @@
+[
+  {
+    "item": {
+      "id": "gnews:d4faed0ce1733846",
+      "source": "gnews",
+      "title": "第一三共の「エンハーツ」、EUで乳がん術後薬物療法の承認取得",
+      "body": "第一三共の「エンハーツ」、EUで乳がん術後薬物療法の承認取得 &nbsp;&nbsp; 日本経済新聞",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9fZENTV1FzTjFoNEdfZEFnY3pSbVZpdnI4N0xpTEMzQzJ2SWdvbzladUpKeFFuUkUydjRuQjFaTHY4R0g0MzZYLXp2VFowM25lUFp2NHJlOWFwTEg2MkRiSHY2Mm50ZkZTdXlQeg?oc=5",
+      "date": "2026-10-28",
+      "meta": {
+        "publisher": "日本経済新聞",
+        "query": "乳がん 承認"
+      },
+      "knownDrugs": []
+    },
+    "answers": {
+      "relevant": {
+        "type": "noul",
+        "noul": 0.98
+      },
+      "category": {
+        "type": "choice",
+        "choice": "approval_eu",
+        "confidence": 1,
+        "probabilities": {
+          "approval_jp": 0,
+          "approval_us": 0,
+          "approval_eu": 1,
+          "filing": 0,
+          "trial_result": 0,
+          "trial_start": 0,
+          "guideline": 0,
+          "safety": 0,
+          "other": 0
+        }
+      },
+      "impact": {
+        "type": "score",
+        "score": 2.01,
+        "confidence": 0.98,
+        "legend": {
+          "0": "影響なし。情報としての価値もない",
+          "1": "参考情報。早期臨床試験の登録や、まだ実臨床に結びつかない基礎的な内容",
+          "2": "注目に値する。第III相試験の結果、海外での承認、日本での承認申請など",
+          "3": "実臨床を変える。日本での承認、標準治療を変える試験結果、ガイドライン改訂"
+        },
+        "probabilities": {
+          "0": 0,
+          "1": 0,
+          "2": 0.98,
+          "3": 0.02
+        }
+      },
+      "subtype": {
+        "type": "choice",
+        "choice": "her2_pos",
+        "confidence": 0.51,
+        "probabilities": {
+          "hr_pos": 0.01,
+          "her2_pos": 0.59,
+          "tnbc": 0,
+          "her2_low": 0.18,
+          "multiple": 0.01,
+          "unspecified": 0.21
+        }
+      },
+      "setting": {
+        "type": "choice",
+        "choice": "early",
+        "confidence": 1,
+        "probabilities": {
+          "early": 1,
+          "metastatic": 0,
+          "both": 0,
+          "unspecified": 0
+        }
+      }
+    },
+    "decision": "accept",
+    "priority": 2.01,
+    "reasons": [
+      "影響度が高い (impact 2.01)"
+    ],
+    "tags": {
+      "category": "approval_eu",
+      "subtype": "her2_pos",
+      "setting": "early"
+    },
+    "usage": {
+      "input_tokens": 1423,
+      "output_tokens": 237
+    },
+    "model": "jev-1.14.0"
+  },
+  {
+    "item": {
+      "id": "gnews:129e6f12348b93e7",
+      "source": "gnews",
+      "title": "トルカプ、フェソロデックスと併用でHR+進行乳がんに対し承認取得（CAPItello-291）／AZ｜CareNet.com",
+      "body": "トルカプ、フェソロデックスと併用でHR+進行乳がんに対し承認取得（CAPItello-291）／AZ｜CareNet.com &nbsp;&nbsp; CareNet.com",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9jT2FkV0huR0hvaDc2b2hnV0tEX01XM3VNbVVMSGszQzZjUlE0a1N6TENoY2UyOXNlcHZURHJvN3cwdDhEWWNBNDZDZC1TdHVkbmZOanNlTnJxZHdpODZZ?oc=5",
+      "date": "2026-10-27",
+      "meta": {
+        "publisher": "CareNet.com",
+        "query": "乳がん 承認"
+      },
+      "knownDrugs": [
+        "トルカプ"
+      ]
+    },
+    "answers": {
+      "relevant": {
+        "type": "noul",
+        "noul": 0.98
+      },
+      "category": {
+        "type": "choice",
+        "choice": "approval_jp",
+        "confidence": 0.58,
+        "probabilities": {
+          "approval_jp": 0.63,
+          "approval_us": 0.23,
+          "approval_eu": 0.01,
+          "filing": 0.01,
+          "trial_result": 0.04,
+          "trial_start": 0,
+          "guideline": 0,
+          "safety": 0,
+          "other": 0.08
+        }
+      },
+      "impact": {
+        "type": "score",
+        "score": 2.2,
+        "confidence": 0.74,
+        "legend": {
+          "0": "影響なし。情報としての価値もない",
+          "1": "参考情報。早期臨床試験の登録や、まだ実臨床に結びつかない基礎的な内容",
+          "2": "注目に値する。第III相試験の結果、海外での承認、日本での承認申請など",
+          "3": "実臨床を変える。日本での承認、標準治療を変える試験結果、ガイドライン改訂"
+        },
+        "probabilities": {
+          "0": 0.01,
+          "1": 0.01,
+          "2": 0.75,
+          "3": 0.23
+        }
+      },
+      "subtype": {
+        "type": "choice",
+        "choice": "hr_pos",
+        "confidence": 1,
+        "probabilities": {
+          "hr_pos": 1,
+          "her2_pos": 0,
+          "tnbc": 0,
+          "her2_low": 0,
+          "multiple": 0,
+          "unspecified": 0
+        }
+      },
+      "setting": {
+        "type": "choice",
+        "choice": "metastatic",
+        "confidence": 1,
+        "probabilities": {
+          "early": 0,
+          "metastatic": 1,
+          "both": 0,
+          "unspecified": 0
+        }
+      }
+    },
+    "decision": "accept",
+    "priority": 2.2,
+    "reasons": [
+      "影響度が高い (impact 2.20)"
+    ],
+    "tags": {
+      "category": "approval_jp",
+      "subtype": "hr_pos",
+      "setting": "metastatic"
+    },
+    "usage": {
+      "input_tokens": 1460,
+      "output_tokens": 238
+    },
+    "model": "jev-1.14.0"
+  },
+  {
+    "item": {
+      "id": "gnews:17cc1485f4114bfd",
+      "source": "gnews",
+      "title": "アストラゼネカ（LSE:AZN）の乳がん治療薬がEUで承認されたことに対し、投資家はどのように反応するか",
+      "body": "アストラゼネカ（LSE:AZN）の乳がん治療薬がEUで承認されたことに対し、投資家はどのように反応するか &nbsp;&nbsp; Simply Wall St",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxORHRxWDFNUGdrYi1WS3dEME05R2hac3dYaWJGbFRpZDc1QVUxRGdMZnpGZWhDQXRsRFB5a194RXNWMUMzVVBxZEZ2d2JwMHZVaEpVWXV4WDRHdmRqd1FoNFBlZXV5US1Yb2NkN3JxV3RpMEluMkxucktrWDU4RU1LV3hNRnlmclh0WmphcHNvNDY4UUhyMVdESG5YS29rd1dKdWlHUFJTVnItckNzQnpHQ9IBsAFBVV95cUxORHRxWDFNUGdrYi1WS3dEME05R2hac3dYaWJGbFRpZDc1QVUxRGdMZnpGZWhDQXRsRFB5a194RXNWMUMzVVBxZEZ2d2JwMHZVaEpVWXV4WDRHdmRqd1FoNFBlZXV5US1Yb2NkN3JxV3RpMEluMkxucktrWDU4RU1LV3hNRnlmclh0WmphcHNvNDY4UUhyMVdESG5YS29rd1dKdWlHUFJTVnItckNzQnpHQw?oc=5",
+      "date": "2026-10-30",
+      "meta": {
+        "publisher": "Simply Wall St",
+        "query": "乳がん 承認"
+      },
+      "knownDrugs": []
+    },
+    "answers": {
+      "relevant": {
+        "type": "noul",
+        "noul": 0.78
+      },
+      "category": {
+        "type": "choice",
+        "choice": "approval_eu",
+        "confidence": 0.99,
+        "probabilities": {
+          "approval_jp": 0,
+          "approval_us": 0,
+          "approval_eu": 0.99,
+          "filing": 0,
+          "trial_result": 0,
+          "trial_start": 0,
+          "guideline": 0,
+          "safety": 0,
+          "other": 0.01
+        }
+      },
+      "impact": {
+        "type": "score",
+        "score": 1.73,
+        "confidence": 0.73,
+        "legend": {
+          "0": "影響なし。情報としての価値もない",
+          "1": "参考情報。早期臨床試験の登録や、まだ実臨床に結びつかない基礎的な内容",
+          "2": "注目に値する。第III相試験の結果、海外での承認、日本での承認申請など",
+          "3": "実臨床を変える。日本での承認、標準治療を変える試験結果、ガイドライン改訂"
+        },
+        "probabilities": {
+          "0": 0.1,
+          "1": 0.07,
+          "2": 0.83,
+          "3": 0
+        }
+      },
+      "subtype": {
+        "type": "choice",
+        "choice": "unspecified",
+        "confidence": 0.99,
+        "probabilities": {
+          "hr_pos": 0,
+          "her2_pos": 0,
+          "tnbc": 0,
+          "her2_low": 0.01,
+          "multiple": 0,
+          "unspecified": 0.99
+        }
+      },
+      "setting": {
+        "type": "choice",
+        "choice": "unspecified",
+        "confidence": 1,
+        "probabilities": {
+          "early": 0,
+          "metastatic": 0,
+          "both": 0,
+          "unspecified": 1
+        }
+      }
+    },
+    "decision": "review",
+    "priority": 1.73,
+    "reasons": [
+      "参考情報レベルの影響度 (impact 1.73)"
+    ],
+    "tags": {
+      "category": "approval_eu",
+      "subtype": "unspecified",
+      "setting": "unspecified"
+    },
+    "usage": {
+      "input_tokens": 1458,
+      "output_tokens": 239
+    },
+    "model": "jev-1.14.0"
+  },
+  {
+    "item": {
+      "id": "gnews:c54679ee0a7b3331",
+      "source": "gnews",
+      "title": "アストラゼネカの経口SERD「Etcamah」やウルトラジェニクスの遺伝子治療薬「Fayuvi」など承認―2026年9月に米FDAが承認した新薬",
+      "body": "アストラゼネカの経口SERD「Etcamah」やウルトラジェニクスの遺伝子治療薬「Fayuvi」など承認―2026年9月に米FDAが承認した新薬 &nbsp;&nbsp; Answers（アンサーズ）",
+      "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5yTFBpTUlYbFB5dE54MjlGN2g0TEFzTDFuMDlFaTVvYktPNnhRdjdYYWhSam1nVDVYMXB5Q2llb2VrRHRVUk56b0dpTjJDVUNFLWNlSzZqNA?oc=5",
+      "date": "2026-10-07",
+      "meta": {
+        "publisher": "Answers（アンサーズ）",
+        "query": "乳がん 承認"
+      },
+      "knownDrugs": []
+    },
+    "answers": {
+      "relevant": {
+        "type": "noul",
+        "noul": 0.89
+      },
+      "category": {
+        "type": "choice",
+        "choice": "approval_us",
+        "confidence": 1,
+        "probabilities": {
+          "approval_jp": 0,
+          "approval_us": 1,
+          "approval_eu": 0,
+          "filing": 0,
+          "trial_result": 0,
+          "trial_start": 0,
+          "guideline": 0,
+          "safety": 0,
+          "other": 0
+        }
+      },
+      "impact": {
+        "type": "score",
+        "score": 1.85,
+        "confidence": 0.84,
+        "legend": {
+          "0": "影響なし。情報としての価値もない",
+          "1": "参考情報。早期臨床試験の登録や、まだ実臨床に結びつかない基礎的な内容",
+          "2": "注目に値する。第III相試験の結果、海外での承認、日本での承認申請など",
+          "3": "実臨床を変える。日本での承認、標準治療を変える試験結果、ガイドライン改訂"
+        },
+        "probabilities": {
+          "0": 0.05,
+          "1": 0.06,
+          "2": 0.89,
+          "3": 0
+        }
+      },
+      "subtype": {
+        "type": "choice",
+        "choice": "hr_pos",
+        "confidence": 0.46,
+        "probabilities": {
+          "hr_pos": 0.55,
+          "her2_pos": 0,
+          "tnbc": 0,
+          "her2_low": 0.01,
+          "multiple": 0.01,
+          "unspecified": 0.43
+        }
+      },
+      "setting": {
+        "type": "choice",
+        "choice": "unspecified",
+        "confidence": 0.96,
+        "probabilities": {
+          "early": 0,
+          "metastatic": 0.03,
+          "both": 0,
+          "unspecified": 0.97
+        }
+      }
+    },
+    "decision": "accept",
+    "priority": 1.85,
+    "reasons": [
+      "影響度が高い (impact 1.85)"
+    ],
+    "tags": {
+      "category": "approval_us",
+      "subtype": "hr_pos",
+      "setting": "unspecified"
+    },
+    "usage": {
+      "input_tokens": 1494,
+      "output_tokens": 237
+    },
+    "model": "jev-1.14.0"
+  },
+  {
+    "item": {
+      "id": "gnews:701caa82755cd069",
+      "source": "gnews",
+      "title": "DaeHwa Pharmaceuticalが中国で乳がん適応拡大株価9％超上昇",
+      "body": "DaeHwa Pharmaceuticalが中国で乳がん適応拡大株価9％超上昇 &nbsp;&nbsp; Chosunbiz",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNMF9kc3luZjNRekpKSmVMcXlJZVF0MmROUlBIeTZsVTdYZzQ4UFZGSmlTME1YMkIwRkNtTGE2ckNCQ3h2cGgyblF2RXp0Q0drU2tqb1RsOExiT0lDdmpKM0VsOVBNYk1PWkVGN3p2QnE4OW9rMGRwcGlwMEJkUWtMQ9IBlAFBVV95cUxORmZ4MEJMdVhEczR6TFdVODhEUzA1NDBjX29XQVNmeGlid1hVWFRjRFNPdFpYYmU4ZVMxdDdaWUd5eWM1aEllaG5rc3E2a0FxU3FpdUhvdVFQcGdtQVd4QjVhalk4eGFEYnZ1cVR0eW9lR0wzTllrVlhlMlJtdWpHSlNFRkVLUkgyMmZiNDNnbTlsUnh1?oc=5",
+      "date": "2026-10-12",
+      "meta": {
+        "publisher": "Chosunbiz",
+        "query": "乳がん 承認"
+      },
+      "knownDrugs": []
+    },
+    "answers": {
+      "relevant": {
+        "type": "noul",
+        "noul": 0.89
+      },
+      "category": {
+        "type": "choice",
+        "choice": "other",
+        "confidence": 1,
+        "probabilities": {
+          "approval_jp": 0,
+          "approval_us": 0,
+          "approval_eu": 0,
+          "filing": 0,
+          "trial_result": 0,
+          "trial_start": 0,
+          "guideline": 0,
+          "safety": 0,
+          "other": 1
+        }
+      },
+      "impact": {
+        "type": "score",
+        "score": 1.14,
+        "confidence": 0.13,
+        "legend": {
+          "0": "影響なし。情報としての価値もない",
+          "1": "参考情報。早期臨床試験の登録や、まだ実臨床に結びつかない基礎的な内容",
+          "2": "注目に値する。第III相試験の結果、海外での承認、日本での承認申請など",
+          "3": "実臨床を変える。日本での承認、標準治療を変える試験結果、ガイドライン改訂"
+        },
+        "probabilities": {
+          "0": 0.3,
+          "1": 0.27,
+          "2": 0.43,
+          "3": 0
+        }
+      },
+      "subtype": {
+        "type": "choice",
+        "choice": "unspecified",
+        "confidence": 1,
+        "probabilities": {
+          "hr_pos": 0,
+          "her2_pos": 0,
+          "tnbc": 0,
+          "her2_low": 0,
+          "multiple": 0,
+          "unspecified": 1
+        }
+      },
+      "setting": {
+        "type": "choice",
+        "choice": "unspecified",
+        "confidence": 1,
+        "probabilities": {
+          "early": 0,
+          "metastatic": 0,
+          "both": 0,
+          "unspecified": 1
+        }
+      }
+    },
+    "decision": "review",
+    "priority": 1.14,
+    "reasons": [
+      "参考情報レベルの影響度 (impact 1.14)"
+    ],
+    "tags": {
+      "category": "other",
+      "subtype": "unspecified",
+      "setting": "unspecified"
+    },
+    "usage": {
+      "input_tokens": 1420,
+      "output_tokens": 237
+    },
+    "model": "jev-1.14.0"
+  },
+  {
+    "item": {
+      "id": "openfda:c3cf1cf059b95adf",
+      "source": "openfda",
+      "title": "FDA SUPPL #4, #14 承認: talzenna（talazoparib）2026-10-26",
+      "body": "application: NDA217439\nsponsor: PFIZER\nsubmissions: SUPPL #4 (Efficacy) / SUPPL #14 (Efficacy)\nclass: Efficacy\nproducts: TALZENNA CAPSULE, TALZENNA CAPSULE, TALZENNA CAPSULE, TALZENNA CAPSULE, TALZENNA CAPSULE, TALZENNA CAPSULE",
+      "url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=217439",
+      "date": "2026-10-26",
+      "meta": {
+        "generic": "talazoparib",
+        "brand": "talzenna",
+        "application": "NDA217439",
+        "submissionClass": "Efficacy",
+        "submissions": [
+          "SUPPL #4",
+          "SUPPL #14"
+        ]
+      },
+      "knownDrugs": [
+        "talazoparib",
+        "talzenna"
+      ]
+    },
+    "answers": {
+      "relevant": {
+        "type": "noul",
+        "noul": 0.88
+      },
+      "category": {
+        "type": "choice",
+        "choice": "approval_us",
+        "confidence": 0.98,
+        "probabilities": {
+          "approval_jp": 0,
+          "approval_us": 0.98,
+          "approval_eu": 0,
+          "filing": 0.01,
+          "trial_result": 0,
+          "trial_start": 0,
+          "guideline": 0,
+          "safety": 0,
+          "other": 0.01
+        }
+      },
+      "impact": {
+        "type": "score",
+        "score": 1.45,
+        "confidence": 0.34,
+        "legend": {
+          "0": "影響なし。情報としての価値もない",
+          "1": "参考情報。早期臨床試験の登録や、まだ実臨床に結びつかない基礎的な内容",
+          "2": "注目に値する。第III相試験の結果、海外での承認、日本での承認申請など",
+          "3": "実臨床を変える。日本での承認、標準治療を変える試験結果、ガイドライン改訂"
+        },
+        "probabilities": {
+          "0": 0.16,
+          "1": 0.29,
+          "2": 0.5,
+          "3": 0.05
+        }
+      },
+      "subtype": {
+        "type": "choice",
+        "choice": "hr_pos",
+        "confidence": 0.47,
+        "probabilities": {
+          "hr_pos": 0.56,
+          "her2_pos": 0,
+          "tnbc": 0,
+          "her2_low": 0.01,
+          "multiple": 0.02,
+          "unspecified": 0.41
+        }
+      },
+      "setting": {
+        "type": "choice",
+        "choice": "unspecified",
+        "confidence": 0.8,
+        "probabilities": {
+          "early": 0.01,
+          "metastatic": 0.05,
+          "both": 0.09,
+          "unspecified": 0.85
+        }
+      }
+    },
+    "decision": "review",
+    "priority": 1.45,
+    "reasons": [
+      "参考情報レベルの影響度 (impact 1.45)"
+    ],
+    "tags": {
+      "category": "approval_us",
+      "subtype": "hr_pos",
+      "setting": "unspecified"
+    },
+    "usage": {
+      "input_tokens": 1537,
+      "output_tokens": 237
+    },
+    "model": "jev-1.14.0"
+  }
+]
