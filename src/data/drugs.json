@@ -1904,8 +1904,8 @@
       "note": "T-DXdとの直接比較データは未発表"
     },
     "us": {
-      "s": "p2",
-      "t": "Phase I/II 進行中（乳癌コホート）"
+      "s": "p3",
+      "t": "Ph III DYNASTY-Breast02（HR+/HER2-low）でPFS主要評価項目達成（2026/10）。未申請"
     },
     "eu": {
       "s": "dev",
@@ -1913,7 +1913,7 @@
     },
     "jp": {
       "s": "dev",
-      "t": "第一三共開発中。日本参加試験あり"
+      "t": "開発中"
     },
     "studies": [
       {
@@ -1926,9 +1926,20 @@
         "st": "run",
         "pr": "SABCS 2024",
         "url": "https://clinicaltrials.gov/study/NCT05150691"
+      },
+      {
+        "n": "DYNASTY-Breast02",
+        "ph": "III",
+        "pop": "HR+/HER2-low MBC（内分泌療法後）",
+        "arm": "trastuzumab pamirtecan",
+        "ctrl": "医師選択化学療法",
+        "res": "PFS有意に延長も改善幅は小さい（数値未公表）。OS未成熟、ILDは既存試験より高頻度",
+        "st": "pos",
+        "pr": "トップライン 2026/10/26",
+        "url": "https://clinicaltrials.gov/study/NCT06018337"
       }
     ],
-    "next": "中国Ph III（対T-DM1、HER2+ MBC 2L）でPFS主要評価項目達成、中国NMPAがBLA受理(2026/4)。DYNASTY-Breast02（HR+/HER2-low）結果待ち"
+    "next": "DYNASTY-Breast02（HR+/HER2-low、対化学療法）はPFS主要評価項目を達成したが、企業は有用性は限定的との見解（2026/10/26）。中国Ph III（対T-DM1、HER2+ MBC 2L）陽性、中国NMPAがBLA受理(2026/4)"
   },
   {
     "id": 24,
@@ -2157,7 +2168,7 @@
     },
     "eu": {
       "s": "ok",
-      "t": "承認済",
+      "t": "承認済（TNBC・HR+/HER2-）。TNBC 1次治療: 単剤（PD-(L)1阻害薬の対象外、ASCENT-03）2026/6、キイトルーダ併用（PD-L1陽性、ASCENT-04）2026/8",
       "url": "https://www.ema.europa.eu/en/medicines/human/EPAR/trodelvy"
     },
     "jp": {
@@ -2407,15 +2418,27 @@
       {
         "n": "TB-04",
         "ph": "III",
-        "pop": "TNBC 1L MBC IO適格",
-        "arm": "Dato-DXd + durvalumab",
+        "pop": "早期TNBC／HR-low HER2-（周術期）",
+        "arm": "術前 Dato-DXd + durvalumab → 術後 durvalumab",
+        "ctrl": "KEYNOTE-522レジメン（術前 pembrolizumab + 化学療法 → 術後 pembrolizumab）",
+        "res": "進行中（主要評価項目 pCR・EFS）",
+        "st": "run",
+        "pr": "主要完了予定 2028/11",
+        "url": "https://clinicaltrials.gov/study/NCT06112379"
+      },
+      {
+        "n": "TB-05",
+        "ph": "III",
+        "pop": "PD-L1陽性（CPS≥10）TNBC 1L MBC",
+        "arm": "Dato-DXd ± durvalumab",
         "ctrl": "化学療法 + pembrolizumab",
         "res": "進行中",
         "st": "run",
-        "pr": "readout 2027"
+        "pr": "結果未発表",
+        "url": "https://clinicaltrials.gov/study/NCT06103864"
       }
     ],
-    "next": "🆕 TNBC 1L を日本でも承認(2026/9/16)。米国2026/5/22承認。TB-04（ADC+IO）は2027年readout"
+    "next": "🆕 TNBC 1L を日本でも承認(2026/9/16)。米国2026/5/22承認。周術期 TB-04（術前Dato+durva、対KEYNOTE-522レジメン）とPD-L1陽性1L TB-05（対 化学療法＋pembro）が進行中"
   },
   {
     "id": 28,
@@ -2806,8 +2829,8 @@
     },
     "us": {
       "s": "no",
-      "t": "適応取消し 2024",
-      "url": "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-oncology-update-atezolizumab"
+      "t": "適応取下げ 2021/8（企業による自主取下げ）",
+      "url": "https://cancerletter.com/drugs-and-targets/20210903_9b/"
     },
     "eu": {
       "s": "ok",
@@ -2840,8 +2863,19 @@
         "st": "neg",
         "pr": "Ann Oncol 2021",
         "url": "https://pubmed.ncbi.nlm.nih.gov/33485996/"
+      },
+      {
+        "n": "GeparDouze/NSABP B-59",
+        "ph": "III",
+        "pop": "Stage II-III 早期TNBC（周術期）",
+        "arm": "術前 atezolizumab + 化学療法 → 術後 atezolizumab",
+        "ctrl": "placebo + 化学療法",
+        "res": "4年EFS 85.2% vs 81.9%（HR 0.80、P=0.08）で主要EP未達。pCRは63.3% vs 57.0%",
+        "st": "neg",
+        "pr": "SABCS 2024 / Nature Medicine 2026",
+        "url": "https://clinicaltrials.gov/study/NCT03281954"
       }
     ],
-    "next": "FDAは2024年にTNBC適応取消し（OS未達のため）。日本では承認維持中。ペムブロリズマブ（KEYNOTE-355）が標準的IO選択肢に"
+    "next": "米国ではIMpassion131の結果を受け2021/8にTNBC適応を自主取下げ。日本では承認維持中（PD-L1 SP142陽性）。周術期のGeparDouze/NSABP B-59はEFS改善を示せず。ペムブロリズマブ（KEYNOTE-355/522）が標準的IO選択肢"
   }
 ]

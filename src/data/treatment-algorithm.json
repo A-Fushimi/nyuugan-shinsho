@@ -585,7 +585,7 @@
               },
               {
                 "name": "アテゾリズマブ＋nab-PTX（PD-L1+）",
-                "detail": "IMpassion130: PD-L1 IC+例でPFS改善。日本承認済（2019年）。FDAは2024年適応取消し。SP142検査が必要",
+                "detail": "IMpassion130: PD-L1 IC+例でPFS改善。日本承認済（2019年）。米国は2021年に適応取下げ。SP142検査が必要",
                 "standard": true
               },
               {
@@ -771,18 +771,19 @@
           },
           {
             "drug": "DB-1303",
-            "trial": "Phase I/II",
-            "note": "次世代ADC。HER2-ultralow (IHC 0 weak)にも有効の可能性",
-            "phase": "Ph I-II",
-            "color": "cyan"
+            "trial": "DYNASTY-Breast02",
+            "note": "次世代HER2-ADC。HR+/HER2-low（対化学療法）でPFS延長も改善幅は小さい（2026/10トップライン）",
+            "phase": "Ph III ✓",
+            "color": "cyan",
+            "trialUrl": "https://clinicaltrials.gov/study/NCT06018337"
           },
           {
             "drug": "Dato-DXd",
-            "trial": "TB-04",
-            "note": "TROP2-ADC。HER2-low/HR+設定",
-            "phase": "Ph III ⏳",
+            "trial": "TB-01",
+            "note": "TROP2-ADC。HR+/HER2-（HER2-low含む）既治療例で承認済",
+            "phase": "Ph III ✓",
             "color": "cyan",
-            "trialUrl": "https://clinicaltrials.gov/study/NCT06112379"
+            "trialUrl": "https://clinicaltrials.gov/study/NCT05104866"
           }
         ]
       }
