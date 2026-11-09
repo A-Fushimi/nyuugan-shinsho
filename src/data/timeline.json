@@ -799,7 +799,11 @@
     "note": "約625例。PD-L1陽性TNBCの1次治療で現行標準（化学療法＋ペムブロリズマブ）とADC＋IOを比較",
     "enrollmentTarget": 625,
     "primaryEndpoint": "PFS",
-    "regulatory": null
+    "regulatory": null,
+    "fpi": 2023.833,
+    "enrollment": "RECRUITING",
+    "pcd": "2027-07",
+    "scd": "2030-09"
   },
   {
     "drug": "Sac-Gov",
@@ -1160,7 +1164,11 @@
     "resultUrl": "https://www.biopharminternational.com/view/biontech-s-her2-adc-hits-phase-3-goal-but-companies-see-limited-benefit",
     "enrollmentTarget": 541,
     "primaryEndpoint": "PFS",
-    "regulatory": null
+    "regulatory": null,
+    "fpi": 2024,
+    "enrollment": "ACTIVE_NOT_RECRUITING",
+    "pcd": "2026-08",
+    "scd": "2028-08"
   },
   {
     "drug": "Sac-Gov",
@@ -1455,7 +1463,11 @@
     "resultUrl": "https://www.onclive.com/view/perioperative-atezolizumab-treatment-does-not-improve-efs-in-tnbc",
     "enrollmentTarget": 1550,
     "primaryEndpoint": "EFS",
-    "regulatory": null
+    "regulatory": null,
+    "fpi": 2017.917,
+    "enrollment": "ACTIVE_NOT_RECRUITING",
+    "pcd": "2024-12",
+    "scd": "2027-11"
   },
   {
     "drug": "iza-bren",
@@ -1660,8 +1672,8 @@
     "readout": 2029.583,
     "nct": "NCT06492616",
     "note": "Stemline/Menarini。リンパ節転移陽性の高リスク早期乳がんが対象。登録継続中（最終登録時期は推定）",
-    "enrollment": "RECRUITING",
-    "enrollmentTarget": 4220,
+    "enrollment": "ACTIVE_NOT_RECRUITING",
+    "enrollmentTarget": 4556,
     "pcd": "2029-08",
     "scd": "2032-10"
   },

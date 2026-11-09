@@ -1,5 +1,13 @@
 [
   {
+    "ver": "auto",
+    "date": "2026-11-09",
+    "type": "auto",
+    "items": [
+      "試験ステータス自動更新（4件変更: TB-05: fpi: null → 2023-11、DYNASTY-Breast02: fpi: null → 2024-01、GeparDouze/NSABP B-59: fpi: null → 2017-12、ELEGANT: enrollment: RECRUITING → ACTIVE_NOT_RECRUITING）"
+    ]
+  },
+  {
     "ver": "3.5",
     "date": "2026-11-08",
     "type": "minor",
