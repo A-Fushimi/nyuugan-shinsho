@@ -2446,5 +2446,17 @@
   "openfda:c3cf1cf059b95adf": {
     "decision": "review",
     "date": "2026-11-04"
+  },
+  "gnews:5e260fb0a9adf67d": {
+    "decision": "accept",
+    "date": "2026-11-11"
+  },
+  "gnews:19df4a9fec6ba32e": {
+    "decision": "accept",
+    "date": "2026-11-11"
+  },
+  "gnews:cff5bfb362ffbfcb": {
+    "decision": "discard",
+    "date": "2026-11-11"
   }
 }

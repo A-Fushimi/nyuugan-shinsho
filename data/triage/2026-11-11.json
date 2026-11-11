@@ -1,0 +1,283 @@
+[
+  {
+    "item": {
+      "id": "gnews:5e260fb0a9adf67d",
+      "source": "gnews",
+      "title": "サシツズマブ ゴビテカン、HR+HER2-乳がんの適応追加／ギリアド｜CareNet.com",
+      "body": "サシツズマブ ゴビテカン、HR+HER2-乳がんの適応追加／ギリアド｜CareNet.com &nbsp;&nbsp; CareNet.com",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBlR2QwS292b1c5Y3hTc3dYQmpoNlZfX0ZmcXdoZ0YwRURDdXBtTHJibld6WlF3VzRDejJuNlJyUXpsZnVqd1JGdWRDTzQ0akNUUEEwUmFrQ0NVdl9ic0pR?oc=5",
+      "date": "2026-10-27",
+      "meta": {
+        "publisher": "CareNet.com",
+        "query": "乳がん 承認"
+      },
+      "knownDrugs": []
+    },
+    "answers": {
+      "relevant": {
+        "type": "noul",
+        "noul": 0.97
+      },
+      "category": {
+        "type": "choice",
+        "choice": "approval_jp",
+        "confidence": 0.97,
+        "probabilities": {
+          "approval_jp": 0.97,
+          "approval_us": 0.02,
+          "approval_eu": 0,
+          "filing": 0,
+          "trial_result": 0,
+          "trial_start": 0,
+          "guideline": 0,
+          "safety": 0,
+          "other": 0.01
+        }
+      },
+      "impact": {
+        "type": "score",
+        "score": 2.57,
+        "confidence": 0.56,
+        "legend": {
+          "0": "影響なし。情報としての価値もない",
+          "1": "参考情報。早期臨床試験の登録や、まだ実臨床に結びつかない基礎的な内容",
+          "2": "注目に値する。第III相試験の結果、海外での承認、日本での承認申請など",
+          "3": "実臨床を変える。日本での承認、標準治療を変える試験結果、ガイドライン改訂"
+        },
+        "probabilities": {
+          "0": 0.04,
+          "1": 0.02,
+          "2": 0.28,
+          "3": 0.66
+        }
+      },
+      "subtype": {
+        "type": "choice",
+        "choice": "hr_pos",
+        "confidence": 1,
+        "probabilities": {
+          "hr_pos": 1,
+          "her2_pos": 0,
+          "tnbc": 0,
+          "her2_low": 0,
+          "multiple": 0,
+          "unspecified": 0
+        }
+      },
+      "setting": {
+        "type": "choice",
+        "choice": "unspecified",
+        "confidence": 0.85,
+        "probabilities": {
+          "early": 0.02,
+          "metastatic": 0.08,
+          "both": 0.01,
+          "unspecified": 0.89
+        }
+      }
+    },
+    "decision": "accept",
+    "priority": 2.57,
+    "reasons": [
+      "影響度が高い (impact 2.57)"
+    ],
+    "tags": {
+      "category": "approval_jp",
+      "subtype": "hr_pos",
+      "setting": "unspecified"
+    },
+    "usage": {
+      "input_tokens": 1430,
+      "output_tokens": 238
+    },
+    "model": "jev-1.14.0"
+  },
+  {
+    "item": {
+      "id": "gnews:19df4a9fec6ba32e",
+      "source": "gnews",
+      "title": "T-DXd、HER2陽性乳がん2次治療に適応拡大／第一三共｜CareNet.com",
+      "body": "T-DXd、HER2陽性乳がん2次治療に適応拡大／第一三共｜CareNet.com &nbsp;&nbsp; CareNet.com",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBWcFBlQnB6dFRrSDV3OFR2eWQ2WFZPMjNpQXdRbHI4QlIya2kyR3lMWm1nYUh4Zmw3c3Zydm1kLTdpWHRoZzh0TS1oWjI2THl1cmstdGUwZ2gwUG15NXFR?oc=5",
+      "date": "2026-10-27",
+      "meta": {
+        "publisher": "CareNet.com",
+        "query": "乳がん 承認"
+      },
+      "knownDrugs": [
+        "t-dxd"
+      ]
+    },
+    "answers": {
+      "relevant": {
+        "type": "noul",
+        "noul": 0.98
+      },
+      "category": {
+        "type": "choice",
+        "choice": "approval_jp",
+        "confidence": 1,
+        "probabilities": {
+          "approval_jp": 1,
+          "approval_us": 0,
+          "approval_eu": 0,
+          "filing": 0,
+          "trial_result": 0,
+          "trial_start": 0,
+          "guideline": 0,
+          "safety": 0,
+          "other": 0
+        }
+      },
+      "impact": {
+        "type": "score",
+        "score": 2.87,
+        "confidence": 0.88,
+        "legend": {
+          "0": "影響なし。情報としての価値もない",
+          "1": "参考情報。早期臨床試験の登録や、まだ実臨床に結びつかない基礎的な内容",
+          "2": "注目に値する。第III相試験の結果、海外での承認、日本での承認申請など",
+          "3": "実臨床を変える。日本での承認、標準治療を変える試験結果、ガイドライン改訂"
+        },
+        "probabilities": {
+          "0": 0.01,
+          "1": 0.01,
+          "2": 0.07,
+          "3": 0.91
+        }
+      },
+      "subtype": {
+        "type": "choice",
+        "choice": "her2_pos",
+        "confidence": 1,
+        "probabilities": {
+          "hr_pos": 0,
+          "her2_pos": 1,
+          "tnbc": 0,
+          "her2_low": 0,
+          "multiple": 0,
+          "unspecified": 0
+        }
+      },
+      "setting": {
+        "type": "choice",
+        "choice": "metastatic",
+        "confidence": 0.67,
+        "probabilities": {
+          "early": 0,
+          "metastatic": 0.75,
+          "both": 0,
+          "unspecified": 0.25
+        }
+      }
+    },
+    "decision": "accept",
+    "priority": 2.87,
+    "reasons": [
+      "影響度が高い (impact 2.87)"
+    ],
+    "tags": {
+      "category": "approval_jp",
+      "subtype": "her2_pos",
+      "setting": "metastatic"
+    },
+    "usage": {
+      "input_tokens": 1425,
+      "output_tokens": 239
+    },
+    "model": "jev-1.14.0"
+  },
+  {
+    "item": {
+      "id": "gnews:cff5bfb362ffbfcb",
+      "source": "gnews",
+      "title": "医療AIの性能、評価用データが「独立」しているかの確認が重要－新潟医療福祉大ほか",
+      "body": "医療AIの性能、評価用データが「独立」しているかの確認が重要－新潟医療福祉大ほか &nbsp;&nbsp; QLifePro",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1WVmE1bWpjS3lvcHc0RG9SY2V0VGg3SXhMb0psbGRqQmNSMTlqV0QyRDRkUGZVNGxtZks2RjAzcXN4S2FjMXB4cmRMUGlEZnZYanAtYTVWZEU0bVJ1aFM4LXhtTjktT1EwX3RFNVNKYVQ2Ym1pT2tzMDRn?oc=5",
+      "date": "2026-11-09",
+      "meta": {
+        "publisher": "QLifePro",
+        "query": "乳がん 臨床試験 結果"
+      },
+      "knownDrugs": []
+    },
+    "answers": {
+      "relevant": {
+        "type": "noul",
+        "noul": 0.08
+      },
+      "category": {
+        "type": "choice",
+        "choice": "other",
+        "confidence": 0.94,
+        "probabilities": {
+          "approval_jp": 0,
+          "approval_us": 0,
+          "approval_eu": 0,
+          "filing": 0,
+          "trial_result": 0.04,
+          "trial_start": 0,
+          "guideline": 0.01,
+          "safety": 0,
+          "other": 0.95
+        }
+      },
+      "impact": {
+        "type": "score",
+        "score": 0.69,
+        "confidence": 0.63,
+        "legend": {
+          "0": "影響なし。情報としての価値もない",
+          "1": "参考情報。早期臨床試験の登録や、まだ実臨床に結びつかない基礎的な内容",
+          "2": "注目に値する。第III相試験の結果、海外での承認、日本での承認申請など",
+          "3": "実臨床を変える。日本での承認、標準治療を変える試験結果、ガイドライン改訂"
+        },
+        "probabilities": {
+          "0": 0.34,
+          "1": 0.64,
+          "2": 0.01,
+          "3": 0.01
+        }
+      },
+      "subtype": {
+        "type": "choice",
+        "choice": "unspecified",
+        "confidence": 1,
+        "probabilities": {
+          "hr_pos": 0,
+          "her2_pos": 0,
+          "tnbc": 0,
+          "her2_low": 0,
+          "multiple": 0,
+          "unspecified": 1
+        }
+      },
+      "setting": {
+        "type": "choice",
+        "choice": "unspecified",
+        "confidence": 1,
+        "probabilities": {
+          "early": 0,
+          "metastatic": 0,
+          "both": 0,
+          "unspecified": 1
+        }
+      }
+    },
+    "decision": "discard",
+    "priority": 0,
+    "reasons": [
+      "乳がん薬物療法に非該当 (relevant 0.08)"
+    ],
+    "tags": {
+      "category": "other",
+      "subtype": "unspecified",
+      "setting": "unspecified"
+    },
+    "usage": {
+      "input_tokens": 1449,
+      "output_tokens": 237
+    },
+    "model": "jev-1.14.0"
+  }
+]
