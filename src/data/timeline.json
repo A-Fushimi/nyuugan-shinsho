@@ -1741,7 +1741,7 @@
     "res": "化学療法歴なし集団 mPFS 16.6 vs 6.8m (HR 0.25)／全体 16.4 vs 6.8m (HR 0.27)",
     "res2": "HR陽性・陰性とも効果は一貫。OS未成熟。ILD 2.5%",
     "st": "pos",
-    "fpi": 2023.5,
+    "fpi": 2023.417,
     "lpi": null,
     "readout": 2026.8,
     "nct": "NCT05814354",
@@ -1749,7 +1749,9 @@
     "resultUrl": "https://doi.org/10.1001/jama.2026.21372",
     "resultRef": "JAMA 2026 / ESMO 2026 LBA13",
     "enrollmentTarget": 551,
-    "primaryEndpoint": "PFS"
+    "primaryEndpoint": "PFS",
+    "pcd": "2026-03",
+    "scd": "2028-06"
   },
   {
     "ph": "III",
