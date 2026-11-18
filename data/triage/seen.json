@@ -2458,5 +2458,17 @@
   "gnews:cff5bfb362ffbfcb": {
     "decision": "discard",
     "date": "2026-11-11"
+  },
+  "gnews:411bfd2ade4aaa69": {
+    "decision": "accept",
+    "date": "2026-11-18"
+  },
+  "gnews:473a387bd50d7827": {
+    "decision": "accept",
+    "date": "2026-11-18"
+  },
+  "kegg:4c7b2baf03b6507c": {
+    "decision": "discard",
+    "date": "2026-11-18"
   }
 }
