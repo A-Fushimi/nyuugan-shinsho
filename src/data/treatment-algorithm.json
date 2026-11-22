@@ -240,8 +240,8 @@
           {
             "drug": "ギレデストラント",
             "trial": "evERA/lidERA",
-            "note": "経口SERD。persevERA主要EP未達も他適応で申請継続",
-            "phase": "申請中",
+            "note": "経口SERD。everolimus併用でESR1変異例に2026/11 FDA承認（evERA）。術後（lidERA）はFDA審査中。persevERA（1L）は主要EP未達",
+            "phase": "Ph III ✓",
             "color": "amber",
             "trialUrl": "https://clinicaltrials.gov/study/NCT05306340",
             "resultUrl": "https://www.annalsofoncology.org/article/S0923-7534(25)04796-9/fulltext",

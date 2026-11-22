@@ -714,8 +714,8 @@
       "note": "光視症はcamizestrantと異なり報告なし"
     },
     "us": {
-      "s": "rev",
-      "t": "FDA NDA受理 2件: lidERA（術後）優先審査 PDUFA 11/30/2026／evERA（転移・再発）PDUFA 12/18/2026"
+      "s": "ok",
+      "t": "Wilserdly 承認（2026/11/16）: everolimus併用でESR1変異 ER+/HER2- 進行・再発乳がん（内分泌療法中・後の増悪、evERA）。コンパニオン診断 FoundationOne Liquid CDx。lidERA（術後）は優先審査中（PDUFA 11/30/2026）"
     },
     "eu": {
       "s": "rev",
@@ -789,7 +789,7 @@
         "pr": "readout 2027"
       }
     ],
-    "next": "FDA承認判断: lidERA 11/30/2026・evERA 12/18/2026。evERAはNEJM掲載（2026/9）。pionERA 2027年"
+    "next": "🇺🇸 evERAで2026/11/16 FDA承認（審査終了目標日より約4週早い）。lidERA（術後）のFDA承認判断 11/30/2026。pionERA 2027年"
   },
   {
     "id": 9,

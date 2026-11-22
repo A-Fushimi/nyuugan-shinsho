@@ -85,7 +85,7 @@
     "lpi": 2024.333,
     "readout": 2025.8,
     "nct": "NCT05306340",
-    "note": "ESMO 2025、NEJM 2026。FDA承認予定 12/18/2026",
+    "note": "ESMO 2025、NEJM 2026。2026/11/16 FDA承認（Wilserdly＋everolimus、ESR1変異例）",
     "resultUrl": "https://www.annalsofoncology.org/article/S0923-7534(25)04796-9/fulltext",
     "resultRef": "Ann Oncol 2025 (ESMO LBA16)",
     "pcd": "2025-07",
@@ -98,7 +98,7 @@
         "submission": "2025-12",
         "pdufa": "2026-12-18",
         "adcom": null,
-        "approval": null
+        "approval": "2026-11-16"
       },
       "pmda": {
         "submission": null,
@@ -1583,6 +1583,27 @@
     "enrollmentTarget": 1240,
     "pcd": "2031-01",
     "scd": "2031-01"
+  },
+  {
+    "drug": "nivolumab",
+    "trial": "CheckMate 7FL",
+    "ph": "III",
+    "sub": "HR+/HER2-",
+    "pop": "高リスク早期乳がん 周術期（ER+/HER2-、Grade 3 または Grade 2かつER 1-10%）",
+    "arm": "術前 nivolumab + PTX→AC/EC → 術後 nivolumab + 内分泌療法",
+    "ctrl": "術前 placebo + PTX→AC/EC → 術後 placebo + 内分泌療法",
+    "ep": "pCR（ypT0/is ypN0）",
+    "ep2": "EFS, OS, 安全性",
+    "res": "pCR 24.5% vs 13.8%（OR 2.05、95%CI 1.29-3.27、P=0.0021）",
+    "res2": "PD-L1陽性（SP142 ≥1%）で pCR 44.3% vs 20.2%。EFSは未報告",
+    "st": "pos",
+    "readout": 2023.8,
+    "nct": "NCT04109066",
+    "note": "ESMO 2023 LBA20で初報、Nat Med 2025で論文化（解析対象510例）。KEYNOTE-756と並ぶHR+/HER2-早期乳がんの周術期免疫療法の第III相。日米欧とも本適応は未承認",
+    "resultUrl": "https://www.nature.com/articles/s41591-024-03414-8",
+    "resultRef": "Nat Med 2025",
+    "primaryEndpoint": "pCR",
+    "regulatory": null
   },
   {
     "drug": "pembrolizumab",
