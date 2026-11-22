@@ -159,8 +159,10 @@
         "result": "PFS主要評価項目は達成したが改善幅は小さく、OS未成熟・ILDは既存試験より高頻度。企業は患者への有用性は限定的との見解"
       },
       {
-        "text": "Giredestrant evERA FDA承認判断（12/18）",
-        "generic": "giredestrant"
+        "text": "🆕🇺🇸 Wilserdly（ギレデストラント）evERA FDA承認（11/16）",
+        "generic": "giredestrant",
+        "result": "✅ everolimus併用でESR1変異のER+/HER2- 進行・再発乳がん（内分泌療法中・後に増悪）に承認。審査終了目標日（12/18）より約4週早い承認。ESR1変異例でmPFS 10.0 vs 5.5ヶ月（HR 0.38）",
+        "isNew": true
       },
       {
         "text": "SABCS 2026（12/8-12）"
