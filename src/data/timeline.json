@@ -355,7 +355,7 @@
     "pcd": "2029-01",
     "scd": "2037-12",
     "enrollment": "ACTIVE_NOT_RECRUITING",
-    "enrollmentTarget": 1035,
+    "enrollmentTarget": 1037,
     "primaryEndpoint": "PFS",
     "regulatory": null
   },
@@ -1603,7 +1603,12 @@
     "resultUrl": "https://www.nature.com/articles/s41591-024-03414-8",
     "resultRef": "Nat Med 2025",
     "primaryEndpoint": "pCR",
-    "regulatory": null
+    "regulatory": null,
+    "fpi": 2019.833,
+    "enrollment": "COMPLETED",
+    "enrollmentTarget": 521,
+    "pcd": "2023-01",
+    "scd": "2023-12"
   },
   {
     "drug": "pembrolizumab",

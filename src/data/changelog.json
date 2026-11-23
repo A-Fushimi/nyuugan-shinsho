@@ -1,5 +1,13 @@
 [
   {
+    "ver": "auto",
+    "date": "2026-11-23",
+    "type": "auto",
+    "items": [
+      "試験ステータス自動更新（2件変更: FOURLIGHT-3: enrollmentTarget: 1035 → 1037、CheckMate 7FL: fpi: null → 2019-11）"
+    ]
+  },
+  {
     "ver": "3.7",
     "date": "2026-11-22",
     "type": "minor",
