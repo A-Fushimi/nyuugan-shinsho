@@ -2470,5 +2470,53 @@
   "kegg:4c7b2baf03b6507c": {
     "decision": "discard",
     "date": "2026-11-18"
+  },
+  "gnews:787bc6e56530ac05": {
+    "decision": "review",
+    "date": "2026-11-25"
+  },
+  "gnews:4c248c439e76b1d6": {
+    "decision": "review",
+    "date": "2026-11-25"
+  },
+  "gnews:ba9fc903469c21db": {
+    "decision": "accept",
+    "date": "2026-11-25"
+  },
+  "gnews:cb85783b8158fca4": {
+    "decision": "accept",
+    "date": "2026-11-25"
+  },
+  "gnews:1733caebb31ec3a8": {
+    "decision": "accept",
+    "date": "2026-11-25"
+  },
+  "gnews:f91dbd83cfe045d3": {
+    "decision": "accept",
+    "date": "2026-11-25"
+  },
+  "gnews:cd264405c67bd583": {
+    "decision": "accept",
+    "date": "2026-11-25"
+  },
+  "gnews:0f9b97160535dbd9": {
+    "decision": "accept",
+    "date": "2026-11-25"
+  },
+  "gnews:c6b21962d62d4a59": {
+    "decision": "accept",
+    "date": "2026-11-25"
+  },
+  "gnews:2eb06a7bed36b1ff": {
+    "decision": "accept",
+    "date": "2026-11-25"
+  },
+  "gnews:dab31e781eecbcdb": {
+    "decision": "accept",
+    "date": "2026-11-25"
+  },
+  "gnews:ae65cc189bc63281": {
+    "decision": "discard",
+    "date": "2026-11-25"
   }
 }
